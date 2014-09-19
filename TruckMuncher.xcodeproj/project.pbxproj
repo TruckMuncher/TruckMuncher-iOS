@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06A6C7AD19CBE30D00AAECE2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A6C7AC19CBE30D00AAECE2 /* FacebookSDK.framework */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06A6C7AC19CBE30D00AAECE2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		06A6C7AF19CBE57C00AAECE2 /* Bridge-Facebook-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Facebook-Header.h"; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A6C7AD19CBE30D00AAECE2 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
+				06A6C7AC19CBE30D00AAECE2 /* FacebookSDK.framework */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
 				27AC00AF19CB4B4F00F1F3B7 /* Products */,
@@ -83,6 +88,7 @@
 				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
 				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
 				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
+				06A6C7AF19CBE57C00AAECE2 /* Bridge-Facebook-Header.h */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -175,6 +181,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = 27AC00A519CB4B4F00F1F3B7;
 			productRefGroup = 27AC00AF19CB4B4F00F1F3B7 /* Products */;
@@ -328,9 +335,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/AndrewMoore/Documents/FacebookSDK,
+					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
+				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TruckMuncher/Bridge-Facebook-Header.h";
 			};
 			name = Debug;
 		};
@@ -338,9 +351,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/AndrewMoore/Documents/FacebookSDK,
+					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
+				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TruckMuncher/Bridge-Facebook-Header.h";
 			};
 			name = Release;
 		};
@@ -397,6 +416,7 @@
 				27AC00CF19CB4B4F00F1F3B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27AC00D019CB4B4F00F1F3B7 /* Build configuration list for PBXNativeTarget "TruckMuncherTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +425,7 @@
 				27AC00D219CB4B4F00F1F3B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

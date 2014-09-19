@@ -16,7 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var loginViewController: LoginViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        FBLoginView.self
+        FBProfilePictureView.self
         
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = UIColor(red: 52.0/255.0, green: 73.0/255.0, blue: 94.0/255.0, alpha: 1.0)
@@ -41,6 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
         
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
+        
+        var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+        return wasHandled
     }
 
     func applicationWillResignActive(application: UIApplication) {
