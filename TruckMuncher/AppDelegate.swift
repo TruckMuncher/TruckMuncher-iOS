@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
         if isTwitterCallbackUrl(url) {
             // pull out the oauth token and verifier and give it back to the login VC
-            let queryParams = url.query?.queryParams() as [String: String]!
+            let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast to as a forced unwrapped optional
             loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
             return true
         } else {

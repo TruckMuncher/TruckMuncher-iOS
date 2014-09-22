@@ -11,5 +11,6 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 #import "STTwitter.h"
+#import "KeychainItemWrapper.h"
 
 #endif
