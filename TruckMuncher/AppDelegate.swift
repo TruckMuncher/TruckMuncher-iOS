@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var loginViewController: LoginViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        println("finished launching")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         FBLoginView.self

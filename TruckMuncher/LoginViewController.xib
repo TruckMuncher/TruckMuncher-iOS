@@ -17,18 +17,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-w8-zd8" customClass="FBLoginView">
-                    <rect key="frame" x="221" y="304" width="158" height="28"/>
+                    <rect key="frame" x="200" y="304" width="200" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="158" id="2mU-7y-FNN"/>
-                        <constraint firstAttribute="height" constant="28" id="X9I-6G-LeC"/>
+                        <constraint firstAttribute="width" constant="200" id="nL5-Uc-AI2"/>
+                        <constraint firstAttribute="height" constant="50" id="s9F-Zg-y0J"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
                     <rect key="frame" x="221" y="268" width="158" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="28" id="Pqt-nz-a8m"/>
-                        <constraint firstAttribute="width" constant="158" id="sok-6r-5ha"/>
+                        <constraint firstAttribute="height" constant="28" id="ZaV-s9-gz1"/>
+                        <constraint firstAttribute="width" constant="158" id="xgd-c8-o9M"/>
                     </constraints>
                     <state key="normal" image="sign-in-with-twitter-gray.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,12 +40,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2ZT-w8-zd8" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="8" symbolic="YES" id="Hj7-Xa-iYS"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="leading" secondItem="2ZT-w8-zd8" secondAttribute="leading" id="QyG-e3-nuC"/>
-                <constraint firstAttribute="centerX" secondItem="mla-si-cff" secondAttribute="centerX" id="R57-oR-GVw"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="268" id="Xme-od-Sed"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="trailing" secondItem="2ZT-w8-zd8" secondAttribute="trailing" id="jFL-bT-7eR"/>
-                <constraint firstItem="2ZT-w8-zd8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zY4-Sz-G2j"/>
+                <constraint firstAttribute="centerX" secondItem="2ZT-w8-zd8" secondAttribute="centerX" id="HYP-Yn-Gtt"/>
+                <constraint firstItem="2ZT-w8-zd8" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="8" symbolic="YES" id="Vf4-xa-6zF"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="268" id="i4a-9d-TyO"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="2ZT-w8-zd8" secondAttribute="centerX" id="laf-TM-msX"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xgJ-2P-pE5"/>
             </constraints>
         </view>
     </objects>
