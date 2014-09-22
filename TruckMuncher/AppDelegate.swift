@@ -16,11 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var loginViewController: LoginViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
+        println("finished launching")
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         FBLoginView.self
-        FBProfilePictureView.self
         
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = UIColor(red: 52.0/255.0, green: 73.0/255.0, blue: 94.0/255.0, alpha: 1.0)
@@ -48,9 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
-        
-        var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
-        return wasHandled
+        if isTwitterCallbackUrl(url) {
+            // pull out the oauth token and verifier and give it back to the login VC
+            let queryParams = url.query?.queryParams() as [String: String]!
+            loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
+            return true
+        } else {
+            var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
+            return wasHandled
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -75,6 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func isTwitterCallbackUrl(url: NSURL) -> Bool {
+        // try and pull out the twitter callback url string, if successful, we are being redirected from twitter
+        let urlString = url.absoluteString!
+        let range = urlString.rangeOfString(kTwitterCallback, options: .CaseInsensitiveSearch, range: nil, locale: nil)
+        return distance(urlString.startIndex, range!.startIndex) == 0
+    }
 
 }
 

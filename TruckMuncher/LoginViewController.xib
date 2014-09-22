@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6245"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
+                <outlet property="btnTwitterLogin" destination="mla-si-cff" id="eCz-9O-YTb"/>
                 <outlet property="fbLoginView" destination="2ZT-w8-zd8" id="h5N-Vl-2Rd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,19 +17,39 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-w8-zd8" customClass="FBLoginView">
-                    <rect key="frame" x="200" y="250" width="200" height="100"/>
+                    <rect key="frame" x="221" y="304" width="158" height="28"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="200" id="Y2Y-sR-H36"/>
-                        <constraint firstAttribute="height" constant="100" id="onG-9k-Mlk"/>
+                        <constraint firstAttribute="width" constant="158" id="2mU-7y-FNN"/>
+                        <constraint firstAttribute="height" constant="28" id="X9I-6G-LeC"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
+                    <rect key="frame" x="221" y="268" width="158" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="Pqt-nz-a8m"/>
+                        <constraint firstAttribute="width" constant="158" id="sok-6r-5ha"/>
+                    </constraints>
+                    <state key="normal" image="sign-in-with-twitter-gray.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickedLoginWithTwitter:" destination="-1" eventType="touchUpInside" id="yJO-dt-BVU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2ZT-w8-zd8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="JXf-OL-hTP"/>
-                <constraint firstItem="2ZT-w8-zd8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="kvQ-Ij-hr8"/>
+                <constraint firstItem="2ZT-w8-zd8" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="8" symbolic="YES" id="Hj7-Xa-iYS"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="leading" secondItem="2ZT-w8-zd8" secondAttribute="leading" id="QyG-e3-nuC"/>
+                <constraint firstAttribute="centerX" secondItem="mla-si-cff" secondAttribute="centerX" id="R57-oR-GVw"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="268" id="Xme-od-Sed"/>
+                <constraint firstItem="mla-si-cff" firstAttribute="trailing" secondItem="2ZT-w8-zd8" secondAttribute="trailing" id="jFL-bT-7eR"/>
+                <constraint firstItem="2ZT-w8-zd8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zY4-Sz-G2j"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="sign-in-with-twitter-gray.png" width="158" height="28"/>
+    </resources>
 </document>

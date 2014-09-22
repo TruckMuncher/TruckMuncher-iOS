@@ -10,5 +10,6 @@
 #define TruckMuncher_Bridging_Header_File_h
 
 #import <FacebookSDK/FacebookSDK.h>
+#import "STTwitter.h"
 
 #endif
