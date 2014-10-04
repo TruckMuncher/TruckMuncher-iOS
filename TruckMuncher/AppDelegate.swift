@@ -96,9 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func isTwitterCallbackUrl(url: NSURL) -> Bool {
         // try and pull out the twitter callback url string, if successful, we are being redirected from twitter
         let urlString = url.absoluteString!
-        let range = urlString.rangeOfString(kTwitterCallback, options: .CaseInsensitiveSearch, range: nil, locale: nil)
-        return distance(urlString.startIndex, range!.startIndex) == 0
+        return urlString.rangeOfString(kTwitterCallback, options: .CaseInsensitiveSearch, range: nil, locale: nil) != nil
     }
-
 }
 
