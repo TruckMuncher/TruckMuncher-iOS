@@ -8,12 +8,13 @@
 
 import Foundation
 
-//the following two keys are sent back from twitter in the oauth callback
 let kTwitterOauthVerifier = "oauth_verifier"
 let kTwitterOauthToken = "oauth_token"
 let kTwitterOauthSecret = "oauth_secret"
 
-let kTwitterCallback = "TruckMuncher://twitter_login"
-let kTwitterName = "TruckMuncher"
-let kTwitterKey = "KCWZ6nlCEykT9S7AjGqJwEsM8"
-let kTwitterSecretKey = "userPqxIrLjeKGDrURvZMWclgIWKsP5WslVEadMU7ii1cJtSqF"
+let kTwitterCallback = "twitter_callback"
+let kTwitterName = "twitter_name"
+let kTwitterKey = "twitter_key"
+let kTwitterSecretKey = "twitter_secret_key"
+
+let kCrashlyticsKey = "crashlytics_key"

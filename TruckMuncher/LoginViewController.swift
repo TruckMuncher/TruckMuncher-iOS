@@ -13,6 +13,11 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     @IBOutlet var fbLoginView: FBLoginView!
     @IBOutlet weak var btnTwitterLogin: UIButton!
     
+    var twitterKey: String = ""
+    var twitterSecretKey: String = ""
+    var twitterName: String = ""
+    var twitterCallback: String = ""
+    
     let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     var twitterAPI: STTwitterAPI?
@@ -25,20 +30,21 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
         
-        println("twitter oauth token from keychain \(tokenItem.objectForKey(kSecValueData))")
-        println("twitter oauth secret from keychain \(secretItem.objectForKey(kSecValueData))")
+        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as String?
+        let oauthSecret = secretItem.objectForKey(kSecValueData) as String?
+        println("twitter oauth token from keychain \(oauthToken)")
+        println("twitter oauth secret from keychain \(oauthSecret)")
         
-        /*
-        TODO Next time just instantiate STTwitter with the class method:
-        
-        STTwitterAPI(OAuthConsumerName: , consumerKey: , consumerSecret: , oauthToken: , oauthTokenSecret: )
-        
-        Only do this if the token and secret are populated.
-        
-        Don't forget to call the twitterAPI?.verifyCredentialsWithSuccessBlock({}, errorBlock:) after that.
-        */
-        
-        twitterAPI = STTwitterAPI(OAuthConsumerName: kTwitterName, consumerKey: kTwitterKey, consumerSecret: kTwitterSecretKey)
+        twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey)
+        if oauthToken != nil && oauthSecret != nil {
+            // TODO show some sort of progress dialog signifying a sign in occuring
+            twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
+            twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
+                // TODO send these tokens off to the API
+            }, errorBlock: { (error) -> Void in
+                // our cached credentials are no longer valid, perhaps show a message asking to relogin
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,7 +73,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         twitterAPI?.postTokenRequest({ (url: NSURL!, token: String!) -> Void in
             UIApplication.sharedApplication().openURL(url)
             return
-        }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: kTwitterCallback, errorBlock: { (error: NSError!) -> Void in
+        }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: twitterCallback, errorBlock: { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
         })
     }

@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27766FEA19DF938D000B5211 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27766FE919DF938D000B5211 /* Menu.pb.swift */; };
+		27766FEC19DFB021000B5211 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27766FEB19DFB021000B5211 /* Properties.plist */; };
+		27766FF619DFB918000B5211 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27766FF319DFB910000B5211 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */; };
 		278BFBB419D08F0C00510C6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB319D08F0C00510C6E /* Constants.swift */; };
 		278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */; };
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		278BFBBF19D0AB7200510C6E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
+		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
+		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284319DF425200D15932 /* ProtoTestViewController.swift */; };
+		2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2791284419DF425200D15932 /* ProtoTestViewController.xib */; };
+		2791284A19DF43EA00D15932 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284819DF43EA00D15932 /* Healthcheck.pb.swift */; };
+		2791284B19DF43EA00D15932 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284919DF43EA00D15932 /* Trucks.pb.swift */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -22,6 +32,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		27766FF219DFB910000B5211 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F85569919C71BCF003802F2;
+			remoteInfo = ProtocolBuffers;
+		};
+		27766FF419DFB910000B5211 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
+			remoteInfo = UnitTesting;
+		};
+		2791283A19DF414D00D15932 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		2791283C19DF414D00D15932 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
 		27AC00C419CB4B4F00F1F3B7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27AC00A619CB4B4F00F1F3B7 /* Project object */;
@@ -31,13 +69,37 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2791284119DF41DA00D15932 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				27766FF619DFB918000B5211 /* ProtocolBuffers.framework in Copy Frameworks */,
+				2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		27766FE919DF938D000B5211 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
+		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
+		27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
+		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
 		278BFBB319D08F0C00510C6E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+DictionaryFromQueryString.swift"; sourceTree = "<group>"; };
 		278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		2791284319DF425200D15932 /* ProtoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTestViewController.swift; sourceTree = "<group>"; };
+		2791284419DF425200D15932 /* ProtoTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtoTestViewController.xib; sourceTree = "<group>"; };
+		2791284819DF43EA00D15932 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
+		2791284919DF43EA00D15932 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +120,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2791284019DF417800D15932 /* Alamofire.framework in Frameworks */,
 				278BFBBF19D0AB7200510C6E /* Security.framework in Frameworks */,
+				277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */,
 				702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27766FEE19DFB910000B5211 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27766FF319DFB910000B5211 /* ProtocolBuffers.framework */,
+				27766FF519DFB910000B5211 /* ProtocolBuffersTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		278BFBAF19D08D0900510C6E /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +172,30 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		2791283619DF414D00D15932 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2791283B19DF414D00D15932 /* Alamofire.framework */,
+				2791283D19DF414D00D15932 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2791284719DF43EA00D15932 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				27766FE919DF938D000B5211 /* Menu.pb.swift */,
+				2791284819DF43EA00D15932 /* Healthcheck.pb.swift */,
+				2791284919DF43EA00D15932 /* Trucks.pb.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
+				27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */,
+				2791283519DF414D00D15932 /* Alamofire.xcodeproj */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
 				27AC00AF19CB4B4F00F1F3B7 /* Products */,
@@ -122,16 +216,20 @@
 		27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */ = {
 			isa = PBXGroup;
 			children = (
+				27766FEB19DFB021000B5211 /* Properties.plist */,
+				2791284719DF43EA00D15932 /* Models */,
 				278BFBB619D0A36A00510C6E /* Helpers */,
 				278BFBAF19D08D0900510C6E /* Media */,
 				27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */,
+				278BFBB319D08F0C00510C6E /* Constants.swift */,
+				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
+				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
+				2791284319DF425200D15932 /* ProtoTestViewController.swift */,
+				2791284419DF425200D15932 /* ProtoTestViewController.xib */,
+				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
 				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
 				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
 				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
-				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
-				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
-				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
-				278BFBB319D08F0C00510C6E /* Constants.swift */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -164,6 +262,7 @@
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				277AE77C19D2211E00914BE1 /* Crashlytics.framework */,
 				278BFBBE19D0AB7200510C6E /* Security.framework */,
 				67065F4FABC149C7A197923C /* libPods.a */,
 			);
@@ -183,6 +282,8 @@
 				27AC00AC19CB4B4F00F1F3B7 /* Resources */,
 				CFF2BD7934EF45C792B0C71E /* Copy Pods Resources */,
 				278BFBB519D0A27600510C6E /* TODO as Warnings */,
+				277AE77919D21F4800914BE1 /* Crashlytics */,
+				2791284119DF41DA00D15932 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +342,16 @@
 			mainGroup = 27AC00A519CB4B4F00F1F3B7;
 			productRefGroup = 27AC00AF19CB4B4F00F1F3B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2791283619DF414D00D15932 /* Products */;
+					ProjectRef = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+				},
+				{
+					ProductGroup = 27766FEE19DFB910000B5211 /* Products */;
+					ProjectRef = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				27AC00AD19CB4B4F00F1F3B7 /* TruckMuncher */,
@@ -249,15 +360,48 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		27766FF319DFB910000B5211 /* ProtocolBuffers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ProtocolBuffers.framework;
+			remoteRef = 27766FF219DFB910000B5211 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27766FF519DFB910000B5211 /* ProtocolBuffersTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ProtocolBuffersTests.xctest;
+			remoteRef = 27766FF419DFB910000B5211 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2791283B19DF414D00D15932 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 2791283A19DF414D00D15932 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2791283D19DF414D00D15932 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 2791283C19DF414D00D15932 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		27AC00AC19CB4B4F00F1F3B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
+				2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
+				27766FEC19DFB021000B5211 /* Properties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +415,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		277AE77919D21F4800914BE1 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 2d3548a0b8747eb27b8284162847057e23ccae1f fc60be2978dcec631fb8c67f005530caff794302e1652b016e4fb68bf3400c66";
+		};
 		278BFBB519D0A27600510C6E /* TODO as Warnings */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,10 +480,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27766FEA19DF938D000B5211 /* Menu.pb.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
+				2791284A19DF43EA00D15932 /* Healthcheck.pb.swift in Sources */,
+				2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
+				2791284B19DF43EA00D15932 /* Trucks.pb.swift in Sources */,
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +610,7 @@
 					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
 					/Users/ault/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -467,6 +630,7 @@
 					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
 					/Users/ault/Documents/FacebookSDK,
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

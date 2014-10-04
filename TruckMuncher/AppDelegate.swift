@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var config: NSDictionary = NSDictionary()
+        
+        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
+            config = NSDictionary(contentsOfFile: path)
+        }
         
         FBLoginView.self
         
@@ -36,11 +43,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        nav = UINavigationController(rootViewController: loginViewController!)
+        loginViewController?.twitterKey = config[kTwitterKey] as String
+        loginViewController?.twitterSecretKey = config[kTwitterSecretKey] as String
+        loginViewController?.twitterName = config[kTwitterName] as String
+        loginViewController?.twitterCallback = config[kTwitterCallback] as String
+        var protoTest = ProtoTestViewController(nibName: "ProtoTestViewController", bundle: nil)
+        nav = UINavigationController(rootViewController: protoTest)
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
+        
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
         
         return true
     }
