@@ -54,7 +54,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        navigationController?.pushViewController(VendorMapViewController(), animated: true)
+        navigationController?.pushViewController(MapViewController(nibName: "MapViewController", bundle: nil), animated: true)
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {

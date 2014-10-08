@@ -1,5 +1,5 @@
 //
-//  VendorMapViewController.swift
+//  MapViewController.swift
 //  TruckMuncher
 //
 //  Created by Andrew Moore on 10/7/14.
@@ -9,39 +9,40 @@
 import UIKit
 import MapKit
 
-class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
-    
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+
+    @IBOutlet var mapView: MKMapView!
     let deltaDegrees = 0.2
-
-    //FUTURE: Usa a xib instead >:(
-    var map:MKMapView?
     var locationManager: CLLocationManager!
-    
-    override init()  {
-        super.init(nibName: nil, bundle: nil)
-        
-        map = MKMapView(frame: UIScreen.mainScreen().bounds)
-        map!.delegate = self
-        map!.showsUserLocation = true;
-        
-        view.addSubview(self.map!)
-    }
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        mapView = MKMapView(frame: UIScreen.mainScreen().bounds)
+        super.init(nibName: nil, bundle: nil)
+        mapView.delegate = self
+        mapView.showsUserLocation = true;
+        
+        view.addSubview(mapView)
+    }
+ 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initLocationManager()
-        map?.userLocation.addObserver(self, forKeyPath: "location", options: (NSKeyValueObservingOptions.New|NSKeyValueObservingOptions.Old), context: nil)
+        mapView.userLocation.addObserver(self, forKeyPath: "location", options: (NSKeyValueObservingOptions.New|NSKeyValueObservingOptions.Old), context: nil)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     override func observeValueForKeyPath(keyPath: String!, ofObject object: AnyObject!, change: [NSObject : AnyObject]!, context: UnsafeMutablePointer<Void>) {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && map!.showsUserLocation){
-            var latitude:CLLocationDegrees = map!.userLocation.location.coordinate.latitude
-            var longitude:CLLocationDegrees = map!.userLocation.location.coordinate.longitude
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && mapView.showsUserLocation){
+            var latitude:CLLocationDegrees = mapView.userLocation.location.coordinate.latitude
+            var longitude:CLLocationDegrees = mapView.userLocation.location.coordinate.longitude
             var latDelta:CLLocationDegrees = deltaDegrees
             var longDelta:CLLocationDegrees = deltaDegrees
             
@@ -49,7 +50,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             var Center :CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
             var region:MKCoordinateRegion = MKCoordinateRegionMake(Center, aSpan)
             
-            map!.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: true)
         }
     }
     
@@ -72,4 +73,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             print(error)
         }
     }
+
+
 }
