@@ -54,7 +54,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        println("This is where you perform a segue.")
+        navigationController?.pushViewController(VendorMapViewController(), animated: true)
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {

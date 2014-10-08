@@ -47,8 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loginViewController?.twitterSecretKey = config[kTwitterSecretKey] as String
         loginViewController?.twitterName = config[kTwitterName] as String
         loginViewController?.twitterCallback = config[kTwitterCallback] as String
+        
         var protoTest = ProtoTestViewController(nibName: "ProtoTestViewController", bundle: nil)
-        nav = UINavigationController(rootViewController: protoTest)
+        nav = UINavigationController(rootViewController: loginViewController!)
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
