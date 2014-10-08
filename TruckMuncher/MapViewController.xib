@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
+                <outlet property="loginButton" destination="y7n-4N-Dal" id="0jn-Fl-hfl"/>
                 <outlet property="mapView" destination="0bU-Q8-5aJ" id="fxP-8h-CFh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -15,11 +16,35 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7n-4N-Dal">
+                    <rect key="frame" x="0.0" y="552" width="600" height="48"/>
+                    <color key="backgroundColor" red="0.57507205390000005" green="0.295732151" blue="0.73761047980000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="b5C-NB-PNj"/>
+                    </constraints>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="LOGIN">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="J5g-Sa-wUr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="y7n-4N-Dal" firstAttribute="top" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="HzK-M6-hQS"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NXJ-SD-sya"/>
+                <constraint firstAttribute="bottom" secondItem="y7n-4N-Dal" secondAttribute="bottom" id="Odz-x4-twH"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="y7n-4N-Dal" secondAttribute="leading" id="PHF-B3-qrT"/>
+                <constraint firstAttribute="trailing" secondItem="y7n-4N-Dal" secondAttribute="trailing" id="b6d-R9-X0K"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="trailing" secondItem="y7n-4N-Dal" secondAttribute="trailing" id="oTo-bp-bop"/>
+                <constraint firstItem="y7n-4N-Dal" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wzv-ai-ATb"/>
+            </constraints>
         </view>
     </objects>
 </document>

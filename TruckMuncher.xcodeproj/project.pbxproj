@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
 		06F2D04B19E4BE540030726D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
@@ -88,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
+		063945AD19E5859000B76100 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 		27AC00B119CB4B4F00F1F3B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				063945AB19E56DB900B76100 /* Milwaukee.gpx */,
 				27AC00B219CB4B4F00F1F3B7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -271,6 +275,7 @@
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				063945AD19E5859000B76100 /* Reveal.framework */,
 				06F2D04A19E4BE540030726D /* MapKit.framework */,
 				277AE77C19D2211E00914BE1 /* Crashlytics.framework */,
 				278BFBBE19D0AB7200510C6E /* Security.framework */,
@@ -412,6 +417,7 @@
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
+				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
 				27766FEC19DFB021000B5211 /* Properties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +632,44 @@
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Accounts,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Twitter,
+					"-framework",
+					UIKit,
+					"-weak_framework",
+					Accounts,
+					"-weak_framework",
+					AdSupport,
+					"-weak_framework",
+					AudioToolbox,
+					"-weak_framework",
+					CoreGraphics,
+					"-weak_framework",
+					CoreLocation,
+					"-weak_framework",
+					Foundation,
+					"-weak_framework",
+					QuartzCore,
+					"-weak_framework",
+					Security,
+					"-weak_framework",
+					Social,
+					"-weak_framework",
+					UIKit,
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};
@@ -646,6 +690,44 @@
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					Accounts,
+					"-framework",
+					CoreGraphics,
+					"-framework",
+					Foundation,
+					"-framework",
+					QuartzCore,
+					"-framework",
+					Twitter,
+					"-framework",
+					UIKit,
+					"-weak_framework",
+					Accounts,
+					"-weak_framework",
+					AdSupport,
+					"-weak_framework",
+					AudioToolbox,
+					"-weak_framework",
+					CoreGraphics,
+					"-weak_framework",
+					CoreLocation,
+					"-weak_framework",
+					Foundation,
+					"-weak_framework",
+					QuartzCore,
+					"-weak_framework",
+					Security,
+					"-weak_framework",
+					Social,
+					"-weak_framework",
+					UIKit,
+					"-ObjC",
+					"-framework",
+					Reveal,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};
