@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.0">
+	<name>Example gpx</name>
+	<wpt lat="43.0500" lon="-87.9500">
+		<name>Milwaukee</name>
+	</wpt>
+</gpx>

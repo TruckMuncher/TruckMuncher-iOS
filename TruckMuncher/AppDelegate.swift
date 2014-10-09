@@ -42,13 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         
-        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController?.twitterKey = config[kTwitterKey] as String
-        loginViewController?.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController?.twitterName = config[kTwitterName] as String
-        loginViewController?.twitterCallback = config[kTwitterCallback] as String
-        var protoTest = ProtoTestViewController(nibName: "ProtoTestViewController", bundle: nil)
-        nav = UINavigationController(rootViewController: protoTest)
+        nav = UINavigationController(rootViewController: MapViewController(nibName: "MapViewController", bundle: nil))
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
