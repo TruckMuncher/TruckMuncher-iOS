@@ -13,62 +13,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
-    @IBAction func loginAction(sender: AnyObject) {
-        var config: NSDictionary = NSDictionary()
-        
-        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)
-        }
-        var loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController.twitterKey = config[kTwitterKey] as String
-        loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController.twitterName = config[kTwitterName] as String
-        loginViewController.twitterCallback = config[kTwitterCallback] as String
-        navigationController?.pushViewController(loginViewController, animated: true)
-    }
+    
+    @IBAction func loginAction(sender: AnyObject) { login() }
     
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        view.addSubview(mapView)
-    }
- 
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //zoomToCurrentLocation()
-    }
-    
-    func mapViewDidFinishLoadingMap(mapView: MKMapView!) {
-        view.bringSubviewToFront(loginButton)
     }
     
     func zoomToCurrentLocation() {
         if (CLLocationManager.locationServicesEnabled() &&
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse &&
-            locationManager.location != nil &&
-            mapView.showsUserLocation){
+            CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
+            locationManager.location != nil){
                 
-            var latitude:CLLocationDegrees = locationManager.location.coordinate.latitude
-            var longitude:CLLocationDegrees = locationManager.location.coordinate.longitude
-            var latDelta:CLLocationDegrees = deltaDegrees
-            var longDelta:CLLocationDegrees = deltaDegrees
+            var latitude = locationManager.location.coordinate.latitude
+            var longitude = locationManager.location.coordinate.longitude
+            var latDelta = deltaDegrees
+            var longDelta = deltaDegrees
             
-            var span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
-            var center :CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-            var region:MKCoordinateRegion = MKCoordinateRegionMake(center, span)
+            var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
+            var center = CLLocationCoordinate2DMake(latitude, longitude)
+            var region = MKCoordinateRegionMake(center, span)
             
             mapView.setRegion(region, animated: true)
         }
@@ -95,5 +63,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         zoomToCurrentLocation()
+    }
+    
+    func login () {
+        var config: NSDictionary = NSDictionary()
+        
+        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
+            config = NSDictionary(contentsOfFile: path)
+        }
+        var loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController.twitterKey = config[kTwitterKey] as String
+        loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
+        loginViewController.twitterName = config[kTwitterName] as String
+        loginViewController.twitterCallback = config[kTwitterCallback] as String
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
 }
