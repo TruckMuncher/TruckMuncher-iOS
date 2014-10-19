@@ -2,7 +2,9 @@
 //  UIColor+Hex.swift
 //  TruckMuncher
 //
-//  Created by Andrew Moore on 10/18/14.
+//  Created by R0CKSTAR on 6/13/14.
+//
+//  Modified by Andrew Moore on 10/18/14.
 //  Copyright (c) 2014 TruckMuncher. All rights reserved.
 //
 

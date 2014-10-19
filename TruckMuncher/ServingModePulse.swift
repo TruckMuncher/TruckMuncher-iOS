@@ -35,7 +35,7 @@ class ServingModePulse: CALayer {
         super.init()
         
         self.repeatCount = Float.infinity;
-        self.backgroundColor =  UIColor(rgba: "#AA0066CC").CGColor;
+        self.backgroundColor =  Colors().pink.CGColor;
         
         var tempPos = self.position;
         var diameter = self.radius * 2;
