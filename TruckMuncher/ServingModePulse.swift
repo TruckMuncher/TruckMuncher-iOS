@@ -28,7 +28,7 @@ class ServingModePulse: CALayer {
         self.fromValueForRadius = 0.0
         self.fromValueForAlpha = 0.45
         self.keyTimeForHalfOpacity = 0.2
-        self.animationDuration = 1
+        self.animationDuration = 2
         self.pulseInterval = 0
         self.animationGroup = CAAnimationGroup();
         
