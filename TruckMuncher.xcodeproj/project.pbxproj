@@ -20,13 +20,17 @@
 		0609360119F33EB40033F3D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609360019F33EB40033F3D4 /* Colors.swift */; };
 		0609360419F3662B0033F3D4 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360219F3662B0033F3D4 /* Menu.png */; };
 		0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360319F3662B0033F3D4 /* Menu@2x.png */; };
+		0636EDDA19F455F8003F3962 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
+		0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */; };
+		0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */; };
+		0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDE19F456B9003F3962 /* Menu.pb.swift */; };
+		0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDF19F456B9003F3962 /* Trucks.pb.swift */; };
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
 		06F2D04B19E4BE540030726D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
-		27766FEA19DF938D000B5211 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27766FE919DF938D000B5211 /* Menu.pb.swift */; };
 		27766FEC19DFB021000B5211 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27766FEB19DFB021000B5211 /* Properties.plist */; };
-		27766FF619DFB918000B5211 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27766FF319DFB910000B5211 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */; };
 		278BFBB419D08F0C00510C6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB319D08F0C00510C6E /* Constants.swift */; };
@@ -37,8 +41,6 @@
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284319DF425200D15932 /* ProtoTestViewController.swift */; };
 		2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2791284419DF425200D15932 /* ProtoTestViewController.xib */; };
-		2791284A19DF43EA00D15932 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284819DF43EA00D15932 /* Healthcheck.pb.swift */; };
-		2791284B19DF43EA00D15932 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284919DF43EA00D15932 /* Trucks.pb.swift */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -49,16 +51,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		27766FF219DFB910000B5211 /* PBXContainerItemProxy */ = {
+		0636EDD619F455ED003F3962 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+			containerPortal = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F85569919C71BCF003802F2;
 			remoteInfo = ProtocolBuffers;
 		};
-		27766FF419DFB910000B5211 /* PBXContainerItemProxy */ = {
+		0636EDD819F455ED003F3962 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+			containerPortal = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
 			remoteInfo = UnitTesting;
@@ -93,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				27766FF619DFB918000B5211 /* ProtocolBuffers.framework in Copy Frameworks */,
+				0636EDDA19F455F8003F3962 /* ProtocolBuffers.framework in Copy Frameworks */,
 				2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -115,14 +117,18 @@
 		0609360019F33EB40033F3D4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0609360219F3662B0033F3D4 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 		0609360319F3662B0033F3D4 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
+		0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
+		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
+		0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
+		0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu_admin.pb.swift; sourceTree = "<group>"; };
+		0636EDDE19F456B9003F3962 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
+		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
 		063945AD19E5859000B76100 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		27766FE919DF938D000B5211 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
 		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
-		27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
 		278BFBB319D08F0C00510C6E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -133,8 +139,6 @@
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2791284319DF425200D15932 /* ProtoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTestViewController.swift; sourceTree = "<group>"; };
 		2791284419DF425200D15932 /* ProtoTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtoTestViewController.xib; sourceTree = "<group>"; };
-		2791284819DF43EA00D15932 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
-		2791284919DF43EA00D15932 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,11 +187,11 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
-		27766FEE19DFB910000B5211 /* Products */ = {
+		0636EDD019F455ED003F3962 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				27766FF319DFB910000B5211 /* ProtocolBuffers.framework */,
-				27766FF519DFB910000B5211 /* ProtocolBuffersTests.xctest */,
+				0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */,
+				0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,9 +241,11 @@
 		2791284719DF43EA00D15932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				27766FE919DF938D000B5211 /* Menu.pb.swift */,
-				2791284819DF43EA00D15932 /* Healthcheck.pb.swift */,
-				2791284919DF43EA00D15932 /* Trucks.pb.swift */,
+				0636EDDB19F456B9003F3962 /* Error.pb.swift */,
+				0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */,
+				0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */,
+				0636EDDE19F456B9003F3962 /* Menu.pb.swift */,
+				0636EDDF19F456B9003F3962 /* Trucks.pb.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,7 +253,7 @@
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
-				27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */,
+				0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */,
 				2791283519DF414D00D15932 /* Alamofire.xcodeproj */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
@@ -410,8 +416,8 @@
 					ProjectRef = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = 27766FEE19DFB910000B5211 /* Products */;
-					ProjectRef = 27766FED19DFB910000B5211 /* ProtocolBuffers.xcodeproj */;
+					ProductGroup = 0636EDD019F455ED003F3962 /* Products */;
+					ProjectRef = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -423,18 +429,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		27766FF319DFB910000B5211 /* ProtocolBuffers.framework */ = {
+		0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ProtocolBuffers.framework;
-			remoteRef = 27766FF219DFB910000B5211 /* PBXContainerItemProxy */;
+			remoteRef = 0636EDD619F455ED003F3962 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		27766FF519DFB910000B5211 /* ProtocolBuffersTests.xctest */ = {
+		0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ProtocolBuffersTests.xctest;
-			remoteRef = 27766FF419DFB910000B5211 /* PBXContainerItemProxy */;
+			remoteRef = 0636EDD819F455ED003F3962 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2791283B19DF414D00D15932 /* Alamofire.framework */ = {
@@ -551,22 +557,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
-				27766FEA19DF938D000B5211 /* Menu.pb.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
+				0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
-				2791284A19DF43EA00D15932 /* Healthcheck.pb.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
+				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
-				2791284B19DF43EA00D15932 /* Trucks.pb.swift in Sources */,
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
+				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
+				0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
