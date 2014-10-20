@@ -15,11 +15,10 @@ class TruckLocationAnnotationView: MKAnnotationView {
     
     override init(annotation:MKAnnotation, reuseIdentifier:String) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        let image = UIImage(named:"LocationSetterPin")
-        self.frame = CGRectMake(0, 0, image.size.width, image.size.height)
+        annotationImage = UIImage(named:"LocationSetterPin")
+        self.frame = CGRectMake(0, 0, annotationImage.size.width, annotationImage.size.height)
         self.centerOffset = CGPointMake(0,-20)
         self.opaque = false
-        annotationImage = UIImage(named:"LocationSetterPin")
     }
 
     required init(coder aDecoder: NSCoder) {
