@@ -13,6 +13,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView: FBLoginView!
     @IBOutlet weak var btnTwitterLogin: UIButton!
+    @IBAction func cancelTapped(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     var twitterKey: String = ""
     var twitterSecretKey: String = ""
@@ -58,8 +61,8 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
-        //loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
-        //successfullyLoggedInAsTruck()
+        loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
+        successfullyLoggedInAsTruck()
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
@@ -91,11 +94,17 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
-            
+
             self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
         }) { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
         }
+    }
+    
+    func successfullyLoggedInAsTruck() {
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
+        })
     }
     
     func loginToAPI(authorizationHeader: String) {
@@ -107,9 +116,5 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
                 println("error \(error)")
                 println("error message \(error?.localizedDescription)")
         }
-    }
-
-    func successfullyLoggedInAsTruck() {
-        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
     }
 }
