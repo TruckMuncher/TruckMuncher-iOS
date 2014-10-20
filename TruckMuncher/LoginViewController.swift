@@ -13,6 +13,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView: FBLoginView!
     @IBOutlet weak var btnTwitterLogin: UIButton!
+    @IBAction func cancelTapped(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     var twitterKey: String = ""
     var twitterSecretKey: String = ""
@@ -86,16 +89,17 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
-            
-            // TODO send these tokens off to the API
             self.successfullyLoggedInAsTruck()
+            
         }) { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
         }
     }
     
     func successfullyLoggedInAsTruck() {
-        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
+        })
     }
     
     func loginToAPI(authorizationHeader: String) {

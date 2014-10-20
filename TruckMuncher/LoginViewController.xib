@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
                 <outlet property="btnTwitterLogin" destination="mla-si-cff" id="eCz-9O-YTb"/>
-                <outlet property="fbLoginView" destination="2ZT-w8-zd8" id="h5N-Vl-2Rd"/>
+                <outlet property="fbLoginView" destination="apa-se-YMc" id="k1L-di-arJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,39 +16,74 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-w8-zd8" customClass="FBLoginView">
-                    <rect key="frame" x="200" y="304" width="200" height="50"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="200" id="nL5-Uc-AI2"/>
-                        <constraint firstAttribute="height" constant="50" id="s9F-Zg-y0J"/>
-                    </constraints>
-                </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
-                    <rect key="frame" x="221" y="268" width="158" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="28" id="ZaV-s9-gz1"/>
-                        <constraint firstAttribute="width" constant="158" id="xgd-c8-o9M"/>
-                    </constraints>
-                    <state key="normal" image="sign-in-with-twitter-gray.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="clickedLoginWithTwitter:" destination="-1" eventType="touchUpInside" id="yJO-dt-BVU"/>
-                    </connections>
-                </button>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxX-Nt-YCZ">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ARx-Ir-8fA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raY-32-cCc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NFM-c7-Js7">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apa-se-YMc" customClass="FBLoginView">
+                                <rect key="frame" x="221" y="217" width="158" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vy0-yD-zwM">
+                                <rect key="frame" x="268" y="474" width="64" height="64"/>
+                                <state key="normal" image="closeWhite.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="O3v-6Q-jd1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
+                                <rect key="frame" x="221" y="297" width="158" height="28"/>
+                                <state key="normal" image="sign-in-with-twitter-gray.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedLoginWithTwitter:" destination="-1" eventType="touchUpInside" id="yJO-dt-BVU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="Vy0-yD-zwM" secondAttribute="centerX" id="3XK-Nk-IdC"/>
+                            <constraint firstAttribute="bottom" secondItem="Vy0-yD-zwM" secondAttribute="bottom" constant="62" id="BU5-K6-9dE"/>
+                            <constraint firstItem="raY-32-cCc" firstAttribute="leading" secondItem="ARx-Ir-8fA" secondAttribute="leading" id="Dqf-L8-xfC"/>
+                            <constraint firstItem="apa-se-YMc" firstAttribute="leading" secondItem="mla-si-cff" secondAttribute="leading" id="Hbi-WT-ceZ"/>
+                            <constraint firstAttribute="bottom" secondItem="raY-32-cCc" secondAttribute="bottom" id="Qan-zd-H2d"/>
+                            <constraint firstAttribute="trailing" secondItem="raY-32-cCc" secondAttribute="trailing" id="bv8-Uj-rf8"/>
+                            <constraint firstItem="apa-se-YMc" firstAttribute="centerX" secondItem="raY-32-cCc" secondAttribute="centerX" id="fQE-kq-wlm"/>
+                            <constraint firstItem="apa-se-YMc" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" constant="217" id="ihc-3z-UVs"/>
+                            <constraint firstItem="apa-se-YMc" firstAttribute="trailing" secondItem="mla-si-cff" secondAttribute="trailing" id="lsq-Mc-kcd"/>
+                            <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="apa-se-YMc" secondAttribute="bottom" constant="30" id="qMy-PT-HOs"/>
+                            <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" constant="297" id="wTq-SS-fpc"/>
+                            <constraint firstItem="raY-32-cCc" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" id="zow-Ym-hbE"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="2ZT-w8-zd8" secondAttribute="centerX" id="HYP-Yn-Gtt"/>
-                <constraint firstItem="2ZT-w8-zd8" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="8" symbolic="YES" id="Vf4-xa-6zF"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="268" id="i4a-9d-TyO"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="2ZT-w8-zd8" secondAttribute="centerX" id="laf-TM-msX"/>
-                <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xgJ-2P-pE5"/>
+                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BDT-vo-gWv"/>
+                <constraint firstAttribute="bottom" secondItem="YxX-Nt-YCZ" secondAttribute="bottom" id="PX0-Me-Be0"/>
+                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u3V-8i-Vik"/>
+                <constraint firstAttribute="trailing" secondItem="YxX-Nt-YCZ" secondAttribute="trailing" id="yJf-l8-due"/>
             </constraints>
         </view>
     </objects>
     <resources>
+        <image name="closeWhite.png" width="64" height="64"/>
         <image name="sign-in-with-twitter-gray.png" width="158" height="28"/>
     </resources>
 </document>
