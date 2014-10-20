@@ -13,20 +13,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
-    var loginViewController: LoginViewController?
-    @IBAction func loginAction(sender: AnyObject) {
-        var config: NSDictionary = NSDictionary()
-        
-        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)
-        }
-        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController?.twitterKey = config[kTwitterKey] as String
-        loginViewController?.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController?.twitterName = config[kTwitterName] as String
-        loginViewController?.twitterCallback = config[kTwitterCallback] as String
-        navigationController?.pushViewController(loginViewController!, animated: true)
-    }
+    
+    @IBAction func loginAction(sender: AnyObject) { login() }
     
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
@@ -36,17 +24,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         initLocationManager()
     }
     
-    func mapViewDidFinishLoadingMap(mapView: MKMapView!) {
-        println("finished locating map")
-        view.bringSubviewToFront(loginButton)
-    }
-    
     func zoomToCurrentLocation() {
-        println("zooming to current location")
         if (CLLocationManager.locationServicesEnabled() &&
-            CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse &&
+            CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
             locationManager.location != nil){
-            println("statement passed")
+                
             var latitude = locationManager.location.coordinate.latitude
             var longitude = locationManager.location.coordinate.longitude
             var latDelta = deltaDegrees
@@ -66,22 +48,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         
-        if (CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse){
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
             locationManager.startUpdatingLocation()
         }
         
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("location manager did fail with error")
         locationManager.stopUpdatingLocation()
-        if (error != nil) {
+        if ((error) != nil) {
             print(error)
         }
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        println("did change authorization status")
         zoomToCurrentLocation()
+    }
+    
+    func login () {
+        var config: NSDictionary = NSDictionary()
+        
+        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
+            config = NSDictionary(contentsOfFile: path)
+        }
+        var loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController.twitterKey = config[kTwitterKey] as String
+        loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
+        loginViewController.twitterName = config[kTwitterName] as String
+        loginViewController.twitterCallback = config[kTwitterCallback] as String
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
 }
