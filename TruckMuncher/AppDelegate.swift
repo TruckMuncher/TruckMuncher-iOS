@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBLoginView.self
         
         //wet asphalt background
-        UINavigationBar.appearance().barTintColor = UIColor(red: 52.0/255.0, green: 73.0/255.0, blue: 94.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = wetAsphaltColor
         
         //white button text and title
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
