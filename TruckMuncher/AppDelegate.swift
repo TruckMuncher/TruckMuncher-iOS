@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var nav: UINavigationController?
-    var loginViewController: LoginViewController?
+    var mapViewController: MapViewController?
+    var twitterCallback: String?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -23,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
             config = NSDictionary(contentsOfFile: path)
+            twitterCallback = config[kTwitterCallback] as? String
         }
         
         FBLoginView.self
@@ -41,23 +43,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        
-        nav = UINavigationController(rootViewController: MapViewController(nibName: "MapViewController", bundle: nil))
+        //mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
+        var menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
+        nav = UINavigationController(rootViewController: menu)
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         
-        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+        //Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
         if isTwitterCallbackUrl(url) {
+            println("is twitter callback")
             // pull out the oauth token and verifier and give it back to the login VC
             let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast to as a forced unwrapped optional
-            loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
+            mapViewController?.loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
             return true
         } else {
             var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
@@ -90,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func isTwitterCallbackUrl(url: NSURL) -> Bool {
         // try and pull out the twitter callback url string, if successful, we are being redirected from twitter
         let urlString = url.absoluteString!
-        return urlString.rangeOfString(kTwitterCallback, options: .CaseInsensitiveSearch, range: nil, locale: nil) != nil
+        return urlString.rangeOfString(twitterCallback!, options: .CaseInsensitiveSearch, range: nil, locale: nil) != nil
     }
 }
 

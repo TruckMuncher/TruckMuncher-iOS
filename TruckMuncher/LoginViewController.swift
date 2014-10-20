@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController, FBLoginViewDelegate {
     
@@ -36,13 +37,17 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         println("twitter oauth secret from keychain \(oauthSecret)")
         
         twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey)
-        if oauthToken != nil && oauthSecret != nil {
+        if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
+            println("show a progress dialog")
             // TODO show some sort of progress dialog signifying a sign in occuring
             twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
             twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
-                // TODO send these tokens off to the API
+                println("send tokens to API")
+                self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
             }, errorBlock: { (error) -> Void in
                 // our cached credentials are no longer valid, perhaps show a message asking to relogin
+                println("cached credentials invalid.")
+                self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
             })
         }
     }
@@ -54,6 +59,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
+        //loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
         //navigationController?.pushViewController(MapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
     }
     
@@ -70,10 +76,17 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     @IBAction func clickedLoginWithTwitter(sender: AnyObject) {
-        twitterAPI?.postTokenRequest({ (url: NSURL!, token: String!) -> Void in
+//        twitterAPI?.postTokenRequest({ (url, token) -> Void in
+//            UIApplication.sharedApplication().openURL(url)
+//            return
+//        }, oauthCallback: twitterCallback, errorBlock: { (error) -> Void in
+//            UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
+//        })
+        
+        twitterAPI?.postTokenRequest({ (url, token) -> Void in
             UIApplication.sharedApplication().openURL(url)
             return
-        }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: twitterCallback, errorBlock: { (error: NSError!) -> Void in
+        }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: twitterCallback, errorBlock: { (error) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
         })
     }
@@ -81,13 +94,26 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
         twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
             
+            println("logged in twitter \(token) and \(secret)")
+            println("logged in twitter \(self.twitterAPI?.oauthAccessToken) and \(self.twitterAPI?.oauthAccessTokenSecret)")
+            
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
             
-            // TODO send these tokens off to the API
+            self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
             
         }) { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
+        }
+    }
+    
+    func loginToAPI(authorizationHeader: String) {
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json", "Authorization": authorizationHeader]
+        Alamofire.request(.GET, "https://api.truckmuncher.com:8443/auth", parameters: nil, encoding: .JSON)
+        .responseJSON { (request, response, data, error) -> Void in
+            println("JSON response \(data)")
+            println("error \(error)")
+            println("error message \(error?.localizedDescription)")
         }
     }
 }

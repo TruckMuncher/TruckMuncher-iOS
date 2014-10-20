@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7n-4N-Dal">
                     <rect key="frame" x="0.0" y="552" width="600" height="48"/>
@@ -37,7 +37,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="y7n-4N-Dal" firstAttribute="top" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="HzK-M6-hQS"/>
+                <constraint firstItem="y7n-4N-Dal" firstAttribute="top" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" constant="-48" id="HzK-M6-hQS"/>
                 <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="NXJ-SD-sya"/>
                 <constraint firstAttribute="bottom" secondItem="y7n-4N-Dal" secondAttribute="bottom" id="Odz-x4-twH"/>
                 <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="y7n-4N-Dal" secondAttribute="leading" id="PHF-B3-qrT"/>
