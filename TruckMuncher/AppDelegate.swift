@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var config: NSDictionary = NSDictionary()
         
         if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)
+            config = NSDictionary(contentsOfFile: path)!
             twitterCallback = config[kTwitterCallback] as? String
         }
         
@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        nav = UINavigationController(rootViewController: MapViewController(nibName: "MapViewController", bundle: nil))
+        mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
+        nav = UINavigationController(rootViewController: mapViewController!)
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
@@ -55,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
+        println("checking")
         if isTwitterCallbackUrl(url) {
             // pull out the oauth token and verifier and give it back to the login VC
             let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast it as a forced unwrapped optional

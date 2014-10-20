@@ -42,7 +42,7 @@ class MenuItemTableViewCell: UITableViewCell {
             var attributes = [NSObject: AnyObject]()
             if !item.isAvailable {
                 attributes = [
-                    NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.toRaw()),
+                    NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue),
                     NSStrikethroughColorAttributeName: UIColor.lightGrayColor(),
                     NSForegroundColorAttributeName: UIColor.lightGrayColor()
                 ]

@@ -62,7 +62,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
         println("User Logged In")
         loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
-        successfullyLoggedInAsTruck()
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
@@ -115,6 +114,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
                 println("JSON response \(data)")
                 println("error \(error)")
                 println("error message \(error?.localizedDescription)")
+                if error == nil {
+                    self.successfullyLoggedInAsTruck()
+                }
         }
     }
 }

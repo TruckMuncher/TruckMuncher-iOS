@@ -173,7 +173,7 @@ public class UnknownFieldSetBuilder
     {
         
         let number:Int32 = WireFormat.wireFormatGetTagFieldNumber(tag)
-        let format:WireFormat = WireFormat.fromRaw(number)!
+        let format:WireFormat = WireFormat(rawValue: number)!
         if (format == WireFormat.WireFormatVarint)
         {
             getFieldBuilder(number)?.variantArray.append(input.readInt64())
@@ -201,7 +201,7 @@ public class UnknownFieldSetBuilder
             getFieldBuilder(number)?.groupArray.append(subBuilder.build())
             return true
         }
-        else if (tag == WireFormat.WireFormatEndGroup.toRaw())
+        else if (tag == WireFormat.WireFormatEndGroup.rawValue)
         {
             return false
         }
