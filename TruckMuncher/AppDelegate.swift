@@ -43,22 +43,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        //mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
-        var menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
-        nav = UINavigationController(rootViewController: menu)
+        nav = UINavigationController(rootViewController: MapViewController(nibName: "MapViewController", bundle: nil))
         self.window!.rootViewController = self.nav!
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         
-        //Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: NSString?, annotation: AnyObject) -> Bool {
         if isTwitterCallbackUrl(url) {
-            println("is twitter callback")
             // pull out the oauth token and verifier and give it back to the login VC
             let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast it as a forced unwrapped optional
             mapViewController?.loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])

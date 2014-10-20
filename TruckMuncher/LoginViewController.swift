@@ -38,7 +38,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         
         twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey)
         if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
-            println("show a progress dialog")
             // TODO show some sort of progress dialog signifying a sign in occuring
             twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
             twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
@@ -76,13 +75,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     @IBAction func clickedLoginWithTwitter(sender: AnyObject) {
-//        twitterAPI?.postTokenRequest({ (url, token) -> Void in
-//            UIApplication.sharedApplication().openURL(url)
-//            return
-//        }, oauthCallback: twitterCallback, errorBlock: { (error) -> Void in
-//            UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-//        })
-        
         twitterAPI?.postTokenRequest({ (url, token) -> Void in
             UIApplication.sharedApplication().openURL(url)
             return
