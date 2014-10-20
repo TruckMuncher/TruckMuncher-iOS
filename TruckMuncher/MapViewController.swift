@@ -24,10 +24,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         initLocationManager()
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     func zoomToCurrentLocation() {
         if (CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
