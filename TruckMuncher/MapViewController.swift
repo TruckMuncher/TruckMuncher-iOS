@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
+    var loginViewController: LoginViewController?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +72,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
             config = NSDictionary(contentsOfFile: path)
         }
-        var loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController.twitterKey = config[kTwitterKey] as String
-        loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController.twitterName = config[kTwitterName] as String
-        loginViewController.twitterCallback = config[kTwitterCallback] as String
-        navigationController?.pushViewController(loginViewController, animated: true)
+        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController!.twitterKey = config[kTwitterKey] as String
+        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as String
+        loginViewController!.twitterName = config[kTwitterName] as String
+        loginViewController!.twitterCallback = config[kTwitterCallback] as String
+        navigationController?.pushViewController(loginViewController!, animated: true)
     }
 }

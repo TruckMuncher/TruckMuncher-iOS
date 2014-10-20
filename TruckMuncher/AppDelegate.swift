@@ -60,9 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isTwitterCallbackUrl(url) {
             println("is twitter callback")
             // pull out the oauth token and verifier and give it back to the login VC
-            let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast to as a forced unwrapped optional
-            // TODO fix map VC to actually work 
-            //mapViewController?.loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
+            let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast it as a forced unwrapped optional
+            mapViewController?.loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
             return true
         } else {
             var wasHandled:Bool = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
