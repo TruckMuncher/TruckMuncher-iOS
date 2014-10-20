@@ -51,7 +51,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
             locationManager.startUpdatingLocation()
         }
-        
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
@@ -76,8 +75,17 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
         loginViewController.twitterName = config[kTwitterName] as String
         loginViewController.twitterCallback = config[kTwitterCallback] as String
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushVendorMap", name: "loggedInNotification", object: nil)
+        
         loginViewController.modalPresentationStyle = .OverCurrentContext
         navigationController?.modalTransitionStyle = .CoverVertical
-        navigationController?.presentViewController(loginViewController, animated: true, completion: nil)
+        navigationController?.presentViewController(loginViewController, animated: true, completion:  nil)
+    }
+    
+    func pushVendorMap() {
+        //We need to check if the login was successful somehow
+        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 }
