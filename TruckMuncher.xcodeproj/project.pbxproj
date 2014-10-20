@@ -30,6 +30,10 @@
 		06F2D04B19E4BE540030726D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
+		27196D5319F5A61E00AE558E /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27196D5119F5A61E00AE558E /* MenuItemTableViewCell.swift */; };
+		27196D5419F5A61E00AE558E /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27196D5219F5A61E00AE558E /* MenuItemTableViewCell.xib */; };
+		272E94F619F5A6A700B6B28C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272E94F419F5A6A700B6B28C /* MenuViewController.swift */; };
+		272E94F719F5A6A700B6B28C /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 272E94F519F5A6A700B6B28C /* MenuViewController.xib */; };
 		27766FEC19DFB021000B5211 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27766FEB19DFB021000B5211 /* Properties.plist */; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */; };
@@ -47,12 +51,9 @@
 		27AC00CA19CB4B4F00F1F3B7 /* TruckMuncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00C919CB4B4F00F1F3B7 /* TruckMuncherTests.swift */; };
 		27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */; };
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
-		27BBFB9219F44D9500E3F0DA /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBFB9019F44D9500E3F0DA /* Error.pb.swift */; };
-		27BBFB9319F44D9500E3F0DA /* Menu_admin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBFB9119F44D9500E3F0DA /* Menu_admin.pb.swift */; };
-		27BBFB9A19F45AB900E3F0DA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBFB9819F45AB900E3F0DA /* MenuViewController.swift */; };
-		27BBFB9B19F45AB900E3F0DA /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27BBFB9919F45AB900E3F0DA /* MenuViewController.xib */; };
-		27BBFB9F19F463BD00E3F0DA /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BBFB9D19F463BD00E3F0DA /* MenuItemTableViewCell.swift */; };
-		27BBFBA019F463BD00E3F0DA /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27BBFB9E19F463BD00E3F0DA /* MenuItemTableViewCell.xib */; };
+		27C5DC5019F5A72A000B74FC /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27C5DC4D19F5A72A000B74FC /* fontawesome-webfont.ttf */; };
+		27C5DC5119F5A72A000B74FC /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 27C5DC4E19F5A72A000B74FC /* Podfile */; };
+		27C5DC5219F5A72A000B74FC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 27C5DC4F19F5A72A000B74FC /* README.md */; };
 		702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67065F4FABC149C7A197923C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,10 @@
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		27196D5119F5A61E00AE558E /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		27196D5219F5A61E00AE558E /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		272E94F419F5A6A700B6B28C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		272E94F519F5A6A700B6B28C /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
@@ -156,12 +161,9 @@
 		27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
-		27BBFB9019F44D9500E3F0DA /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
-		27BBFB9119F44D9500E3F0DA /* Menu_admin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu_admin.pb.swift; sourceTree = "<group>"; };
-		27BBFB9819F45AB900E3F0DA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		27BBFB9919F45AB900E3F0DA /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
-		27BBFB9D19F463BD00E3F0DA /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
-		27BBFB9E19F463BD00E3F0DA /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		27C5DC4D19F5A72A000B74FC /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = SOURCE_ROOT; };
+		27C5DC4E19F5A72A000B74FC /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		27C5DC4F19F5A72A000B74FC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07123246612414D8B21D7A8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,6 +208,15 @@
 				0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		27196D5019F5A61E00AE558E /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				27196D5119F5A61E00AE558E /* MenuItemTableViewCell.swift */,
+				27196D5219F5A61E00AE558E /* MenuItemTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		278BFBAF19D08D0900510C6E /* Media */ = {
@@ -253,19 +264,11 @@
 		2791284719DF43EA00D15932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				27BBFB9019F44D9500E3F0DA /* Error.pb.swift */,
-				27BBFB9119F44D9500E3F0DA /* Menu_admin.pb.swift */,
-				27766FE919DF938D000B5211 /* Menu.pb.swift */,
-				2791284819DF43EA00D15932 /* Healthcheck.pb.swift */,
-				2791284919DF43EA00D15932 /* Trucks.pb.swift */,
-=======
 				0636EDDB19F456B9003F3962 /* Error.pb.swift */,
 				0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */,
 				0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */,
 				0636EDDE19F456B9003F3962 /* Menu.pb.swift */,
 				0636EDDF19F456B9003F3962 /* Trucks.pb.swift */,
->>>>>>> master
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -295,35 +298,28 @@
 		27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				27BBFB9C19F463A300E3F0DA /* TableViewCells */,
-=======
+				27196D5019F5A61E00AE558E /* TableViewCells */,
 				060935F119F3086F0033F3D4 /* Map */,
->>>>>>> master
-				27766FEB19DFB021000B5211 /* Properties.plist */,
 				2791284719DF43EA00D15932 /* Models */,
 				278BFBB619D0A36A00510C6E /* Helpers */,
 				278BFBAF19D08D0900510C6E /* Media */,
 				27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */,
 				278BFBB319D08F0C00510C6E /* Constants.swift */,
+				0609360019F33EB40033F3D4 /* Colors.swift */,
 				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
 				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
+				06F2D05219E4F3100030726D /* MapViewController.swift */,
+				06F2D05319E4F3100030726D /* MapViewController.xib */,
+				060935E319F300590033F3D4 /* VendorMapViewController.swift */,
+				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
+				272E94F419F5A6A700B6B28C /* MenuViewController.swift */,
+				272E94F519F5A6A700B6B28C /* MenuViewController.xib */,
 				2791284319DF425200D15932 /* ProtoTestViewController.swift */,
 				2791284419DF425200D15932 /* ProtoTestViewController.xib */,
 				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
 				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
 				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
 				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
-				06F2D05219E4F3100030726D /* MapViewController.swift */,
-				06F2D05319E4F3100030726D /* MapViewController.xib */,
-<<<<<<< HEAD
-				27BBFB9819F45AB900E3F0DA /* MenuViewController.swift */,
-				27BBFB9919F45AB900E3F0DA /* MenuViewController.xib */,
-=======
-				060935E319F300590033F3D4 /* VendorMapViewController.swift */,
-				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
-				0609360019F33EB40033F3D4 /* Colors.swift */,
->>>>>>> master
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -331,6 +327,10 @@
 		27AC00B119CB4B4F00F1F3B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27C5DC4D19F5A72A000B74FC /* fontawesome-webfont.ttf */,
+				27C5DC4E19F5A72A000B74FC /* Podfile */,
+				27C5DC4F19F5A72A000B74FC /* README.md */,
+				27766FEB19DFB021000B5211 /* Properties.plist */,
 				063945AB19E56DB900B76100 /* Milwaukee.gpx */,
 				27AC00B219CB4B4F00F1F3B7 /* Info.plist */,
 			);
@@ -352,15 +352,6 @@
 				27AC00C819CB4B4F00F1F3B7 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		27BBFB9C19F463A300E3F0DA /* TableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				27BBFB9D19F463BD00E3F0DA /* MenuItemTableViewCell.swift */,
-				27BBFB9E19F463BD00E3F0DA /* MenuItemTableViewCell.xib */,
-			);
-			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
@@ -503,25 +494,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
+				27196D5419F5A61E00AE558E /* MenuItemTableViewCell.xib in Resources */,
 				2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */,
+				27C5DC5019F5A72A000B74FC /* fontawesome-webfont.ttf in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
-<<<<<<< HEAD
-				27BBFBA019F463BD00E3F0DA /* MenuItemTableViewCell.xib in Resources */,
-				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
-				27BBFB9B19F45AB900E3F0DA /* MenuViewController.xib in Resources */,
-=======
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				060935FC19F334E30033F3D4 /* LocationSetterPinPink.png in Resources */,
+				27C5DC5119F5A72A000B74FC /* Podfile in Resources */,
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
->>>>>>> master
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
 				27766FEC19DFB021000B5211 /* Properties.plist in Resources */,
+				272E94F719F5A6A700B6B28C /* MenuViewController.xib in Resources */,
 				060935EE19F303F40033F3D4 /* LocationSetterPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,34 +592,21 @@
 			files = (
 				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
-<<<<<<< HEAD
-				27766FEA19DF938D000B5211 /* Menu.pb.swift in Sources */,
-				27BBFB9219F44D9500E3F0DA /* Error.pb.swift in Sources */,
-				27BBFB9319F44D9500E3F0DA /* Menu_admin.pb.swift in Sources */,
-=======
->>>>>>> master
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
+				27C5DC5219F5A72A000B74FC /* README.md in Sources */,
 				0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
+				27196D5319F5A61E00AE558E /* MenuItemTableViewCell.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
-<<<<<<< HEAD
-				27BBFB9A19F45AB900E3F0DA /* MenuViewController.swift in Sources */,
-				2791284A19DF43EA00D15932 /* Healthcheck.pb.swift in Sources */,
-=======
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
->>>>>>> master
+				272E94F619F5A6A700B6B28C /* MenuViewController.swift in Sources */,
 				2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
-<<<<<<< HEAD
-				27BBFB9F19F463BD00E3F0DA /* MenuItemTableViewCell.swift in Sources */,
-				2791284B19DF43EA00D15932 /* Trucks.pb.swift in Sources */,
-=======
->>>>>>> master
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
 				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
