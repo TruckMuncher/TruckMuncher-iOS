@@ -12,6 +12,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView: FBLoginView!
     @IBOutlet weak var btnTwitterLogin: UIButton!
+    @IBAction func cancelTapped(sender: UIButton) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     var twitterKey: String = ""
     var twitterSecretKey: String = ""

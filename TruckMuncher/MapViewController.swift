@@ -24,6 +24,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         initLocationManager()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     func zoomToCurrentLocation() {
         if (CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
@@ -76,6 +80,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
         loginViewController.twitterName = config[kTwitterName] as String
         loginViewController.twitterCallback = config[kTwitterCallback] as String
-        navigationController?.pushViewController(loginViewController, animated: true)
+        loginViewController.modalPresentationStyle = .OverCurrentContext
+        navigationController?.modalTransitionStyle = .CoverVertical
+        navigationController?.presentViewController(loginViewController, animated: true, completion: nil)
     }
 }
