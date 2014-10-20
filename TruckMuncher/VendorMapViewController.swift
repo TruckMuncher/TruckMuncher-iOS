@@ -35,9 +35,9 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func zoomToCurrentLocation() {
-        if (CLLocationManager.locationServicesEnabled() &&
+        if CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
-            locationManager.location != nil){
+            locationManager.location != nil{
                 
                 var latitude = locationManager.location.coordinate.latitude
                 var longitude = locationManager.location.coordinate.longitude
@@ -58,14 +58,14 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse{
             locationManager.startUpdatingLocation()
         }
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         locationManager.stopUpdatingLocation()
-        if ((error) != nil) {
+        if error != nil {
             print(error)
         }
     }
@@ -75,8 +75,8 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func changeComponentsColors() {
-        servingModeLabel.textColor = servingModeSwitch.on ? Colors().pink : UIColor.blackColor()
-        navigationController?.navigationBar.barTintColor = servingModeSwitch.on ? Colors().pink : Colors().wetAsphalt
+        servingModeLabel.textColor = servingModeSwitch.on ? pinkColor : UIColor.blackColor()
+        navigationController?.navigationBar.barTintColor = servingModeSwitch.on ? pinkColor : wetAsphaltColor
         locationSetterImage.image = servingModeSwitch.on ? UIImage(named:"LocationSetterPinPink.png") : UIImage(named:"LocationSetterPin.png")
     }
     
@@ -85,7 +85,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func setPulse () {
-        if (servingModeSwitch.on) {
+        if servingModeSwitch.on {
             pulsingLayer = ServingModePulse()
             pulsingLayer.position = CGPoint(x: locationSetterImage.center.x, y: locationSetterImage.center.y - 10.0)
 

@@ -9,7 +9,5 @@
 import Foundation
 import UIKit
 
-class Colors {
-    let pink = UIColor(rgba: "#AA0066CC")
-    let wetAsphalt = UIColor(rgba: "#34495E")
-}
+let pinkColor = UIColor(rgba: "#AA0066CC")
+let wetAsphaltColor = UIColor(rgba: "#34495E")

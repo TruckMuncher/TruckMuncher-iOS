@@ -11,24 +11,22 @@ import MapKit
 
 class TruckLocationAnnotationView: MKAnnotationView {
     
+    var annotationImage : UIImage!
+    
     override init(annotation:MKAnnotation, reuseIdentifier:String) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        let image = UIImage(named:"LocationSetterPin.png")
+        let image = UIImage(named:"LocationSetterPin")
         self.frame = CGRectMake(0, 0, image.size.width, image.size.height)
         self.centerOffset = CGPointMake(0,-20)
         self.opaque = false
+        annotationImage = UIImage(named:"LocationSetterPin")
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame:frame)
-    }
-    
-    required init(coder: NSCoder) {
-        fatalError("NSCoding not supported")
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func drawRect(rect: CGRect) {
-        let image = UIImage(named:"LocationSetterPin.png")
-        image.drawInRect(self.bounds.rectByInsetting(dx: 5, dy: 5))
+        annotationImage.drawInRect(self.bounds.rectByInsetting(dx: 5, dy: 5))
     }
 }
