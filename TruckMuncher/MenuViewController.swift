@@ -157,15 +157,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         CATransaction.begin()
         CATransaction.setCompletionBlock { () -> Void in
-            //self.tblMenu.reloadData()
+            self.tblMenu.reloadRowsAtIndexPaths(self.selectedCells, withRowAnimation: UITableViewRowAnimation.None)
+            self.selectedCells = [NSIndexPath]()
         }
         tblMenu.beginUpdates()
         sendDiffs(requestBuilder.build())
-        tblMenu.reloadRowsAtIndexPaths(selectedCells, withRowAnimation: UITableViewRowAnimation.Left)
         tblMenu.setEditing(false, animated: true)
         tblMenu.endUpdates()
         
-        selectedCells = [NSIndexPath]()
         CATransaction.commit()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTable")
@@ -183,6 +182,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
         cell.menuItem = menu!.categories[indexPath.section].menuItems[indexPath.row]
+        var bgView = UIView()
+        bgView.backgroundColor = navigationController?.navigationBar.barTintColor
+        cell.selectedBackgroundView = bgView
         return cell
     }
     
