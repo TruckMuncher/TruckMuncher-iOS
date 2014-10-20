@@ -38,12 +38,13 @@ class MenuItemTableViewCell: UITableViewCell {
     }
     
     func reloadFromMenuItem() {
-        if let item = privateMenuItem {
+        if let item = menuItem {
             var attributes = [NSObject: AnyObject]()
             if !item.isAvailable {
                 attributes = [
                     NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.toRaw()),
-                    NSStrikethroughColorAttributeName: UIColor.whiteColor()
+                    NSStrikethroughColorAttributeName: UIColor.lightGrayColor(),
+                    NSForegroundColorAttributeName: UIColor.lightGrayColor()
                 ]
             }
             lblName.attributedText = NSAttributedString(string: item.name, attributes: attributes)
