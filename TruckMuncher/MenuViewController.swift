@@ -28,7 +28,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
 
-        // Do any additional setup after loading the view.
         generateTestData()
         
         tblMenu.estimatedRowHeight = 44.0
@@ -69,7 +68,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         item3.id = "3"
         item3.isAvailable = item3Available
         item3.name = "Coca-Cola"
-        //item3.notes = nil
         item3.orderInCategory = 0
         item3.price = 1.25
         item3.tags = ["roast", "beef"]
@@ -87,7 +85,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         category2.id = "6e6aaff8-6e8d-49bb-b64b-bb5ba57a08fc"
         category2.menuItems = [item3.build(), item4.build()]
         category2.name = "Drinks"
-        //category2.notes = nil
         category2.orderInMenu = 1
         
         builder.categories = [category1.build(), category2.build()]
@@ -102,7 +99,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func sendDiffs(request: ModifyMenuItemAvailabilityRequest) {
@@ -197,7 +193,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 66.0
+        return MENU_CATEGORY_HEIGHT
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

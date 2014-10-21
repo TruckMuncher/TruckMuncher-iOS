@@ -49,8 +49,6 @@
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284319DF425200D15932 /* ProtoTestViewController.swift */; };
-		2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2791284419DF425200D15932 /* ProtoTestViewController.xib */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -157,8 +155,6 @@
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		2791284319DF425200D15932 /* ProtoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTestViewController.swift; sourceTree = "<group>"; };
-		2791284419DF425200D15932 /* ProtoTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtoTestViewController.xib; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -325,8 +321,6 @@
 				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
 				2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */,
 				2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */,
-				2791284319DF425200D15932 /* ProtoTestViewController.swift */,
-				2791284419DF425200D15932 /* ProtoTestViewController.xib */,
 				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
 				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
 				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
@@ -513,7 +507,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
-				2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
@@ -623,7 +616,6 @@
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
-				2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
