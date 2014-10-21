@@ -31,20 +31,24 @@
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
 		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
 		06A36AF819F558DB00F44F02 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF419F558DB00F44F02 /* login@2x.png */; };
-		06F2D04B19E4BE540030726D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
+		2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */; };
+		2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */; };
+		2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */; };
+		2736B1E819F5AE5000CBACC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E519F5AE5000CBACC2 /* Podfile */; };
+		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
+		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
 		27766FEC19DFB021000B5211 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27766FEB19DFB021000B5211 /* Properties.plist */; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
+		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
+		277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
 		278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */; };
 		278BFBB419D08F0C00510C6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB319D08F0C00510C6E /* Constants.swift */; };
 		278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */; };
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		278BFBBF19D0AB7200510C6E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2791284319DF425200D15932 /* ProtoTestViewController.swift */; };
-		2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2791284419DF425200D15932 /* ProtoTestViewController.xib */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -136,6 +140,12 @@
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = SOURCE_ROOT; };
+		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
@@ -145,8 +155,6 @@
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
-		2791284319DF425200D15932 /* ProtoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoTestViewController.swift; sourceTree = "<group>"; };
-		2791284419DF425200D15932 /* ProtoTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProtoTestViewController.xib; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +167,8 @@
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E07123246612414D8B21D7A8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		94233DFE783DA964791402DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,9 +176,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F2D04B19E4BE540030726D /* MapKit.framework in Frameworks */,
+				277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */,
+				277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */,
 				2791284019DF417800D15932 /* Alamofire.framework in Frameworks */,
-				278BFBBF19D0AB7200510C6E /* Security.framework in Frameworks */,
 				277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */,
 				702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */,
 			);
@@ -202,6 +211,15 @@
 				0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2736B1EA19F5AE7400CBACC2 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */,
+				2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 		278BFBAF19D08D0900510C6E /* Media */ = {
@@ -270,8 +288,8 @@
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
 				27AC00AF19CB4B4F00F1F3B7 /* Products */,
-				E07123246612414D8B21D7A8 /* Pods.xcconfig */,
 				2F58809D7BAB43B4BBC9FE81 /* Frameworks */,
+				94BBC22086055EF21CD9199F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -287,26 +305,26 @@
 		27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */ = {
 			isa = PBXGroup;
 			children = (
+				2736B1EA19F5AE7400CBACC2 /* TableViewCells */,
 				060935F119F3086F0033F3D4 /* Map */,
-				27766FEB19DFB021000B5211 /* Properties.plist */,
 				2791284719DF43EA00D15932 /* Models */,
 				278BFBB619D0A36A00510C6E /* Helpers */,
 				278BFBAF19D08D0900510C6E /* Media */,
 				27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */,
 				278BFBB319D08F0C00510C6E /* Constants.swift */,
+				0609360019F33EB40033F3D4 /* Colors.swift */,
 				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
 				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
-				2791284319DF425200D15932 /* ProtoTestViewController.swift */,
-				2791284419DF425200D15932 /* ProtoTestViewController.xib */,
-				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
-				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
-				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
-				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
 				06F2D05219E4F3100030726D /* MapViewController.swift */,
 				06F2D05319E4F3100030726D /* MapViewController.xib */,
 				060935E319F300590033F3D4 /* VendorMapViewController.swift */,
 				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
-				0609360019F33EB40033F3D4 /* Colors.swift */,
+				2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */,
+				2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */,
+				27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */,
+				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
+				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
+				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -314,6 +332,9 @@
 		27AC00B119CB4B4F00F1F3B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27766FEB19DFB021000B5211 /* Properties.plist */,
+				2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */,
+				2736B1E519F5AE5000CBACC2 /* Podfile */,
 				063945AB19E56DB900B76100 /* Milwaukee.gpx */,
 				27AC00B219CB4B4F00F1F3B7 /* Info.plist */,
 			);
@@ -347,6 +368,15 @@
 				67065F4FABC149C7A197923C /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94BBC22086055EF21CD9199F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */,
+				94233DFE783DA964791402DF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,13 +507,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
-				2791284619DF425200D15932 /* ProtoTestViewController.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				060935FC19F334E30033F3D4 /* LocationSetterPinPink.png in Resources */,
+				2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */,
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
+				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
+				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
 				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
@@ -491,6 +523,7 @@
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
 				06A36AF719F558DB00F44F02 /* login.png in Resources */,
+				2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
 				27766FEC19DFB021000B5211 /* Properties.plist in Resources */,
@@ -563,7 +596,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -583,12 +616,13 @@
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
-				2791284519DF425200D15932 /* ProtoTestViewController.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
+				2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */,
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
+				2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */,
 				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
 				0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */,
 			);
@@ -703,57 +737,17 @@
 		};
 		27AC00CE19CB4B4F00F1F3B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07123246612414D8B21D7A8 /* Pods.xcconfig */;
+			baseConfigurationReference = C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/AndrewMoore/Documents/FacebookSDK,
-					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
-					/Users/ault/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					Accounts,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					Twitter,
-					"-framework",
-					UIKit,
-					"-weak_framework",
-					Accounts,
-					"-weak_framework",
-					AdSupport,
-					"-weak_framework",
-					AudioToolbox,
-					"-weak_framework",
-					CoreGraphics,
-					"-weak_framework",
-					CoreLocation,
-					"-weak_framework",
-					Foundation,
-					"-weak_framework",
-					QuartzCore,
-					"-weak_framework",
-					Security,
-					"-weak_framework",
-					Social,
-					"-weak_framework",
-					UIKit,
-					"-ObjC",
-					"-framework",
-					Reveal,
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};
@@ -761,57 +755,17 @@
 		};
 		27AC00CF19CB4B4F00F1F3B7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E07123246612414D8B21D7A8 /* Pods.xcconfig */;
+			baseConfigurationReference = 94233DFE783DA964791402DF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/AndrewMoore/Documents/FacebookSDK,
-					/Users/AndrewMoore/Documents/FacebookSDK/FBAudienceNetwork,
-					/Users/ault/Documents/FacebookSDK,
-					"$(PROJECT_DIR)/Frameworks",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-framework",
-					Accounts,
-					"-framework",
-					CoreGraphics,
-					"-framework",
-					Foundation,
-					"-framework",
-					QuartzCore,
-					"-framework",
-					Twitter,
-					"-framework",
-					UIKit,
-					"-weak_framework",
-					Accounts,
-					"-weak_framework",
-					AdSupport,
-					"-weak_framework",
-					AudioToolbox,
-					"-weak_framework",
-					CoreGraphics,
-					"-weak_framework",
-					CoreLocation,
-					"-weak_framework",
-					Foundation,
-					"-weak_framework",
-					QuartzCore,
-					"-weak_framework",
-					Security,
-					"-weak_framework",
-					Social,
-					"-weak_framework",
-					UIKit,
-					"-ObjC",
-					"-framework",
-					Reveal,
-				);
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};

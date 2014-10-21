@@ -26,6 +26,10 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         requestServingMode(servingModeSwitch.on)
     }
     
+    @IBAction func openMenu(sender: AnyObject) {
+        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil), animated: true)
+    }
+    
     let deltaDegrees = 0.005
     var locationManager: CLLocationManager!
     
@@ -77,7 +81,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     func changeComponentsColors() {
         servingModeLabel.textColor = servingModeSwitch.on ? pinkColor : UIColor.blackColor()
         navigationController?.navigationBar.barTintColor = servingModeSwitch.on ? pinkColor : wetAsphaltColor
-        locationSetterImage.image = servingModeSwitch.on ? UIImage(named:"LocationSetterPinPink.png") : UIImage(named:"LocationSetterPin.png")
+        locationSetterImage.image = servingModeSwitch.on ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
     }
     
     func setMapInteractability () {

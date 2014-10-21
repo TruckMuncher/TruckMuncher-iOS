@@ -18,6 +18,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
+    var loginViewController: LoginViewController?
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,19 +69,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var config: NSDictionary = NSDictionary()
         
         if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)
+            config = NSDictionary(contentsOfFile: path)!
         }
-        var loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController.twitterKey = config[kTwitterKey] as String
-        loginViewController.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController.twitterName = config[kTwitterName] as String
-        loginViewController.twitterCallback = config[kTwitterCallback] as String
+        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController!.twitterKey = config[kTwitterKey] as String
+        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as String
+        loginViewController!.twitterName = config[kTwitterName] as String
+        loginViewController!.twitterCallback = config[kTwitterCallback] as String
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushVendorMap", name: "loggedInNotification", object: nil)
         
-        loginViewController.modalPresentationStyle = .OverCurrentContext
+        loginViewController!.modalPresentationStyle = .OverCurrentContext
         navigationController?.modalTransitionStyle = .CoverVertical
-        navigationController?.presentViewController(loginViewController, animated: true, completion:  nil)
+        navigationController?.presentViewController(loginViewController!, animated: true, completion:  nil)
     }
     
     func pushVendorMap() {

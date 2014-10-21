@@ -85,7 +85,7 @@ final class HealthResponse : GeneratedMessage {
           output.writeString(1, value:key)
         }
         if hasValue {
-          output.writeEnum(2, value:value.toRaw())
+          output.writeEnum(2, value:value.rawValue)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
@@ -100,7 +100,7 @@ final class HealthResponse : GeneratedMessage {
           size += WireFormat.computeStringSize(1, value:key)
         }
         if (hasValue) {
-          size += WireFormat.computeEnumSize(2, value:value.toRaw())
+          size += WireFormat.computeEnumSize(2, value:value.rawValue)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
@@ -141,7 +141,7 @@ final class HealthResponse : GeneratedMessage {
           output += "\(indent) key: \(key) \n"
         }
         if (hasValue) {
-          output += "\(indent) value: \(value.toRaw())\n"
+          output += "\(indent) value: \(value.rawValue)\n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
@@ -152,7 +152,7 @@ final class HealthResponse : GeneratedMessage {
                  hashCode = (hashCode &* 31) &+ key.hashValue
               }
               if hasValue {
-                 hashCode = (hashCode &* 31) &+ Int(value.toRaw())
+                 hashCode = (hashCode &* 31) &+ Int(value.rawValue)
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -255,9 +255,9 @@ final class HealthResponse : GeneratedMessage {
 
           case 16 :
             var value = input.readEnum()
-            var enumMergResult:HealthResponse.Status = HealthResponse.Status.fromRaw(value)!
+            var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
             if (HealthResponse.Status.IsValidValue(enumMergResult)) {
-                 value = enumMergResult.toRaw()
+                 value = enumMergResult.rawValue
             } else {
                  unknownFieldsBuilder.mergeVarintField(2, value:Int64(value))
             }
@@ -552,22 +552,22 @@ final class HealthResponse : GeneratedMessage {
   }
   override func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasStatus {
-      output.writeEnum(1, value:status.toRaw())
+      output.writeEnum(1, value:status.rawValue)
     }
     if hasRevision {
       output.writeString(2, value:revision)
     }
     if hasNonce {
-      output.writeEnum(3, value:nonce.toRaw())
+      output.writeEnum(3, value:nonce.rawValue)
     }
     if hasTimestamp {
-      output.writeEnum(4, value:timestamp.toRaw())
+      output.writeEnum(4, value:timestamp.rawValue)
     }
     for element in checks {
         output.writeMessage(5, value:element)
     }
     if hasExternalServicesStatus {
-      output.writeEnum(6, value:externalServicesStatus.toRaw())
+      output.writeEnum(6, value:externalServicesStatus.rawValue)
     }
     for element in externalServices {
         output.writeMessage(7, value:element)
@@ -582,22 +582,22 @@ final class HealthResponse : GeneratedMessage {
 
     size = 0
     if (hasStatus) {
-      size += WireFormat.computeEnumSize(1, value:status.toRaw())
+      size += WireFormat.computeEnumSize(1, value:status.rawValue)
     }
     if hasRevision {
       size += WireFormat.computeStringSize(2, value:revision)
     }
     if (hasNonce) {
-      size += WireFormat.computeEnumSize(3, value:nonce.toRaw())
+      size += WireFormat.computeEnumSize(3, value:nonce.rawValue)
     }
     if (hasTimestamp) {
-      size += WireFormat.computeEnumSize(4, value:timestamp.toRaw())
+      size += WireFormat.computeEnumSize(4, value:timestamp.rawValue)
     }
     for element in checks {
         size += WireFormat.computeMessageSize(5, value:element)
     }
     if (hasExternalServicesStatus) {
-      size += WireFormat.computeEnumSize(6, value:externalServicesStatus.toRaw())
+      size += WireFormat.computeEnumSize(6, value:externalServicesStatus.rawValue)
     }
     for element in externalServices {
         size += WireFormat.computeMessageSize(7, value:element)
@@ -638,16 +638,16 @@ final class HealthResponse : GeneratedMessage {
   }
   override func writeDescriptionTo(inout output:String, indent:String) {
     if (hasStatus) {
-      output += "\(indent) status: \(status.toRaw())\n"
+      output += "\(indent) status: \(status.rawValue)\n"
     }
     if hasRevision {
       output += "\(indent) revision: \(revision) \n"
     }
     if (hasNonce) {
-      output += "\(indent) nonce: \(nonce.toRaw())\n"
+      output += "\(indent) nonce: \(nonce.rawValue)\n"
     }
     if (hasTimestamp) {
-      output += "\(indent) timestamp: \(timestamp.toRaw())\n"
+      output += "\(indent) timestamp: \(timestamp.rawValue)\n"
     }
     var checksElementIndex:Int = 0
     for element in checks {
@@ -657,7 +657,7 @@ final class HealthResponse : GeneratedMessage {
         checksElementIndex++
     }
     if (hasExternalServicesStatus) {
-      output += "\(indent) externalServicesStatus: \(externalServicesStatus.toRaw())\n"
+      output += "\(indent) externalServicesStatus: \(externalServicesStatus.rawValue)\n"
     }
     var externalServicesElementIndex:Int = 0
     for element in externalServices {
@@ -672,22 +672,22 @@ final class HealthResponse : GeneratedMessage {
       get {
           var hashCode:Int = 7
           if hasStatus {
-             hashCode = (hashCode &* 31) &+ Int(status.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(status.rawValue)
           }
           if hasRevision {
              hashCode = (hashCode &* 31) &+ revision.hashValue
           }
           if hasNonce {
-             hashCode = (hashCode &* 31) &+ Int(nonce.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(nonce.rawValue)
           }
           if hasTimestamp {
-             hashCode = (hashCode &* 31) &+ Int(timestamp.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(timestamp.rawValue)
           }
           for element in checks {
               hashCode = (hashCode &* 31) &+ element.hashValue
           }
           if hasExternalServicesStatus {
-             hashCode = (hashCode &* 31) &+ Int(externalServicesStatus.toRaw())
+             hashCode = (hashCode &* 31) &+ Int(externalServicesStatus.rawValue)
           }
           for element in externalServices {
               hashCode = (hashCode &* 31) &+ element.hashValue
@@ -886,7 +886,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 8 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status.fromRaw(value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              status = enumMergResult
         } else {
@@ -898,7 +898,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 24 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status.fromRaw(value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              nonce = enumMergResult
         } else {
@@ -907,7 +907,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 32 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status.fromRaw(value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              timestamp = enumMergResult
         } else {
@@ -921,7 +921,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 48 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status.fromRaw(value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              externalServicesStatus = enumMergResult
         } else {

@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*
+ * Non-value constants (such as keys into a dictionary) start with a k and are camel case
+ */
 let kTwitterOauthVerifier = "oauth_verifier"
 let kTwitterOauthToken = "oauth_token"
 let kTwitterOauthSecret = "oauth_secret"
@@ -18,3 +21,8 @@ let kTwitterKey = "twitter_key"
 let kTwitterSecretKey = "twitter_secret_key"
 
 let kCrashlyticsKey = "crashlytics_key"
+
+/*
+ * Constants holding real values used directly should take on the typical syntax that #define used in obj-c
+ */
+let MENU_CATEGORY_HEIGHT:CGFloat = 66.0
