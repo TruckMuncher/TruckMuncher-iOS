@@ -236,4 +236,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         selectedCells = [indexPath]
         doneEditingTable()
     }
+    
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+        return menu!.categories[indexPath.section].menuItems[indexPath.row].isAvailable ? "Out of Stock" : "In Stock"
+    }
 }
