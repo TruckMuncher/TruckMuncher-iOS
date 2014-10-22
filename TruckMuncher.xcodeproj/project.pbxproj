@@ -31,6 +31,8 @@
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
 		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
 		06A36AF819F558DB00F44F02 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF419F558DB00F44F02 /* login@2x.png */; };
+		06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */; };
+		06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
 		2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */; };
@@ -137,6 +139,8 @@
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
 		06A36AF319F558DB00F44F02 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		06A36AF419F558DB00F44F02 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
+		06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MuncherLogo.png; sourceTree = "<group>"; };
+		06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MuncherLogo@2x.png"; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -233,6 +237,8 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */,
+				06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */,
 				06A36AF119F558DB00F44F02 /* closeWhite.png */,
 				06A36AF219F558DB00F44F02 /* closeWhite@2x.png */,
 				06A36AF319F558DB00F44F02 /* login.png */,
@@ -508,6 +514,7 @@
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
+				06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
@@ -519,6 +526,7 @@
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
 				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
+				06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
