@@ -42,13 +42,12 @@ class TruckLocationAnnotationView: MKAnnotationView {
         countLabel.numberOfLines = 1
         countLabel.font = UIFont.boldSystemFontOfSize(12.0)
         countLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
-        countLabel.textColor = UIColor.whiteColor()
         self.addSubview(countLabel)
     }
     
     func setCount(count: Int) {
         self.count = count
-        countLabel.text = String(count)
+        countLabel.text = count > 1 ? String(count) : String()
         setNeedsLayout()
     }
     
@@ -63,31 +62,23 @@ class TruckLocationAnnotationView: MKAnnotationView {
         var countLabelFrame: CGRect
         
         if self.isUniqueLocation {
-            image = UIImage(named: "TruckPin")!
+            image = UIImage(named: "SingleTruckAnnotationIcon")!
             centerOffset = CGPointMake(0, image.size.height * 0.5);
             frame = self.bounds;
             frame.origin.y -= 2;
             countLabelFrame = frame;
         } else {
             var suffix: String
-            if self.count > 1000 {
+            if self.count > 50 {
                 suffix = "40"
-            } else if self.count > 500 {
-                suffix = "38"
-            } else if self.count > 200 {
-                suffix = "36"
-            } else if self.count > 100 {
-                suffix = "34"
-            } else if self.count > 50 {
-                suffix = "31"
             } else if self.count > 20 {
-                suffix = "28"
+                suffix = "35"
             } else if self.count > 10 {
-                suffix = "25"
+                suffix = "30"
             } else if self.count > 5 {
-                suffix = "24"
+                suffix = "25"
             } else {
-                suffix = "21"
+                suffix = "20"
             }
             var imageName = String(format: "ClusterIcon%@", arguments: [suffix])
             image = UIImage(named: imageName)!

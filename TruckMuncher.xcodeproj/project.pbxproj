@@ -20,6 +20,8 @@
 		0609360119F33EB40033F3D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609360019F33EB40033F3D4 /* Colors.swift */; };
 		0609360419F3662B0033F3D4 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360219F3662B0033F3D4 /* Menu.png */; };
 		0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360319F3662B0033F3D4 /* Menu@2x.png */; };
+		061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */; };
+		061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */; };
 		0636EDDA19F455F8003F3962 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
 		0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */; };
@@ -129,6 +131,8 @@
 		0609360019F33EB40033F3D4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0609360219F3662B0033F3D4 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 		0609360319F3662B0033F3D4 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
+		061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SingleTruckAnnotationIcon@2x.png"; sourceTree = "<group>"; };
+		061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingleTruckAnnotationIcon.png; sourceTree = "<group>"; };
 		0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
 		0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */,
+				061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */,
 				06D90F5519FF59C30086FA57 /* TruckPin@2x.png */,
 				06D90F5619FF59C30086FA57 /* TruckPin.png */,
 				06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */,
@@ -521,6 +527,7 @@
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */,
+				061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
@@ -533,6 +540,7 @@
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
 				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
+				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
