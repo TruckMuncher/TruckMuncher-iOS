@@ -13,5 +13,7 @@
 #import "STTwitter.h"
 #import "KeychainItemWrapper.h"
 #import "CCHMapClusterController.h"
+#import "CCHMapClusterControllerDelegate.h"
+#import "CCHMapClusterAnnotation.h"
 
 #endif

@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CCHMapClusterControllerDelegate  {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
@@ -20,6 +20,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
+    var count: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,42 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.addAnnotations(getTestData(), withCompletionHandler: nil)
+        mapClusterController.delegate = self
+        setClusterSettings()
+    }
+    
+    func setClusterSettings() {
+        mapClusterController.cellSize = 60
+        mapClusterController.marginFactor = 0.5
+        mapClusterController.maxZoomLevelForClustering = 25
+        mapClusterController.minUniqueLocationsForClustering = 2
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        var annotationView: MKAnnotationView!
+        if annotation is CCHMapClusterAnnotation{
+            let reuseId = "ClusterAnnotation"
+            var clusterAnnotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? TruckLocationAnnotationView
+            
+            if clusterAnnotationView != nil {
+                clusterAnnotationView!.annotation = annotation
+            } else {
+                clusterAnnotationView = TruckLocationAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+                clusterAnnotationView!.canShowCallout = false
+            }
+            var clusterAnnotation = annotation as CCHMapClusterAnnotation
+            clusterAnnotationView!.setCount(clusterAnnotation.annotations.count)
+            clusterAnnotationView?.isUniqueLocation = clusterAnnotation.isUniqueLocation()
+            annotationView = clusterAnnotationView!
+        }
+        return annotationView
+    }
+    
+    func mapClusterController(mapClusterController: CCHMapClusterController!, willReuseMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) {
+        if var clusterAnnotationView = self.mapView.viewForAnnotation(mapClusterAnnotation!) as? TruckLocationAnnotationView {
+            clusterAnnotationView.setCount(mapClusterAnnotation.annotations.count)
+            clusterAnnotationView.isUniqueLocation = mapClusterAnnotation.isUniqueLocation()
+        }
     }
     
     func zoomToCurrentLocation() {
@@ -94,7 +131,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    func getTestData() -> [MKAnnotation] {
+    func getTestData() -> [TruckLocationAnnotation] {
         var data: [Double] =
         [43.05265631,-87.90401198,
          43.03576388,-87.91721352,
@@ -123,12 +160,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
          43.04386196,-87.90218619,
          43.02695604,-87.90862889]
         
-        var points = [MKPointAnnotation]()
+        var points = [TruckLocationAnnotation]()
 
         for var i = 0; i < data.count; i+=2 {
-            var a = MKPointAnnotation()
             var location = CLLocationCoordinate2D(latitude: data[i], longitude: data[i+1])
-            a.setCoordinate(location)
+            var a = TruckLocationAnnotation(location: location)
             points.append(a)
         }
         
