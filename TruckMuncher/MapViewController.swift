@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
@@ -19,10 +19,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
-   
+    var mapClusterController: CCHMapClusterController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
+        self.mapView.delegate = self
+        
+        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+        mapClusterController.addAnnotations(getTestData(), withCompletionHandler: nil)
     }
     
     func zoomToCurrentLocation() {
@@ -85,8 +90,48 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func pushVendorMap() {
-        //We need to check if the login was successful somehow
         navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func getTestData() -> [MKAnnotation] {
+        var data: [Double] =
+        [43.05265631,-87.90401198,
+         43.03576388,-87.91721352,
+         43.02638076,-87.90735085,
+         43.04600575,-87.90082287,
+         43.0476906,-87.90938226,
+         43.04207734,-87.9229517,
+         43.04833173,-87.89582687,
+         43.03738504,-87.89517655,
+         43.0290022,-87.91630814,
+         43.04188092,-87.91600996,
+         43.04538683,-87.90294789,
+         43.04069801,-87.90840926,
+         43.03756858,-87.90004066,
+         43.02641297,-87.91294862,
+         43.03851439,-87.91370365,
+         43.03334973,-87.91801331,
+         43.05091557,-87.91482627,
+         43.05074858,-87.89720238,
+         43.02518068,-87.90899585,
+         43.04223255,-87.91285668,
+         43.04306691,-87.92162701,
+         43.04274613,-87.90421682,
+         43.04925296,-87.90021438,
+         43.04333435,-87.89825707,
+         43.04386196,-87.90218619,
+         43.02695604,-87.90862889]
+        
+        var points = [MKPointAnnotation]()
+
+        for var i = 0; i < data.count; i+=2 {
+            var a = MKPointAnnotation()
+            var location = CLLocationCoordinate2D(latitude: data[i], longitude: data[i+1])
+            a.setCoordinate(location)
+            points.append(a)
+        }
+        
+        return points
     }
 }

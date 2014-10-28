@@ -12,5 +12,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "STTwitter.h"
 #import "KeychainItemWrapper.h"
+#import "CCHMapClusterController.h"
 
 #endif

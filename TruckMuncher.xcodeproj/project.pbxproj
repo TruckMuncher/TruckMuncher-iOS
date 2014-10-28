@@ -31,6 +31,8 @@
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
 		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
 		06A36AF819F558DB00F44F02 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF419F558DB00F44F02 /* login@2x.png */; };
+		06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5519FF59C30086FA57 /* TruckPin@2x.png */; };
+		06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5619FF59C30086FA57 /* TruckPin.png */; };
 		06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */; };
 		06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
@@ -139,6 +141,8 @@
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
 		06A36AF319F558DB00F44F02 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		06A36AF419F558DB00F44F02 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
+		06D90F5519FF59C30086FA57 /* TruckPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TruckPin@2x.png"; sourceTree = "<group>"; };
+		06D90F5619FF59C30086FA57 /* TruckPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TruckPin.png; sourceTree = "<group>"; };
 		06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MuncherLogo.png; sourceTree = "<group>"; };
 		06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MuncherLogo@2x.png"; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -147,7 +151,7 @@
 		2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = SOURCE_ROOT; };
-		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
@@ -237,6 +241,8 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				06D90F5519FF59C30086FA57 /* TruckPin@2x.png */,
+				06D90F5619FF59C30086FA57 /* TruckPin.png */,
 				06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */,
 				06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */,
 				06A36AF119F558DB00F44F02 /* closeWhite.png */,
@@ -519,6 +525,7 @@
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				060935FC19F334E30033F3D4 /* LocationSetterPinPink.png in Resources */,
+				06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */,
 				2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */,
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
@@ -528,6 +535,7 @@
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
 				06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
+				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
 				06A36AF719F558DB00F44F02 /* login.png in Resources */,
