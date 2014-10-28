@@ -15,33 +15,51 @@ struct MenuManager {
         apiManager = APIManager()
     }
     
-    func getMenuItemAvailability(latitude lat: Double, longitude lon: Double) -> [RMenuItem] {
+    func getMenuItemAvailability(atLatitude lat: Double, longitude lon: Double) -> [RMenuItem] {
         let builder = MenuItemAvailabilityRequest.builder()
         builder.latitude = lat
         builder.longitude = lon
-        apiManager.post(url: "/getMenuItemAvailability", data: builder.build().getNSData())
+        apiManager.post(APIRouter.getMenuItemAvailability(builder.build().getNSData()), success: { (response, data) -> () in
+            // success
+        }) { (response, data, error) -> () in
+            // error
+        }
         return [RMenuItem]()
     }
     
-    func getFullMenus(latitude lat: Double, longitude lon: Double, includeAvailability avail: Bool) -> [RMenu] {
-        // TODO this should only be run once per time period (TBD) this is our update cache route
+    func getFullMenus(atLatitude lat: Double, longitude lon: Double, includeAvailability avail: Bool) -> [RMenu] {
+        // TODO this should only be run once per time period (TBD). this is our update cache route
         let builder = FullMenusRequest.builder()
         builder.latitude = lat
         builder.longitude = lon
         builder.includeAvailability = avail
-        apiManager.post(url: "/getFullMenus", data: builder.build().getNSData())
+        apiManager.post(APIRouter.getFullMenus(builder.build().getNSData()), success: { (response, data) -> () in
+            // success
+        }) { (response, data, error) -> () in
+            // error
+        }
         return [RMenu]()
     }
     
     func getMenu(#truckId: String) -> RMenu {
-        // TODO return cached copy instead of network request
-        let builder = MenuRequest.builder()
-        builder.truckId = truckId
-        apiManager.post(url: "/getMenu", data: builder.build().getNSData())
-        return RMenu()
+        let results = RMenu.objectsWhere("truckId = %@", truckId)
+        if results.count == 0 {
+            // get from network
+            let builder = MenuRequest.builder()
+            builder.truckId = truckId
+            apiManager.post(APIRouter.getMenu(builder.build().getNSData()), success: { (response, data) -> () in
+                // success
+            }) { (response, data, error) -> () in
+                // error
+            }
+            // TODO persist results in realm and return
+            return RMenu()
+        } else {
+            return results.firstObject() as RMenu
+        }
     }
     
-    func modifyMenuItemAvailability(menuItems items: [String: Bool]) {
+    func modifyMenuItemAvailability(#items: [String: Bool]) {
         let builder = ModifyMenuItemAvailabilityRequest.builder()
         var diffs = [MenuItemAvailability]()
         for (id, avail) in items {
@@ -51,6 +69,10 @@ struct MenuManager {
             diffs.append(itemBuilder.build())
         }
         builder.diff = diffs
-        apiManager.post(url: "/modifyMenuItemAvailability", data: builder.build().getNSData())
+        apiManager.post(APIRouter.modifyMenuItemAvailability(builder.build().getNSData()), success: { (response, data) -> () in
+            // success
+        }) { (response, data, error) -> () in
+            // error
+        }
     }
 }
