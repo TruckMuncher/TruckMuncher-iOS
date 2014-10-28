@@ -57,6 +57,16 @@
 		27AC00CA19CB4B4F00F1F3B7 /* TruckMuncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00C919CB4B4F00F1F3B7 /* TruckMuncherTests.swift */; };
 		27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */; };
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
+		27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536BB19FF4A6C009A8575 /* APIManager.swift */; };
+		27F536C119FF4C42009A8575 /* RMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C019FF4C42009A8575 /* RMenu.swift */; };
+		27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C219FF4C4B009A8575 /* RMenuItem.swift */; };
+		27F536C519FF4C57009A8575 /* RCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C419FF4C57009A8575 /* RCategory.swift */; };
+		27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C919FF4FE1009A8575 /* TrucksManager.swift */; };
+		27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536CB19FF4FEE009A8575 /* MenuManager.swift */; };
+		27F536CE19FF5215009A8575 /* RTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536CD19FF5215009A8575 /* RTruck.swift */; };
+		27FE9D3019FF5D0600060F79 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D2F19FF5D0600060F79 /* Realm.framework */; };
+		27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D3519FF5D2100060F79 /* libc++.dylib */; };
+		27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D3719FF5D6200060F79 /* RLMSupport.swift */; };
 		702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67065F4FABC149C7A197923C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +180,16 @@
 		27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
+		27F536BB19FF4A6C009A8575 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		27F536C019FF4C42009A8575 /* RMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMenu.swift; sourceTree = "<group>"; };
+		27F536C219FF4C4B009A8575 /* RMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMenuItem.swift; sourceTree = "<group>"; };
+		27F536C419FF4C57009A8575 /* RCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCategory.swift; sourceTree = "<group>"; };
+		27F536C919FF4FE1009A8575 /* TrucksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrucksManager.swift; sourceTree = "<group>"; };
+		27F536CB19FF4FEE009A8575 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		27F536CD19FF5215009A8575 /* RTruck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTruck.swift; sourceTree = "<group>"; };
+		27FE9D2F19FF5D0600060F79 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		27FE9D3519FF5D2100060F79 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		27FE9D3719FF5D6200060F79 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94233DFE783DA964791402DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +200,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */,
+				27FE9D3019FF5D0600060F79 /* Realm.framework in Frameworks */,
 				277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */,
 				277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */,
 				2791284019DF417800D15932 /* Alamofire.framework in Frameworks */,
@@ -311,6 +333,7 @@
 		27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */ = {
 			isa = PBXGroup;
 			children = (
+				27F536B619FF4A30009A8575 /* api */,
 				2736B1EA19F5AE7400CBACC2 /* TableViewCells */,
 				060935F119F3086F0033F3D4 /* Map */,
 				2791284719DF43EA00D15932 /* Models */,
@@ -364,9 +387,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		27F536B619FF4A30009A8575 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				27FE9D3719FF5D6200060F79 /* RLMSupport.swift */,
+				27F536CD19FF5215009A8575 /* RTruck.swift */,
+				27F536C019FF4C42009A8575 /* RMenu.swift */,
+				27F536C219FF4C4B009A8575 /* RMenuItem.swift */,
+				27F536C419FF4C57009A8575 /* RCategory.swift */,
+				27F536BB19FF4A6C009A8575 /* APIManager.swift */,
+				27F536C919FF4FE1009A8575 /* TrucksManager.swift */,
+				27F536CB19FF4FEE009A8575 /* MenuManager.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27FE9D3519FF5D2100060F79 /* libc++.dylib */,
+				27FE9D2F19FF5D0600060F79 /* Realm.framework */,
 				063945AD19E5859000B76100 /* Reveal.framework */,
 				06F2D04A19E4BE540030726D /* MapKit.framework */,
 				277AE77C19D2211E00914BE1 /* Crashlytics.framework */,
@@ -614,21 +654,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F536CE19FF5215009A8575 /* RTruck.swift in Sources */,
+				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
 				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
 				0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
+				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
+				27F536C119FF4C42009A8575 /* RMenu.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
+				27F536C519FF4C57009A8575 /* RCategory.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
+				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
+				27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
 				2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */,
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
+				27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
 				2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */,
 				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
