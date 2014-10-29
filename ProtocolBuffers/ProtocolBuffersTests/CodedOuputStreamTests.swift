@@ -61,8 +61,7 @@ internal class CodedOuputStreamTests: XCTestCase
         output.flush()
         
         var actual:NSData = rawOutput.propertyForKey(NSStreamDataWrittenToMemoryStreamKey) as NSData
-        println(actual.description)
-        println(data.description)
+
         XCTAssertTrue(data.isEqualToData(actual), "Test64");
         
         for var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2 {
@@ -136,17 +135,17 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func testWriteVarintOne()
     {
-        assertWriteVarint(bytes(0x00), value:0)
+        assertWriteVarint(bytes(Byte(0x00)), value:0)
     }
     
     func testWriteVarintTwo()
     {
-        assertWriteVarint(bytes(0x01), value:1)
+        assertWriteVarint(bytes(Byte(0x01)), value:1)
     }
     
     func testWriteVarintThree()
     {
-        assertWriteVarint(bytes(0x7f), value:127)
+        assertWriteVarint(bytes(Byte(0x7f)), value:127)
     }
     
     func testWriteVarintFour()

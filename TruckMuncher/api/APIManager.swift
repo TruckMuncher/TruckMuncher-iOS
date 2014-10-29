@@ -18,18 +18,21 @@ class APIManager {
         manager = Alamofire.Manager(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
 
-    func post(request: URLRequestConvertible, success: (response: NSHTTPURLResponse?, data: AnyObject?) -> (), error: (response: NSHTTPURLResponse?, data: AnyObject?, error: NSError?) -> ()) {
+    func post(request: URLRequestConvertible, success successBlock: (response: NSHTTPURLResponse?, data: NSData?) -> (), error errorBlock: (response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> ()) {
         
         Alamofire.request(request)
+            .validate(statusCode: [200])
             .response { (request, response, data, error) -> Void in
                 println("request \(request)")
                 println("response \(response)")
                 println("data \(data)")
                 println("error \(error)")
                 
-                if let nsdata = data as? NSData {
-                    var availabilityResponse = ModifyMenuItemAvailabilityResponse.parseFromNSData(nsdata)
-                    println("availability response \(availabilityResponse)")
+                let nsdata = data as? NSData
+                if error == nil {
+                    successBlock(response: response, data: nsdata)
+                } else {
+                    errorBlock(response: response, data: nsdata, error: error)
                 }
         }
     }
@@ -39,7 +42,7 @@ enum APIRouter: URLRequestConvertible {
     static let baseUrl = "https://api.truckmuncher.com:8443"
     
     case getActiveTrucks(NSData)
-    case getTrucksForVendor()
+    case getTrucksForVendor(NSData)
     case getTruckProfiles(NSData)
     case modifyServingMode(NSData)
     
@@ -55,8 +58,8 @@ enum APIRouter: URLRequestConvertible {
         switch self {
         case .getActiveTrucks(let data):
             return ("/getActiveTrucks", data)
-        case .getTrucksForVendor():
-            return ("/getTrucksForVendor", nil)
+        case .getTrucksForVendor(let data):
+            return ("/getTrucksForVendor", data)
         case .getTruckProfiles(let data):
             return ("/getTruckProfiles", data)
         case .modifyServingMode(let data):

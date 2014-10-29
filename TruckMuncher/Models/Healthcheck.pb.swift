@@ -3,15 +3,21 @@
 import Foundation
 import ProtocolBuffers
 
-private class HealthcheckRoot {
-var extensionRegistry:ExtensionRegistry
+struct HealthcheckRoot {
+  static var sharedInstance : HealthcheckRoot {
+   struct Static {
+       static let instance : HealthcheckRoot = HealthcheckRoot()
+   }
+   return Static.instance
+  }
+  var extensionRegistry:ExtensionRegistry
 
-init() {
-extensionRegistry = ExtensionRegistry()
-registerAllExtensions(extensionRegistry)
-}
-func registerAllExtensions(registry:ExtensionRegistry) {
-}
+  init() {
+    extensionRegistry = ExtensionRegistry()
+    registerAllExtensions(extensionRegistry)
+  }
+  func registerAllExtensions(registry:ExtensionRegistry) {
+  }
 }
 
 func == (lhs: HealthResponse.Check, rhs: HealthResponse.Check) -> Bool {
@@ -57,21 +63,21 @@ func == (lhs: HealthRequest, rhs: HealthRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class HealthResponse : GeneratedMessage {
+final public class HealthResponse : GeneratedMessage {
 
 
-  //Nested type declaration start 
+  //Nested type declaration start
 
-    final class Check : GeneratedMessage {
+    final public class Check : GeneratedMessage {
       private(set) var hasKey:Bool = false
       private(set) var key:String = ""
 
       private(set) var value:HealthResponse.Status = HealthResponse.Status.Ok
       private(set) var hasValue:Bool = false
-      required init() {
+      required public init() {
            super.init()
       }
-      override func isInitialized() -> Bool {
+      override public func isInitialized() -> Bool {
         if !hasKey {
           return false
         }
@@ -80,7 +86,7 @@ final class HealthResponse : GeneratedMessage {
         }
        return true
       }
-      override func writeToCodedOutputStream(output:CodedOutputStream) {
+      override public func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasKey {
           output.writeString(1, value:key)
         }
@@ -89,7 +95,7 @@ final class HealthResponse : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override func serializedSize() -> Int32 {
+      override public func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -124,19 +130,19 @@ final class HealthResponse : GeneratedMessage {
       class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> HealthResponse.Check {
         return HealthResponse.Check.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> CheckBuilder {
-        return CheckBuilder()
+      class func builder() -> HealthResponse.CheckBuilder {
+        return HealthResponse.CheckBuilder()
       }
-      class func builderWithPrototype(prototype:Check) -> CheckBuilder {
-        return Check.builder().mergeFrom(prototype)
+      class func builderWithPrototype(prototype:HealthResponse.Check) -> HealthResponse.CheckBuilder {
+        return HealthResponse.Check.builder().mergeFrom(prototype)
       }
-      func builder() -> CheckBuilder {
-        return Check.builder()
+      func builder() -> HealthResponse.CheckBuilder {
+        return HealthResponse.Check.builder()
       }
-      func toBuilder() -> CheckBuilder {
-        return Check.builderWithPrototype(self)
+      func toBuilder() -> HealthResponse.CheckBuilder {
+        return HealthResponse.Check.builderWithPrototype(self)
       }
-      override func writeDescriptionTo(inout output:String, indent:String) {
+      override public func writeDescriptionTo(inout output:String, indent:String) {
         if hasKey {
           output += "\(indent) key: \(key) \n"
         }
@@ -145,7 +151,7 @@ final class HealthResponse : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override var hashValue:Int {
+      override public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasKey {
@@ -158,6 +164,20 @@ final class HealthResponse : GeneratedMessage {
               return hashCode
           }
       }
+
+
+      //Meta information declaration start
+
+      override public class func className() -> String {
+          return "HealthResponse.Check"
+      }
+      override public func classMetaType() -> GeneratedMessage.Type {
+          return HealthResponse.Check.self
+      }
+
+
+      //Meta information declaration end
+
     }
 
     final class CheckBuilder : GeneratedMessageBuilder {
@@ -217,7 +237,7 @@ final class HealthResponse : GeneratedMessage {
       override func clone() -> HealthResponse.CheckBuilder {
         return HealthResponse.Check.builderWithPrototype(builderResult)
       }
-      func build() -> HealthResponse.Check {
+      override func build() -> HealthResponse.Check {
            checkInitialized()
            return buildPartial()
       }
@@ -227,15 +247,15 @@ final class HealthResponse : GeneratedMessage {
       }
       func mergeFrom(other:HealthResponse.Check) -> HealthResponse.CheckBuilder {
         if (other == HealthResponse.Check()) {
-          return self
+         return self
         }
-      if other.hasKey {
-           key = other.key
-      }
-      if other.hasValue {
-           value = other.value
-      }
-          mergeUnknownFields(other.unknownFields)
+        if other.hasKey {
+             key = other.key
+        }
+        if other.hasValue {
+             value = other.value
+        }
+        mergeUnknownFields(other.unknownFields)
         return self
       }
       override func mergeFromCodedInputStream(input:CodedInputStream) ->HealthResponse.CheckBuilder {
@@ -255,7 +275,7 @@ final class HealthResponse : GeneratedMessage {
 
           case 16 :
             var value = input.readEnum()
-            var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
+            var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue:value)!
             if (HealthResponse.Status.IsValidValue(enumMergResult)) {
                  value = enumMergResult.rawValue
             } else {
@@ -274,29 +294,29 @@ final class HealthResponse : GeneratedMessage {
 
 
 
-  //Nested type declaration end 
+  //Nested type declaration end
 
 
 
-  //Nested type declaration start 
+  //Nested type declaration start
 
-    final class ExternalService : GeneratedMessage {
+    final public class ExternalService : GeneratedMessage {
       private(set) var hasKey:Bool = false
       private(set) var key:String = ""
 
       private(set) var hasValue:Bool = false
       private(set) var value:String = ""
 
-      required init() {
+      required public init() {
            super.init()
       }
-      override func isInitialized() -> Bool {
+      override public func isInitialized() -> Bool {
         if !hasKey {
           return false
         }
        return true
       }
-      override func writeToCodedOutputStream(output:CodedOutputStream) {
+      override public func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasKey {
           output.writeString(1, value:key)
         }
@@ -305,7 +325,7 @@ final class HealthResponse : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override func serializedSize() -> Int32 {
+      override public func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -340,19 +360,19 @@ final class HealthResponse : GeneratedMessage {
       class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> HealthResponse.ExternalService {
         return HealthResponse.ExternalService.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> ExternalServiceBuilder {
-        return ExternalServiceBuilder()
+      class func builder() -> HealthResponse.ExternalServiceBuilder {
+        return HealthResponse.ExternalServiceBuilder()
       }
-      class func builderWithPrototype(prototype:ExternalService) -> ExternalServiceBuilder {
-        return ExternalService.builder().mergeFrom(prototype)
+      class func builderWithPrototype(prototype:HealthResponse.ExternalService) -> HealthResponse.ExternalServiceBuilder {
+        return HealthResponse.ExternalService.builder().mergeFrom(prototype)
       }
-      func builder() -> ExternalServiceBuilder {
-        return ExternalService.builder()
+      func builder() -> HealthResponse.ExternalServiceBuilder {
+        return HealthResponse.ExternalService.builder()
       }
-      func toBuilder() -> ExternalServiceBuilder {
-        return ExternalService.builderWithPrototype(self)
+      func toBuilder() -> HealthResponse.ExternalServiceBuilder {
+        return HealthResponse.ExternalService.builderWithPrototype(self)
       }
-      override func writeDescriptionTo(inout output:String, indent:String) {
+      override public func writeDescriptionTo(inout output:String, indent:String) {
         if hasKey {
           output += "\(indent) key: \(key) \n"
         }
@@ -361,7 +381,7 @@ final class HealthResponse : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override var hashValue:Int {
+      override public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasKey {
@@ -374,6 +394,20 @@ final class HealthResponse : GeneratedMessage {
               return hashCode
           }
       }
+
+
+      //Meta information declaration start
+
+      override public class func className() -> String {
+          return "HealthResponse.ExternalService"
+      }
+      override public func classMetaType() -> GeneratedMessage.Type {
+          return HealthResponse.ExternalService.self
+      }
+
+
+      //Meta information declaration end
+
     }
 
     final class ExternalServiceBuilder : GeneratedMessageBuilder {
@@ -433,7 +467,7 @@ final class HealthResponse : GeneratedMessage {
       override func clone() -> HealthResponse.ExternalServiceBuilder {
         return HealthResponse.ExternalService.builderWithPrototype(builderResult)
       }
-      func build() -> HealthResponse.ExternalService {
+      override func build() -> HealthResponse.ExternalService {
            checkInitialized()
            return buildPartial()
       }
@@ -443,15 +477,15 @@ final class HealthResponse : GeneratedMessage {
       }
       func mergeFrom(other:HealthResponse.ExternalService) -> HealthResponse.ExternalServiceBuilder {
         if (other == HealthResponse.ExternalService()) {
-          return self
+         return self
         }
-      if other.hasKey {
-           key = other.key
-      }
-      if other.hasValue {
-           value = other.value
-      }
-          mergeUnknownFields(other.unknownFields)
+        if other.hasKey {
+             key = other.key
+        }
+        if other.hasValue {
+             value = other.value
+        }
+        mergeUnknownFields(other.unknownFields)
         return self
       }
       override func mergeFromCodedInputStream(input:CodedInputStream) ->HealthResponse.ExternalServiceBuilder {
@@ -484,11 +518,11 @@ final class HealthResponse : GeneratedMessage {
 
 
 
-  //Nested type declaration end 
+  //Nested type declaration end
 
 
 
-  //Enum type declaration start 
+    //Enum type declaration start 
 
     enum Status:Int32 {
       case Ok = 1
@@ -506,7 +540,7 @@ final class HealthResponse : GeneratedMessage {
 
 
 
-  //Enum type declaration end 
+    //Enum type declaration end 
 
   private(set) var status:HealthResponse.Status = HealthResponse.Status.Bad
   private(set) var hasStatus:Bool = false
@@ -521,10 +555,10 @@ final class HealthResponse : GeneratedMessage {
   private(set) var hasExternalServicesStatus:Bool = false
   private(set) var checks:Array<HealthResponse.Check>  = Array<HealthResponse.Check>()
   private(set) var externalServices:Array<HealthResponse.ExternalService>  = Array<HealthResponse.ExternalService>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasStatus {
       return false
     }
@@ -550,7 +584,7 @@ final class HealthResponse : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasStatus {
       output.writeEnum(1, value:status.rawValue)
     }
@@ -574,7 +608,7 @@ final class HealthResponse : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -636,7 +670,7 @@ final class HealthResponse : GeneratedMessage {
   func toBuilder() -> HealthResponseBuilder {
     return HealthResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if (hasStatus) {
       output += "\(indent) status: \(status.rawValue)\n"
     }
@@ -668,7 +702,7 @@ final class HealthResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasStatus {
@@ -696,6 +730,20 @@ final class HealthResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "HealthResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return HealthResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class HealthResponseBuilder : GeneratedMessageBuilder {
@@ -836,7 +884,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> HealthResponseBuilder {
     return HealthResponse.builderWithPrototype(builderResult)
   }
-  func build() -> HealthResponse {
+  override func build() -> HealthResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -846,30 +894,30 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:HealthResponse) -> HealthResponseBuilder {
     if (other == HealthResponse()) {
-      return self
+     return self
     }
-  if other.hasStatus {
-       status = other.status
-  }
-  if other.hasRevision {
-       revision = other.revision
-  }
-  if other.hasNonce {
-       nonce = other.nonce
-  }
-  if other.hasTimestamp {
-       timestamp = other.timestamp
-  }
-  if !other.checks.isEmpty  {
-     builderResult.checks += other.checks
-  }
-  if other.hasExternalServicesStatus {
-       externalServicesStatus = other.externalServicesStatus
-  }
-  if !other.externalServices.isEmpty  {
-     builderResult.externalServices += other.externalServices
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasStatus {
+         status = other.status
+    }
+    if other.hasRevision {
+         revision = other.revision
+    }
+    if other.hasNonce {
+         nonce = other.nonce
+    }
+    if other.hasTimestamp {
+         timestamp = other.timestamp
+    }
+    if !other.checks.isEmpty  {
+       builderResult.checks += other.checks
+    }
+    if other.hasExternalServicesStatus {
+         externalServicesStatus = other.externalServicesStatus
+    }
+    if !other.externalServices.isEmpty  {
+       builderResult.externalServices += other.externalServices
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->HealthResponseBuilder {
@@ -886,7 +934,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 8 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue:value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              status = enumMergResult
         } else {
@@ -898,7 +946,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 24 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue:value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              nonce = enumMergResult
         } else {
@@ -907,7 +955,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 32 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue:value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              timestamp = enumMergResult
         } else {
@@ -921,7 +969,7 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
 
       case 48 :
         var value = input.readEnum()
-        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue: value)!
+        var enumMergResult:HealthResponse.Status = HealthResponse.Status(rawValue:value)!
         if (HealthResponse.Status.IsValidValue(enumMergResult)) {
              externalServicesStatus = enumMergResult
         } else {
@@ -943,17 +991,17 @@ final class HealthResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class HealthRequest : GeneratedMessage {
-  required init() {
+final public class HealthRequest : GeneratedMessage {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -994,16 +1042,30 @@ final class HealthRequest : GeneratedMessage {
   func toBuilder() -> HealthRequestBuilder {
     return HealthRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "HealthRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return HealthRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class HealthRequestBuilder : GeneratedMessageBuilder {
@@ -1025,7 +1087,7 @@ final class HealthRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> HealthRequestBuilder {
     return HealthRequest.builderWithPrototype(builderResult)
   }
-  func build() -> HealthRequest {
+  override func build() -> HealthRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -1035,9 +1097,9 @@ final class HealthRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:HealthRequest) -> HealthRequestBuilder {
     if (other == HealthRequest()) {
-      return self
+     return self
     }
-      mergeUnknownFields(other.unknownFields)
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->HealthRequestBuilder {

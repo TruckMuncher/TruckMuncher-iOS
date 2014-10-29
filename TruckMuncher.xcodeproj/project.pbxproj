@@ -20,7 +20,6 @@
 		0609360119F33EB40033F3D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609360019F33EB40033F3D4 /* Colors.swift */; };
 		0609360419F3662B0033F3D4 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360219F3662B0033F3D4 /* Menu.png */; };
 		0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360319F3662B0033F3D4 /* Menu@2x.png */; };
-		0636EDDA19F455F8003F3962 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
 		0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */; };
 		0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */; };
@@ -68,24 +67,13 @@
 		27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D3519FF5D2100060F79 /* libc++.dylib */; };
 		27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D3719FF5D6200060F79 /* RLMSupport.swift */; };
 		27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D391A0042AE00060F79 /* AuthManager.swift */; };
+		27FE9D441A00707900060F79 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D411A00707300060F79 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D451A00799200060F79 /* Auth.pb.swift */; };
+		27FE9D481A0079EF00060F79 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D471A0079EF00060F79 /* RUser.swift */; };
 		702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67065F4FABC149C7A197923C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0636EDD619F455ED003F3962 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F85569919C71BCF003802F2;
-			remoteInfo = ProtocolBuffers;
-		};
-		0636EDD819F455ED003F3962 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
-			remoteInfo = UnitTesting;
-		};
 		2791283A19DF414D00D15932 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
@@ -107,6 +95,20 @@
 			remoteGlobalIDString = 27AC00AD19CB4B4F00F1F3B7;
 			remoteInfo = TruckMuncher;
 		};
+		27FE9D401A00707300060F79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F85569919C71BCF003802F2;
+			remoteInfo = ProtocolBuffers;
+		};
+		27FE9D421A00707300060F79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
+			remoteInfo = UnitTesting;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -116,7 +118,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0636EDDA19F455F8003F3962 /* ProtocolBuffers.framework in Copy Frameworks */,
+				27FE9D441A00707900060F79 /* ProtocolBuffers.framework in Copy Frameworks */,
 				2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -138,7 +140,6 @@
 		0609360019F33EB40033F3D4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0609360219F3662B0033F3D4 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 		0609360319F3662B0033F3D4 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
-		0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
 		0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
 		0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu_admin.pb.swift; sourceTree = "<group>"; };
@@ -192,6 +193,9 @@
 		27FE9D3519FF5D2100060F79 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		27FE9D3719FF5D6200060F79 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		27FE9D391A0042AE00060F79 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
+		27FE9D451A00799200060F79 /* Auth.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.pb.swift; sourceTree = "<group>"; };
+		27FE9D471A0079EF00060F79 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94233DFE783DA964791402DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -230,15 +234,6 @@
 				060935FE19F3370E0033F3D4 /* ServingModePulse.swift */,
 			);
 			name = Map;
-			sourceTree = "<group>";
-		};
-		0636EDD019F455ED003F3962 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */,
-				0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2736B1EA19F5AE7400CBACC2 /* TableViewCells */ = {
@@ -301,6 +296,7 @@
 		2791284719DF43EA00D15932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				27FE9D451A00799200060F79 /* Auth.pb.swift */,
 				0636EDDB19F456B9003F3962 /* Error.pb.swift */,
 				0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */,
 				0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */,
@@ -313,7 +309,7 @@
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
-				0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */,
+				27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */,
 				2791283519DF414D00D15932 /* Alamofire.xcodeproj */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
@@ -393,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				27FE9D3719FF5D6200060F79 /* RLMSupport.swift */,
+				27FE9D471A0079EF00060F79 /* RUser.swift */,
 				27F536CD19FF5215009A8575 /* RTruck.swift */,
 				27F536C019FF4C42009A8575 /* RMenu.swift */,
 				27F536C219FF4C4B009A8575 /* RMenuItem.swift */,
@@ -403,6 +400,15 @@
 				27FE9D391A0042AE00060F79 /* AuthManager.swift */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		27FE9D3C1A00707300060F79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27FE9D411A00707300060F79 /* ProtocolBuffers.framework */,
+				27FE9D431A00707300060F79 /* ProtocolBuffersTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
@@ -507,8 +513,8 @@
 					ProjectRef = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = 0636EDD019F455ED003F3962 /* Products */;
-					ProjectRef = 0636EDCF19F455ED003F3962 /* ProtocolBuffers.xcodeproj */;
+					ProductGroup = 27FE9D3C1A00707300060F79 /* Products */;
+					ProjectRef = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -520,20 +526,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		0636EDD719F455ED003F3962 /* ProtocolBuffers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ProtocolBuffers.framework;
-			remoteRef = 0636EDD619F455ED003F3962 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0636EDD919F455ED003F3962 /* ProtocolBuffersTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ProtocolBuffersTests.xctest;
-			remoteRef = 0636EDD819F455ED003F3962 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		2791283B19DF414D00D15932 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -546,6 +538,20 @@
 			fileType = wrapper.cfbundle;
 			path = AlamofireTests.xctest;
 			remoteRef = 2791283C19DF414D00D15932 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27FE9D411A00707300060F79 /* ProtocolBuffers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ProtocolBuffers.framework;
+			remoteRef = 27FE9D401A00707300060F79 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27FE9D431A00707300060F79 /* ProtocolBuffersTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ProtocolBuffersTests.xctest;
+			remoteRef = 27FE9D421A00707300060F79 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -672,6 +678,8 @@
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
 				27F536C519FF4C57009A8575 /* RCategory.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
+				27FE9D481A0079EF00060F79 /* RUser.swift in Sources */,
+				27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,

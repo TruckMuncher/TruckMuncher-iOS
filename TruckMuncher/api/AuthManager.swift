@@ -15,19 +15,32 @@ struct AuthManager {
         apiManager = APIManager()
     }
     
-    func signIn(authorization auth: String) {
+    func signIn(authorization auth: String, success successBlock: (response: RUser) -> (), error errorBlock: (error: Error?) -> ()) {
         apiManager.post(APIRouter.signIn(), success: { (response, data) -> () in
             // success
+            var authResponse = AuthResponse.parseFromNSData(data!)
+            successBlock(response: RUser(authResponse))
         }) { (response, data, error) -> () in
             // error
+            var errorResponse: Error? = nil
+            if let nsdata = data {
+                errorResponse = Error.parseFromNSData(data!)
+            }
+            errorBlock(error: errorResponse)
         }
     }
     
-    func signOut() {
+    func signOut(success successBlock: () -> (), error errorBlock: (error: Error?) -> ()) {
         apiManager.post(APIRouter.signOut(), success: { (response, data) -> () in
             // success
+            successBlock()
         }) { (response, data, error) -> () in
             // error
+            var errorResponse: Error? = nil
+            if let nsdata = data {
+                errorResponse = Error.parseFromNSData(data!)
+            }
+            errorBlock(error: errorResponse)
         }
     }
 }
