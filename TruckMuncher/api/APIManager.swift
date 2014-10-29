@@ -20,7 +20,7 @@ class APIManager {
 
     func post(request: URLRequestConvertible, success successBlock: (response: NSHTTPURLResponse?, data: NSData?) -> (), error errorBlock: (response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> ()) {
         
-        Alamofire.request(request)
+        manager.request(request)
             .validate(statusCode: [200])
             .response { (request, response, data, error) -> Void in
                 println("request \(request)")
@@ -39,7 +39,7 @@ class APIManager {
 }
 
 enum APIRouter: URLRequestConvertible {
-    static let baseUrl = "https://api.truckmuncher.com:8443"
+    static let baseUrl = "http://10.0.1.5:8443"
     
     case getActiveTrucks(NSData)
     case getTrucksForVendor(NSData)
@@ -57,21 +57,21 @@ enum APIRouter: URLRequestConvertible {
     var properties: (path: String, parameters: NSData?) {
         switch self {
         case .getActiveTrucks(let data):
-            return ("/getActiveTrucks", data)
+            return ("/com.truckmuncher.api.trucks.TruckService/getActiveTrucks", data)
         case .getTrucksForVendor(let data):
-            return ("/getTrucksForVendor", data)
+            return ("/com.truckmuncher.api.trucks.TruckService/getTrucksForVendor", data)
         case .getTruckProfiles(let data):
-            return ("/getTruckProfiles", data)
+            return ("/com.truckmuncher.api.trucks.TruckService/getTruckProfiles", data)
         case .modifyServingMode(let data):
-            return ("/modifyServingMode", data)
+            return ("/com.truckmuncher.api.trucks.TruckService/modifyServingMode", data)
         case .getMenuItemAvailability(let data):
-            return ("/getMenuItemAvailability", data)
+            return ("/com.truckmuncher.api.menu.MenuService/getMenuItemAvailability", data)
         case .getFullMenus(let data):
-            return ("/getFullMenus", data)
+            return ("/com.truckmuncher.api.menu.MenuService/getFullMenus", data)
         case .getMenu(let data):
-            return ("/getMenu", data)
+            return ("/com.truckmuncher.api.menu.MenuService/getMenu", data)
         case .modifyMenuItemAvailability(let data):
-            return ("/modifyMenuItemAvailability", data)
+            return ("/com.truckmuncher.api.menu.MenuService/modifyMenuItemAvailability", data)
         case .signIn():
             return ("/auth", nil)
         case .signOut():
@@ -98,9 +98,9 @@ enum APIRouter: URLRequestConvertible {
 
 struct NonceUtils {
     static func generateNonce() -> String {
-        var bytes = [UInt8]()
-        SecRandomCopyBytes(kSecRandomDefault, 32, &bytes)
-        let data = NSData(bytes: bytes, length: 32)
+        let length = 32
+        let data = NSMutableData(length: length)!
+        let result = SecRandomCopyBytes(kSecRandomDefault, UInt(length), UnsafeMutablePointer<UInt8>(data.mutableBytes))
         return data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
     }
 }

@@ -11,7 +11,7 @@ import MapKit
 import Alamofire
 
 class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    
+    let truckManager = TrucksManager()
     @IBOutlet var locationSetterImage: UIImageView!
     @IBOutlet var servingModeLabel: UILabel!
     @IBOutlet var servingModeView: UIVisualEffectView!
@@ -100,26 +100,11 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func requestServingMode (isServing: Bool) {
-        let requestBuilder = ServingModeRequest.builder()
-        requestBuilder.truckId = "9570d5d3-3caa-46d2-89fd-ae503e032823" //TODO un-hard-code this value
-        requestBuilder.truckLatitude = vendorMapView.centerCoordinate.latitude
-        requestBuilder.truckLongitude = vendorMapView.centerCoordinate.longitude
-        requestBuilder.isInServingMode = isServing
-        let servingModeRequest = requestBuilder.build()
-        let data = servingModeRequest.getNSData()
-        
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Content-Type": "application/x-protobuf", "Accept": "application/x-protobuf", "Authorization": "access_token=\(FBSession.activeSession().accessTokenData.accessToken)"]
-        Alamofire.upload(.POST, "https://api.truckmuncher.com:8443/com.truckmuncher.api.trucks.TruckService/modifyServingMode", data)
-            .response { (request, response, data, error) -> Void in
-                println("request \(request)")
-                println("response \(response)")
-                println("data \(data)")
-                println("error \(error)")
-                
-                if let nsdata = data as? NSData {
-                    var truckResponse = ServingModeResponse.parseFromNSData(nsdata)
-                    println("serving mode request response \(truckResponse)")
-                }
+        //TODO un-hard-code this value
+        truckManager.modifyServingMode(truckId: "f88370a5-3b12-4f8d-a1b4-da23feee4667", isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
+            println("success setting serving mode!")
+        }) { (error) -> () in
+            println("error \(error)")
         }
     }
 }
