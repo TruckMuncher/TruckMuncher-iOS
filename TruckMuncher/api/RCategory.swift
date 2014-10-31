@@ -16,15 +16,20 @@ class RCategory: RLMObject {
     dynamic var orderInMenu = 0
     dynamic var menuItems = RLMArray(objectClassName: RMenuItem.className())
     
-    init(_ category: Category) {
-        id = category.id
-        name = category.name
-        notes = category.notes
-        orderInMenu = Int(category.orderInMenu)
-        for menuItem in category.menuItems {
-            menuItems.addObject(RMenuItem(menuItem))
-        }
+    override init() {
         super.init()
+    }
+    
+    class func initFromProto(category: Category) -> RCategory {
+        let rcategory = RCategory()
+        rcategory.id = category.id
+        rcategory.name = category.name
+        rcategory.notes = category.notes
+        rcategory.orderInMenu = Int(category.orderInMenu)
+        for menuItem in category.menuItems {
+            rcategory.menuItems.addObject(RMenuItem.initFromProto(menuItem))
+        }
+        return rcategory
     }
     
     override class func primaryKey() -> String! {

@@ -18,20 +18,26 @@ class RTruck: RLMObject {
     dynamic var longitude = 0.0
     dynamic var isNew = false
     
-    init(_ truck: ActiveTrucksResponse.Truck) {
-        id = truck.id
-        latitude = truck.latitude
-        longitude = truck.longitude
+    override init() {
         super.init()
     }
     
-    init(_ truck: Truck, isNew: Bool) {
-        id = truck.id
-        name = truck.name
-        imageUrl = truck.imageUrl
-        keywords = truck.keywords
-        self.isNew = isNew
-        super.init()
+    class func initFromProto(truck: ActiveTrucksResponse.Truck) -> RTruck {
+        let rtruck = RTruck()
+        rtruck.id = truck.id
+        rtruck.latitude = truck.latitude
+        rtruck.longitude = truck.longitude
+        return rtruck
+    }
+    
+    class func initFromProto(truck: Truck, isNew: Bool) -> RTruck {
+        let rtruck = RTruck()
+        rtruck.id = truck.id
+        rtruck.name = truck.name
+        rtruck.imageUrl = truck.imageUrl
+        rtruck.keywords = truck.keywords
+        rtruck.isNew = isNew
+        return rtruck
     }
     
     override class func primaryKey() -> String! {

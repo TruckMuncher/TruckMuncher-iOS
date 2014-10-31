@@ -33,7 +33,7 @@ func == (lhs: AuthResponse, rhs: AuthResponse) -> Bool {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasId == rhs.hasId) && (!lhs.hasId || lhs.id == rhs.id)
+  fieldCheck = fieldCheck && (lhs.hasUserId == rhs.hasUserId) && (!lhs.hasUserId || lhs.userId == rhs.userId)
   fieldCheck = fieldCheck && (lhs.hasUsername == rhs.hasUsername) && (!lhs.hasUsername || lhs.username == rhs.username)
   fieldCheck = fieldCheck && (lhs.hasSessionToken == rhs.hasSessionToken) && (!lhs.hasSessionToken || lhs.sessionToken == rhs.sessionToken)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -181,8 +181,8 @@ final class AuthRequestBuilder : GeneratedMessageBuilder {
 }
 
 final public class AuthResponse : GeneratedMessage {
-  private(set) var hasId:Bool = false
-  private(set) var id:String = ""
+  private(set) var hasUserId:Bool = false
+  private(set) var userId:String = ""
 
   private(set) var hasUsername:Bool = false
   private(set) var username:String = ""
@@ -194,7 +194,7 @@ final public class AuthResponse : GeneratedMessage {
        super.init()
   }
   override public func isInitialized() -> Bool {
-    if !hasId {
+    if !hasUserId {
       return false
     }
     if !hasUsername {
@@ -206,8 +206,8 @@ final public class AuthResponse : GeneratedMessage {
    return true
   }
   override public func writeToCodedOutputStream(output:CodedOutputStream) {
-    if hasId {
-      output.writeString(1, value:id)
+    if hasUserId {
+      output.writeString(1, value:userId)
     }
     if hasUsername {
       output.writeString(2, value:username)
@@ -224,8 +224,8 @@ final public class AuthResponse : GeneratedMessage {
     }
 
     size = 0
-    if hasId {
-      size += WireFormat.computeStringSize(1, value:id)
+    if hasUserId {
+      size += WireFormat.computeStringSize(1, value:userId)
     }
     if hasUsername {
       size += WireFormat.computeStringSize(2, value:username)
@@ -268,8 +268,8 @@ final public class AuthResponse : GeneratedMessage {
     return AuthResponse.builderWithPrototype(self)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
-    if hasId {
-      output += "\(indent) id: \(id) \n"
+    if hasUserId {
+      output += "\(indent) userId: \(userId) \n"
     }
     if hasUsername {
       output += "\(indent) username: \(username) \n"
@@ -282,8 +282,8 @@ final public class AuthResponse : GeneratedMessage {
   override public var hashValue:Int {
       get {
           var hashCode:Int = 7
-          if hasId {
-             hashCode = (hashCode &* 31) &+ id.hashValue
+          if hasUserId {
+             hashCode = (hashCode &* 31) &+ userId.hashValue
           }
           if hasUsername {
              hashCode = (hashCode &* 31) &+ username.hashValue
@@ -318,23 +318,23 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
      builderResult = AuthResponse()
      super.init()
   }
-  var hasId:Bool {
+  var hasUserId:Bool {
        get {
-            return builderResult.hasId
+            return builderResult.hasUserId
        }
   }
-  var id:String {
+  var userId:String {
        get {
-            return builderResult.id
+            return builderResult.userId
        }
        set (value) {
-           builderResult.hasId = true
-           builderResult.id = value
+           builderResult.hasUserId = true
+           builderResult.userId = value
        }
   }
-  func clearId() -> AuthResponseBuilder{
-       builderResult.hasId = false
-       builderResult.id = ""
+  func clearUserId() -> AuthResponseBuilder{
+       builderResult.hasUserId = false
+       builderResult.userId = ""
        return self
   }
   var hasUsername:Bool {
@@ -399,8 +399,8 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
     if (other == AuthResponse()) {
      return self
     }
-    if other.hasId {
-         id = other.id
+    if other.hasUserId {
+         userId = other.userId
     }
     if other.hasUsername {
          username = other.username
@@ -424,7 +424,7 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
         return self
 
       case 10 :
-        id = input.readString()
+        userId = input.readString()
 
       case 18 :
         username = input.readString()

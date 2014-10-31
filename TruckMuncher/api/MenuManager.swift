@@ -24,14 +24,14 @@ struct MenuManager {
             var menuItemResponse = MenuItemAvailabilityResponse.parseFromNSData(data!)
             var items = [RMenuItem]()
             for item in menuItemResponse.availabilities {
-                items.append(RMenuItem(item))
+                items.append(RMenuItem.initFromProto(item))
             }
             successBlock(response: items)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -48,14 +48,14 @@ struct MenuManager {
             var menuResponse = FullMenusResponse.parseFromNSData(data!)
             var menus = [RMenu]()
             for menu in menuResponse.menus {
-                menus.append(RMenu(menu))
+                menus.append(RMenu.initFromProto(menu))
             }
             successBlock(response: menus)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -68,12 +68,12 @@ struct MenuManager {
             // success
             // TODO persist results in realm and return
             var menuResponse = MenuResponse.parseFromNSData(data!)
-            successBlock(response: RMenu(menuResponse.menu))
+            successBlock(response: RMenu.initFromProto(menuResponse.menu))
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -96,7 +96,7 @@ struct MenuManager {
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }

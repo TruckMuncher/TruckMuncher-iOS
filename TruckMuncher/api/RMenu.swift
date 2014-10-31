@@ -13,12 +13,17 @@ class RMenu: RLMObject {
     dynamic var truckId = ""
     dynamic var categories = RLMArray(objectClassName: RCategory.className())
     
-    init(_ menu: Menu) {
-        truckId = menu.truckId
-        for category in menu.categories {
-            categories.addObject(RCategory(category))
-        }
+    override init() {
         super.init()
+    }
+    
+    class func initFromProto(menu: Menu) -> RMenu {
+        let rmenu = RMenu()
+        rmenu.truckId = menu.truckId
+        for category in menu.categories {
+            rmenu.categories.addObject(RCategory.initFromProto(category))
+        }
+        return rmenu
     }
     
     override class func primaryKey() -> String! {

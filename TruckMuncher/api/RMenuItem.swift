@@ -18,21 +18,27 @@ class RMenuItem: RLMObject {
     dynamic var orderInCategory = 0
     dynamic var isAvailable = true
     
-    init(_ menuItem: MenuItemAvailability) {
-        id = menuItem.menuItemId
-        isAvailable = menuItem.isAvailable
+    override init() {
         super.init()
     }
     
-    init(_ menuItem: MenuItem) {
-        id = menuItem.id
-        name = menuItem.name
-        price = Double(menuItem.price)
-        notes = menuItem.notes
-        tags = menuItem.tags
-        orderInCategory = Int(menuItem.orderInCategory)
-        isAvailable = menuItem.isAvailable
-        super.init()
+    class func initFromProto(menuItem: MenuItemAvailability) -> RMenuItem {
+        let rmenuitem = RMenuItem()
+        rmenuitem.id = menuItem.menuItemId
+        rmenuitem.isAvailable = menuItem.isAvailable
+        return rmenuitem
+    }
+    
+    class func initFromProto(menuItem: MenuItem) -> RMenuItem {
+        let rmenuitem = RMenuItem()
+        rmenuitem.id = menuItem.id
+        rmenuitem.name = menuItem.name
+        rmenuitem.price = Double(menuItem.price)
+        rmenuitem.notes = menuItem.notes
+        rmenuitem.tags = menuItem.tags
+        rmenuitem.orderInCategory = Int(menuItem.orderInCategory)
+        rmenuitem.isAvailable = menuItem.isAvailable
+        return rmenuitem
     }
     
     override class func primaryKey() -> String! {

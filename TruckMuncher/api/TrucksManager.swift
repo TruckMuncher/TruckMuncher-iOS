@@ -25,14 +25,14 @@ class TrucksManager {
             var truckResponse = ActiveTrucksResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             for truck in truckResponse.trucks {
-                trucks.append(RTruck(truck))
+                trucks.append(RTruck.initFromProto(truck))
             }
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -46,14 +46,14 @@ class TrucksManager {
             var truckResponse = TrucksForVendorResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             for truck in truckResponse.trucks {
-                trucks.append(RTruck(truck, isNew: truckResponse.isNew))
+                trucks.append(RTruck.initFromProto(truck, isNew: truckResponse.isNew))
             }
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -69,14 +69,14 @@ class TrucksManager {
             var truckResponse = TruckProfilesResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             for truck in truckResponse.trucks {
-                trucks.append(RTruck(truck, isNew: false))
+                trucks.append(RTruck.initFromProto(truck, isNew: false))
             }
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }
@@ -95,7 +95,7 @@ class TrucksManager {
             // error
             var errorResponse: Error? = nil
             if let nsdata = data {
-                errorResponse = Error.parseFromNSData(data!)
+                errorResponse = Error.parseFromNSData(nsdata)
             }
             errorBlock(error: errorResponse)
         }

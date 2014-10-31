@@ -14,11 +14,12 @@ class RUser: RLMObject {
     dynamic var username = ""
     dynamic var sessionToken = ""
     
-    init(_ auth: AuthResponse) {
-        id = auth.id
-        username = auth.username
-        sessionToken = auth.sessionToken
-        super.init()
+    class func initFromProto(auth: AuthResponse) -> RUser {
+        let ruser = RUser()
+        ruser.id = auth.userId
+        ruser.username = auth.username
+        ruser.sessionToken = auth.sessionToken
+        return ruser
     }
     
     override class func primaryKey() -> String! {

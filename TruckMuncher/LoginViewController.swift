@@ -25,6 +25,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     var twitterAPI: STTwitterAPI?
+    let authManager = AuthManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,18 +108,16 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func loginToAPI(authorizationHeader: String) {
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json", "Authorization": authorizationHeader]
-        Alamofire.request(.GET, "http://10.0.1.5:8443/auth", parameters: nil, encoding: .JSON)
-            .validate(statusCode: [200])
-            .responseJSON { (request, response, data, error) -> Void in
-                println("JSON response \(data)")
-                println("error \(error)")
-                println("error message \(error?.localizedDescription)")
-                if error == nil {
-                    NSUserDefaults.standardUserDefaults().setValue(data!["sessionToken"] as String, forKey: "sessionToken")
-                    NSUserDefaults.standardUserDefaults().synchronize()
-                    self.successfullyLoggedInAsTruck()
-                }
+        authManager.signIn(authorization: authorizationHeader, success: { (response) -> () in
+            println("id \(response.id)")
+            println("username \(response.username)")
+            println("sessionToken \(response.sessionToken)")
+            NSUserDefaults.standardUserDefaults().setValue(response.sessionToken, forKey: "sessionToken")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            self.successfullyLoggedInAsTruck()
+        }) { (error) -> () in
+            println("error \(error)")
+            println("error message \(error?.userMessage)")
         }
     }
 }

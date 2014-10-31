@@ -101,7 +101,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     func requestServingMode (isServing: Bool) {
         //TODO un-hard-code this value
-        truckManager.modifyServingMode(truckId: "f88370a5-3b12-4f8d-a1b4-da23feee4667", isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
+        truckManager.modifyServingMode(truckId: "2d1dada3-80f1-4c0e-b878-a02626aafea7", isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
         }) { (error) -> () in
             println("error \(error)")
