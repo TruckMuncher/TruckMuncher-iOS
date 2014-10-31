@@ -3,15 +3,21 @@
 import Foundation
 import ProtocolBuffers
 
-private class ErrorRoot {
-var extensionRegistry:ExtensionRegistry
+struct ErrorRoot {
+  static var sharedInstance : ErrorRoot {
+   struct Static {
+       static let instance : ErrorRoot = ErrorRoot()
+   }
+   return Static.instance
+  }
+  var extensionRegistry:ExtensionRegistry
 
-init() {
-extensionRegistry = ExtensionRegistry()
-registerAllExtensions(extensionRegistry)
-}
-func registerAllExtensions(registry:ExtensionRegistry) {
-}
+  init() {
+    extensionRegistry = ExtensionRegistry()
+    registerAllExtensions(extensionRegistry)
+  }
+  func registerAllExtensions(registry:ExtensionRegistry) {
+  }
 }
 
 func == (lhs: Error, rhs: Error) -> Bool {
@@ -24,17 +30,17 @@ func == (lhs: Error, rhs: Error) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class Error : GeneratedMessage {
+final public class Error : GeneratedMessage {
   private(set) var hasInternalCode:Bool = false
   private(set) var internalCode:String = ""
 
   private(set) var hasUserMessage:Bool = false
   private(set) var userMessage:String = ""
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasInternalCode {
       return false
     }
@@ -43,7 +49,7 @@ final class Error : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasInternalCode {
       output.writeString(1, value:internalCode)
     }
@@ -52,7 +58,7 @@ final class Error : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -99,7 +105,7 @@ final class Error : GeneratedMessage {
   func toBuilder() -> ErrorBuilder {
     return Error.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasInternalCode {
       output += "\(indent) internalCode: \(internalCode) \n"
     }
@@ -108,7 +114,7 @@ final class Error : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasInternalCode {
@@ -121,6 +127,20 @@ final class Error : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "Error"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return Error.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ErrorBuilder : GeneratedMessageBuilder {
@@ -180,7 +200,7 @@ final class ErrorBuilder : GeneratedMessageBuilder {
   override func clone() -> ErrorBuilder {
     return Error.builderWithPrototype(builderResult)
   }
-  func build() -> Error {
+  override func build() -> Error {
        checkInitialized()
        return buildPartial()
   }
@@ -190,15 +210,15 @@ final class ErrorBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:Error) -> ErrorBuilder {
     if (other == Error()) {
-      return self
+     return self
     }
-  if other.hasInternalCode {
-       internalCode = other.internalCode
-  }
-  if other.hasUserMessage {
-       userMessage = other.userMessage
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasInternalCode {
+         internalCode = other.internalCode
+    }
+    if other.hasUserMessage {
+         userMessage = other.userMessage
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ErrorBuilder {
