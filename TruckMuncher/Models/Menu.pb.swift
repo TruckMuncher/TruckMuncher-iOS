@@ -3,15 +3,21 @@
 import Foundation
 import ProtocolBuffers
 
-private class MenuRoot {
-var extensionRegistry:ExtensionRegistry
+struct MenuRoot {
+  static var sharedInstance : MenuRoot {
+   struct Static {
+       static let instance : MenuRoot = MenuRoot()
+   }
+   return Static.instance
+  }
+  var extensionRegistry:ExtensionRegistry
 
-init() {
-extensionRegistry = ExtensionRegistry()
-registerAllExtensions(extensionRegistry)
-}
-func registerAllExtensions(registry:ExtensionRegistry) {
-}
+  init() {
+    extensionRegistry = ExtensionRegistry()
+    registerAllExtensions(extensionRegistry)
+  }
+  func registerAllExtensions(registry:ExtensionRegistry) {
+  }
 }
 
 func == (lhs: MenuItemAvailabilityRequest, rhs: MenuItemAvailabilityRequest) -> Bool {
@@ -136,17 +142,17 @@ func == (lhs: MenuItemAvailability, rhs: MenuItemAvailability) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class MenuItemAvailabilityRequest : GeneratedMessage {
+final public class MenuItemAvailabilityRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
-  private(set) var latitude:Double = 0
+  private(set) var latitude:Double = Double(0)
 
   private(set) var hasLongitude:Bool = false
-  private(set) var longitude:Double = 0
+  private(set) var longitude:Double = Double(0)
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -155,7 +161,7 @@ final class MenuItemAvailabilityRequest : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -164,7 +170,7 @@ final class MenuItemAvailabilityRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -211,7 +217,7 @@ final class MenuItemAvailabilityRequest : GeneratedMessage {
   func toBuilder() -> MenuItemAvailabilityRequestBuilder {
     return MenuItemAvailabilityRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -220,7 +226,7 @@ final class MenuItemAvailabilityRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -233,6 +239,20 @@ final class MenuItemAvailabilityRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuItemAvailabilityRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuItemAvailabilityRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
@@ -258,7 +278,7 @@ final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLatitude() -> MenuItemAvailabilityRequestBuilder{
        builderResult.hasLatitude = false
-       builderResult.latitude = 0
+       builderResult.latitude = Double(0)
        return self
   }
   var hasLongitude:Bool {
@@ -277,7 +297,7 @@ final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLongitude() -> MenuItemAvailabilityRequestBuilder{
        builderResult.hasLongitude = false
-       builderResult.longitude = 0
+       builderResult.longitude = Double(0)
        return self
   }
   override var internalGetResult:GeneratedMessage {
@@ -292,7 +312,7 @@ final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuItemAvailabilityRequestBuilder {
     return MenuItemAvailabilityRequest.builderWithPrototype(builderResult)
   }
-  func build() -> MenuItemAvailabilityRequest {
+  override func build() -> MenuItemAvailabilityRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -302,15 +322,15 @@ final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuItemAvailabilityRequest) -> MenuItemAvailabilityRequestBuilder {
     if (other == MenuItemAvailabilityRequest()) {
-      return self
+     return self
     }
-  if other.hasLatitude {
-       latitude = other.latitude
-  }
-  if other.hasLongitude {
-       longitude = other.longitude
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasLatitude {
+         latitude = other.latitude
+    }
+    if other.hasLongitude {
+         longitude = other.longitude
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuItemAvailabilityRequestBuilder {
@@ -341,12 +361,12 @@ final class MenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class MenuItemAvailabilityResponse : GeneratedMessage {
+final public class MenuItemAvailabilityResponse : GeneratedMessage {
   private(set) var availabilities:Array<MenuItemAvailability>  = Array<MenuItemAvailability>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     var isInitavailabilities:Bool = true
     for element in availabilities {
         if (!element.isInitialized()) {
@@ -359,13 +379,13 @@ final class MenuItemAvailabilityResponse : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in availabilities {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -409,7 +429,7 @@ final class MenuItemAvailabilityResponse : GeneratedMessage {
   func toBuilder() -> MenuItemAvailabilityResponseBuilder {
     return MenuItemAvailabilityResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var availabilitiesElementIndex:Int = 0
     for element in availabilities {
         output += "\(indent) availabilities[\(availabilitiesElementIndex)] {\n"
@@ -419,7 +439,7 @@ final class MenuItemAvailabilityResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in availabilities {
@@ -429,6 +449,20 @@ final class MenuItemAvailabilityResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuItemAvailabilityResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuItemAvailabilityResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder {
@@ -462,7 +496,7 @@ final class MenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuItemAvailabilityResponseBuilder {
     return MenuItemAvailabilityResponse.builderWithPrototype(builderResult)
   }
-  func build() -> MenuItemAvailabilityResponse {
+  override func build() -> MenuItemAvailabilityResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -472,12 +506,12 @@ final class MenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuItemAvailabilityResponse) -> MenuItemAvailabilityResponseBuilder {
     if (other == MenuItemAvailabilityResponse()) {
-      return self
+     return self
     }
-  if !other.availabilities.isEmpty  {
-     builderResult.availabilities += other.availabilities
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.availabilities.isEmpty  {
+       builderResult.availabilities += other.availabilities
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuItemAvailabilityResponseBuilder {
@@ -507,20 +541,20 @@ final class MenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class FullMenusRequest : GeneratedMessage {
+final public class FullMenusRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
-  private(set) var latitude:Double = 0
+  private(set) var latitude:Double = Double(0)
 
   private(set) var hasLongitude:Bool = false
-  private(set) var longitude:Double = 0
+  private(set) var longitude:Double = Double(0)
 
   private(set) var hasIncludeAvailability:Bool = false
   private(set) var includeAvailability:Bool = false
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -529,7 +563,7 @@ final class FullMenusRequest : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -541,7 +575,7 @@ final class FullMenusRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -591,7 +625,7 @@ final class FullMenusRequest : GeneratedMessage {
   func toBuilder() -> FullMenusRequestBuilder {
     return FullMenusRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -603,7 +637,7 @@ final class FullMenusRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -619,6 +653,20 @@ final class FullMenusRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "FullMenusRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return FullMenusRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class FullMenusRequestBuilder : GeneratedMessageBuilder {
@@ -644,7 +692,7 @@ final class FullMenusRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLatitude() -> FullMenusRequestBuilder{
        builderResult.hasLatitude = false
-       builderResult.latitude = 0
+       builderResult.latitude = Double(0)
        return self
   }
   var hasLongitude:Bool {
@@ -663,7 +711,7 @@ final class FullMenusRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLongitude() -> FullMenusRequestBuilder{
        builderResult.hasLongitude = false
-       builderResult.longitude = 0
+       builderResult.longitude = Double(0)
        return self
   }
   var hasIncludeAvailability:Bool {
@@ -697,7 +745,7 @@ final class FullMenusRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> FullMenusRequestBuilder {
     return FullMenusRequest.builderWithPrototype(builderResult)
   }
-  func build() -> FullMenusRequest {
+  override func build() -> FullMenusRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -707,18 +755,18 @@ final class FullMenusRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:FullMenusRequest) -> FullMenusRequestBuilder {
     if (other == FullMenusRequest()) {
-      return self
+     return self
     }
-  if other.hasLatitude {
-       latitude = other.latitude
-  }
-  if other.hasLongitude {
-       longitude = other.longitude
-  }
-  if other.hasIncludeAvailability {
-       includeAvailability = other.includeAvailability
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasLatitude {
+         latitude = other.latitude
+    }
+    if other.hasLongitude {
+         longitude = other.longitude
+    }
+    if other.hasIncludeAvailability {
+         includeAvailability = other.includeAvailability
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->FullMenusRequestBuilder {
@@ -752,12 +800,12 @@ final class FullMenusRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class FullMenusResponse : GeneratedMessage {
+final public class FullMenusResponse : GeneratedMessage {
   private(set) var menus:Array<Menu>  = Array<Menu>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     var isInitmenus:Bool = true
     for element in menus {
         if (!element.isInitialized()) {
@@ -770,13 +818,13 @@ final class FullMenusResponse : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in menus {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -820,7 +868,7 @@ final class FullMenusResponse : GeneratedMessage {
   func toBuilder() -> FullMenusResponseBuilder {
     return FullMenusResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var menusElementIndex:Int = 0
     for element in menus {
         output += "\(indent) menus[\(menusElementIndex)] {\n"
@@ -830,7 +878,7 @@ final class FullMenusResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in menus {
@@ -840,6 +888,20 @@ final class FullMenusResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "FullMenusResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return FullMenusResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class FullMenusResponseBuilder : GeneratedMessageBuilder {
@@ -873,7 +935,7 @@ final class FullMenusResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> FullMenusResponseBuilder {
     return FullMenusResponse.builderWithPrototype(builderResult)
   }
-  func build() -> FullMenusResponse {
+  override func build() -> FullMenusResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -883,12 +945,12 @@ final class FullMenusResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:FullMenusResponse) -> FullMenusResponseBuilder {
     if (other == FullMenusResponse()) {
-      return self
+     return self
     }
-  if !other.menus.isEmpty  {
-     builderResult.menus += other.menus
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.menus.isEmpty  {
+       builderResult.menus += other.menus
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->FullMenusResponseBuilder {
@@ -918,26 +980,26 @@ final class FullMenusResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class MenuRequest : GeneratedMessage {
+final public class MenuRequest : GeneratedMessage {
   private(set) var hasTruckId:Bool = false
   private(set) var truckId:String = ""
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasTruckId {
       return false
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasTruckId {
       output.writeString(1, value:truckId)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -981,13 +1043,13 @@ final class MenuRequest : GeneratedMessage {
   func toBuilder() -> MenuRequestBuilder {
     return MenuRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasTruckId {
       output += "\(indent) truckId: \(truckId) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTruckId {
@@ -997,6 +1059,20 @@ final class MenuRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuRequestBuilder : GeneratedMessageBuilder {
@@ -1037,7 +1113,7 @@ final class MenuRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuRequestBuilder {
     return MenuRequest.builderWithPrototype(builderResult)
   }
-  func build() -> MenuRequest {
+  override func build() -> MenuRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -1047,12 +1123,12 @@ final class MenuRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuRequest) -> MenuRequestBuilder {
     if (other == MenuRequest()) {
-      return self
+     return self
     }
-  if other.hasTruckId {
-       truckId = other.truckId
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasTruckId {
+         truckId = other.truckId
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuRequestBuilder {
@@ -1080,13 +1156,13 @@ final class MenuRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class MenuResponse : GeneratedMessage {
+final public class MenuResponse : GeneratedMessage {
   private(set) var hasMenu:Bool = false
   private(set) var menu:Menu = Menu()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasMenu {
       return false
     }
@@ -1095,13 +1171,13 @@ final class MenuResponse : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasMenu {
       output.writeMessage(1, value:menu)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1145,7 +1221,7 @@ final class MenuResponse : GeneratedMessage {
   func toBuilder() -> MenuResponseBuilder {
     return MenuResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasMenu {
       output += "\(indent) menu {\n"
       menu.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -1153,7 +1229,7 @@ final class MenuResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasMenu {
@@ -1163,6 +1239,20 @@ final class MenuResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuResponseBuilder : GeneratedMessageBuilder {
@@ -1179,7 +1269,8 @@ final class MenuResponseBuilder : GeneratedMessageBuilder {
   }
   var menu:Menu {
        get {
-           return builderResult.menu     }
+           return builderResult.menu
+       }
        set (value) {
            builderResult.hasMenu = true
            builderResult.menu = value
@@ -1215,7 +1306,7 @@ final class MenuResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuResponseBuilder {
     return MenuResponse.builderWithPrototype(builderResult)
   }
-  func build() -> MenuResponse {
+  override func build() -> MenuResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -1225,12 +1316,12 @@ final class MenuResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuResponse) -> MenuResponseBuilder {
     if (other == MenuResponse()) {
-      return self
+     return self
     }
-  if (other.hasMenu) {
-      mergeMenu(other.menu)
-  }
-      mergeUnknownFields(other.unknownFields)
+    if (other.hasMenu) {
+        mergeMenu(other.menu)
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuResponseBuilder {
@@ -1263,12 +1354,12 @@ final class MenuResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
+final public class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
   private(set) var diff:Array<MenuItemAvailability>  = Array<MenuItemAvailability>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     var isInitdiff:Bool = true
     for element in diff {
         if (!element.isInitialized()) {
@@ -1281,13 +1372,13 @@ final class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in diff {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1331,7 +1422,7 @@ final class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
   func toBuilder() -> ModifyMenuItemAvailabilityRequestBuilder {
     return ModifyMenuItemAvailabilityRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var diffElementIndex:Int = 0
     for element in diff {
         output += "\(indent) diff[\(diffElementIndex)] {\n"
@@ -1341,7 +1432,7 @@ final class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in diff {
@@ -1351,6 +1442,20 @@ final class ModifyMenuItemAvailabilityRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ModifyMenuItemAvailabilityRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ModifyMenuItemAvailabilityRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ModifyMenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
@@ -1384,7 +1489,7 @@ final class ModifyMenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> ModifyMenuItemAvailabilityRequestBuilder {
     return ModifyMenuItemAvailabilityRequest.builderWithPrototype(builderResult)
   }
-  func build() -> ModifyMenuItemAvailabilityRequest {
+  override func build() -> ModifyMenuItemAvailabilityRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -1394,12 +1499,12 @@ final class ModifyMenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:ModifyMenuItemAvailabilityRequest) -> ModifyMenuItemAvailabilityRequestBuilder {
     if (other == ModifyMenuItemAvailabilityRequest()) {
-      return self
+     return self
     }
-  if !other.diff.isEmpty  {
-     builderResult.diff += other.diff
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.diff.isEmpty  {
+       builderResult.diff += other.diff
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ModifyMenuItemAvailabilityRequestBuilder {
@@ -1429,17 +1534,17 @@ final class ModifyMenuItemAvailabilityRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ModifyMenuItemAvailabilityResponse : GeneratedMessage {
-  required init() {
+final public class ModifyMenuItemAvailabilityResponse : GeneratedMessage {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1480,16 +1585,30 @@ final class ModifyMenuItemAvailabilityResponse : GeneratedMessage {
   func toBuilder() -> ModifyMenuItemAvailabilityResponseBuilder {
     return ModifyMenuItemAvailabilityResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ModifyMenuItemAvailabilityResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ModifyMenuItemAvailabilityResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ModifyMenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder {
@@ -1511,7 +1630,7 @@ final class ModifyMenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder 
   override func clone() -> ModifyMenuItemAvailabilityResponseBuilder {
     return ModifyMenuItemAvailabilityResponse.builderWithPrototype(builderResult)
   }
-  func build() -> ModifyMenuItemAvailabilityResponse {
+  override func build() -> ModifyMenuItemAvailabilityResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -1521,9 +1640,9 @@ final class ModifyMenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder 
   }
   func mergeFrom(other:ModifyMenuItemAvailabilityResponse) -> ModifyMenuItemAvailabilityResponseBuilder {
     if (other == ModifyMenuItemAvailabilityResponse()) {
-      return self
+     return self
     }
-      mergeUnknownFields(other.unknownFields)
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ModifyMenuItemAvailabilityResponseBuilder {
@@ -1548,15 +1667,15 @@ final class ModifyMenuItemAvailabilityResponseBuilder : GeneratedMessageBuilder 
   }
 }
 
-final class Menu : GeneratedMessage {
+final public class Menu : GeneratedMessage {
   private(set) var hasTruckId:Bool = false
   private(set) var truckId:String = ""
 
   private(set) var categories:Array<Category>  = Array<Category>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasTruckId {
       return false
     }
@@ -1572,7 +1691,7 @@ final class Menu : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasTruckId {
       output.writeString(1, value:truckId)
     }
@@ -1581,7 +1700,7 @@ final class Menu : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1628,7 +1747,7 @@ final class Menu : GeneratedMessage {
   func toBuilder() -> MenuBuilder {
     return Menu.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasTruckId {
       output += "\(indent) truckId: \(truckId) \n"
     }
@@ -1641,7 +1760,7 @@ final class Menu : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTruckId {
@@ -1654,6 +1773,20 @@ final class Menu : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "Menu"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return Menu.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuBuilder : GeneratedMessageBuilder {
@@ -1706,7 +1839,7 @@ final class MenuBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuBuilder {
     return Menu.builderWithPrototype(builderResult)
   }
-  func build() -> Menu {
+  override func build() -> Menu {
        checkInitialized()
        return buildPartial()
   }
@@ -1716,15 +1849,15 @@ final class MenuBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:Menu) -> MenuBuilder {
     if (other == Menu()) {
-      return self
+     return self
     }
-  if other.hasTruckId {
-       truckId = other.truckId
-  }
-  if !other.categories.isEmpty  {
-     builderResult.categories += other.categories
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasTruckId {
+         truckId = other.truckId
+    }
+    if !other.categories.isEmpty  {
+       builderResult.categories += other.categories
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuBuilder {
@@ -1757,7 +1890,7 @@ final class MenuBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class Category : GeneratedMessage {
+final public class Category : GeneratedMessage {
   private(set) var hasId:Bool = false
   private(set) var id:String = ""
 
@@ -1768,13 +1901,13 @@ final class Category : GeneratedMessage {
   private(set) var notes:String = ""
 
   private(set) var hasOrderInMenu:Bool = false
-  private(set) var orderInMenu:Int32 = 0
+  private(set) var orderInMenu:Int32 = Int32(0)
 
   private(set) var menuItems:Array<MenuItem>  = Array<MenuItem>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     var isInitmenuItems:Bool = true
     for element in menuItems {
         if (!element.isInitialized()) {
@@ -1787,7 +1920,7 @@ final class Category : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasId {
       output.writeString(1, value:id)
     }
@@ -1805,7 +1938,7 @@ final class Category : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1861,7 +1994,7 @@ final class Category : GeneratedMessage {
   func toBuilder() -> CategoryBuilder {
     return Category.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasId {
       output += "\(indent) id: \(id) \n"
     }
@@ -1883,7 +2016,7 @@ final class Category : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasId {
@@ -1905,6 +2038,20 @@ final class Category : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "Category"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return Category.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class CategoryBuilder : GeneratedMessageBuilder {
@@ -1987,7 +2134,7 @@ final class CategoryBuilder : GeneratedMessageBuilder {
   }
   func clearOrderInMenu() -> CategoryBuilder{
        builderResult.hasOrderInMenu = false
-       builderResult.orderInMenu = 0
+       builderResult.orderInMenu = Int32(0)
        return self
   }
   var menuItems:Array<MenuItem> {
@@ -2014,7 +2161,7 @@ final class CategoryBuilder : GeneratedMessageBuilder {
   override func clone() -> CategoryBuilder {
     return Category.builderWithPrototype(builderResult)
   }
-  func build() -> Category {
+  override func build() -> Category {
        checkInitialized()
        return buildPartial()
   }
@@ -2024,24 +2171,24 @@ final class CategoryBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:Category) -> CategoryBuilder {
     if (other == Category()) {
-      return self
+     return self
     }
-  if other.hasId {
-       id = other.id
-  }
-  if other.hasName {
-       name = other.name
-  }
-  if other.hasNotes {
-       notes = other.notes
-  }
-  if other.hasOrderInMenu {
-       orderInMenu = other.orderInMenu
-  }
-  if !other.menuItems.isEmpty  {
-     builderResult.menuItems += other.menuItems
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasId {
+         id = other.id
+    }
+    if other.hasName {
+         name = other.name
+    }
+    if other.hasNotes {
+         notes = other.notes
+    }
+    if other.hasOrderInMenu {
+         orderInMenu = other.orderInMenu
+    }
+    if !other.menuItems.isEmpty  {
+       builderResult.menuItems += other.menuItems
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->CategoryBuilder {
@@ -2083,7 +2230,7 @@ final class CategoryBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class MenuItem : GeneratedMessage {
+final public class MenuItem : GeneratedMessage {
   private(set) var hasId:Bool = false
   private(set) var id:String = ""
 
@@ -2091,22 +2238,22 @@ final class MenuItem : GeneratedMessage {
   private(set) var name:String = ""
 
   private(set) var hasPrice:Bool = false
-  private(set) var price:Float = 0
+  private(set) var price:Float = Float(0)
 
   private(set) var hasNotes:Bool = false
   private(set) var notes:String = ""
 
   private(set) var hasOrderInCategory:Bool = false
-  private(set) var orderInCategory:Int32 = 0
+  private(set) var orderInCategory:Int32 = Int32(0)
 
   private(set) var hasIsAvailable:Bool = false
   private(set) var isAvailable:Bool = false
 
   private(set) var tags:Array<String> = Array<String>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasName {
       return false
     }
@@ -2115,7 +2262,7 @@ final class MenuItem : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasId {
       output.writeString(1, value:id)
     }
@@ -2141,7 +2288,7 @@ final class MenuItem : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2206,7 +2353,7 @@ final class MenuItem : GeneratedMessage {
   func toBuilder() -> MenuItemBuilder {
     return MenuItem.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasId {
       output += "\(indent) id: \(id) \n"
     }
@@ -2232,7 +2379,7 @@ final class MenuItem : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasId {
@@ -2260,6 +2407,20 @@ final class MenuItem : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuItem"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuItem.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuItemBuilder : GeneratedMessageBuilder {
@@ -2323,7 +2484,7 @@ final class MenuItemBuilder : GeneratedMessageBuilder {
   }
   func clearPrice() -> MenuItemBuilder{
        builderResult.hasPrice = false
-       builderResult.price = 0
+       builderResult.price = Float(0)
        return self
   }
   var hasNotes:Bool {
@@ -2373,7 +2534,7 @@ final class MenuItemBuilder : GeneratedMessageBuilder {
   }
   func clearOrderInCategory() -> MenuItemBuilder{
        builderResult.hasOrderInCategory = false
-       builderResult.orderInCategory = 0
+       builderResult.orderInCategory = Int32(0)
        return self
   }
   var hasIsAvailable:Bool {
@@ -2407,7 +2568,7 @@ final class MenuItemBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuItemBuilder {
     return MenuItem.builderWithPrototype(builderResult)
   }
-  func build() -> MenuItem {
+  override func build() -> MenuItem {
        checkInitialized()
        return buildPartial()
   }
@@ -2417,30 +2578,30 @@ final class MenuItemBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuItem) -> MenuItemBuilder {
     if (other == MenuItem()) {
-      return self
+     return self
     }
-  if other.hasId {
-       id = other.id
-  }
-  if other.hasName {
-       name = other.name
-  }
-  if other.hasPrice {
-       price = other.price
-  }
-  if other.hasNotes {
-       notes = other.notes
-  }
-  if !other.tags.isEmpty {
-      builderResult.tags += other.tags
-  }
-  if other.hasOrderInCategory {
-       orderInCategory = other.orderInCategory
-  }
-  if other.hasIsAvailable {
-       isAvailable = other.isAvailable
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasId {
+         id = other.id
+    }
+    if other.hasName {
+         name = other.name
+    }
+    if other.hasPrice {
+         price = other.price
+    }
+    if other.hasNotes {
+         notes = other.notes
+    }
+    if !other.tags.isEmpty {
+        builderResult.tags += other.tags
+    }
+    if other.hasOrderInCategory {
+         orderInCategory = other.orderInCategory
+    }
+    if other.hasIsAvailable {
+         isAvailable = other.isAvailable
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuItemBuilder {
@@ -2486,17 +2647,17 @@ final class MenuItemBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class MenuItemAvailability : GeneratedMessage {
+final public class MenuItemAvailability : GeneratedMessage {
   private(set) var hasMenuItemId:Bool = false
   private(set) var menuItemId:String = ""
 
   private(set) var hasIsAvailable:Bool = false
   private(set) var isAvailable:Bool = false
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasMenuItemId {
       return false
     }
@@ -2505,7 +2666,7 @@ final class MenuItemAvailability : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasMenuItemId {
       output.writeString(1, value:menuItemId)
     }
@@ -2514,7 +2675,7 @@ final class MenuItemAvailability : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2561,7 +2722,7 @@ final class MenuItemAvailability : GeneratedMessage {
   func toBuilder() -> MenuItemAvailabilityBuilder {
     return MenuItemAvailability.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasMenuItemId {
       output += "\(indent) menuItemId: \(menuItemId) \n"
     }
@@ -2570,7 +2731,7 @@ final class MenuItemAvailability : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasMenuItemId {
@@ -2583,6 +2744,20 @@ final class MenuItemAvailability : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "MenuItemAvailability"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return MenuItemAvailability.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class MenuItemAvailabilityBuilder : GeneratedMessageBuilder {
@@ -2642,7 +2817,7 @@ final class MenuItemAvailabilityBuilder : GeneratedMessageBuilder {
   override func clone() -> MenuItemAvailabilityBuilder {
     return MenuItemAvailability.builderWithPrototype(builderResult)
   }
-  func build() -> MenuItemAvailability {
+  override func build() -> MenuItemAvailability {
        checkInitialized()
        return buildPartial()
   }
@@ -2652,15 +2827,15 @@ final class MenuItemAvailabilityBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:MenuItemAvailability) -> MenuItemAvailabilityBuilder {
     if (other == MenuItemAvailability()) {
-      return self
+     return self
     }
-  if other.hasMenuItemId {
-       menuItemId = other.menuItemId
-  }
-  if other.hasIsAvailable {
-       isAvailable = other.isAvailable
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasMenuItemId {
+         menuItemId = other.menuItemId
+    }
+    if other.hasIsAvailable {
+         isAvailable = other.isAvailable
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->MenuItemAvailabilityBuilder {

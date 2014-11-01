@@ -3,15 +3,21 @@
 import Foundation
 import ProtocolBuffers
 
-private class TrucksRoot {
-var extensionRegistry:ExtensionRegistry
+struct TrucksRoot {
+  static var sharedInstance : TrucksRoot {
+   struct Static {
+       static let instance : TrucksRoot = TrucksRoot()
+   }
+   return Static.instance
+  }
+  var extensionRegistry:ExtensionRegistry
 
-init() {
-extensionRegistry = ExtensionRegistry()
-registerAllExtensions(extensionRegistry)
-}
-func registerAllExtensions(registry:ExtensionRegistry) {
-}
+  init() {
+    extensionRegistry = ExtensionRegistry()
+    registerAllExtensions(extensionRegistry)
+  }
+  func registerAllExtensions(registry:ExtensionRegistry) {
+  }
 }
 
 func == (lhs: ActiveTrucksRequest, rhs: ActiveTrucksRequest) -> Bool {
@@ -114,20 +120,20 @@ func == (lhs: ServingModeResponse, rhs: ServingModeResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final class ActiveTrucksRequest : GeneratedMessage {
+final public class ActiveTrucksRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
-  private(set) var latitude:Double = 0
+  private(set) var latitude:Double = Double(0)
 
   private(set) var hasLongitude:Bool = false
-  private(set) var longitude:Double = 0
+  private(set) var longitude:Double = Double(0)
 
   private(set) var hasSearchQuery:Bool = false
   private(set) var searchQuery:String = ""
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -136,7 +142,7 @@ final class ActiveTrucksRequest : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -148,7 +154,7 @@ final class ActiveTrucksRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -198,7 +204,7 @@ final class ActiveTrucksRequest : GeneratedMessage {
   func toBuilder() -> ActiveTrucksRequestBuilder {
     return ActiveTrucksRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -210,7 +216,7 @@ final class ActiveTrucksRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -226,6 +232,20 @@ final class ActiveTrucksRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ActiveTrucksRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ActiveTrucksRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
@@ -251,7 +271,7 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLatitude() -> ActiveTrucksRequestBuilder{
        builderResult.hasLatitude = false
-       builderResult.latitude = 0
+       builderResult.latitude = Double(0)
        return self
   }
   var hasLongitude:Bool {
@@ -270,7 +290,7 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLongitude() -> ActiveTrucksRequestBuilder{
        builderResult.hasLongitude = false
-       builderResult.longitude = 0
+       builderResult.longitude = Double(0)
        return self
   }
   var hasSearchQuery:Bool {
@@ -304,7 +324,7 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> ActiveTrucksRequestBuilder {
     return ActiveTrucksRequest.builderWithPrototype(builderResult)
   }
-  func build() -> ActiveTrucksRequest {
+  override func build() -> ActiveTrucksRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -314,18 +334,18 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:ActiveTrucksRequest) -> ActiveTrucksRequestBuilder {
     if (other == ActiveTrucksRequest()) {
-      return self
+     return self
     }
-  if other.hasLatitude {
-       latitude = other.latitude
-  }
-  if other.hasLongitude {
-       longitude = other.longitude
-  }
-  if other.hasSearchQuery {
-       searchQuery = other.searchQuery
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasLatitude {
+         latitude = other.latitude
+    }
+    if other.hasLongitude {
+         longitude = other.longitude
+    }
+    if other.hasSearchQuery {
+         searchQuery = other.searchQuery
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksRequestBuilder {
@@ -359,25 +379,25 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ActiveTrucksResponse : GeneratedMessage {
+final public class ActiveTrucksResponse : GeneratedMessage {
 
 
-  //Nested type declaration start 
+  //Nested type declaration start
 
-    final class Truck : GeneratedMessage {
+    final public class Truck : GeneratedMessage {
       private(set) var hasId:Bool = false
       private(set) var id:String = ""
 
       private(set) var hasLatitude:Bool = false
-      private(set) var latitude:Double = 0
+      private(set) var latitude:Double = Double(0)
 
       private(set) var hasLongitude:Bool = false
-      private(set) var longitude:Double = 0
+      private(set) var longitude:Double = Double(0)
 
-      required init() {
+      required public init() {
            super.init()
       }
-      override func isInitialized() -> Bool {
+      override public func isInitialized() -> Bool {
         if !hasId {
           return false
         }
@@ -389,7 +409,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
         }
        return true
       }
-      override func writeToCodedOutputStream(output:CodedOutputStream) {
+      override public func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasId {
           output.writeString(1, value:id)
         }
@@ -401,7 +421,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override func serializedSize() -> Int32 {
+      override public func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -439,19 +459,19 @@ final class ActiveTrucksResponse : GeneratedMessage {
       class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TruckBuilder {
-        return TruckBuilder()
+      class func builder() -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.TruckBuilder()
       }
-      class func builderWithPrototype(prototype:Truck) -> TruckBuilder {
-        return Truck.builder().mergeFrom(prototype)
+      class func builderWithPrototype(prototype:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.Truck.builder().mergeFrom(prototype)
       }
-      func builder() -> TruckBuilder {
-        return Truck.builder()
+      func builder() -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.Truck.builder()
       }
-      func toBuilder() -> TruckBuilder {
-        return Truck.builderWithPrototype(self)
+      func toBuilder() -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.Truck.builderWithPrototype(self)
       }
-      override func writeDescriptionTo(inout output:String, indent:String) {
+      override public func writeDescriptionTo(inout output:String, indent:String) {
         if hasId {
           output += "\(indent) id: \(id) \n"
         }
@@ -463,7 +483,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override var hashValue:Int {
+      override public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasId {
@@ -479,6 +499,20 @@ final class ActiveTrucksResponse : GeneratedMessage {
               return hashCode
           }
       }
+
+
+      //Meta information declaration start
+
+      override public class func className() -> String {
+          return "ActiveTrucksResponse.Truck"
+      }
+      override public func classMetaType() -> GeneratedMessage.Type {
+          return ActiveTrucksResponse.Truck.self
+      }
+
+
+      //Meta information declaration end
+
     }
 
     final class TruckBuilder : GeneratedMessageBuilder {
@@ -523,7 +557,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
       }
       func clearLatitude() -> ActiveTrucksResponse.TruckBuilder{
            builderResult.hasLatitude = false
-           builderResult.latitude = 0
+           builderResult.latitude = Double(0)
            return self
       }
       var hasLongitude:Bool {
@@ -542,7 +576,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
       }
       func clearLongitude() -> ActiveTrucksResponse.TruckBuilder{
            builderResult.hasLongitude = false
-           builderResult.longitude = 0
+           builderResult.longitude = Double(0)
            return self
       }
       override var internalGetResult:GeneratedMessage {
@@ -557,7 +591,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
       override func clone() -> ActiveTrucksResponse.TruckBuilder {
         return ActiveTrucksResponse.Truck.builderWithPrototype(builderResult)
       }
-      func build() -> ActiveTrucksResponse.Truck {
+      override func build() -> ActiveTrucksResponse.Truck {
            checkInitialized()
            return buildPartial()
       }
@@ -567,18 +601,18 @@ final class ActiveTrucksResponse : GeneratedMessage {
       }
       func mergeFrom(other:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
         if (other == ActiveTrucksResponse.Truck()) {
-          return self
+         return self
         }
-      if other.hasId {
-           id = other.id
-      }
-      if other.hasLatitude {
-           latitude = other.latitude
-      }
-      if other.hasLongitude {
-           longitude = other.longitude
-      }
-          mergeUnknownFields(other.unknownFields)
+        if other.hasId {
+             id = other.id
+        }
+        if other.hasLatitude {
+             latitude = other.latitude
+        }
+        if other.hasLongitude {
+             longitude = other.longitude
+        }
+        mergeUnknownFields(other.unknownFields)
         return self
       }
       override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponse.TruckBuilder {
@@ -614,13 +648,13 @@ final class ActiveTrucksResponse : GeneratedMessage {
 
 
 
-  //Nested type declaration end 
+  //Nested type declaration end
 
   private(set) var trucks:Array<ActiveTrucksResponse.Truck>  = Array<ActiveTrucksResponse.Truck>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     var isInittrucks:Bool = true
     for element in trucks {
         if (!element.isInitialized()) {
@@ -633,13 +667,13 @@ final class ActiveTrucksResponse : GeneratedMessage {
      }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in trucks {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -683,7 +717,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
   func toBuilder() -> ActiveTrucksResponseBuilder {
     return ActiveTrucksResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
     for element in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
@@ -693,7 +727,7 @@ final class ActiveTrucksResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in trucks {
@@ -703,6 +737,20 @@ final class ActiveTrucksResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ActiveTrucksResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ActiveTrucksResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
@@ -736,7 +784,7 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> ActiveTrucksResponseBuilder {
     return ActiveTrucksResponse.builderWithPrototype(builderResult)
   }
-  func build() -> ActiveTrucksResponse {
+  override func build() -> ActiveTrucksResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -746,12 +794,12 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:ActiveTrucksResponse) -> ActiveTrucksResponseBuilder {
     if (other == ActiveTrucksResponse()) {
-      return self
+     return self
     }
-  if !other.trucks.isEmpty  {
-     builderResult.trucks += other.trucks
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.trucks.isEmpty  {
+       builderResult.trucks += other.trucks
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponseBuilder {
@@ -781,17 +829,17 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class TrucksForVendorRequest : GeneratedMessage {
-  required init() {
+final public class TrucksForVendorRequest : GeneratedMessage {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -832,16 +880,30 @@ final class TrucksForVendorRequest : GeneratedMessage {
   func toBuilder() -> TrucksForVendorRequestBuilder {
     return TrucksForVendorRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "TrucksForVendorRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return TrucksForVendorRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
@@ -863,7 +925,7 @@ final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> TrucksForVendorRequestBuilder {
     return TrucksForVendorRequest.builderWithPrototype(builderResult)
   }
-  func build() -> TrucksForVendorRequest {
+  override func build() -> TrucksForVendorRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -873,9 +935,9 @@ final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:TrucksForVendorRequest) -> TrucksForVendorRequestBuilder {
     if (other == TrucksForVendorRequest()) {
-      return self
+     return self
     }
-      mergeUnknownFields(other.unknownFields)
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorRequestBuilder {
@@ -900,21 +962,21 @@ final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class TrucksForVendorResponse : GeneratedMessage {
+final public class TrucksForVendorResponse : GeneratedMessage {
   private(set) var hasIsNew:Bool = false
   private(set) var isNew:Bool = true
 
   private(set) var trucks:Array<Truck>  = Array<Truck>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasIsNew {
       return false
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in trucks {
         output.writeMessage(1, value:element)
     }
@@ -923,7 +985,7 @@ final class TrucksForVendorResponse : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -970,7 +1032,7 @@ final class TrucksForVendorResponse : GeneratedMessage {
   func toBuilder() -> TrucksForVendorResponseBuilder {
     return TrucksForVendorResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
     for element in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
@@ -983,7 +1045,7 @@ final class TrucksForVendorResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in trucks {
@@ -996,6 +1058,20 @@ final class TrucksForVendorResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "TrucksForVendorResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return TrucksForVendorResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
@@ -1048,7 +1124,7 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> TrucksForVendorResponseBuilder {
     return TrucksForVendorResponse.builderWithPrototype(builderResult)
   }
-  func build() -> TrucksForVendorResponse {
+  override func build() -> TrucksForVendorResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -1058,15 +1134,15 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:TrucksForVendorResponse) -> TrucksForVendorResponseBuilder {
     if (other == TrucksForVendorResponse()) {
-      return self
+     return self
     }
-  if !other.trucks.isEmpty  {
-     builderResult.trucks += other.trucks
-  }
-  if other.hasIsNew {
-       isNew = other.isNew
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.trucks.isEmpty  {
+       builderResult.trucks += other.trucks
+    }
+    if other.hasIsNew {
+         isNew = other.isNew
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorResponseBuilder {
@@ -1099,17 +1175,17 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class TruckProfilesRequest : GeneratedMessage {
+final public class TruckProfilesRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
-  private(set) var latitude:Double = 0
+  private(set) var latitude:Double = Double(0)
 
   private(set) var hasLongitude:Bool = false
-  private(set) var longitude:Double = 0
+  private(set) var longitude:Double = Double(0)
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -1118,7 +1194,7 @@ final class TruckProfilesRequest : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -1127,7 +1203,7 @@ final class TruckProfilesRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1174,7 +1250,7 @@ final class TruckProfilesRequest : GeneratedMessage {
   func toBuilder() -> TruckProfilesRequestBuilder {
     return TruckProfilesRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -1183,7 +1259,7 @@ final class TruckProfilesRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -1196,6 +1272,20 @@ final class TruckProfilesRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "TruckProfilesRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return TruckProfilesRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
@@ -1221,7 +1311,7 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLatitude() -> TruckProfilesRequestBuilder{
        builderResult.hasLatitude = false
-       builderResult.latitude = 0
+       builderResult.latitude = Double(0)
        return self
   }
   var hasLongitude:Bool {
@@ -1240,7 +1330,7 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   }
   func clearLongitude() -> TruckProfilesRequestBuilder{
        builderResult.hasLongitude = false
-       builderResult.longitude = 0
+       builderResult.longitude = Double(0)
        return self
   }
   override var internalGetResult:GeneratedMessage {
@@ -1255,7 +1345,7 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> TruckProfilesRequestBuilder {
     return TruckProfilesRequest.builderWithPrototype(builderResult)
   }
-  func build() -> TruckProfilesRequest {
+  override func build() -> TruckProfilesRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -1265,15 +1355,15 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:TruckProfilesRequest) -> TruckProfilesRequestBuilder {
     if (other == TruckProfilesRequest()) {
-      return self
+     return self
     }
-  if other.hasLatitude {
-       latitude = other.latitude
-  }
-  if other.hasLongitude {
-       longitude = other.longitude
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasLatitude {
+         latitude = other.latitude
+    }
+    if other.hasLongitude {
+         longitude = other.longitude
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesRequestBuilder {
@@ -1304,21 +1394,21 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class TruckProfilesResponse : GeneratedMessage {
+final public class TruckProfilesResponse : GeneratedMessage {
   private(set) var trucks:Array<Truck>  = Array<Truck>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     for element in trucks {
         output.writeMessage(1, value:element)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1362,7 +1452,7 @@ final class TruckProfilesResponse : GeneratedMessage {
   func toBuilder() -> TruckProfilesResponseBuilder {
     return TruckProfilesResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
     for element in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
@@ -1372,7 +1462,7 @@ final class TruckProfilesResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           for element in trucks {
@@ -1382,6 +1472,20 @@ final class TruckProfilesResponse : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "TruckProfilesResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return TruckProfilesResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
@@ -1415,7 +1519,7 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> TruckProfilesResponseBuilder {
     return TruckProfilesResponse.builderWithPrototype(builderResult)
   }
-  func build() -> TruckProfilesResponse {
+  override func build() -> TruckProfilesResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -1425,12 +1529,12 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:TruckProfilesResponse) -> TruckProfilesResponseBuilder {
     if (other == TruckProfilesResponse()) {
-      return self
+     return self
     }
-  if !other.trucks.isEmpty  {
-     builderResult.trucks += other.trucks
-  }
-      mergeUnknownFields(other.unknownFields)
+    if !other.trucks.isEmpty  {
+       builderResult.trucks += other.trucks
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesResponseBuilder {
@@ -1460,7 +1564,7 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class Truck : GeneratedMessage {
+final public class Truck : GeneratedMessage {
   private(set) var hasId:Bool = false
   private(set) var id:String = ""
 
@@ -1471,13 +1575,13 @@ final class Truck : GeneratedMessage {
   private(set) var imageUrl:String = ""
 
   private(set) var keywords:Array<String> = Array<String>()
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasId {
       output.writeString(1, value:id)
     }
@@ -1494,7 +1598,7 @@ final class Truck : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1550,7 +1654,7 @@ final class Truck : GeneratedMessage {
   func toBuilder() -> TruckBuilder {
     return Truck.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasId {
       output += "\(indent) id: \(id) \n"
     }
@@ -1567,7 +1671,7 @@ final class Truck : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasId {
@@ -1586,6 +1690,20 @@ final class Truck : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "Truck"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return Truck.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class TruckBuilder : GeneratedMessageBuilder {
@@ -1676,7 +1794,7 @@ final class TruckBuilder : GeneratedMessageBuilder {
   override func clone() -> TruckBuilder {
     return Truck.builderWithPrototype(builderResult)
   }
-  func build() -> Truck {
+  override func build() -> Truck {
        checkInitialized()
        return buildPartial()
   }
@@ -1686,21 +1804,21 @@ final class TruckBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:Truck) -> TruckBuilder {
     if (other == Truck()) {
-      return self
+     return self
     }
-  if other.hasId {
-       id = other.id
-  }
-  if other.hasName {
-       name = other.name
-  }
-  if other.hasImageUrl {
-       imageUrl = other.imageUrl
-  }
-  if !other.keywords.isEmpty {
-      builderResult.keywords += other.keywords
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasId {
+         id = other.id
+    }
+    if other.hasName {
+         name = other.name
+    }
+    if other.hasImageUrl {
+         imageUrl = other.imageUrl
+    }
+    if !other.keywords.isEmpty {
+        builderResult.keywords += other.keywords
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckBuilder {
@@ -1737,7 +1855,7 @@ final class TruckBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ServingModeRequest : GeneratedMessage {
+final public class ServingModeRequest : GeneratedMessage {
   private(set) var hasTruckId:Bool = false
   private(set) var truckId:String = ""
 
@@ -1745,15 +1863,15 @@ final class ServingModeRequest : GeneratedMessage {
   private(set) var isInServingMode:Bool = false
 
   private(set) var hasTruckLatitude:Bool = false
-  private(set) var truckLatitude:Double = 0
+  private(set) var truckLatitude:Double = Double(0)
 
   private(set) var hasTruckLongitude:Bool = false
-  private(set) var truckLongitude:Double = 0
+  private(set) var truckLongitude:Double = Double(0)
 
-  required init() {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
     if !hasTruckId {
       return false
     }
@@ -1762,7 +1880,7 @@ final class ServingModeRequest : GeneratedMessage {
     }
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasTruckId {
       output.writeString(1, value:truckId)
     }
@@ -1777,7 +1895,7 @@ final class ServingModeRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1830,7 +1948,7 @@ final class ServingModeRequest : GeneratedMessage {
   func toBuilder() -> ServingModeRequestBuilder {
     return ServingModeRequest.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasTruckId {
       output += "\(indent) truckId: \(truckId) \n"
     }
@@ -1845,7 +1963,7 @@ final class ServingModeRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTruckId {
@@ -1864,6 +1982,20 @@ final class ServingModeRequest : GeneratedMessage {
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ServingModeRequest"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ServingModeRequest.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ServingModeRequestBuilder : GeneratedMessageBuilder {
@@ -1927,7 +2059,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   }
   func clearTruckLatitude() -> ServingModeRequestBuilder{
        builderResult.hasTruckLatitude = false
-       builderResult.truckLatitude = 0
+       builderResult.truckLatitude = Double(0)
        return self
   }
   var hasTruckLongitude:Bool {
@@ -1946,7 +2078,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   }
   func clearTruckLongitude() -> ServingModeRequestBuilder{
        builderResult.hasTruckLongitude = false
-       builderResult.truckLongitude = 0
+       builderResult.truckLongitude = Double(0)
        return self
   }
   override var internalGetResult:GeneratedMessage {
@@ -1961,7 +2093,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   override func clone() -> ServingModeRequestBuilder {
     return ServingModeRequest.builderWithPrototype(builderResult)
   }
-  func build() -> ServingModeRequest {
+  override func build() -> ServingModeRequest {
        checkInitialized()
        return buildPartial()
   }
@@ -1971,21 +2103,21 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:ServingModeRequest) -> ServingModeRequestBuilder {
     if (other == ServingModeRequest()) {
-      return self
+     return self
     }
-  if other.hasTruckId {
-       truckId = other.truckId
-  }
-  if other.hasIsInServingMode {
-       isInServingMode = other.isInServingMode
-  }
-  if other.hasTruckLatitude {
-       truckLatitude = other.truckLatitude
-  }
-  if other.hasTruckLongitude {
-       truckLongitude = other.truckLongitude
-  }
-      mergeUnknownFields(other.unknownFields)
+    if other.hasTruckId {
+         truckId = other.truckId
+    }
+    if other.hasIsInServingMode {
+         isInServingMode = other.isInServingMode
+    }
+    if other.hasTruckLatitude {
+         truckLatitude = other.truckLatitude
+    }
+    if other.hasTruckLongitude {
+         truckLongitude = other.truckLongitude
+    }
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeRequestBuilder {
@@ -2022,17 +2154,17 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final class ServingModeResponse : GeneratedMessage {
-  required init() {
+final public class ServingModeResponse : GeneratedMessage {
+  required public init() {
        super.init()
   }
-  override func isInitialized() -> Bool {
+  override public func isInitialized() -> Bool {
    return true
   }
-  override func writeToCodedOutputStream(output:CodedOutputStream) {
+  override public func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override func serializedSize() -> Int32 {
+  override public func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2073,16 +2205,30 @@ final class ServingModeResponse : GeneratedMessage {
   func toBuilder() -> ServingModeResponseBuilder {
     return ServingModeResponse.builderWithPrototype(self)
   }
-  override func writeDescriptionTo(inout output:String, indent:String) {
+  override public func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override var hashValue:Int {
+  override public var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
       }
   }
+
+
+  //Meta information declaration start
+
+  override public class func className() -> String {
+      return "ServingModeResponse"
+  }
+  override public func classMetaType() -> GeneratedMessage.Type {
+      return ServingModeResponse.self
+  }
+
+
+  //Meta information declaration end
+
 }
 
 final class ServingModeResponseBuilder : GeneratedMessageBuilder {
@@ -2104,7 +2250,7 @@ final class ServingModeResponseBuilder : GeneratedMessageBuilder {
   override func clone() -> ServingModeResponseBuilder {
     return ServingModeResponse.builderWithPrototype(builderResult)
   }
-  func build() -> ServingModeResponse {
+  override func build() -> ServingModeResponse {
        checkInitialized()
        return buildPartial()
   }
@@ -2114,9 +2260,9 @@ final class ServingModeResponseBuilder : GeneratedMessageBuilder {
   }
   func mergeFrom(other:ServingModeResponse) -> ServingModeResponseBuilder {
     if (other == ServingModeResponse()) {
-      return self
+     return self
     }
-      mergeUnknownFields(other.unknownFields)
+    mergeUnknownFields(other.unknownFields)
     return self
   }
   override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeResponseBuilder {
