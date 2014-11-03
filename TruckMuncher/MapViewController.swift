@@ -21,16 +21,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
     var count: Int = 0
+    var activeTrucks = [RTruck]()
+    
+    let trucksManager = TrucksManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
         self.mapView.delegate = self
-        
+
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
-        mapClusterController.addAnnotations(getTestData(), withCompletionHandler: nil)
         mapClusterController.delegate = self
         setClusterSettings()
+        
+        updateData()
     }
     
     func setClusterSettings() {
@@ -131,6 +135,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    func updateData() {
+        let lat = locationManager.location.coordinate.latitude
+        let long = locationManager.location.coordinate.longitude
+        trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
+            self.activeTrucks = response as [RTruck]
+            self.updateMapWithActiveTrucks()
+        }) { (error) -> () in
+            var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     func getTestData() -> [TruckLocationAnnotation] {
         var data: [Double] =
         [43.05265631,-87.90401198,
@@ -169,5 +186,18 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         
         return points
+    }
+    
+    func updateMapWithActiveTrucks() {
+        var annotations = [TruckLocationAnnotation]()
+        
+        for var i = 0; i < activeTrucks.count; i++ {
+            var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
+            var a = TruckLocationAnnotation(location: location)
+            annotations.append(a)
+        }
+        
+        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+        mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
 }
