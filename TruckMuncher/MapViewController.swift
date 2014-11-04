@@ -58,7 +58,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             var clusterAnnotation = annotation as CCHMapClusterAnnotation
             clusterAnnotationView!.setCount(clusterAnnotation.annotations.count)
-            clusterAnnotationView?.isUniqueLocation = clusterAnnotation.isUniqueLocation()
+            clusterAnnotationView!.isUniqueLocation = clusterAnnotation.isUniqueLocation()
             annotationView = clusterAnnotationView!
         }
         return annotationView
@@ -131,8 +131,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func pushVendorMap() {
-        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
         NSNotificationCenter.defaultCenter().removeObserver(self)
+        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
     }
     
     func updateData() {
