@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -18,10 +18,10 @@
 import Foundation
 public class UnknownFieldSetBuilder
 {
-    public var fields:Dictionary<Int32,Field>
-    public var lastFieldNumber:Int32
-    public var lastField:Field?
-    init()
+    private var fields:Dictionary<Int32,Field>
+    private var lastFieldNumber:Int32
+    private var lastField:Field?
+    public init()
     {
         fields = Dictionary()
         lastFieldNumber = 0
@@ -32,8 +32,8 @@ public class UnknownFieldSetBuilder
             NSException(name:"IllegalArgument", reason:"", userInfo: nil).raise()
         }
         if (lastField != nil && lastFieldNumber == number) {
-            lastField = nil;
-            lastFieldNumber = 0;
+            lastField = nil
+            lastFieldNumber = 0
         }
         fields[number]=field
         return self
@@ -58,8 +58,8 @@ public class UnknownFieldSetBuilder
             lastField = Field()
             if (existing != nil) {
                 lastField?.mergeFromField(existing!)
-        }
-        return lastField
+            }
+            return lastField
         }
     }
     
@@ -100,7 +100,7 @@ public class UnknownFieldSetBuilder
     public func unknownFields() -> UnknownFieldSet {
         return  build()
     }
-    public func setUnknownFields(unknownFields:UnknownFieldSet) -> MessageBuilder?
+    public func setUnknownFields(unknownFields:UnknownFieldSet) -> UnknownFieldSetBuilder?
     {
         NSException(name:"UnsupportedMethod", reason:"", userInfo: nil).raise()
         return nil
@@ -131,7 +131,6 @@ public class UnknownFieldSetBuilder
     
     public func mergeUnknownFields(other:UnknownFieldSet) -> UnknownFieldSetBuilder
     {
-        
         for number in other.fields.keys
         {
             var field:Field = other.fields[number]!
@@ -182,12 +181,14 @@ public class UnknownFieldSetBuilder
         }
         else if (format == WireFormat.WireFormatFixed32)
         {
-            getFieldBuilder(number)?.fixed32Array.append(input.readFixed32())
+            var value = input.readFixed32()
+            getFieldBuilder(number)?.fixed32Array.append(value)
             return true
         }
         else if (format == WireFormat.WireFormatFixed64)
         {
-            getFieldBuilder(number)?.fixed64Array.append(input.readFixed64())
+            var value = input.readFixed64()
+            getFieldBuilder(number)?.fixed64Array.append(value)
             return true
         }
         else if (format == WireFormat.WireFormatLengthDelimited)
@@ -202,11 +203,10 @@ public class UnknownFieldSetBuilder
             getFieldBuilder(number)?.groupArray.append(subBuilder.build())
             return true
         }
-        else if (tag == WireFormat.WireFormatEndGroup.rawValue)
+        else if (format == WireFormat.WireFormatEndGroup)
         {
             return false
         }
-      
         else
         {
             NSException(name:"InvalidProtocolBuffer", reason:"", userInfo: nil).raise()
@@ -219,9 +219,9 @@ public class UnknownFieldSetBuilder
     public func mergeFromCodedInputStream(input:CodedInputStream) -> UnknownFieldSetBuilder {
         while (true) {
             var tag:Int32 = input.readTag()
-            if tag == 0 || mergeFieldFrom(tag, input:input)
+            if tag == 0 || !mergeFieldFrom(tag, input:input)
             {
-                break;
+                break
             }
         }
         return self
@@ -238,7 +238,7 @@ public class UnknownFieldSetBuilder
         var input = CodedInputStream(data: data)
          mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry)
         input.checkLastTagWas(0)
-        return self;
+        return self
     }
     
     public func clear() ->UnknownFieldSetBuilder

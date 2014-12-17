@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct TrucksRoot {
-  static var sharedInstance : TrucksRoot {
+internal struct TrucksRoot {
+  internal static var sharedInstance : TrucksRoot {
    struct Static {
        static let instance : TrucksRoot = TrucksRoot()
    }
@@ -16,11 +16,11 @@ struct TrucksRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: ActiveTrucksRequest, rhs: ActiveTrucksRequest) -> Bool {
+internal func == (lhs: ActiveTrucksRequest, rhs: ActiveTrucksRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -31,7 +31,7 @@ func == (lhs: ActiveTrucksRequest, rhs: ActiveTrucksRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ActiveTrucksResponse.Truck, rhs: ActiveTrucksResponse.Truck) -> Bool {
+internal func == (lhs: ActiveTrucksResponse.Truck, rhs: ActiveTrucksResponse.Truck) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -42,7 +42,7 @@ func == (lhs: ActiveTrucksResponse.Truck, rhs: ActiveTrucksResponse.Truck) -> Bo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ActiveTrucksResponse, rhs: ActiveTrucksResponse) -> Bool {
+internal func == (lhs: ActiveTrucksResponse, rhs: ActiveTrucksResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -51,7 +51,7 @@ func == (lhs: ActiveTrucksResponse, rhs: ActiveTrucksResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TrucksForVendorRequest, rhs: TrucksForVendorRequest) -> Bool {
+internal func == (lhs: TrucksForVendorRequest, rhs: TrucksForVendorRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -59,7 +59,7 @@ func == (lhs: TrucksForVendorRequest, rhs: TrucksForVendorRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TrucksForVendorResponse, rhs: TrucksForVendorResponse) -> Bool {
+internal func == (lhs: TrucksForVendorResponse, rhs: TrucksForVendorResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -69,7 +69,7 @@ func == (lhs: TrucksForVendorResponse, rhs: TrucksForVendorResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TruckProfilesRequest, rhs: TruckProfilesRequest) -> Bool {
+internal func == (lhs: TruckProfilesRequest, rhs: TruckProfilesRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -79,7 +79,7 @@ func == (lhs: TruckProfilesRequest, rhs: TruckProfilesRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TruckProfilesResponse, rhs: TruckProfilesResponse) -> Bool {
+internal func == (lhs: TruckProfilesResponse, rhs: TruckProfilesResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -88,7 +88,20 @@ func == (lhs: TruckProfilesResponse, rhs: TruckProfilesResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: Truck, rhs: Truck) -> Bool {
+internal func == (lhs: ModifyTruckRequest, rhs: ModifyTruckRequest) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasId == rhs.hasId) && (!lhs.hasId || lhs.id == rhs.id)
+  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+  fieldCheck = fieldCheck && (lhs.keywords == rhs.keywords)
+  fieldCheck = fieldCheck && (lhs.hasPrimaryColor == rhs.hasPrimaryColor) && (!lhs.hasPrimaryColor || lhs.primaryColor == rhs.primaryColor)
+  fieldCheck = fieldCheck && (lhs.hasSecondaryColor == rhs.hasSecondaryColor) && (!lhs.hasSecondaryColor || lhs.secondaryColor == rhs.secondaryColor)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: Truck, rhs: Truck) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -97,10 +110,12 @@ func == (lhs: Truck, rhs: Truck) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
   fieldCheck = fieldCheck && (lhs.hasImageUrl == rhs.hasImageUrl) && (!lhs.hasImageUrl || lhs.imageUrl == rhs.imageUrl)
   fieldCheck = fieldCheck && (lhs.keywords == rhs.keywords)
+  fieldCheck = fieldCheck && (lhs.hasPrimaryColor == rhs.hasPrimaryColor) && (!lhs.hasPrimaryColor || lhs.primaryColor == rhs.primaryColor)
+  fieldCheck = fieldCheck && (lhs.hasSecondaryColor == rhs.hasSecondaryColor) && (!lhs.hasSecondaryColor || lhs.secondaryColor == rhs.secondaryColor)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ServingModeRequest, rhs: ServingModeRequest) -> Bool {
+internal func == (lhs: ServingModeRequest, rhs: ServingModeRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -112,7 +127,7 @@ func == (lhs: ServingModeRequest, rhs: ServingModeRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ServingModeResponse, rhs: ServingModeResponse) -> Bool {
+internal func == (lhs: ServingModeResponse, rhs: ServingModeResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -120,7 +135,7 @@ func == (lhs: ServingModeResponse, rhs: ServingModeResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class ActiveTrucksRequest : GeneratedMessage {
+final internal class ActiveTrucksRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
   private(set) var latitude:Double = Double(0)
 
@@ -130,10 +145,10 @@ final public class ActiveTrucksRequest : GeneratedMessage {
   private(set) var hasSearchQuery:Bool = false
   private(set) var searchQuery:String = ""
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -142,7 +157,7 @@ final public class ActiveTrucksRequest : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -154,7 +169,7 @@ final public class ActiveTrucksRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -174,37 +189,43 @@ final public class ActiveTrucksRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ActiveTrucksRequest {
+  internal class func parseFromData(data:[Byte]) -> ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequest {
     return ActiveTrucksRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ActiveTrucksRequestBuilder {
+  internal class func builder() -> ActiveTrucksRequestBuilder {
+    return ActiveTrucksRequest.classBuilder() as ActiveTrucksRequestBuilder
+  }
+  internal func builder() -> ActiveTrucksRequestBuilder {
+    return classBuilder() as ActiveTrucksRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ActiveTrucksRequestBuilder()
   }
-  class func builderWithPrototype(prototype:ActiveTrucksRequest) -> ActiveTrucksRequestBuilder {
-    return ActiveTrucksRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> ActiveTrucksRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ActiveTrucksRequest.builder()
   }
-  func toBuilder() -> ActiveTrucksRequestBuilder {
+  internal func toBuilder() -> ActiveTrucksRequestBuilder {
     return ActiveTrucksRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ActiveTrucksRequest) -> ActiveTrucksRequestBuilder {
+    return ActiveTrucksRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -216,7 +237,7 @@ final public class ActiveTrucksRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -236,10 +257,13 @@ final public class ActiveTrucksRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ActiveTrucksRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ActiveTrucksRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ActiveTrucksRequest.self
   }
 
@@ -248,10 +272,10 @@ final public class ActiveTrucksRequest : GeneratedMessage {
 
 }
 
-final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
+final internal class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:ActiveTrucksRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = ActiveTrucksRequest()
      super.init()
   }
@@ -269,7 +293,7 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
            builderResult.latitude = value
        }
   }
-  func clearLatitude() -> ActiveTrucksRequestBuilder{
+  internal func clearLatitude() -> ActiveTrucksRequestBuilder{
        builderResult.hasLatitude = false
        builderResult.latitude = Double(0)
        return self
@@ -288,7 +312,7 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
            builderResult.longitude = value
        }
   }
-  func clearLongitude() -> ActiveTrucksRequestBuilder{
+  internal func clearLongitude() -> ActiveTrucksRequestBuilder{
        builderResult.hasLongitude = false
        builderResult.longitude = Double(0)
        return self
@@ -307,32 +331,32 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
            builderResult.searchQuery = value
        }
   }
-  func clearSearchQuery() -> ActiveTrucksRequestBuilder{
+  internal func clearSearchQuery() -> ActiveTrucksRequestBuilder{
        builderResult.hasSearchQuery = false
        builderResult.searchQuery = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ActiveTrucksRequestBuilder {
+  internal override func clear() -> ActiveTrucksRequestBuilder {
     builderResult = ActiveTrucksRequest()
     return self
   }
-  override func clone() -> ActiveTrucksRequestBuilder {
+  internal override func clone() -> ActiveTrucksRequestBuilder {
     return ActiveTrucksRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> ActiveTrucksRequest {
+  internal override func build() -> ActiveTrucksRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ActiveTrucksRequest {
+  internal func buildPartial() -> ActiveTrucksRequest {
     var returnMe:ActiveTrucksRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:ActiveTrucksRequest) -> ActiveTrucksRequestBuilder {
+  internal func mergeFrom(other:ActiveTrucksRequest) -> ActiveTrucksRequestBuilder {
     if (other == ActiveTrucksRequest()) {
      return self
     }
@@ -348,10 +372,10 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -379,12 +403,12 @@ final class ActiveTrucksRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ActiveTrucksResponse : GeneratedMessage {
+final internal class ActiveTrucksResponse : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class Truck : GeneratedMessage {
+    final internal class Truck : GeneratedMessage {
       private(set) var hasId:Bool = false
       private(set) var id:String = ""
 
@@ -394,10 +418,10 @@ final public class ActiveTrucksResponse : GeneratedMessage {
       private(set) var hasLongitude:Bool = false
       private(set) var longitude:Double = Double(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
         if !hasId {
           return false
         }
@@ -409,7 +433,7 @@ final public class ActiveTrucksResponse : GeneratedMessage {
         }
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasId {
           output.writeString(1, value:id)
         }
@@ -421,7 +445,7 @@ final public class ActiveTrucksResponse : GeneratedMessage {
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -441,37 +465,43 @@ final public class ActiveTrucksResponse : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> ActiveTrucksResponse.Truck {
+      internal class func parseFromData(data:[Byte]) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.Truck {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksResponse.Truck {
+      internal class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksResponse.Truck {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksResponse.Truck {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.Truck {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> ActiveTrucksResponse.TruckBuilder {
+      internal class func builder() -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.Truck.classBuilder() as ActiveTrucksResponse.TruckBuilder
+      }
+      internal func builder() -> ActiveTrucksResponse.TruckBuilder {
+        return classBuilder() as ActiveTrucksResponse.TruckBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return ActiveTrucksResponse.TruckBuilder()
       }
-      class func builderWithPrototype(prototype:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
-        return ActiveTrucksResponse.Truck.builder().mergeFrom(prototype)
-      }
-      func builder() -> ActiveTrucksResponse.TruckBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return ActiveTrucksResponse.Truck.builder()
       }
-      func toBuilder() -> ActiveTrucksResponse.TruckBuilder {
+      internal func toBuilder() -> ActiveTrucksResponse.TruckBuilder {
         return ActiveTrucksResponse.Truck.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
+        return ActiveTrucksResponse.Truck.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasId {
           output += "\(indent) id: \(id) \n"
         }
@@ -483,7 +513,7 @@ final public class ActiveTrucksResponse : GeneratedMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasId {
@@ -503,10 +533,13 @@ final public class ActiveTrucksResponse : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "ActiveTrucksResponse.Truck"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "ActiveTrucksResponse.Truck"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return ActiveTrucksResponse.Truck.self
       }
 
@@ -515,10 +548,10 @@ final public class ActiveTrucksResponse : GeneratedMessage {
 
     }
 
-    final class TruckBuilder : GeneratedMessageBuilder {
+    final internal class TruckBuilder : GeneratedMessageBuilder {
       private var builderResult:ActiveTrucksResponse.Truck
 
-      required override init () {
+      required override internal init () {
          builderResult = ActiveTrucksResponse.Truck()
          super.init()
       }
@@ -536,7 +569,7 @@ final public class ActiveTrucksResponse : GeneratedMessage {
                builderResult.id = value
            }
       }
-      func clearId() -> ActiveTrucksResponse.TruckBuilder{
+      internal func clearId() -> ActiveTrucksResponse.TruckBuilder{
            builderResult.hasId = false
            builderResult.id = ""
            return self
@@ -555,7 +588,7 @@ final public class ActiveTrucksResponse : GeneratedMessage {
                builderResult.latitude = value
            }
       }
-      func clearLatitude() -> ActiveTrucksResponse.TruckBuilder{
+      internal func clearLatitude() -> ActiveTrucksResponse.TruckBuilder{
            builderResult.hasLatitude = false
            builderResult.latitude = Double(0)
            return self
@@ -574,32 +607,32 @@ final public class ActiveTrucksResponse : GeneratedMessage {
                builderResult.longitude = value
            }
       }
-      func clearLongitude() -> ActiveTrucksResponse.TruckBuilder{
+      internal func clearLongitude() -> ActiveTrucksResponse.TruckBuilder{
            builderResult.hasLongitude = false
            builderResult.longitude = Double(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> ActiveTrucksResponse.TruckBuilder {
+      internal override func clear() -> ActiveTrucksResponse.TruckBuilder {
         builderResult = ActiveTrucksResponse.Truck()
         return self
       }
-      override func clone() -> ActiveTrucksResponse.TruckBuilder {
+      internal override func clone() -> ActiveTrucksResponse.TruckBuilder {
         return ActiveTrucksResponse.Truck.builderWithPrototype(builderResult)
       }
-      override func build() -> ActiveTrucksResponse.Truck {
+      internal override func build() -> ActiveTrucksResponse.Truck {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> ActiveTrucksResponse.Truck {
+      internal func buildPartial() -> ActiveTrucksResponse.Truck {
         var returnMe:ActiveTrucksResponse.Truck = builderResult
         return returnMe
       }
-      func mergeFrom(other:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
+      internal func mergeFrom(other:ActiveTrucksResponse.Truck) -> ActiveTrucksResponse.TruckBuilder {
         if (other == ActiveTrucksResponse.Truck()) {
          return self
         }
@@ -615,10 +648,10 @@ final public class ActiveTrucksResponse : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponse.TruckBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponse.TruckBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.TruckBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse.TruckBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -651,13 +684,13 @@ final public class ActiveTrucksResponse : GeneratedMessage {
   //Nested type declaration end
 
   private(set) var trucks:Array<ActiveTrucksResponse.Truck>  = Array<ActiveTrucksResponse.Truck>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     var isInittrucks:Bool = true
-    for element in trucks {
-        if (!element.isInitialized()) {
+    for oneElementtrucks in trucks {
+        if (!oneElementtrucks.isInitialized()) {
             isInittrucks = false
             break 
         }
@@ -667,71 +700,77 @@ final public class ActiveTrucksResponse : GeneratedMessage {
      }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in trucks {
-        output.writeMessage(1, value:element)
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    for oneElementtrucks in trucks {
+        output.writeMessage(1, value:oneElementtrucks)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
     }
 
     size = 0
-    for element in trucks {
-        size += WireFormat.computeMessageSize(1, value:element)
+    for oneElementtrucks in trucks {
+        size += WireFormat.computeMessageSize(1, value:oneElementtrucks)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ActiveTrucksResponse {
+  internal class func parseFromData(data:[Byte]) -> ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponse {
     return ActiveTrucksResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ActiveTrucksResponseBuilder {
+  internal class func builder() -> ActiveTrucksResponseBuilder {
+    return ActiveTrucksResponse.classBuilder() as ActiveTrucksResponseBuilder
+  }
+  internal func builder() -> ActiveTrucksResponseBuilder {
+    return classBuilder() as ActiveTrucksResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ActiveTrucksResponseBuilder()
   }
-  class func builderWithPrototype(prototype:ActiveTrucksResponse) -> ActiveTrucksResponseBuilder {
-    return ActiveTrucksResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> ActiveTrucksResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ActiveTrucksResponse.builder()
   }
-  func toBuilder() -> ActiveTrucksResponseBuilder {
+  internal func toBuilder() -> ActiveTrucksResponseBuilder {
     return ActiveTrucksResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ActiveTrucksResponse) -> ActiveTrucksResponseBuilder {
+    return ActiveTrucksResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
-    for element in trucks {
+    for oneElementtrucks in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementtrucks.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         trucksElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in trucks {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementtrucks in trucks {
+              hashCode = (hashCode &* 31) &+ oneElementtrucks.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -741,10 +780,13 @@ final public class ActiveTrucksResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ActiveTrucksResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ActiveTrucksResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ActiveTrucksResponse.self
   }
 
@@ -753,10 +795,10 @@ final public class ActiveTrucksResponse : GeneratedMessage {
 
 }
 
-final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
+final internal class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:ActiveTrucksResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = ActiveTrucksResponse()
      super.init()
   }
@@ -768,31 +810,31 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
            builderResult.trucks = value
        }
   }
-  func clearTrucks() -> ActiveTrucksResponseBuilder {
+  internal func clearTrucks() -> ActiveTrucksResponseBuilder {
     builderResult.trucks.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ActiveTrucksResponseBuilder {
+  internal override func clear() -> ActiveTrucksResponseBuilder {
     builderResult = ActiveTrucksResponse()
     return self
   }
-  override func clone() -> ActiveTrucksResponseBuilder {
+  internal override func clone() -> ActiveTrucksResponseBuilder {
     return ActiveTrucksResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> ActiveTrucksResponse {
+  internal override func build() -> ActiveTrucksResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ActiveTrucksResponse {
+  internal func buildPartial() -> ActiveTrucksResponse {
     var returnMe:ActiveTrucksResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:ActiveTrucksResponse) -> ActiveTrucksResponseBuilder {
+  internal func mergeFrom(other:ActiveTrucksResponse) -> ActiveTrucksResponseBuilder {
     if (other == ActiveTrucksResponse()) {
      return self
     }
@@ -802,10 +844,10 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ActiveTrucksResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ActiveTrucksResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -829,17 +871,17 @@ final class ActiveTrucksResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TrucksForVendorRequest : GeneratedMessage {
-  required public init() {
+final internal class TrucksForVendorRequest : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -850,40 +892,46 @@ final public class TrucksForVendorRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TrucksForVendorRequest {
+  internal class func parseFromData(data:[Byte]) -> TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TrucksForVendorRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TrucksForVendorRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TrucksForVendorRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequest {
     return TrucksForVendorRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TrucksForVendorRequestBuilder {
+  internal class func builder() -> TrucksForVendorRequestBuilder {
+    return TrucksForVendorRequest.classBuilder() as TrucksForVendorRequestBuilder
+  }
+  internal func builder() -> TrucksForVendorRequestBuilder {
+    return classBuilder() as TrucksForVendorRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TrucksForVendorRequestBuilder()
   }
-  class func builderWithPrototype(prototype:TrucksForVendorRequest) -> TrucksForVendorRequestBuilder {
-    return TrucksForVendorRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> TrucksForVendorRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TrucksForVendorRequest.builder()
   }
-  func toBuilder() -> TrucksForVendorRequestBuilder {
+  internal func toBuilder() -> TrucksForVendorRequestBuilder {
     return TrucksForVendorRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TrucksForVendorRequest) -> TrucksForVendorRequestBuilder {
+    return TrucksForVendorRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -894,10 +942,13 @@ final public class TrucksForVendorRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TrucksForVendorRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TrucksForVendorRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TrucksForVendorRequest.self
   }
 
@@ -906,44 +957,44 @@ final public class TrucksForVendorRequest : GeneratedMessage {
 
 }
 
-final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
+final internal class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:TrucksForVendorRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = TrucksForVendorRequest()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TrucksForVendorRequestBuilder {
+  internal override func clear() -> TrucksForVendorRequestBuilder {
     builderResult = TrucksForVendorRequest()
     return self
   }
-  override func clone() -> TrucksForVendorRequestBuilder {
+  internal override func clone() -> TrucksForVendorRequestBuilder {
     return TrucksForVendorRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> TrucksForVendorRequest {
+  internal override func build() -> TrucksForVendorRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TrucksForVendorRequest {
+  internal func buildPartial() -> TrucksForVendorRequest {
     var returnMe:TrucksForVendorRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:TrucksForVendorRequest) -> TrucksForVendorRequestBuilder {
+  internal func mergeFrom(other:TrucksForVendorRequest) -> TrucksForVendorRequestBuilder {
     if (other == TrucksForVendorRequest()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -962,38 +1013,38 @@ final class TrucksForVendorRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TrucksForVendorResponse : GeneratedMessage {
+final internal class TrucksForVendorResponse : GeneratedMessage {
   private(set) var hasIsNew:Bool = false
   private(set) var isNew:Bool = true
 
   private(set) var trucks:Array<Truck>  = Array<Truck>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasIsNew {
       return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in trucks {
-        output.writeMessage(1, value:element)
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    for oneElementtrucks in trucks {
+        output.writeMessage(1, value:oneElementtrucks)
     }
     if hasIsNew {
       output.writeBool(2, value:isNew)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
     }
 
     size = 0
-    for element in trucks {
-        size += WireFormat.computeMessageSize(1, value:element)
+    for oneElementtrucks in trucks {
+        size += WireFormat.computeMessageSize(1, value:oneElementtrucks)
     }
     if hasIsNew {
       size += WireFormat.computeBoolSize(2, value:isNew)
@@ -1002,41 +1053,47 @@ final public class TrucksForVendorResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TrucksForVendorResponse {
+  internal class func parseFromData(data:[Byte]) -> TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TrucksForVendorResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TrucksForVendorResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TrucksForVendorResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponse {
     return TrucksForVendorResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TrucksForVendorResponseBuilder {
+  internal class func builder() -> TrucksForVendorResponseBuilder {
+    return TrucksForVendorResponse.classBuilder() as TrucksForVendorResponseBuilder
+  }
+  internal func builder() -> TrucksForVendorResponseBuilder {
+    return classBuilder() as TrucksForVendorResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TrucksForVendorResponseBuilder()
   }
-  class func builderWithPrototype(prototype:TrucksForVendorResponse) -> TrucksForVendorResponseBuilder {
-    return TrucksForVendorResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> TrucksForVendorResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TrucksForVendorResponse.builder()
   }
-  func toBuilder() -> TrucksForVendorResponseBuilder {
+  internal func toBuilder() -> TrucksForVendorResponseBuilder {
     return TrucksForVendorResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TrucksForVendorResponse) -> TrucksForVendorResponseBuilder {
+    return TrucksForVendorResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
-    for element in trucks {
+    for oneElementtrucks in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementtrucks.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         trucksElementIndex++
     }
@@ -1045,11 +1102,11 @@ final public class TrucksForVendorResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in trucks {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementtrucks in trucks {
+              hashCode = (hashCode &* 31) &+ oneElementtrucks.hashValue
           }
           if hasIsNew {
              hashCode = (hashCode &* 31) &+ isNew.hashValue
@@ -1062,10 +1119,13 @@ final public class TrucksForVendorResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TrucksForVendorResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TrucksForVendorResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TrucksForVendorResponse.self
   }
 
@@ -1074,10 +1134,10 @@ final public class TrucksForVendorResponse : GeneratedMessage {
 
 }
 
-final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
+final internal class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:TrucksForVendorResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = TrucksForVendorResponse()
      super.init()
   }
@@ -1089,7 +1149,7 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
            builderResult.trucks = value
        }
   }
-  func clearTrucks() -> TrucksForVendorResponseBuilder {
+  internal func clearTrucks() -> TrucksForVendorResponseBuilder {
     builderResult.trucks.removeAll(keepCapacity: false)
     return self
   }
@@ -1107,32 +1167,32 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
            builderResult.isNew = value
        }
   }
-  func clearIsNew() -> TrucksForVendorResponseBuilder{
+  internal func clearIsNew() -> TrucksForVendorResponseBuilder{
        builderResult.hasIsNew = false
        builderResult.isNew = true
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TrucksForVendorResponseBuilder {
+  internal override func clear() -> TrucksForVendorResponseBuilder {
     builderResult = TrucksForVendorResponse()
     return self
   }
-  override func clone() -> TrucksForVendorResponseBuilder {
+  internal override func clone() -> TrucksForVendorResponseBuilder {
     return TrucksForVendorResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> TrucksForVendorResponse {
+  internal override func build() -> TrucksForVendorResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TrucksForVendorResponse {
+  internal func buildPartial() -> TrucksForVendorResponse {
     var returnMe:TrucksForVendorResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:TrucksForVendorResponse) -> TrucksForVendorResponseBuilder {
+  internal func mergeFrom(other:TrucksForVendorResponse) -> TrucksForVendorResponseBuilder {
     if (other == TrucksForVendorResponse()) {
      return self
     }
@@ -1145,10 +1205,10 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TrucksForVendorResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TrucksForVendorResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1175,17 +1235,17 @@ final class TrucksForVendorResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TruckProfilesRequest : GeneratedMessage {
+final internal class TruckProfilesRequest : GeneratedMessage {
   private(set) var hasLatitude:Bool = false
   private(set) var latitude:Double = Double(0)
 
   private(set) var hasLongitude:Bool = false
   private(set) var longitude:Double = Double(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasLatitude {
       return false
     }
@@ -1194,7 +1254,7 @@ final public class TruckProfilesRequest : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasLatitude {
       output.writeDouble(1, value:latitude)
     }
@@ -1203,7 +1263,7 @@ final public class TruckProfilesRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1220,37 +1280,43 @@ final public class TruckProfilesRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TruckProfilesRequest {
+  internal class func parseFromData(data:[Byte]) -> TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TruckProfilesRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TruckProfilesRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TruckProfilesRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TruckProfilesRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesRequest {
     return TruckProfilesRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TruckProfilesRequestBuilder {
+  internal class func builder() -> TruckProfilesRequestBuilder {
+    return TruckProfilesRequest.classBuilder() as TruckProfilesRequestBuilder
+  }
+  internal func builder() -> TruckProfilesRequestBuilder {
+    return classBuilder() as TruckProfilesRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TruckProfilesRequestBuilder()
   }
-  class func builderWithPrototype(prototype:TruckProfilesRequest) -> TruckProfilesRequestBuilder {
-    return TruckProfilesRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> TruckProfilesRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TruckProfilesRequest.builder()
   }
-  func toBuilder() -> TruckProfilesRequestBuilder {
+  internal func toBuilder() -> TruckProfilesRequestBuilder {
     return TruckProfilesRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TruckProfilesRequest) -> TruckProfilesRequestBuilder {
+    return TruckProfilesRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasLatitude {
       output += "\(indent) latitude: \(latitude) \n"
     }
@@ -1259,7 +1325,7 @@ final public class TruckProfilesRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasLatitude {
@@ -1276,10 +1342,13 @@ final public class TruckProfilesRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TruckProfilesRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TruckProfilesRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TruckProfilesRequest.self
   }
 
@@ -1288,10 +1357,10 @@ final public class TruckProfilesRequest : GeneratedMessage {
 
 }
 
-final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
+final internal class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:TruckProfilesRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = TruckProfilesRequest()
      super.init()
   }
@@ -1309,7 +1378,7 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
            builderResult.latitude = value
        }
   }
-  func clearLatitude() -> TruckProfilesRequestBuilder{
+  internal func clearLatitude() -> TruckProfilesRequestBuilder{
        builderResult.hasLatitude = false
        builderResult.latitude = Double(0)
        return self
@@ -1328,32 +1397,32 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
            builderResult.longitude = value
        }
   }
-  func clearLongitude() -> TruckProfilesRequestBuilder{
+  internal func clearLongitude() -> TruckProfilesRequestBuilder{
        builderResult.hasLongitude = false
        builderResult.longitude = Double(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TruckProfilesRequestBuilder {
+  internal override func clear() -> TruckProfilesRequestBuilder {
     builderResult = TruckProfilesRequest()
     return self
   }
-  override func clone() -> TruckProfilesRequestBuilder {
+  internal override func clone() -> TruckProfilesRequestBuilder {
     return TruckProfilesRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> TruckProfilesRequest {
+  internal override func build() -> TruckProfilesRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TruckProfilesRequest {
+  internal func buildPartial() -> TruckProfilesRequest {
     var returnMe:TruckProfilesRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:TruckProfilesRequest) -> TruckProfilesRequestBuilder {
+  internal func mergeFrom(other:TruckProfilesRequest) -> TruckProfilesRequestBuilder {
     if (other == TruckProfilesRequest()) {
      return self
     }
@@ -1366,10 +1435,10 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1394,79 +1463,85 @@ final class TruckProfilesRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TruckProfilesResponse : GeneratedMessage {
+final internal class TruckProfilesResponse : GeneratedMessage {
   private(set) var trucks:Array<Truck>  = Array<Truck>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
-    for element in trucks {
-        output.writeMessage(1, value:element)
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    for oneElementtrucks in trucks {
+        output.writeMessage(1, value:oneElementtrucks)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
     }
 
     size = 0
-    for element in trucks {
-        size += WireFormat.computeMessageSize(1, value:element)
+    for oneElementtrucks in trucks {
+        size += WireFormat.computeMessageSize(1, value:oneElementtrucks)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TruckProfilesResponse {
+  internal class func parseFromData(data:[Byte]) -> TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TruckProfilesResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TruckProfilesResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TruckProfilesResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TruckProfilesResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesResponse {
     return TruckProfilesResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TruckProfilesResponseBuilder {
+  internal class func builder() -> TruckProfilesResponseBuilder {
+    return TruckProfilesResponse.classBuilder() as TruckProfilesResponseBuilder
+  }
+  internal func builder() -> TruckProfilesResponseBuilder {
+    return classBuilder() as TruckProfilesResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TruckProfilesResponseBuilder()
   }
-  class func builderWithPrototype(prototype:TruckProfilesResponse) -> TruckProfilesResponseBuilder {
-    return TruckProfilesResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> TruckProfilesResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TruckProfilesResponse.builder()
   }
-  func toBuilder() -> TruckProfilesResponseBuilder {
+  internal func toBuilder() -> TruckProfilesResponseBuilder {
     return TruckProfilesResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TruckProfilesResponse) -> TruckProfilesResponseBuilder {
+    return TruckProfilesResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var trucksElementIndex:Int = 0
-    for element in trucks {
+    for oneElementtrucks in trucks {
         output += "\(indent) trucks[\(trucksElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementtrucks.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         trucksElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in trucks {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementtrucks in trucks {
+              hashCode = (hashCode &* 31) &+ oneElementtrucks.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -1476,10 +1551,13 @@ final public class TruckProfilesResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TruckProfilesResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TruckProfilesResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TruckProfilesResponse.self
   }
 
@@ -1488,10 +1566,10 @@ final public class TruckProfilesResponse : GeneratedMessage {
 
 }
 
-final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
+final internal class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:TruckProfilesResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = TruckProfilesResponse()
      super.init()
   }
@@ -1503,31 +1581,31 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
            builderResult.trucks = value
        }
   }
-  func clearTrucks() -> TruckProfilesResponseBuilder {
+  internal func clearTrucks() -> TruckProfilesResponseBuilder {
     builderResult.trucks.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TruckProfilesResponseBuilder {
+  internal override func clear() -> TruckProfilesResponseBuilder {
     builderResult = TruckProfilesResponse()
     return self
   }
-  override func clone() -> TruckProfilesResponseBuilder {
+  internal override func clone() -> TruckProfilesResponseBuilder {
     return TruckProfilesResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> TruckProfilesResponse {
+  internal override func build() -> TruckProfilesResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TruckProfilesResponse {
+  internal func buildPartial() -> TruckProfilesResponse {
     var returnMe:TruckProfilesResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:TruckProfilesResponse) -> TruckProfilesResponseBuilder {
+  internal func mergeFrom(other:TruckProfilesResponse) -> TruckProfilesResponseBuilder {
     if (other == TruckProfilesResponse()) {
      return self
     }
@@ -1537,10 +1615,10 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckProfilesResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckProfilesResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1564,41 +1642,47 @@ final class TruckProfilesResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class Truck : GeneratedMessage {
+final internal class ModifyTruckRequest : GeneratedMessage {
   private(set) var hasId:Bool = false
   private(set) var id:String = ""
 
   private(set) var hasName:Bool = false
   private(set) var name:String = ""
 
-  private(set) var hasImageUrl:Bool = false
-  private(set) var imageUrl:String = ""
+  private(set) var hasPrimaryColor:Bool = false
+  private(set) var primaryColor:String = ""
+
+  private(set) var hasSecondaryColor:Bool = false
+  private(set) var secondaryColor:String = ""
 
   private(set) var keywords:Array<String> = Array<String>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasId {
       output.writeString(1, value:id)
     }
     if hasName {
       output.writeString(2, value:name)
     }
-    if hasImageUrl {
-      output.writeString(3, value:imageUrl)
-    }
     if !keywords.isEmpty {
-      for value in keywords {
-        output.writeString(4, value:value)
+      for oneValuekeywords in keywords {
+        output.writeString(3, value:oneValuekeywords)
       }
+    }
+    if hasPrimaryColor {
+      output.writeString(4, value:primaryColor)
+    }
+    if hasSecondaryColor {
+      output.writeString(5, value:secondaryColor)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1611,67 +1695,79 @@ final public class Truck : GeneratedMessage {
     if hasName {
       size += WireFormat.computeStringSize(2, value:name)
     }
-    if hasImageUrl {
-      size += WireFormat.computeStringSize(3, value:imageUrl)
-    }
     var dataSizeKeywords:Int32 = 0
-    for element in keywords {
-        dataSizeKeywords += WireFormat.computeStringSizeNoTag(element)
+    for oneValuekeywords in keywords {
+        dataSizeKeywords += WireFormat.computeStringSizeNoTag(oneValuekeywords)
     }
     size += dataSizeKeywords
     size += 1 * Int32(keywords.count)
+    if hasPrimaryColor {
+      size += WireFormat.computeStringSize(4, value:primaryColor)
+    }
+    if hasSecondaryColor {
+      size += WireFormat.computeStringSize(5, value:secondaryColor)
+    }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> Truck {
-    return Truck.builder().mergeFromData(data).build()
+  internal class func parseFromData(data:[Byte]) -> ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Truck {
-    return Truck.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> Truck {
-    return Truck.builder().mergeFromInputStream(input).build()
+  internal class func parseFromInputStream(input:NSInputStream) -> ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Truck {
-    return Truck.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> Truck {
-    return Truck.builder().mergeFromCodedInputStream(input).build()
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Truck {
-    return Truck.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ModifyTruckRequest {
+    return ModifyTruckRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TruckBuilder {
-    return TruckBuilder()
+  internal class func builder() -> ModifyTruckRequestBuilder {
+    return ModifyTruckRequest.classBuilder() as ModifyTruckRequestBuilder
   }
-  class func builderWithPrototype(prototype:Truck) -> TruckBuilder {
-    return Truck.builder().mergeFrom(prototype)
+  internal func builder() -> ModifyTruckRequestBuilder {
+    return classBuilder() as ModifyTruckRequestBuilder
   }
-  func builder() -> TruckBuilder {
-    return Truck.builder()
+  internal override class func classBuilder() -> MessageBuilder {
+    return ModifyTruckRequestBuilder()
   }
-  func toBuilder() -> TruckBuilder {
-    return Truck.builderWithPrototype(self)
+  internal override func classBuilder() -> MessageBuilder {
+    return ModifyTruckRequest.builder()
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal func toBuilder() -> ModifyTruckRequestBuilder {
+    return ModifyTruckRequest.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:ModifyTruckRequest) -> ModifyTruckRequestBuilder {
+    return ModifyTruckRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasId {
       output += "\(indent) id: \(id) \n"
     }
     if hasName {
       output += "\(indent) name: \(name) \n"
     }
-    if hasImageUrl {
-      output += "\(indent) imageUrl: \(imageUrl) \n"
-    }
     var keywordsElementIndex:Int = 0
-    for element in keywords  {
-        output += "\(indent) keywords[\(keywordsElementIndex)]: \(element)\n"
+    for oneValuekeywords in keywords  {
+        output += "\(indent) keywords[\(keywordsElementIndex)]: \(oneValuekeywords)\n"
         keywordsElementIndex++
+    }
+    if hasPrimaryColor {
+      output += "\(indent) primaryColor: \(primaryColor) \n"
+    }
+    if hasSecondaryColor {
+      output += "\(indent) secondaryColor: \(secondaryColor) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasId {
@@ -1680,11 +1776,14 @@ final public class Truck : GeneratedMessage {
           if hasName {
              hashCode = (hashCode &* 31) &+ name.hashValue
           }
-          if hasImageUrl {
-             hashCode = (hashCode &* 31) &+ imageUrl.hashValue
+          for oneValuekeywords in keywords {
+              hashCode = (hashCode &* 31) &+ oneValuekeywords.hashValue
           }
-          for element in keywords {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          if hasPrimaryColor {
+             hashCode = (hashCode &* 31) &+ primaryColor.hashValue
+          }
+          if hasSecondaryColor {
+             hashCode = (hashCode &* 31) &+ secondaryColor.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -1694,11 +1793,14 @@ final public class Truck : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
-      return "Truck"
+  override internal class func className() -> String {
+      return "ModifyTruckRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
-      return Truck.self
+  override internal func className() -> String {
+      return "ModifyTruckRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return ModifyTruckRequest.self
   }
 
 
@@ -1706,11 +1808,11 @@ final public class Truck : GeneratedMessage {
 
 }
 
-final class TruckBuilder : GeneratedMessageBuilder {
-  private var builderResult:Truck
+final internal class ModifyTruckRequestBuilder : GeneratedMessageBuilder {
+  private var builderResult:ModifyTruckRequest
 
-  required override init () {
-     builderResult = Truck()
+  required override internal init () {
+     builderResult = ModifyTruckRequest()
      super.init()
   }
   var hasId:Bool {
@@ -1727,7 +1829,7 @@ final class TruckBuilder : GeneratedMessageBuilder {
            builderResult.id = value
        }
   }
-  func clearId() -> TruckBuilder{
+  internal func clearId() -> ModifyTruckRequestBuilder{
        builderResult.hasId = false
        builderResult.id = ""
        return self
@@ -1746,7 +1848,362 @@ final class TruckBuilder : GeneratedMessageBuilder {
            builderResult.name = value
        }
   }
-  func clearName() -> TruckBuilder{
+  internal func clearName() -> ModifyTruckRequestBuilder{
+       builderResult.hasName = false
+       builderResult.name = ""
+       return self
+  }
+  var keywords:Array<String> {
+       get {
+           return builderResult.keywords
+       }
+       set (array) {
+           builderResult.keywords = array
+       }
+  }
+  internal func clearKeywords() -> ModifyTruckRequestBuilder {
+     builderResult.keywords.removeAll(keepCapacity: false)
+     return self
+  }
+  var hasPrimaryColor:Bool {
+       get {
+            return builderResult.hasPrimaryColor
+       }
+  }
+  var primaryColor:String {
+       get {
+            return builderResult.primaryColor
+       }
+       set (value) {
+           builderResult.hasPrimaryColor = true
+           builderResult.primaryColor = value
+       }
+  }
+  internal func clearPrimaryColor() -> ModifyTruckRequestBuilder{
+       builderResult.hasPrimaryColor = false
+       builderResult.primaryColor = ""
+       return self
+  }
+  var hasSecondaryColor:Bool {
+       get {
+            return builderResult.hasSecondaryColor
+       }
+  }
+  var secondaryColor:String {
+       get {
+            return builderResult.secondaryColor
+       }
+       set (value) {
+           builderResult.hasSecondaryColor = true
+           builderResult.secondaryColor = value
+       }
+  }
+  internal func clearSecondaryColor() -> ModifyTruckRequestBuilder{
+       builderResult.hasSecondaryColor = false
+       builderResult.secondaryColor = ""
+       return self
+  }
+  override internal var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  internal override func clear() -> ModifyTruckRequestBuilder {
+    builderResult = ModifyTruckRequest()
+    return self
+  }
+  internal override func clone() -> ModifyTruckRequestBuilder {
+    return ModifyTruckRequest.builderWithPrototype(builderResult)
+  }
+  internal override func build() -> ModifyTruckRequest {
+       checkInitialized()
+       return buildPartial()
+  }
+  internal func buildPartial() -> ModifyTruckRequest {
+    var returnMe:ModifyTruckRequest = builderResult
+    return returnMe
+  }
+  internal func mergeFrom(other:ModifyTruckRequest) -> ModifyTruckRequestBuilder {
+    if (other == ModifyTruckRequest()) {
+     return self
+    }
+    if other.hasId {
+         id = other.id
+    }
+    if other.hasName {
+         name = other.name
+    }
+    if !other.keywords.isEmpty {
+        builderResult.keywords += other.keywords
+    }
+    if other.hasPrimaryColor {
+         primaryColor = other.primaryColor
+    }
+    if other.hasSecondaryColor {
+         secondaryColor = other.secondaryColor
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ModifyTruckRequestBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ModifyTruckRequestBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        id = input.readString()
+
+      case 18 :
+        name = input.readString()
+
+      case 26 :
+        keywords += [input.readString()]
+
+      case 34 :
+        primaryColor = input.readString()
+
+      case 42 :
+        secondaryColor = input.readString()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final internal class Truck : GeneratedMessage {
+  private(set) var hasId:Bool = false
+  private(set) var id:String = ""
+
+  private(set) var hasName:Bool = false
+  private(set) var name:String = ""
+
+  private(set) var hasImageUrl:Bool = false
+  private(set) var imageUrl:String = ""
+
+  private(set) var hasPrimaryColor:Bool = false
+  private(set) var primaryColor:String = ""
+
+  private(set) var hasSecondaryColor:Bool = false
+  private(set) var secondaryColor:String = ""
+
+  private(set) var keywords:Array<String> = Array<String>()
+  required internal init() {
+       super.init()
+  }
+  override internal func isInitialized() -> Bool {
+   return true
+  }
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasId {
+      output.writeString(1, value:id)
+    }
+    if hasName {
+      output.writeString(2, value:name)
+    }
+    if hasImageUrl {
+      output.writeString(3, value:imageUrl)
+    }
+    if !keywords.isEmpty {
+      for oneValuekeywords in keywords {
+        output.writeString(4, value:oneValuekeywords)
+      }
+    }
+    if hasPrimaryColor {
+      output.writeString(5, value:primaryColor)
+    }
+    if hasSecondaryColor {
+      output.writeString(6, value:secondaryColor)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override internal func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    if hasId {
+      size += WireFormat.computeStringSize(1, value:id)
+    }
+    if hasName {
+      size += WireFormat.computeStringSize(2, value:name)
+    }
+    if hasImageUrl {
+      size += WireFormat.computeStringSize(3, value:imageUrl)
+    }
+    var dataSizeKeywords:Int32 = 0
+    for oneValuekeywords in keywords {
+        dataSizeKeywords += WireFormat.computeStringSizeNoTag(oneValuekeywords)
+    }
+    size += dataSizeKeywords
+    size += 1 * Int32(keywords.count)
+    if hasPrimaryColor {
+      size += WireFormat.computeStringSize(5, value:primaryColor)
+    }
+    if hasSecondaryColor {
+      size += WireFormat.computeStringSize(6, value:secondaryColor)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  internal class func parseFromData(data:[Byte]) -> Truck {
+    return Truck.builder().mergeFromData(data).build()
+  }
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Truck {
+    return Truck.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream) -> Truck {
+    return Truck.builder().mergeFromInputStream(input).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Truck {
+    return Truck.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> Truck {
+    return Truck.builder().mergeFromCodedInputStream(input).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Truck {
+    return Truck.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func builder() -> TruckBuilder {
+    return Truck.classBuilder() as TruckBuilder
+  }
+  internal func builder() -> TruckBuilder {
+    return classBuilder() as TruckBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
+    return TruckBuilder()
+  }
+  internal override func classBuilder() -> MessageBuilder {
+    return Truck.builder()
+  }
+  internal func toBuilder() -> TruckBuilder {
+    return Truck.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:Truck) -> TruckBuilder {
+    return Truck.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
+    if hasId {
+      output += "\(indent) id: \(id) \n"
+    }
+    if hasName {
+      output += "\(indent) name: \(name) \n"
+    }
+    if hasImageUrl {
+      output += "\(indent) imageUrl: \(imageUrl) \n"
+    }
+    var keywordsElementIndex:Int = 0
+    for oneValuekeywords in keywords  {
+        output += "\(indent) keywords[\(keywordsElementIndex)]: \(oneValuekeywords)\n"
+        keywordsElementIndex++
+    }
+    if hasPrimaryColor {
+      output += "\(indent) primaryColor: \(primaryColor) \n"
+    }
+    if hasSecondaryColor {
+      output += "\(indent) secondaryColor: \(secondaryColor) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override internal var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasId {
+             hashCode = (hashCode &* 31) &+ id.hashValue
+          }
+          if hasName {
+             hashCode = (hashCode &* 31) &+ name.hashValue
+          }
+          if hasImageUrl {
+             hashCode = (hashCode &* 31) &+ imageUrl.hashValue
+          }
+          for oneValuekeywords in keywords {
+              hashCode = (hashCode &* 31) &+ oneValuekeywords.hashValue
+          }
+          if hasPrimaryColor {
+             hashCode = (hashCode &* 31) &+ primaryColor.hashValue
+          }
+          if hasSecondaryColor {
+             hashCode = (hashCode &* 31) &+ secondaryColor.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override internal class func className() -> String {
+      return "Truck"
+  }
+  override internal func className() -> String {
+      return "Truck"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return Truck.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final internal class TruckBuilder : GeneratedMessageBuilder {
+  private var builderResult:Truck
+
+  required override internal init () {
+     builderResult = Truck()
+     super.init()
+  }
+  var hasId:Bool {
+       get {
+            return builderResult.hasId
+       }
+  }
+  var id:String {
+       get {
+            return builderResult.id
+       }
+       set (value) {
+           builderResult.hasId = true
+           builderResult.id = value
+       }
+  }
+  internal func clearId() -> TruckBuilder{
+       builderResult.hasId = false
+       builderResult.id = ""
+       return self
+  }
+  var hasName:Bool {
+       get {
+            return builderResult.hasName
+       }
+  }
+  var name:String {
+       get {
+            return builderResult.name
+       }
+       set (value) {
+           builderResult.hasName = true
+           builderResult.name = value
+       }
+  }
+  internal func clearName() -> TruckBuilder{
        builderResult.hasName = false
        builderResult.name = ""
        return self
@@ -1765,7 +2222,7 @@ final class TruckBuilder : GeneratedMessageBuilder {
            builderResult.imageUrl = value
        }
   }
-  func clearImageUrl() -> TruckBuilder{
+  internal func clearImageUrl() -> TruckBuilder{
        builderResult.hasImageUrl = false
        builderResult.imageUrl = ""
        return self
@@ -1778,31 +2235,69 @@ final class TruckBuilder : GeneratedMessageBuilder {
            builderResult.keywords = array
        }
   }
-  func clearKeywords() -> TruckBuilder {
+  internal func clearKeywords() -> TruckBuilder {
      builderResult.keywords.removeAll(keepCapacity: false)
      return self
   }
-  override var internalGetResult:GeneratedMessage {
+  var hasPrimaryColor:Bool {
+       get {
+            return builderResult.hasPrimaryColor
+       }
+  }
+  var primaryColor:String {
+       get {
+            return builderResult.primaryColor
+       }
+       set (value) {
+           builderResult.hasPrimaryColor = true
+           builderResult.primaryColor = value
+       }
+  }
+  internal func clearPrimaryColor() -> TruckBuilder{
+       builderResult.hasPrimaryColor = false
+       builderResult.primaryColor = ""
+       return self
+  }
+  var hasSecondaryColor:Bool {
+       get {
+            return builderResult.hasSecondaryColor
+       }
+  }
+  var secondaryColor:String {
+       get {
+            return builderResult.secondaryColor
+       }
+       set (value) {
+           builderResult.hasSecondaryColor = true
+           builderResult.secondaryColor = value
+       }
+  }
+  internal func clearSecondaryColor() -> TruckBuilder{
+       builderResult.hasSecondaryColor = false
+       builderResult.secondaryColor = ""
+       return self
+  }
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TruckBuilder {
+  internal override func clear() -> TruckBuilder {
     builderResult = Truck()
     return self
   }
-  override func clone() -> TruckBuilder {
+  internal override func clone() -> TruckBuilder {
     return Truck.builderWithPrototype(builderResult)
   }
-  override func build() -> Truck {
+  internal override func build() -> Truck {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> Truck {
+  internal func buildPartial() -> Truck {
     var returnMe:Truck = builderResult
     return returnMe
   }
-  func mergeFrom(other:Truck) -> TruckBuilder {
+  internal func mergeFrom(other:Truck) -> TruckBuilder {
     if (other == Truck()) {
      return self
     }
@@ -1818,13 +2313,19 @@ final class TruckBuilder : GeneratedMessageBuilder {
     if !other.keywords.isEmpty {
         builderResult.keywords += other.keywords
     }
+    if other.hasPrimaryColor {
+         primaryColor = other.primaryColor
+    }
+    if other.hasSecondaryColor {
+         secondaryColor = other.secondaryColor
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TruckBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TruckBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1845,6 +2346,12 @@ final class TruckBuilder : GeneratedMessageBuilder {
       case 34 :
         keywords += [input.readString()]
 
+      case 42 :
+        primaryColor = input.readString()
+
+      case 50 :
+        secondaryColor = input.readString()
+
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
            unknownFields = unknownFieldsBuilder.build()
@@ -1855,7 +2362,7 @@ final class TruckBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ServingModeRequest : GeneratedMessage {
+final internal class ServingModeRequest : GeneratedMessage {
   private(set) var hasTruckId:Bool = false
   private(set) var truckId:String = ""
 
@@ -1868,10 +2375,10 @@ final public class ServingModeRequest : GeneratedMessage {
   private(set) var hasTruckLongitude:Bool = false
   private(set) var truckLongitude:Double = Double(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasTruckId {
       return false
     }
@@ -1880,7 +2387,7 @@ final public class ServingModeRequest : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasTruckId {
       output.writeString(1, value:truckId)
     }
@@ -1895,7 +2402,7 @@ final public class ServingModeRequest : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1918,37 +2425,43 @@ final public class ServingModeRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ServingModeRequest {
+  internal class func parseFromData(data:[Byte]) -> ServingModeRequest {
     return ServingModeRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ServingModeRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ServingModeRequest {
     return ServingModeRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ServingModeRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> ServingModeRequest {
     return ServingModeRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServingModeRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServingModeRequest {
     return ServingModeRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ServingModeRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ServingModeRequest {
     return ServingModeRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeRequest {
     return ServingModeRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ServingModeRequestBuilder {
+  internal class func builder() -> ServingModeRequestBuilder {
+    return ServingModeRequest.classBuilder() as ServingModeRequestBuilder
+  }
+  internal func builder() -> ServingModeRequestBuilder {
+    return classBuilder() as ServingModeRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ServingModeRequestBuilder()
   }
-  class func builderWithPrototype(prototype:ServingModeRequest) -> ServingModeRequestBuilder {
-    return ServingModeRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> ServingModeRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ServingModeRequest.builder()
   }
-  func toBuilder() -> ServingModeRequestBuilder {
+  internal func toBuilder() -> ServingModeRequestBuilder {
     return ServingModeRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ServingModeRequest) -> ServingModeRequestBuilder {
+    return ServingModeRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasTruckId {
       output += "\(indent) truckId: \(truckId) \n"
     }
@@ -1963,7 +2476,7 @@ final public class ServingModeRequest : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTruckId {
@@ -1986,10 +2499,13 @@ final public class ServingModeRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ServingModeRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ServingModeRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ServingModeRequest.self
   }
 
@@ -1998,10 +2514,10 @@ final public class ServingModeRequest : GeneratedMessage {
 
 }
 
-final class ServingModeRequestBuilder : GeneratedMessageBuilder {
+final internal class ServingModeRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:ServingModeRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = ServingModeRequest()
      super.init()
   }
@@ -2019,7 +2535,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
            builderResult.truckId = value
        }
   }
-  func clearTruckId() -> ServingModeRequestBuilder{
+  internal func clearTruckId() -> ServingModeRequestBuilder{
        builderResult.hasTruckId = false
        builderResult.truckId = ""
        return self
@@ -2038,7 +2554,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
            builderResult.isInServingMode = value
        }
   }
-  func clearIsInServingMode() -> ServingModeRequestBuilder{
+  internal func clearIsInServingMode() -> ServingModeRequestBuilder{
        builderResult.hasIsInServingMode = false
        builderResult.isInServingMode = false
        return self
@@ -2057,7 +2573,7 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
            builderResult.truckLatitude = value
        }
   }
-  func clearTruckLatitude() -> ServingModeRequestBuilder{
+  internal func clearTruckLatitude() -> ServingModeRequestBuilder{
        builderResult.hasTruckLatitude = false
        builderResult.truckLatitude = Double(0)
        return self
@@ -2076,32 +2592,32 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
            builderResult.truckLongitude = value
        }
   }
-  func clearTruckLongitude() -> ServingModeRequestBuilder{
+  internal func clearTruckLongitude() -> ServingModeRequestBuilder{
        builderResult.hasTruckLongitude = false
        builderResult.truckLongitude = Double(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ServingModeRequestBuilder {
+  internal override func clear() -> ServingModeRequestBuilder {
     builderResult = ServingModeRequest()
     return self
   }
-  override func clone() -> ServingModeRequestBuilder {
+  internal override func clone() -> ServingModeRequestBuilder {
     return ServingModeRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> ServingModeRequest {
+  internal override func build() -> ServingModeRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ServingModeRequest {
+  internal func buildPartial() -> ServingModeRequest {
     var returnMe:ServingModeRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:ServingModeRequest) -> ServingModeRequestBuilder {
+  internal func mergeFrom(other:ServingModeRequest) -> ServingModeRequestBuilder {
     if (other == ServingModeRequest()) {
      return self
     }
@@ -2120,10 +2636,10 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2154,17 +2670,17 @@ final class ServingModeRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ServingModeResponse : GeneratedMessage {
-  required public init() {
+final internal class ServingModeResponse : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2175,40 +2691,46 @@ final public class ServingModeResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ServingModeResponse {
+  internal class func parseFromData(data:[Byte]) -> ServingModeResponse {
     return ServingModeResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ServingModeResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ServingModeResponse {
     return ServingModeResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ServingModeResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> ServingModeResponse {
     return ServingModeResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServingModeResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ServingModeResponse {
     return ServingModeResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ServingModeResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ServingModeResponse {
     return ServingModeResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeResponse {
     return ServingModeResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ServingModeResponseBuilder {
+  internal class func builder() -> ServingModeResponseBuilder {
+    return ServingModeResponse.classBuilder() as ServingModeResponseBuilder
+  }
+  internal func builder() -> ServingModeResponseBuilder {
+    return classBuilder() as ServingModeResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ServingModeResponseBuilder()
   }
-  class func builderWithPrototype(prototype:ServingModeResponse) -> ServingModeResponseBuilder {
-    return ServingModeResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> ServingModeResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ServingModeResponse.builder()
   }
-  func toBuilder() -> ServingModeResponseBuilder {
+  internal func toBuilder() -> ServingModeResponseBuilder {
     return ServingModeResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ServingModeResponse) -> ServingModeResponseBuilder {
+    return ServingModeResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -2219,10 +2741,13 @@ final public class ServingModeResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ServingModeResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ServingModeResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ServingModeResponse.self
   }
 
@@ -2231,44 +2756,44 @@ final public class ServingModeResponse : GeneratedMessage {
 
 }
 
-final class ServingModeResponseBuilder : GeneratedMessageBuilder {
+final internal class ServingModeResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:ServingModeResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = ServingModeResponse()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ServingModeResponseBuilder {
+  internal override func clear() -> ServingModeResponseBuilder {
     builderResult = ServingModeResponse()
     return self
   }
-  override func clone() -> ServingModeResponseBuilder {
+  internal override func clone() -> ServingModeResponseBuilder {
     return ServingModeResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> ServingModeResponse {
+  internal override func build() -> ServingModeResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ServingModeResponse {
+  internal func buildPartial() -> ServingModeResponse {
     var returnMe:ServingModeResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:ServingModeResponse) -> ServingModeResponseBuilder {
+  internal func mergeFrom(other:ServingModeResponse) -> ServingModeResponseBuilder {
     if (other == ServingModeResponse()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ServingModeResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ServingModeResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2290,7 +2815,7 @@ final class ServingModeResponseBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension ActiveTrucksRequest {
+internal extension ActiveTrucksRequest {
     class func parseFromNSData(data:NSData) -> ActiveTrucksRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2302,7 +2827,7 @@ extension ActiveTrucksRequest {
         return ActiveTrucksRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ActiveTrucksResponse.Truck {
+internal extension ActiveTrucksResponse.Truck {
     class func parseFromNSData(data:NSData) -> ActiveTrucksResponse.Truck {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2314,7 +2839,7 @@ extension ActiveTrucksResponse.Truck {
         return ActiveTrucksResponse.Truck.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ActiveTrucksResponse {
+internal extension ActiveTrucksResponse {
     class func parseFromNSData(data:NSData) -> ActiveTrucksResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2326,7 +2851,7 @@ extension ActiveTrucksResponse {
         return ActiveTrucksResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TrucksForVendorRequest {
+internal extension TrucksForVendorRequest {
     class func parseFromNSData(data:NSData) -> TrucksForVendorRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2338,7 +2863,7 @@ extension TrucksForVendorRequest {
         return TrucksForVendorRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TrucksForVendorResponse {
+internal extension TrucksForVendorResponse {
     class func parseFromNSData(data:NSData) -> TrucksForVendorResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2350,7 +2875,7 @@ extension TrucksForVendorResponse {
         return TrucksForVendorResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TruckProfilesRequest {
+internal extension TruckProfilesRequest {
     class func parseFromNSData(data:NSData) -> TruckProfilesRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2362,7 +2887,7 @@ extension TruckProfilesRequest {
         return TruckProfilesRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TruckProfilesResponse {
+internal extension TruckProfilesResponse {
     class func parseFromNSData(data:NSData) -> TruckProfilesResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2374,7 +2899,19 @@ extension TruckProfilesResponse {
         return TruckProfilesResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension Truck {
+internal extension ModifyTruckRequest {
+    class func parseFromNSData(data:NSData) -> ModifyTruckRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ModifyTruckRequest.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ModifyTruckRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ModifyTruckRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+internal extension Truck {
     class func parseFromNSData(data:NSData) -> Truck {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2386,7 +2923,7 @@ extension Truck {
         return Truck.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ServingModeRequest {
+internal extension ServingModeRequest {
     class func parseFromNSData(data:NSData) -> ServingModeRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -2398,7 +2935,7 @@ extension ServingModeRequest {
         return ServingModeRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ServingModeResponse {
+internal extension ServingModeResponse {
     class func parseFromNSData(data:NSData) -> ServingModeResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

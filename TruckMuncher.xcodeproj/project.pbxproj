@@ -60,6 +60,10 @@
 		27AC00CA19CB4B4F00F1F3B7 /* TruckMuncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00C919CB4B4F00F1F3B7 /* TruckMuncherTests.swift */; };
 		27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */; };
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
+		27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27E680861A420FC8008173D3 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27E680931A421086008173D3 /* Search.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680921A421086008173D3 /* Search.pb.swift */; };
+		27E680951A4210E3008173D3 /* RSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680941A4210E3008173D3 /* RSearch.swift */; };
+		27E680971A42125A008173D3 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680961A42125A008173D3 /* SearchManager.swift */; };
 		27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536BB19FF4A6C009A8575 /* APIManager.swift */; };
 		27F536C119FF4C42009A8575 /* RMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C019FF4C42009A8575 /* RMenu.swift */; };
 		27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C219FF4C4B009A8575 /* RMenuItem.swift */; };
@@ -71,7 +75,6 @@
 		27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D3519FF5D2100060F79 /* libc++.dylib */; };
 		27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D3719FF5D6200060F79 /* RLMSupport.swift */; };
 		27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D391A0042AE00060F79 /* AuthManager.swift */; };
-		27FE9D441A00707900060F79 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D411A00707300060F79 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D451A00799200060F79 /* Auth.pb.swift */; };
 		27FE9D481A0079EF00060F79 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D471A0079EF00060F79 /* RUser.swift */; };
 		702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67065F4FABC149C7A197923C /* libPods.a */; };
@@ -99,19 +102,47 @@
 			remoteGlobalIDString = 27AC00AD19CB4B4F00F1F3B7;
 			remoteInfo = TruckMuncher;
 		};
-		27FE9D401A00707300060F79 /* PBXContainerItemProxy */ = {
+		27E680851A420FC8008173D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
+			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F85569919C71BCF003802F2;
 			remoteInfo = ProtocolBuffers;
 		};
-		27FE9D421A00707300060F79 /* PBXContainerItemProxy */ = {
+		27E680871A420FC8008173D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
+			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
 			remoteInfo = UnitTesting;
+		};
+		27E680891A420FC8008173D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F41061C1A1A667700742090;
+			remoteInfo = "ProtocolBuffers(OSX)";
+		};
+		27E6808B1A420FC8008173D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F4106261A1A667800742090;
+			remoteInfo = "UnitTesting(OSX)";
+		};
+		27E6808D1A421014008173D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F85569819C71BCF003802F2;
+			remoteInfo = ProtocolBuffers;
+		};
+		27E6808F1A421014008173D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -122,7 +153,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				27FE9D441A00707900060F79 /* ProtocolBuffers.framework in Copy Frameworks */,
+				27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */,
 				2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -190,6 +221,10 @@
 		27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
+		27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
+		27E680921A421086008173D3 /* Search.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.pb.swift; sourceTree = "<group>"; };
+		27E680941A4210E3008173D3 /* RSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSearch.swift; sourceTree = "<group>"; };
+		27E680961A42125A008173D3 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		27F536BB19FF4A6C009A8575 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		27F536C019FF4C42009A8575 /* RMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMenu.swift; sourceTree = "<group>"; };
 		27F536C219FF4C4B009A8575 /* RMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMenuItem.swift; sourceTree = "<group>"; };
@@ -201,7 +236,6 @@
 		27FE9D3519FF5D2100060F79 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		27FE9D3719FF5D6200060F79 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		27FE9D391A0042AE00060F79 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		27FE9D451A00799200060F79 /* Auth.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.pb.swift; sourceTree = "<group>"; };
 		27FE9D471A0079EF00060F79 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +342,7 @@
 		2791284719DF43EA00D15932 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				27E680921A421086008173D3 /* Search.pb.swift */,
 				27FE9D451A00799200060F79 /* Auth.pb.swift */,
 				0636EDDB19F456B9003F3962 /* Error.pb.swift */,
 				0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */,
@@ -321,7 +356,7 @@
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
-				27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */,
+				27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */,
 				2791283519DF414D00D15932 /* Alamofire.xcodeproj */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
@@ -397,30 +432,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		27E6807F1A420FC8008173D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27E680861A420FC8008173D3 /* ProtocolBuffers.framework */,
+				27E680881A420FC8008173D3 /* ProtocolBuffersTests.xctest */,
+				27E6808A1A420FC8008173D3 /* ProtocolBuffers.framework */,
+				27E6808C1A420FC8008173D3 /* UnitTesting(OSX).xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		27F536B619FF4A30009A8575 /* api */ = {
 			isa = PBXGroup;
 			children = (
 				27FE9D3719FF5D6200060F79 /* RLMSupport.swift */,
 				27FE9D471A0079EF00060F79 /* RUser.swift */,
 				27F536CD19FF5215009A8575 /* RTruck.swift */,
+				27E680941A4210E3008173D3 /* RSearch.swift */,
 				27F536C019FF4C42009A8575 /* RMenu.swift */,
 				27F536C219FF4C4B009A8575 /* RMenuItem.swift */,
 				27F536C419FF4C57009A8575 /* RCategory.swift */,
 				27F536BB19FF4A6C009A8575 /* APIManager.swift */,
 				27F536C919FF4FE1009A8575 /* TrucksManager.swift */,
+				27E680961A42125A008173D3 /* SearchManager.swift */,
 				27F536CB19FF4FEE009A8575 /* MenuManager.swift */,
 				27FE9D391A0042AE00060F79 /* AuthManager.swift */,
 			);
 			path = api;
-			sourceTree = "<group>";
-		};
-		27FE9D3C1A00707300060F79 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				27FE9D411A00707300060F79 /* ProtocolBuffers.framework */,
-				27FE9D431A00707300060F79 /* ProtocolBuffersTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
@@ -465,6 +504,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				27E6808E1A421014008173D3 /* PBXTargetDependency */,
+				27E680901A421014008173D3 /* PBXTargetDependency */,
 			);
 			name = TruckMuncher;
 			productName = TruckMuncher;
@@ -525,8 +566,8 @@
 					ProjectRef = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
 				},
 				{
-					ProductGroup = 27FE9D3C1A00707300060F79 /* Products */;
-					ProjectRef = 27FE9D3B1A00707300060F79 /* ProtocolBuffers.xcodeproj */;
+					ProductGroup = 27E6807F1A420FC8008173D3 /* Products */;
+					ProjectRef = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -552,18 +593,32 @@
 			remoteRef = 2791283C19DF414D00D15932 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		27FE9D411A00707300060F79 /* ProtocolBuffers.framework */ = {
+		27E680861A420FC8008173D3 /* ProtocolBuffers.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ProtocolBuffers.framework;
-			remoteRef = 27FE9D401A00707300060F79 /* PBXContainerItemProxy */;
+			remoteRef = 27E680851A420FC8008173D3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		27FE9D431A00707300060F79 /* ProtocolBuffersTests.xctest */ = {
+		27E680881A420FC8008173D3 /* ProtocolBuffersTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ProtocolBuffersTests.xctest;
-			remoteRef = 27FE9D421A00707300060F79 /* PBXContainerItemProxy */;
+			remoteRef = 27E680871A420FC8008173D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27E6808A1A420FC8008173D3 /* ProtocolBuffers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ProtocolBuffers.framework;
+			remoteRef = 27E680891A420FC8008173D3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27E6808C1A420FC8008173D3 /* UnitTesting(OSX).xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UnitTesting(OSX).xctest";
+			remoteRef = 27E6808B1A420FC8008173D3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -684,6 +739,7 @@
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
 				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
+				27E680931A421086008173D3 /* Search.pb.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
 				0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
@@ -694,7 +750,9 @@
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
 				27F536C519FF4C57009A8575 /* RCategory.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
+				27E680951A4210E3008173D3 /* RSearch.swift in Sources */,
 				27FE9D481A0079EF00060F79 /* RUser.swift in Sources */,
+				27E680971A42125A008173D3 /* SearchManager.swift in Sources */,
 				27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
@@ -727,6 +785,16 @@
 			isa = PBXTargetDependency;
 			target = 27AC00AD19CB4B4F00F1F3B7 /* TruckMuncher */;
 			targetProxy = 27AC00C419CB4B4F00F1F3B7 /* PBXContainerItemProxy */;
+		};
+		27E6808E1A421014008173D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ProtocolBuffers;
+			targetProxy = 27E6808D1A421014008173D3 /* PBXContainerItemProxy */;
+		};
+		27E680901A421014008173D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 27E6808F1A421014008173D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

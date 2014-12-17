@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct AuthRoot {
-  static var sharedInstance : AuthRoot {
+internal struct AuthRoot {
+  internal static var sharedInstance : AuthRoot {
    struct Static {
        static let instance : AuthRoot = AuthRoot()
    }
@@ -16,11 +16,11 @@ struct AuthRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: AuthRequest, rhs: AuthRequest) -> Bool {
+internal func == (lhs: AuthRequest, rhs: AuthRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -28,7 +28,7 @@ func == (lhs: AuthRequest, rhs: AuthRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AuthResponse, rhs: AuthResponse) -> Bool {
+internal func == (lhs: AuthResponse, rhs: AuthResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -39,7 +39,7 @@ func == (lhs: AuthResponse, rhs: AuthResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: DeleteAuthResponse, rhs: DeleteAuthResponse) -> Bool {
+internal func == (lhs: DeleteAuthResponse, rhs: DeleteAuthResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -47,17 +47,17 @@ func == (lhs: DeleteAuthResponse, rhs: DeleteAuthResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class AuthRequest : GeneratedMessage {
-  required public init() {
+final internal class AuthRequest : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -68,40 +68,46 @@ final public class AuthRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> AuthRequest {
+  internal class func parseFromData(data:[Byte]) -> AuthRequest {
     return AuthRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AuthRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AuthRequest {
     return AuthRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> AuthRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> AuthRequest {
     return AuthRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AuthRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AuthRequest {
     return AuthRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> AuthRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AuthRequest {
     return AuthRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthRequest {
     return AuthRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AuthRequestBuilder {
+  internal class func builder() -> AuthRequestBuilder {
+    return AuthRequest.classBuilder() as AuthRequestBuilder
+  }
+  internal func builder() -> AuthRequestBuilder {
+    return classBuilder() as AuthRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AuthRequestBuilder()
   }
-  class func builderWithPrototype(prototype:AuthRequest) -> AuthRequestBuilder {
-    return AuthRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> AuthRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AuthRequest.builder()
   }
-  func toBuilder() -> AuthRequestBuilder {
+  internal func toBuilder() -> AuthRequestBuilder {
     return AuthRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:AuthRequest) -> AuthRequestBuilder {
+    return AuthRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -112,10 +118,13 @@ final public class AuthRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "AuthRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "AuthRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return AuthRequest.self
   }
 
@@ -124,44 +133,44 @@ final public class AuthRequest : GeneratedMessage {
 
 }
 
-final class AuthRequestBuilder : GeneratedMessageBuilder {
+final internal class AuthRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:AuthRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = AuthRequest()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> AuthRequestBuilder {
+  internal override func clear() -> AuthRequestBuilder {
     builderResult = AuthRequest()
     return self
   }
-  override func clone() -> AuthRequestBuilder {
+  internal override func clone() -> AuthRequestBuilder {
     return AuthRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> AuthRequest {
+  internal override func build() -> AuthRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> AuthRequest {
+  internal func buildPartial() -> AuthRequest {
     var returnMe:AuthRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:AuthRequest) -> AuthRequestBuilder {
+  internal func mergeFrom(other:AuthRequest) -> AuthRequestBuilder {
     if (other == AuthRequest()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AuthRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AuthRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -180,7 +189,7 @@ final class AuthRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class AuthResponse : GeneratedMessage {
+final internal class AuthResponse : GeneratedMessage {
   private(set) var hasUserId:Bool = false
   private(set) var userId:String = ""
 
@@ -190,10 +199,10 @@ final public class AuthResponse : GeneratedMessage {
   private(set) var hasSessionToken:Bool = false
   private(set) var sessionToken:String = ""
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasUserId {
       return false
     }
@@ -205,7 +214,7 @@ final public class AuthResponse : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasUserId {
       output.writeString(1, value:userId)
     }
@@ -217,7 +226,7 @@ final public class AuthResponse : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -237,37 +246,43 @@ final public class AuthResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> AuthResponse {
+  internal class func parseFromData(data:[Byte]) -> AuthResponse {
     return AuthResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AuthResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AuthResponse {
     return AuthResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> AuthResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> AuthResponse {
     return AuthResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AuthResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AuthResponse {
     return AuthResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> AuthResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AuthResponse {
     return AuthResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthResponse {
     return AuthResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AuthResponseBuilder {
+  internal class func builder() -> AuthResponseBuilder {
+    return AuthResponse.classBuilder() as AuthResponseBuilder
+  }
+  internal func builder() -> AuthResponseBuilder {
+    return classBuilder() as AuthResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AuthResponseBuilder()
   }
-  class func builderWithPrototype(prototype:AuthResponse) -> AuthResponseBuilder {
-    return AuthResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> AuthResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AuthResponse.builder()
   }
-  func toBuilder() -> AuthResponseBuilder {
+  internal func toBuilder() -> AuthResponseBuilder {
     return AuthResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:AuthResponse) -> AuthResponseBuilder {
+    return AuthResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasUserId {
       output += "\(indent) userId: \(userId) \n"
     }
@@ -279,7 +294,7 @@ final public class AuthResponse : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasUserId {
@@ -299,10 +314,13 @@ final public class AuthResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "AuthResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "AuthResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return AuthResponse.self
   }
 
@@ -311,10 +329,10 @@ final public class AuthResponse : GeneratedMessage {
 
 }
 
-final class AuthResponseBuilder : GeneratedMessageBuilder {
+final internal class AuthResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:AuthResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = AuthResponse()
      super.init()
   }
@@ -332,7 +350,7 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
            builderResult.userId = value
        }
   }
-  func clearUserId() -> AuthResponseBuilder{
+  internal func clearUserId() -> AuthResponseBuilder{
        builderResult.hasUserId = false
        builderResult.userId = ""
        return self
@@ -351,7 +369,7 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
            builderResult.username = value
        }
   }
-  func clearUsername() -> AuthResponseBuilder{
+  internal func clearUsername() -> AuthResponseBuilder{
        builderResult.hasUsername = false
        builderResult.username = ""
        return self
@@ -370,32 +388,32 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
            builderResult.sessionToken = value
        }
   }
-  func clearSessionToken() -> AuthResponseBuilder{
+  internal func clearSessionToken() -> AuthResponseBuilder{
        builderResult.hasSessionToken = false
        builderResult.sessionToken = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> AuthResponseBuilder {
+  internal override func clear() -> AuthResponseBuilder {
     builderResult = AuthResponse()
     return self
   }
-  override func clone() -> AuthResponseBuilder {
+  internal override func clone() -> AuthResponseBuilder {
     return AuthResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> AuthResponse {
+  internal override func build() -> AuthResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> AuthResponse {
+  internal func buildPartial() -> AuthResponse {
     var returnMe:AuthResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:AuthResponse) -> AuthResponseBuilder {
+  internal func mergeFrom(other:AuthResponse) -> AuthResponseBuilder {
     if (other == AuthResponse()) {
      return self
     }
@@ -411,10 +429,10 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AuthResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AuthResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AuthResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -442,17 +460,17 @@ final class AuthResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class DeleteAuthResponse : GeneratedMessage {
-  required public init() {
+final internal class DeleteAuthResponse : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -463,40 +481,46 @@ final public class DeleteAuthResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> DeleteAuthResponse {
+  internal class func parseFromData(data:[Byte]) -> DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DeleteAuthResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> DeleteAuthResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DeleteAuthResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> DeleteAuthResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DeleteAuthResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DeleteAuthResponse {
     return DeleteAuthResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> DeleteAuthResponseBuilder {
+  internal class func builder() -> DeleteAuthResponseBuilder {
+    return DeleteAuthResponse.classBuilder() as DeleteAuthResponseBuilder
+  }
+  internal func builder() -> DeleteAuthResponseBuilder {
+    return classBuilder() as DeleteAuthResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return DeleteAuthResponseBuilder()
   }
-  class func builderWithPrototype(prototype:DeleteAuthResponse) -> DeleteAuthResponseBuilder {
-    return DeleteAuthResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> DeleteAuthResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return DeleteAuthResponse.builder()
   }
-  func toBuilder() -> DeleteAuthResponseBuilder {
+  internal func toBuilder() -> DeleteAuthResponseBuilder {
     return DeleteAuthResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:DeleteAuthResponse) -> DeleteAuthResponseBuilder {
+    return DeleteAuthResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -507,10 +531,13 @@ final public class DeleteAuthResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "DeleteAuthResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "DeleteAuthResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return DeleteAuthResponse.self
   }
 
@@ -519,44 +546,44 @@ final public class DeleteAuthResponse : GeneratedMessage {
 
 }
 
-final class DeleteAuthResponseBuilder : GeneratedMessageBuilder {
+final internal class DeleteAuthResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:DeleteAuthResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = DeleteAuthResponse()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> DeleteAuthResponseBuilder {
+  internal override func clear() -> DeleteAuthResponseBuilder {
     builderResult = DeleteAuthResponse()
     return self
   }
-  override func clone() -> DeleteAuthResponseBuilder {
+  internal override func clone() -> DeleteAuthResponseBuilder {
     return DeleteAuthResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> DeleteAuthResponse {
+  internal override func build() -> DeleteAuthResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> DeleteAuthResponse {
+  internal func buildPartial() -> DeleteAuthResponse {
     var returnMe:DeleteAuthResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:DeleteAuthResponse) -> DeleteAuthResponseBuilder {
+  internal func mergeFrom(other:DeleteAuthResponse) -> DeleteAuthResponseBuilder {
     if (other == DeleteAuthResponse()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->DeleteAuthResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->DeleteAuthResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DeleteAuthResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DeleteAuthResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -578,7 +605,7 @@ final class DeleteAuthResponseBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension AuthRequest {
+internal extension AuthRequest {
     class func parseFromNSData(data:NSData) -> AuthRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -590,7 +617,7 @@ extension AuthRequest {
         return AuthRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension AuthResponse {
+internal extension AuthResponse {
     class func parseFromNSData(data:NSData) -> AuthResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -602,7 +629,7 @@ extension AuthResponse {
         return AuthResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension DeleteAuthResponse {
+internal extension DeleteAuthResponse {
     class func parseFromNSData(data:NSData) -> DeleteAuthResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

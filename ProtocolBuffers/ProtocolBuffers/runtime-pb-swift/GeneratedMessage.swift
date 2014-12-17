@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -30,9 +30,21 @@ public class GeneratedMessage:AbstractMessage
     {
         return "GeneratedMessage"
     }
+    public func className() -> String
+    {
+        return "GeneratedMessage"
+    }
     public func classMetaType() -> GeneratedMessage.Type
     {
         return GeneratedMessage.self
+    }
+    public override class func classBuilder() -> MessageBuilder
+    {
+        return GeneratedMessageBuilder()
+    }
+    public override func classBuilder() -> MessageBuilder
+    {
+        return GeneratedMessageBuilder()
     }
     //
 }

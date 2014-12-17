@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -63,8 +63,9 @@ public class UnknownFieldSet:Hashable,Equatable
     }
     public func writeToCodedOutputStream(output:CodedOutputStream)
     {
-
-        for number in fields.keys
+        var sortedKeys = Array(fields.keys)
+        sortedKeys.sort { $0 < $1 }
+        for number in sortedKeys
         {
             let value:Field = fields[number]!
             value.writeTo(number, output: output)
@@ -80,7 +81,8 @@ public class UnknownFieldSet:Hashable,Equatable
     
     public func writeDescriptionTo(inout output:String, indent:String)
     {
-        var sortedKeys = fields.keys
+        var sortedKeys = Array(fields.keys)
+        sortedKeys.sort { $0 < $1 }
         for number in sortedKeys
         {
             let value:Field = fields[number]!
@@ -147,10 +149,11 @@ public class UnknownFieldSet:Hashable,Equatable
     
     public func data() ->[Byte]
     {
-        var bytes:[Byte] = [Byte](count:Int(serializedSize()), repeatedValue: 0)
-        var output:CodedOutputStream = CodedOutputStream(data: bytes)
-        writeToCodedOutputStream(output)
-        return bytes
+        var size = serializedSize()
+        let data:[Byte] = [Byte](count: Int(size), repeatedValue: 0)
+        var stream:CodedOutputStream = CodedOutputStream(data: data)
+        writeToCodedOutputStream(stream)
+        return stream.buffer.buffer
     }
     
     

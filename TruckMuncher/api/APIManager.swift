@@ -54,6 +54,8 @@ enum APIRouter: URLRequestConvertible {
     case getAuth(NSData)
     case deleteAuth(NSData)
     
+    case simpleSearch(NSData)
+    
     var properties: (path: String, parameters: NSData) {
         switch self {
         case .getActiveTrucks(let data):
@@ -76,6 +78,8 @@ enum APIRouter: URLRequestConvertible {
             return ("/com.truckmuncher.api.auth.AuthService/getAuth", data)
         case .deleteAuth(let data):
             return ("/com.truckmuncher.api.auth.AuthService/deleteAuth", data)
+        case .simpleSearch(let data):
+            return ("/com.truckmuncher.api.search.SearchService/simpleSearch", data)
         }
     }
     

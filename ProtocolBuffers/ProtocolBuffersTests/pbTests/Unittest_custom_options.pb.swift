@@ -3,228 +3,228 @@
 import Foundation
 import ProtocolBuffers
 
-var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
    }
 }
-var UnittestCustomOptionsRootmessageOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmessageOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
    }
 }
-var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
    }
 }
-var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
    }
 }
-var UnittestCustomOptionsRootenumOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
    }
 }
-var UnittestCustomOptionsRootenumValueOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumValueOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
    }
 }
-var UnittestCustomOptionsRootserviceOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootserviceOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
    }
 }
-var UnittestCustomOptionsRootmethodOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmethodOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
    }
 }
-var UnittestCustomOptionsRootboolOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootboolOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
    }
 }
-var UnittestCustomOptionsRootint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
    }
 }
-var UnittestCustomOptionsRootint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
    }
 }
-var UnittestCustomOptionsRootuint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootuint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
    }
 }
-var UnittestCustomOptionsRootuint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootuint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
    }
 }
-var UnittestCustomOptionsRootsint32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsint32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
    }
 }
-var UnittestCustomOptionsRootsint64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsint64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
    }
 }
-var UnittestCustomOptionsRootfixed32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfixed32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
    }
 }
-var UnittestCustomOptionsRootfixed64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfixed64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
    }
 }
-var UnittestCustomOptionsRootsfixed32Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsfixed32Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
    }
 }
-var UnittestCustomOptionsRootsfixed64Opt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootsfixed64Opt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
    }
 }
-var UnittestCustomOptionsRootfloatOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfloatOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
    }
 }
-var UnittestCustomOptionsRootdoubleOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootdoubleOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
    }
 }
-var UnittestCustomOptionsRootstringOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootstringOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
    }
 }
-var UnittestCustomOptionsRootbytesOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootbytesOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
    }
 }
-var UnittestCustomOptionsRootenumOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
    }
 }
-var UnittestCustomOptionsRootmessageTypeOpt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmessageTypeOpt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
    }
 }
-var UnittestCustomOptionsRootquux:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootquux:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
    }
 }
-var UnittestCustomOptionsRootcorge:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcorge:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
    }
 }
-var UnittestCustomOptionsRootgrault:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootgrault:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
    }
 }
-var UnittestCustomOptionsRootgarply:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootgarply:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
    }
 }
-var UnittestCustomOptionsRootcomplexOpt1:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt1:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt2:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt2:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt3:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt3:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
    }
 }
-var UnittestCustomOptionsRootcomplexOpt6:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootcomplexOpt6:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
    }
 }
-var UnittestCustomOptionsRootfileopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfileopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
    }
 }
-var UnittestCustomOptionsRootmsgopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmsgopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
    }
 }
-var UnittestCustomOptionsRootfieldopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootfieldopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
    }
 }
-var UnittestCustomOptionsRootenumopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
    }
 }
-var UnittestCustomOptionsRootenumvalopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootenumvalopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
    }
 }
-var UnittestCustomOptionsRootserviceopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootserviceopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
    }
 }
-var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
+internal var UnittestCustomOptionsRootmethodopt:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
    }
 }
-var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
+internal var ComplexOptionType2ComplexOptionType4complexOpt4:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.ComplexOptionType2ComplexOptionType4complexOpt4Static
    }
 }
-var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
+internal var AggregateMessageSetElementmessageSetExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregateMessageSetElementmessageSetExtensionStatic
    }
 }
-var Aggregatenested:ConcreateExtensionField {
+internal var Aggregatenested:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.AggregatenestedStatic
    }
 }
-var NestedOptionTypenestedExtension:ConcreateExtensionField {
+internal var NestedOptionTypenestedExtension:ConcreateExtensionField {
    get {
        return UnittestCustomOptionsRoot.sharedInstance.NestedOptionTypenestedExtensionStatic
    }
 }
-struct UnittestCustomOptionsRoot {
-  static var sharedInstance : UnittestCustomOptionsRoot {
+internal struct UnittestCustomOptionsRoot {
+  internal static var sharedInstance : UnittestCustomOptionsRoot {
    struct Static {
        static let instance : UnittestCustomOptionsRoot = UnittestCustomOptionsRoot()
    }
@@ -325,7 +325,7 @@ struct UnittestCustomOptionsRoot {
     registerAllExtensions(extensionRegistry)
     PBDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(UnittestCustomOptionsRootfileOpt1Static)
     registry.addExtension(UnittestCustomOptionsRootmessageOpt1Static)
     registry.addExtension(UnittestCustomOptionsRootfieldOpt1Static)
@@ -371,124 +371,124 @@ struct UnittestCustomOptionsRoot {
     registry.addExtension(AggregatenestedStatic)
     registry.addExtension(NestedOptionTypenestedExtensionStatic)
   }
-  static func fileOpt1() -> ConcreateExtensionField {
+  internal static func fileOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
   }
-  static func messageOpt1() -> ConcreateExtensionField {
+  internal static func messageOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageOpt1Static
   }
-  static func fieldOpt1() -> ConcreateExtensionField {
+  internal static func fieldOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt1Static
   }
-  static func fieldOpt2() -> ConcreateExtensionField {
+  internal static func fieldOpt2() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldOpt2Static
   }
-  static func enumOpt1() -> ConcreateExtensionField {
+  internal static func enumOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOpt1Static
   }
-  static func enumValueOpt1() -> ConcreateExtensionField {
+  internal static func enumValueOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumValueOpt1Static
   }
-  static func serviceOpt1() -> ConcreateExtensionField {
+  internal static func serviceOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceOpt1Static
   }
-  static func methodOpt1() -> ConcreateExtensionField {
+  internal static func methodOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodOpt1Static
   }
-  static func boolOpt() -> ConcreateExtensionField {
+  internal static func boolOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootboolOptStatic
   }
-  static func int32Opt() -> ConcreateExtensionField {
+  internal static func int32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint32OptStatic
   }
-  static func int64Opt() -> ConcreateExtensionField {
+  internal static func int64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootint64OptStatic
   }
-  static func uint32Opt() -> ConcreateExtensionField {
+  internal static func uint32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint32OptStatic
   }
-  static func uint64Opt() -> ConcreateExtensionField {
+  internal static func uint64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootuint64OptStatic
   }
-  static func sint32Opt() -> ConcreateExtensionField {
+  internal static func sint32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint32OptStatic
   }
-  static func sint64Opt() -> ConcreateExtensionField {
+  internal static func sint64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsint64OptStatic
   }
-  static func fixed32Opt() -> ConcreateExtensionField {
+  internal static func fixed32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed32OptStatic
   }
-  static func fixed64Opt() -> ConcreateExtensionField {
+  internal static func fixed64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfixed64OptStatic
   }
-  static func sfixed32Opt() -> ConcreateExtensionField {
+  internal static func sfixed32Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed32OptStatic
   }
-  static func sfixed64Opt() -> ConcreateExtensionField {
+  internal static func sfixed64Opt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootsfixed64OptStatic
   }
-  static func floatOpt() -> ConcreateExtensionField {
+  internal static func floatOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfloatOptStatic
   }
-  static func doubleOpt() -> ConcreateExtensionField {
+  internal static func doubleOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootdoubleOptStatic
   }
-  static func stringOpt() -> ConcreateExtensionField {
+  internal static func stringOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootstringOptStatic
   }
-  static func bytesOpt() -> ConcreateExtensionField {
+  internal static func bytesOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootbytesOptStatic
   }
-  static func enumOpt() -> ConcreateExtensionField {
+  internal static func enumOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumOptStatic
   }
-  static func messageTypeOpt() -> ConcreateExtensionField {
+  internal static func messageTypeOpt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmessageTypeOptStatic
   }
-  static func quux() -> ConcreateExtensionField {
+  internal static func quux() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootquuxStatic
   }
-  static func corge() -> ConcreateExtensionField {
+  internal static func corge() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcorgeStatic
   }
-  static func grault() -> ConcreateExtensionField {
+  internal static func grault() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgraultStatic
   }
-  static func garply() -> ConcreateExtensionField {
+  internal static func garply() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootgarplyStatic
   }
-  static func complexOpt1() -> ConcreateExtensionField {
+  internal static func complexOpt1() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt1Static
   }
-  static func complexOpt2() -> ConcreateExtensionField {
+  internal static func complexOpt2() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt2Static
   }
-  static func complexOpt3() -> ConcreateExtensionField {
+  internal static func complexOpt3() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt3Static
   }
-  static func complexOpt6() -> ConcreateExtensionField {
+  internal static func complexOpt6() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootcomplexOpt6Static
   }
-  static func fileopt() -> ConcreateExtensionField {
+  internal static func fileopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileoptStatic
   }
-  static func msgopt() -> ConcreateExtensionField {
+  internal static func msgopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmsgoptStatic
   }
-  static func fieldopt() -> ConcreateExtensionField {
+  internal static func fieldopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfieldoptStatic
   }
-  static func enumopt() -> ConcreateExtensionField {
+  internal static func enumopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumoptStatic
   }
-  static func enumvalopt() -> ConcreateExtensionField {
+  internal static func enumvalopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootenumvaloptStatic
   }
-  static func serviceopt() -> ConcreateExtensionField {
+  internal static func serviceopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootserviceoptStatic
   }
-  static func methodopt() -> ConcreateExtensionField {
+  internal static func methodopt() -> ConcreateExtensionField {
        return UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootmethodoptStatic
   }
 }
@@ -497,17 +497,15 @@ struct UnittestCustomOptionsRoot {
 
 //Enum type declaration start 
 
-enum MethodOpt1:Int32 {
+internal enum MethodOpt1:Int32 {
   case Methodopt1Val1 = 1
   case Methodopt1Val2 = 2
 
-  static func IsValidValue(value:MethodOpt1) ->Bool {
-    switch value {
-      case .Methodopt1Val1, .Methodopt1Val2:
-        return true;
-      default:
-        return false;
-    }
+  internal static func IsValidValue(value:Int32) ->Bool {
+      if let check = MethodOpt1(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -519,16 +517,14 @@ enum MethodOpt1:Int32 {
 
 //Enum type declaration start 
 
-enum AggregateEnum:Int32 {
+internal enum AggregateEnum:Int32 {
   case Value = 1
 
-  static func IsValidValue(value:AggregateEnum) ->Bool {
-    switch value {
-      case .Value:
-        return true;
-      default:
-        return false;
-    }
+  internal static func IsValidValue(value:Int32) ->Bool {
+      if let check = AggregateEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -536,7 +532,7 @@ enum AggregateEnum:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -> Bool {
+internal func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -545,7 +541,7 @@ func == (lhs: TestMessageWithCustomOptions, rhs: TestMessageWithCustomOptions) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
+internal func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -553,7 +549,7 @@ func == (lhs: CustomOptionFooRequest, rhs: CustomOptionFooRequest) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
+internal func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -561,7 +557,7 @@ func == (lhs: CustomOptionFooResponse, rhs: CustomOptionFooResponse) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -> Bool {
+internal func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -569,7 +565,7 @@ func == (lhs: CustomOptionFooClientMessage, rhs: CustomOptionFooClientMessage) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -> Bool {
+internal func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -577,7 +573,7 @@ func == (lhs: CustomOptionFooServerMessage, rhs: CustomOptionFooServerMessage) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bool {
+internal func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -585,7 +581,7 @@ func == (lhs: DummyMessageContainingEnum, rhs: DummyMessageContainingEnum) -> Bo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionType) -> Bool {
+internal func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -593,7 +589,7 @@ func == (lhs: DummyMessageInvalidAsOptionType, rhs: DummyMessageInvalidAsOptionT
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -> Bool {
+internal func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -601,7 +597,7 @@ func == (lhs: CustomOptionMinIntegerValues, rhs: CustomOptionMinIntegerValues) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -> Bool {
+internal func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -609,7 +605,7 @@ func == (lhs: CustomOptionMaxIntegerValues, rhs: CustomOptionMaxIntegerValues) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
+internal func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -617,7 +613,7 @@ func == (lhs: CustomOptionOtherValues, rhs: CustomOptionOtherValues) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -> Bool {
+internal func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -625,7 +621,7 @@ func == (lhs: SettingRealsFromPositiveInts, rhs: SettingRealsFromPositiveInts) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -> Bool {
+internal func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -633,7 +629,7 @@ func == (lhs: SettingRealsFromNegativeInts, rhs: SettingRealsFromNegativeInts) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
+internal func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -646,7 +642,7 @@ func == (lhs: ComplexOptionType1, rhs: ComplexOptionType1) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.ComplexOptionType4) -> Bool {
+internal func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.ComplexOptionType4) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -655,7 +651,7 @@ func == (lhs: ComplexOptionType2.ComplexOptionType4, rhs: ComplexOptionType2.Com
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
+internal func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -668,7 +664,7 @@ func == (lhs: ComplexOptionType2, rhs: ComplexOptionType2) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.ComplexOptionType5) -> Bool {
+internal func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.ComplexOptionType5) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -677,7 +673,7 @@ func == (lhs: ComplexOptionType3.ComplexOptionType5, rhs: ComplexOptionType3.Com
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
+internal func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -687,7 +683,7 @@ func == (lhs: ComplexOptionType3, rhs: ComplexOptionType3) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
+internal func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -696,7 +692,7 @@ func == (lhs: ComplexOpt6, rhs: ComplexOpt6) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
+internal func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -704,7 +700,7 @@ func == (lhs: VariousComplexOptions, rhs: VariousComplexOptions) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
+internal func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -713,7 +709,7 @@ func == (lhs: AggregateMessageSet, rhs: AggregateMessageSet) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bool {
+internal func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -722,7 +718,7 @@ func == (lhs: AggregateMessageSetElement, rhs: AggregateMessageSetElement) -> Bo
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
+internal func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -735,7 +731,7 @@ func == (lhs: Aggregate, rhs: Aggregate) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
+internal func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -744,7 +740,7 @@ func == (lhs: AggregateMessage, rhs: AggregateMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessage) -> Bool {
+internal func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -753,7 +749,7 @@ func == (lhs: NestedOptionType.NestedMessage, rhs: NestedOptionType.NestedMessag
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
+internal func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -761,22 +757,20 @@ func == (lhs: NestedOptionType, rhs: NestedOptionType) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class TestMessageWithCustomOptions : GeneratedMessage {
+final internal class TestMessageWithCustomOptions : GeneratedMessage {
 
 
     //Enum type declaration start 
 
-    enum AnEnum:Int32 {
+    internal enum AnEnum:Int32 {
       case AnenumVal1 = 1
       case AnenumVal2 = 2
 
-      static func IsValidValue(value:AnEnum) ->Bool {
-        switch value {
-          case .AnenumVal1, .AnenumVal2:
-            return true;
-          default:
-            return false;
-        }
+      internal static func IsValidValue(value:Int32) ->Bool {
+          if let check = AnEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -787,19 +781,19 @@ final public class TestMessageWithCustomOptions : GeneratedMessage {
   private(set) var hasField1:Bool = false
   private(set) var field1:String = ""
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasField1 {
       output.writeString(1, value:field1)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -813,43 +807,49 @@ final public class TestMessageWithCustomOptions : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestMessageWithCustomOptions {
+  internal class func parseFromData(data:[Byte]) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestMessageWithCustomOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestMessageWithCustomOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestMessageWithCustomOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptions {
     return TestMessageWithCustomOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestMessageWithCustomOptionsBuilder {
+  internal class func builder() -> TestMessageWithCustomOptionsBuilder {
+    return TestMessageWithCustomOptions.classBuilder() as TestMessageWithCustomOptionsBuilder
+  }
+  internal func builder() -> TestMessageWithCustomOptionsBuilder {
+    return classBuilder() as TestMessageWithCustomOptionsBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestMessageWithCustomOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
-    return TestMessageWithCustomOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestMessageWithCustomOptionsBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestMessageWithCustomOptions.builder()
   }
-  func toBuilder() -> TestMessageWithCustomOptionsBuilder {
+  internal func toBuilder() -> TestMessageWithCustomOptionsBuilder {
     return TestMessageWithCustomOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
+    return TestMessageWithCustomOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasField1 {
       output += "\(indent) field1: \(field1) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasField1 {
@@ -863,10 +863,13 @@ final public class TestMessageWithCustomOptions : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestMessageWithCustomOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestMessageWithCustomOptions"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestMessageWithCustomOptions.self
   }
 
@@ -875,10 +878,10 @@ final public class TestMessageWithCustomOptions : GeneratedMessage {
 
 }
 
-final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
+final internal class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
   private var builderResult:TestMessageWithCustomOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = TestMessageWithCustomOptions()
      super.init()
   }
@@ -896,32 +899,32 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
            builderResult.field1 = value
        }
   }
-  func clearField1() -> TestMessageWithCustomOptionsBuilder{
+  internal func clearField1() -> TestMessageWithCustomOptionsBuilder{
        builderResult.hasField1 = false
        builderResult.field1 = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestMessageWithCustomOptionsBuilder {
+  internal override func clear() -> TestMessageWithCustomOptionsBuilder {
     builderResult = TestMessageWithCustomOptions()
     return self
   }
-  override func clone() -> TestMessageWithCustomOptionsBuilder {
+  internal override func clone() -> TestMessageWithCustomOptionsBuilder {
     return TestMessageWithCustomOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> TestMessageWithCustomOptions {
+  internal override func build() -> TestMessageWithCustomOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestMessageWithCustomOptions {
+  internal func buildPartial() -> TestMessageWithCustomOptions {
     var returnMe:TestMessageWithCustomOptions = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
+  internal func mergeFrom(other:TestMessageWithCustomOptions) -> TestMessageWithCustomOptionsBuilder {
     if (other == TestMessageWithCustomOptions()) {
      return self
     }
@@ -931,10 +934,10 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestMessageWithCustomOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestMessageWithCustomOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestMessageWithCustomOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -956,17 +959,17 @@ final class TestMessageWithCustomOptionsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionFooRequest : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionFooRequest : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -977,40 +980,46 @@ final public class CustomOptionFooRequest : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionFooRequest {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooRequest {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooRequest {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequest {
     return CustomOptionFooRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionFooRequestBuilder {
+  internal class func builder() -> CustomOptionFooRequestBuilder {
+    return CustomOptionFooRequest.classBuilder() as CustomOptionFooRequestBuilder
+  }
+  internal func builder() -> CustomOptionFooRequestBuilder {
+    return classBuilder() as CustomOptionFooRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooRequestBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
-    return CustomOptionFooRequest.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionFooRequestBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooRequest.builder()
   }
-  func toBuilder() -> CustomOptionFooRequestBuilder {
+  internal func toBuilder() -> CustomOptionFooRequestBuilder {
     return CustomOptionFooRequest.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
+    return CustomOptionFooRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1021,10 +1030,13 @@ final public class CustomOptionFooRequest : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionFooRequest"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionFooRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooRequest.self
   }
 
@@ -1033,44 +1045,44 @@ final public class CustomOptionFooRequest : GeneratedMessage {
 
 }
 
-final class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooRequest
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionFooRequest()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionFooRequestBuilder {
+  internal override func clear() -> CustomOptionFooRequestBuilder {
     builderResult = CustomOptionFooRequest()
     return self
   }
-  override func clone() -> CustomOptionFooRequestBuilder {
+  internal override func clone() -> CustomOptionFooRequestBuilder {
     return CustomOptionFooRequest.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionFooRequest {
+  internal override func build() -> CustomOptionFooRequest {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionFooRequest {
+  internal func buildPartial() -> CustomOptionFooRequest {
     var returnMe:CustomOptionFooRequest = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
+  internal func mergeFrom(other:CustomOptionFooRequest) -> CustomOptionFooRequestBuilder {
     if (other == CustomOptionFooRequest()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooRequestBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequestBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooRequestBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1089,17 +1101,17 @@ final class CustomOptionFooRequestBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionFooResponse : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionFooResponse : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1110,40 +1122,46 @@ final public class CustomOptionFooResponse : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionFooResponse {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooResponse {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooResponse {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponse {
     return CustomOptionFooResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionFooResponseBuilder {
+  internal class func builder() -> CustomOptionFooResponseBuilder {
+    return CustomOptionFooResponse.classBuilder() as CustomOptionFooResponseBuilder
+  }
+  internal func builder() -> CustomOptionFooResponseBuilder {
+    return classBuilder() as CustomOptionFooResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooResponseBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
-    return CustomOptionFooResponse.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionFooResponseBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooResponse.builder()
   }
-  func toBuilder() -> CustomOptionFooResponseBuilder {
+  internal func toBuilder() -> CustomOptionFooResponseBuilder {
     return CustomOptionFooResponse.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
+    return CustomOptionFooResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1154,10 +1172,13 @@ final public class CustomOptionFooResponse : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionFooResponse"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionFooResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooResponse.self
   }
 
@@ -1166,44 +1187,44 @@ final public class CustomOptionFooResponse : GeneratedMessage {
 
 }
 
-final class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooResponse
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionFooResponse()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionFooResponseBuilder {
+  internal override func clear() -> CustomOptionFooResponseBuilder {
     builderResult = CustomOptionFooResponse()
     return self
   }
-  override func clone() -> CustomOptionFooResponseBuilder {
+  internal override func clone() -> CustomOptionFooResponseBuilder {
     return CustomOptionFooResponse.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionFooResponse {
+  internal override func build() -> CustomOptionFooResponse {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionFooResponse {
+  internal func buildPartial() -> CustomOptionFooResponse {
     var returnMe:CustomOptionFooResponse = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
+  internal func mergeFrom(other:CustomOptionFooResponse) -> CustomOptionFooResponseBuilder {
     if (other == CustomOptionFooResponse()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooResponseBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponseBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooResponseBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1222,17 +1243,17 @@ final class CustomOptionFooResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionFooClientMessage : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionFooClientMessage : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1243,40 +1264,46 @@ final public class CustomOptionFooClientMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionFooClientMessage {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooClientMessage {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooClientMessage {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooClientMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessage {
     return CustomOptionFooClientMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionFooClientMessageBuilder {
+  internal class func builder() -> CustomOptionFooClientMessageBuilder {
+    return CustomOptionFooClientMessage.classBuilder() as CustomOptionFooClientMessageBuilder
+  }
+  internal func builder() -> CustomOptionFooClientMessageBuilder {
+    return classBuilder() as CustomOptionFooClientMessageBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooClientMessageBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
-    return CustomOptionFooClientMessage.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionFooClientMessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooClientMessage.builder()
   }
-  func toBuilder() -> CustomOptionFooClientMessageBuilder {
+  internal func toBuilder() -> CustomOptionFooClientMessageBuilder {
     return CustomOptionFooClientMessage.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
+    return CustomOptionFooClientMessage.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1287,10 +1314,13 @@ final public class CustomOptionFooClientMessage : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionFooClientMessage"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionFooClientMessage"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooClientMessage.self
   }
 
@@ -1299,44 +1329,44 @@ final public class CustomOptionFooClientMessage : GeneratedMessage {
 
 }
 
-final class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooClientMessage
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionFooClientMessage()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionFooClientMessageBuilder {
+  internal override func clear() -> CustomOptionFooClientMessageBuilder {
     builderResult = CustomOptionFooClientMessage()
     return self
   }
-  override func clone() -> CustomOptionFooClientMessageBuilder {
+  internal override func clone() -> CustomOptionFooClientMessageBuilder {
     return CustomOptionFooClientMessage.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionFooClientMessage {
+  internal override func build() -> CustomOptionFooClientMessage {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionFooClientMessage {
+  internal func buildPartial() -> CustomOptionFooClientMessage {
     var returnMe:CustomOptionFooClientMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
+  internal func mergeFrom(other:CustomOptionFooClientMessage) -> CustomOptionFooClientMessageBuilder {
     if (other == CustomOptionFooClientMessage()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooClientMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooClientMessageBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooClientMessageBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1355,17 +1385,17 @@ final class CustomOptionFooClientMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionFooServerMessage : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionFooServerMessage : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1376,40 +1406,46 @@ final public class CustomOptionFooServerMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionFooServerMessage {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooServerMessage {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooServerMessage {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooServerMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessage {
     return CustomOptionFooServerMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionFooServerMessageBuilder {
+  internal class func builder() -> CustomOptionFooServerMessageBuilder {
+    return CustomOptionFooServerMessage.classBuilder() as CustomOptionFooServerMessageBuilder
+  }
+  internal func builder() -> CustomOptionFooServerMessageBuilder {
+    return classBuilder() as CustomOptionFooServerMessageBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionFooServerMessageBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
-    return CustomOptionFooServerMessage.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionFooServerMessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionFooServerMessage.builder()
   }
-  func toBuilder() -> CustomOptionFooServerMessageBuilder {
+  internal func toBuilder() -> CustomOptionFooServerMessageBuilder {
     return CustomOptionFooServerMessage.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
+    return CustomOptionFooServerMessage.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1420,10 +1456,13 @@ final public class CustomOptionFooServerMessage : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionFooServerMessage"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionFooServerMessage"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionFooServerMessage.self
   }
 
@@ -1432,44 +1471,44 @@ final public class CustomOptionFooServerMessage : GeneratedMessage {
 
 }
 
-final class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionFooServerMessage
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionFooServerMessage()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionFooServerMessageBuilder {
+  internal override func clear() -> CustomOptionFooServerMessageBuilder {
     builderResult = CustomOptionFooServerMessage()
     return self
   }
-  override func clone() -> CustomOptionFooServerMessageBuilder {
+  internal override func clone() -> CustomOptionFooServerMessageBuilder {
     return CustomOptionFooServerMessage.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionFooServerMessage {
+  internal override func build() -> CustomOptionFooServerMessage {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionFooServerMessage {
+  internal func buildPartial() -> CustomOptionFooServerMessage {
     var returnMe:CustomOptionFooServerMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
+  internal func mergeFrom(other:CustomOptionFooServerMessage) -> CustomOptionFooServerMessageBuilder {
     if (other == CustomOptionFooServerMessage()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooServerMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionFooServerMessageBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionFooServerMessageBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1488,22 +1527,20 @@ final class CustomOptionFooServerMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class DummyMessageContainingEnum : GeneratedMessage {
+final internal class DummyMessageContainingEnum : GeneratedMessage {
 
 
     //Enum type declaration start 
 
-    enum TestEnumType:Int32 {
+    internal enum TestEnumType:Int32 {
       case TestOptionEnumType1 = 22
       case TestOptionEnumType2 = -23
 
-      static func IsValidValue(value:TestEnumType) ->Bool {
-        switch value {
-          case .TestOptionEnumType1, .TestOptionEnumType2:
-            return true;
-          default:
-            return false;
-        }
+      internal static func IsValidValue(value:Int32) ->Bool {
+          if let check = TestEnumType(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -1511,16 +1548,16 @@ final public class DummyMessageContainingEnum : GeneratedMessage {
 
     //Enum type declaration end 
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1531,40 +1568,46 @@ final public class DummyMessageContainingEnum : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> DummyMessageContainingEnum {
+  internal class func parseFromData(data:[Byte]) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> DummyMessageContainingEnum {
+  internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageContainingEnum {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageContainingEnum {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnum {
     return DummyMessageContainingEnum.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> DummyMessageContainingEnumBuilder {
+  internal class func builder() -> DummyMessageContainingEnumBuilder {
+    return DummyMessageContainingEnum.classBuilder() as DummyMessageContainingEnumBuilder
+  }
+  internal func builder() -> DummyMessageContainingEnumBuilder {
+    return classBuilder() as DummyMessageContainingEnumBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return DummyMessageContainingEnumBuilder()
   }
-  class func builderWithPrototype(prototype:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
-    return DummyMessageContainingEnum.builder().mergeFrom(prototype)
-  }
-  func builder() -> DummyMessageContainingEnumBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return DummyMessageContainingEnum.builder()
   }
-  func toBuilder() -> DummyMessageContainingEnumBuilder {
+  internal func toBuilder() -> DummyMessageContainingEnumBuilder {
     return DummyMessageContainingEnum.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
+    return DummyMessageContainingEnum.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1575,10 +1618,13 @@ final public class DummyMessageContainingEnum : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "DummyMessageContainingEnum"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "DummyMessageContainingEnum"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return DummyMessageContainingEnum.self
   }
 
@@ -1587,44 +1633,44 @@ final public class DummyMessageContainingEnum : GeneratedMessage {
 
 }
 
-final class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
+final internal class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
   private var builderResult:DummyMessageContainingEnum
 
-  required override init () {
+  required override internal init () {
      builderResult = DummyMessageContainingEnum()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> DummyMessageContainingEnumBuilder {
+  internal override func clear() -> DummyMessageContainingEnumBuilder {
     builderResult = DummyMessageContainingEnum()
     return self
   }
-  override func clone() -> DummyMessageContainingEnumBuilder {
+  internal override func clone() -> DummyMessageContainingEnumBuilder {
     return DummyMessageContainingEnum.builderWithPrototype(builderResult)
   }
-  override func build() -> DummyMessageContainingEnum {
+  internal override func build() -> DummyMessageContainingEnum {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> DummyMessageContainingEnum {
+  internal func buildPartial() -> DummyMessageContainingEnum {
     var returnMe:DummyMessageContainingEnum = builderResult
     return returnMe
   }
-  func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
+  internal func mergeFrom(other:DummyMessageContainingEnum) -> DummyMessageContainingEnumBuilder {
     if (other == DummyMessageContainingEnum()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageContainingEnumBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageContainingEnumBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnumBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageContainingEnumBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1643,17 +1689,17 @@ final class DummyMessageContainingEnumBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
-  required public init() {
+final internal class DummyMessageInvalidAsOptionType : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1664,40 +1710,46 @@ final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromData(data:[Byte]) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromInputStream(input:NSInputStream) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageInvalidAsOptionType {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionType {
     return DummyMessageInvalidAsOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal class func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
+    return DummyMessageInvalidAsOptionType.classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
+  }
+  internal func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
+    return classBuilder() as DummyMessageInvalidAsOptionTypeBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return DummyMessageInvalidAsOptionTypeBuilder()
   }
-  class func builderWithPrototype(prototype:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
-    return DummyMessageInvalidAsOptionType.builder().mergeFrom(prototype)
-  }
-  func builder() -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return DummyMessageInvalidAsOptionType.builder()
   }
-  func toBuilder() -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal func toBuilder() -> DummyMessageInvalidAsOptionTypeBuilder {
     return DummyMessageInvalidAsOptionType.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
+    return DummyMessageInvalidAsOptionType.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1708,10 +1760,13 @@ final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "DummyMessageInvalidAsOptionType"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "DummyMessageInvalidAsOptionType"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return DummyMessageInvalidAsOptionType.self
   }
 
@@ -1720,44 +1775,44 @@ final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
 
 }
 
-final class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
+final internal class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
   private var builderResult:DummyMessageInvalidAsOptionType
 
-  required override init () {
+  required override internal init () {
      builderResult = DummyMessageInvalidAsOptionType()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal override func clear() -> DummyMessageInvalidAsOptionTypeBuilder {
     builderResult = DummyMessageInvalidAsOptionType()
     return self
   }
-  override func clone() -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal override func clone() -> DummyMessageInvalidAsOptionTypeBuilder {
     return DummyMessageInvalidAsOptionType.builderWithPrototype(builderResult)
   }
-  override func build() -> DummyMessageInvalidAsOptionType {
+  internal override func build() -> DummyMessageInvalidAsOptionType {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> DummyMessageInvalidAsOptionType {
+  internal func buildPartial() -> DummyMessageInvalidAsOptionType {
     var returnMe:DummyMessageInvalidAsOptionType = builderResult
     return returnMe
   }
-  func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal func mergeFrom(other:DummyMessageInvalidAsOptionType) -> DummyMessageInvalidAsOptionTypeBuilder {
     if (other == DummyMessageInvalidAsOptionType()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageInvalidAsOptionTypeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->DummyMessageInvalidAsOptionTypeBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionTypeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> DummyMessageInvalidAsOptionTypeBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1776,17 +1831,17 @@ final class DummyMessageInvalidAsOptionTypeBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionMinIntegerValues : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionMinIntegerValues : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1797,40 +1852,46 @@ final public class CustomOptionMinIntegerValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionMinIntegerValues {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionMinIntegerValues {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMinIntegerValues {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMinIntegerValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValues {
     return CustomOptionMinIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionMinIntegerValuesBuilder {
+  internal class func builder() -> CustomOptionMinIntegerValuesBuilder {
+    return CustomOptionMinIntegerValues.classBuilder() as CustomOptionMinIntegerValuesBuilder
+  }
+  internal func builder() -> CustomOptionMinIntegerValuesBuilder {
+    return classBuilder() as CustomOptionMinIntegerValuesBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionMinIntegerValuesBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
-    return CustomOptionMinIntegerValues.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionMinIntegerValuesBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionMinIntegerValues.builder()
   }
-  func toBuilder() -> CustomOptionMinIntegerValuesBuilder {
+  internal func toBuilder() -> CustomOptionMinIntegerValuesBuilder {
     return CustomOptionMinIntegerValues.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
+    return CustomOptionMinIntegerValues.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1841,10 +1902,13 @@ final public class CustomOptionMinIntegerValues : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionMinIntegerValues"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionMinIntegerValues"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionMinIntegerValues.self
   }
 
@@ -1853,44 +1917,44 @@ final public class CustomOptionMinIntegerValues : GeneratedMessage {
 
 }
 
-final class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionMinIntegerValues
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionMinIntegerValues()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionMinIntegerValuesBuilder {
+  internal override func clear() -> CustomOptionMinIntegerValuesBuilder {
     builderResult = CustomOptionMinIntegerValues()
     return self
   }
-  override func clone() -> CustomOptionMinIntegerValuesBuilder {
+  internal override func clone() -> CustomOptionMinIntegerValuesBuilder {
     return CustomOptionMinIntegerValues.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionMinIntegerValues {
+  internal override func build() -> CustomOptionMinIntegerValues {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionMinIntegerValues {
+  internal func buildPartial() -> CustomOptionMinIntegerValues {
     var returnMe:CustomOptionMinIntegerValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
+  internal func mergeFrom(other:CustomOptionMinIntegerValues) -> CustomOptionMinIntegerValuesBuilder {
     if (other == CustomOptionMinIntegerValues()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMinIntegerValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMinIntegerValuesBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMinIntegerValuesBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -1909,17 +1973,17 @@ final class CustomOptionMinIntegerValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionMaxIntegerValues : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionMaxIntegerValues : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -1930,40 +1994,46 @@ final public class CustomOptionMaxIntegerValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMaxIntegerValues {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValues {
     return CustomOptionMaxIntegerValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionMaxIntegerValuesBuilder {
+  internal class func builder() -> CustomOptionMaxIntegerValuesBuilder {
+    return CustomOptionMaxIntegerValues.classBuilder() as CustomOptionMaxIntegerValuesBuilder
+  }
+  internal func builder() -> CustomOptionMaxIntegerValuesBuilder {
+    return classBuilder() as CustomOptionMaxIntegerValuesBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionMaxIntegerValuesBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
-    return CustomOptionMaxIntegerValues.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionMaxIntegerValuesBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionMaxIntegerValues.builder()
   }
-  func toBuilder() -> CustomOptionMaxIntegerValuesBuilder {
+  internal func toBuilder() -> CustomOptionMaxIntegerValuesBuilder {
     return CustomOptionMaxIntegerValues.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
+    return CustomOptionMaxIntegerValues.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -1974,10 +2044,13 @@ final public class CustomOptionMaxIntegerValues : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionMaxIntegerValues"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionMaxIntegerValues"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionMaxIntegerValues.self
   }
 
@@ -1986,44 +2059,44 @@ final public class CustomOptionMaxIntegerValues : GeneratedMessage {
 
 }
 
-final class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionMaxIntegerValues
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionMaxIntegerValues()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionMaxIntegerValuesBuilder {
+  internal override func clear() -> CustomOptionMaxIntegerValuesBuilder {
     builderResult = CustomOptionMaxIntegerValues()
     return self
   }
-  override func clone() -> CustomOptionMaxIntegerValuesBuilder {
+  internal override func clone() -> CustomOptionMaxIntegerValuesBuilder {
     return CustomOptionMaxIntegerValues.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionMaxIntegerValues {
+  internal override func build() -> CustomOptionMaxIntegerValues {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionMaxIntegerValues {
+  internal func buildPartial() -> CustomOptionMaxIntegerValues {
     var returnMe:CustomOptionMaxIntegerValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
+  internal func mergeFrom(other:CustomOptionMaxIntegerValues) -> CustomOptionMaxIntegerValuesBuilder {
     if (other == CustomOptionMaxIntegerValues()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMaxIntegerValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionMaxIntegerValuesBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionMaxIntegerValuesBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2042,17 +2115,17 @@ final class CustomOptionMaxIntegerValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class CustomOptionOtherValues : GeneratedMessage {
-  required public init() {
+final internal class CustomOptionOtherValues : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2063,40 +2136,46 @@ final public class CustomOptionOtherValues : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> CustomOptionOtherValues {
+  internal class func parseFromData(data:[Byte]) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> CustomOptionOtherValues {
+  internal class func parseFromInputStream(input:NSInputStream) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionOtherValues {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionOtherValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValues {
     return CustomOptionOtherValues.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> CustomOptionOtherValuesBuilder {
+  internal class func builder() -> CustomOptionOtherValuesBuilder {
+    return CustomOptionOtherValues.classBuilder() as CustomOptionOtherValuesBuilder
+  }
+  internal func builder() -> CustomOptionOtherValuesBuilder {
+    return classBuilder() as CustomOptionOtherValuesBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return CustomOptionOtherValuesBuilder()
   }
-  class func builderWithPrototype(prototype:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
-    return CustomOptionOtherValues.builder().mergeFrom(prototype)
-  }
-  func builder() -> CustomOptionOtherValuesBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return CustomOptionOtherValues.builder()
   }
-  func toBuilder() -> CustomOptionOtherValuesBuilder {
+  internal func toBuilder() -> CustomOptionOtherValuesBuilder {
     return CustomOptionOtherValues.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
+    return CustomOptionOtherValues.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -2107,10 +2186,13 @@ final public class CustomOptionOtherValues : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "CustomOptionOtherValues"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "CustomOptionOtherValues"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return CustomOptionOtherValues.self
   }
 
@@ -2119,44 +2201,44 @@ final public class CustomOptionOtherValues : GeneratedMessage {
 
 }
 
-final class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
+final internal class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
   private var builderResult:CustomOptionOtherValues
 
-  required override init () {
+  required override internal init () {
      builderResult = CustomOptionOtherValues()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> CustomOptionOtherValuesBuilder {
+  internal override func clear() -> CustomOptionOtherValuesBuilder {
     builderResult = CustomOptionOtherValues()
     return self
   }
-  override func clone() -> CustomOptionOtherValuesBuilder {
+  internal override func clone() -> CustomOptionOtherValuesBuilder {
     return CustomOptionOtherValues.builderWithPrototype(builderResult)
   }
-  override func build() -> CustomOptionOtherValues {
+  internal override func build() -> CustomOptionOtherValues {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> CustomOptionOtherValues {
+  internal func buildPartial() -> CustomOptionOtherValues {
     var returnMe:CustomOptionOtherValues = builderResult
     return returnMe
   }
-  func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
+  internal func mergeFrom(other:CustomOptionOtherValues) -> CustomOptionOtherValuesBuilder {
     if (other == CustomOptionOtherValues()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionOtherValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->CustomOptionOtherValuesBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValuesBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> CustomOptionOtherValuesBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2175,17 +2257,17 @@ final class CustomOptionOtherValuesBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class SettingRealsFromPositiveInts : GeneratedMessage {
-  required public init() {
+final internal class SettingRealsFromPositiveInts : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2196,40 +2278,46 @@ final public class SettingRealsFromPositiveInts : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> SettingRealsFromPositiveInts {
+  internal class func parseFromData(data:[Byte]) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromPositiveInts {
+  internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromPositiveInts {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromPositiveInts {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveInts {
     return SettingRealsFromPositiveInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> SettingRealsFromPositiveIntsBuilder {
+  internal class func builder() -> SettingRealsFromPositiveIntsBuilder {
+    return SettingRealsFromPositiveInts.classBuilder() as SettingRealsFromPositiveIntsBuilder
+  }
+  internal func builder() -> SettingRealsFromPositiveIntsBuilder {
+    return classBuilder() as SettingRealsFromPositiveIntsBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return SettingRealsFromPositiveIntsBuilder()
   }
-  class func builderWithPrototype(prototype:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
-    return SettingRealsFromPositiveInts.builder().mergeFrom(prototype)
-  }
-  func builder() -> SettingRealsFromPositiveIntsBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return SettingRealsFromPositiveInts.builder()
   }
-  func toBuilder() -> SettingRealsFromPositiveIntsBuilder {
+  internal func toBuilder() -> SettingRealsFromPositiveIntsBuilder {
     return SettingRealsFromPositiveInts.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
+    return SettingRealsFromPositiveInts.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -2240,10 +2328,13 @@ final public class SettingRealsFromPositiveInts : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "SettingRealsFromPositiveInts"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "SettingRealsFromPositiveInts"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return SettingRealsFromPositiveInts.self
   }
 
@@ -2252,44 +2343,44 @@ final public class SettingRealsFromPositiveInts : GeneratedMessage {
 
 }
 
-final class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
+final internal class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
   private var builderResult:SettingRealsFromPositiveInts
 
-  required override init () {
+  required override internal init () {
      builderResult = SettingRealsFromPositiveInts()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> SettingRealsFromPositiveIntsBuilder {
+  internal override func clear() -> SettingRealsFromPositiveIntsBuilder {
     builderResult = SettingRealsFromPositiveInts()
     return self
   }
-  override func clone() -> SettingRealsFromPositiveIntsBuilder {
+  internal override func clone() -> SettingRealsFromPositiveIntsBuilder {
     return SettingRealsFromPositiveInts.builderWithPrototype(builderResult)
   }
-  override func build() -> SettingRealsFromPositiveInts {
+  internal override func build() -> SettingRealsFromPositiveInts {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> SettingRealsFromPositiveInts {
+  internal func buildPartial() -> SettingRealsFromPositiveInts {
     var returnMe:SettingRealsFromPositiveInts = builderResult
     return returnMe
   }
-  func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
+  internal func mergeFrom(other:SettingRealsFromPositiveInts) -> SettingRealsFromPositiveIntsBuilder {
     if (other == SettingRealsFromPositiveInts()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromPositiveIntsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromPositiveIntsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveIntsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromPositiveIntsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2308,17 +2399,17 @@ final class SettingRealsFromPositiveIntsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class SettingRealsFromNegativeInts : GeneratedMessage {
-  required public init() {
+final internal class SettingRealsFromNegativeInts : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2329,40 +2420,46 @@ final public class SettingRealsFromNegativeInts : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> SettingRealsFromNegativeInts {
+  internal class func parseFromData(data:[Byte]) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromNegativeInts {
+  internal class func parseFromInputStream(input:NSInputStream) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromNegativeInts {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromNegativeInts {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeInts {
     return SettingRealsFromNegativeInts.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> SettingRealsFromNegativeIntsBuilder {
+  internal class func builder() -> SettingRealsFromNegativeIntsBuilder {
+    return SettingRealsFromNegativeInts.classBuilder() as SettingRealsFromNegativeIntsBuilder
+  }
+  internal func builder() -> SettingRealsFromNegativeIntsBuilder {
+    return classBuilder() as SettingRealsFromNegativeIntsBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return SettingRealsFromNegativeIntsBuilder()
   }
-  class func builderWithPrototype(prototype:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
-    return SettingRealsFromNegativeInts.builder().mergeFrom(prototype)
-  }
-  func builder() -> SettingRealsFromNegativeIntsBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return SettingRealsFromNegativeInts.builder()
   }
-  func toBuilder() -> SettingRealsFromNegativeIntsBuilder {
+  internal func toBuilder() -> SettingRealsFromNegativeIntsBuilder {
     return SettingRealsFromNegativeInts.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
+    return SettingRealsFromNegativeInts.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -2373,10 +2470,13 @@ final public class SettingRealsFromNegativeInts : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "SettingRealsFromNegativeInts"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "SettingRealsFromNegativeInts"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return SettingRealsFromNegativeInts.self
   }
 
@@ -2385,44 +2485,44 @@ final public class SettingRealsFromNegativeInts : GeneratedMessage {
 
 }
 
-final class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
+final internal class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
   private var builderResult:SettingRealsFromNegativeInts
 
-  required override init () {
+  required override internal init () {
      builderResult = SettingRealsFromNegativeInts()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> SettingRealsFromNegativeIntsBuilder {
+  internal override func clear() -> SettingRealsFromNegativeIntsBuilder {
     builderResult = SettingRealsFromNegativeInts()
     return self
   }
-  override func clone() -> SettingRealsFromNegativeIntsBuilder {
+  internal override func clone() -> SettingRealsFromNegativeIntsBuilder {
     return SettingRealsFromNegativeInts.builderWithPrototype(builderResult)
   }
-  override func build() -> SettingRealsFromNegativeInts {
+  internal override func build() -> SettingRealsFromNegativeInts {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> SettingRealsFromNegativeInts {
+  internal func buildPartial() -> SettingRealsFromNegativeInts {
     var returnMe:SettingRealsFromNegativeInts = builderResult
     return returnMe
   }
-  func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
+  internal func mergeFrom(other:SettingRealsFromNegativeInts) -> SettingRealsFromNegativeIntsBuilder {
     if (other == SettingRealsFromNegativeInts()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromNegativeIntsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->SettingRealsFromNegativeIntsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeIntsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> SettingRealsFromNegativeIntsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2441,7 +2541,7 @@ final class SettingRealsFromNegativeIntsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ComplexOptionType1 : ExtendableMessage {
+final internal class ComplexOptionType1 : ExtendableMessage {
   private(set) var hasFoo:Bool = false
   private(set) var foo:Int32 = Int32(0)
 
@@ -2452,16 +2552,16 @@ final public class ComplexOptionType1 : ExtendableMessage {
   private(set) var foo3:Int32 = Int32(0)
 
   private(set) var foo4:Array<Int32> = Array<Int32>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasFoo {
       output.writeInt32(1, value:foo)
     }
@@ -2472,14 +2572,14 @@ final public class ComplexOptionType1 : ExtendableMessage {
       output.writeInt32(3, value:foo3)
     }
     if !foo4.isEmpty {
-      for value in foo4 {
-        output.writeInt32(4, value:value)
+      for oneValuefoo4 in foo4 {
+        output.writeInt32(4, value:oneValuefoo4)
       }
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2496,8 +2596,8 @@ final public class ComplexOptionType1 : ExtendableMessage {
       size += WireFormat.computeInt32Size(3, value:foo3)
     }
     var dataSizeFoo4:Int32 = 0
-    for element in foo4 {
-        dataSizeFoo4 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuefoo4 in foo4 {
+        dataSizeFoo4 += WireFormat.computeInt32SizeNoTag(oneValuefoo4)
     }
     size += dataSizeFoo4
     size += 1 * Int32(foo4.count)
@@ -2506,37 +2606,43 @@ final public class ComplexOptionType1 : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ComplexOptionType1 {
+  internal class func parseFromData(data:[Byte]) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType1 {
+  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType1 {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType1 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1 {
     return ComplexOptionType1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ComplexOptionType1Builder {
+  internal class func builder() -> ComplexOptionType1Builder {
+    return ComplexOptionType1.classBuilder() as ComplexOptionType1Builder
+  }
+  internal func builder() -> ComplexOptionType1Builder {
+    return classBuilder() as ComplexOptionType1Builder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType1Builder()
   }
-  class func builderWithPrototype(prototype:ComplexOptionType1) -> ComplexOptionType1Builder {
-    return ComplexOptionType1.builder().mergeFrom(prototype)
-  }
-  func builder() -> ComplexOptionType1Builder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType1.builder()
   }
-  func toBuilder() -> ComplexOptionType1Builder {
+  internal func toBuilder() -> ComplexOptionType1Builder {
     return ComplexOptionType1.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ComplexOptionType1) -> ComplexOptionType1Builder {
+    return ComplexOptionType1.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasFoo {
       output += "\(indent) foo: \(foo) \n"
     }
@@ -2547,14 +2653,14 @@ final public class ComplexOptionType1 : ExtendableMessage {
       output += "\(indent) foo3: \(foo3) \n"
     }
     var foo4ElementIndex:Int = 0
-    for element in foo4  {
-        output += "\(indent) foo4[\(foo4ElementIndex)]: \(element)\n"
+    for oneValuefoo4 in foo4  {
+        output += "\(indent) foo4[\(foo4ElementIndex)]: \(oneValuefoo4)\n"
         foo4ElementIndex++
     }
     writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasFoo {
@@ -2566,8 +2672,8 @@ final public class ComplexOptionType1 : ExtendableMessage {
           if hasFoo3 {
              hashCode = (hashCode &* 31) &+ foo3.hashValue
           }
-          for element in foo4 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuefoo4 in foo4 {
+              hashCode = (hashCode &* 31) &+ oneValuefoo4.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -2578,10 +2684,13 @@ final public class ComplexOptionType1 : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ComplexOptionType1"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ComplexOptionType1"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ComplexOptionType1.self
   }
 
@@ -2590,10 +2699,10 @@ final public class ComplexOptionType1 : ExtendableMessage {
 
 }
 
-final class ComplexOptionType1Builder : ExtendableMessageBuilder {
+final internal class ComplexOptionType1Builder : ExtendableMessageBuilder {
   private var builderResult:ComplexOptionType1
 
-  required override init () {
+  required override internal init () {
      builderResult = ComplexOptionType1()
      super.init()
   }
@@ -2611,7 +2720,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo = value
        }
   }
-  func clearFoo() -> ComplexOptionType1Builder{
+  internal func clearFoo() -> ComplexOptionType1Builder{
        builderResult.hasFoo = false
        builderResult.foo = Int32(0)
        return self
@@ -2630,7 +2739,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo2 = value
        }
   }
-  func clearFoo2() -> ComplexOptionType1Builder{
+  internal func clearFoo2() -> ComplexOptionType1Builder{
        builderResult.hasFoo2 = false
        builderResult.foo2 = Int32(0)
        return self
@@ -2649,7 +2758,7 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo3 = value
        }
   }
-  func clearFoo3() -> ComplexOptionType1Builder{
+  internal func clearFoo3() -> ComplexOptionType1Builder{
        builderResult.hasFoo3 = false
        builderResult.foo3 = Int32(0)
        return self
@@ -2662,31 +2771,31 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
            builderResult.foo4 = array
        }
   }
-  func clearFoo4() -> ComplexOptionType1Builder {
+  internal func clearFoo4() -> ComplexOptionType1Builder {
      builderResult.foo4.removeAll(keepCapacity: false)
      return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> ComplexOptionType1Builder {
+  internal override func clear() -> ComplexOptionType1Builder {
     builderResult = ComplexOptionType1()
     return self
   }
-  override func clone() -> ComplexOptionType1Builder {
+  internal override func clone() -> ComplexOptionType1Builder {
     return ComplexOptionType1.builderWithPrototype(builderResult)
   }
-  override func build() -> ComplexOptionType1 {
+  internal override func build() -> ComplexOptionType1 {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ComplexOptionType1 {
+  internal func buildPartial() -> ComplexOptionType1 {
     var returnMe:ComplexOptionType1 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
+  internal func mergeFrom(other:ComplexOptionType1) -> ComplexOptionType1Builder {
     if (other == ComplexOptionType1()) {
      return self
     }
@@ -2706,10 +2815,10 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType1Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType1Builder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType1Builder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -2740,31 +2849,31 @@ final class ComplexOptionType1Builder : ExtendableMessageBuilder {
   }
 }
 
-final public class ComplexOptionType2 : ExtendableMessage {
+final internal class ComplexOptionType2 : ExtendableMessage {
 
 
   //Nested type declaration start
 
-    final public class ComplexOptionType4 : GeneratedMessage {
+    final internal class ComplexOptionType4 : GeneratedMessage {
       private(set) var hasWaldo:Bool = false
       private(set) var waldo:Int32 = Int32(0)
 
-      class func complexOpt4() -> ConcreateExtensionField {
+      internal class func complexOpt4() -> ConcreateExtensionField {
            return ComplexOptionType2ComplexOptionType4complexOpt4
       }
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasWaldo {
           output.writeInt32(1, value:waldo)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -2778,43 +2887,49 @@ final public class ComplexOptionType2 : ExtendableMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromData(data:[Byte]) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal class func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
+        return ComplexOptionType2.ComplexOptionType4.classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
+      }
+      internal func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
+        return classBuilder() as ComplexOptionType2.ComplexOptionType4Builder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return ComplexOptionType2.ComplexOptionType4Builder()
       }
-      class func builderWithPrototype(prototype:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
-        return ComplexOptionType2.ComplexOptionType4.builder().mergeFrom(prototype)
-      }
-      func builder() -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal override func classBuilder() -> MessageBuilder {
         return ComplexOptionType2.ComplexOptionType4.builder()
       }
-      func toBuilder() -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal func toBuilder() -> ComplexOptionType2.ComplexOptionType4Builder {
         return ComplexOptionType2.ComplexOptionType4.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
+        return ComplexOptionType2.ComplexOptionType4.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasWaldo {
           output += "\(indent) waldo: \(waldo) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasWaldo {
@@ -2828,10 +2943,13 @@ final public class ComplexOptionType2 : ExtendableMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "ComplexOptionType2.ComplexOptionType4"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "ComplexOptionType2.ComplexOptionType4"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return ComplexOptionType2.ComplexOptionType4.self
       }
 
@@ -2840,10 +2958,10 @@ final public class ComplexOptionType2 : ExtendableMessage {
 
     }
 
-    final class ComplexOptionType4Builder : GeneratedMessageBuilder {
+    final internal class ComplexOptionType4Builder : GeneratedMessageBuilder {
       private var builderResult:ComplexOptionType2.ComplexOptionType4
 
-      required override init () {
+      required override internal init () {
          builderResult = ComplexOptionType2.ComplexOptionType4()
          super.init()
       }
@@ -2861,32 +2979,32 @@ final public class ComplexOptionType2 : ExtendableMessage {
                builderResult.waldo = value
            }
       }
-      func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
+      internal func clearWaldo() -> ComplexOptionType2.ComplexOptionType4Builder{
            builderResult.hasWaldo = false
            builderResult.waldo = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal override func clear() -> ComplexOptionType2.ComplexOptionType4Builder {
         builderResult = ComplexOptionType2.ComplexOptionType4()
         return self
       }
-      override func clone() -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal override func clone() -> ComplexOptionType2.ComplexOptionType4Builder {
         return ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult)
       }
-      override func build() -> ComplexOptionType2.ComplexOptionType4 {
+      internal override func build() -> ComplexOptionType2.ComplexOptionType4 {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> ComplexOptionType2.ComplexOptionType4 {
+      internal func buildPartial() -> ComplexOptionType2.ComplexOptionType4 {
         var returnMe:ComplexOptionType2.ComplexOptionType4 = builderResult
         return returnMe
       }
-      func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal func mergeFrom(other:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2.ComplexOptionType4Builder {
         if (other == ComplexOptionType2.ComplexOptionType4()) {
          return self
         }
@@ -2896,10 +3014,10 @@ final public class ComplexOptionType2 : ExtendableMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2.ComplexOptionType4Builder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2.ComplexOptionType4Builder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4Builder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2.ComplexOptionType4Builder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -2933,10 +3051,10 @@ final public class ComplexOptionType2 : ExtendableMessage {
   private(set) var hasFred:Bool = false
   private(set) var fred:ComplexOptionType2.ComplexOptionType4 = ComplexOptionType2.ComplexOptionType4()
   private(set) var barney:Array<ComplexOptionType2.ComplexOptionType4>  = Array<ComplexOptionType2.ComplexOptionType4>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasBar {
      if !bar.isInitialized() {
        return false
@@ -2947,7 +3065,7 @@ final public class ComplexOptionType2 : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasBar {
       output.writeMessage(1, value:bar)
     }
@@ -2957,13 +3075,13 @@ final public class ComplexOptionType2 : ExtendableMessage {
     if hasFred {
       output.writeMessage(3, value:fred)
     }
-    for element in barney {
-        output.writeMessage(4, value:element)
+    for oneElementbarney in barney {
+        output.writeMessage(4, value:oneElementbarney)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(100), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2979,45 +3097,51 @@ final public class ComplexOptionType2 : ExtendableMessage {
     if hasFred {
       size += WireFormat.computeMessageSize(3, value:fred)
     }
-    for element in barney {
-        size += WireFormat.computeMessageSize(4, value:element)
+    for oneElementbarney in barney {
+        size += WireFormat.computeMessageSize(4, value:oneElementbarney)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ComplexOptionType2 {
+  internal class func parseFromData(data:[Byte]) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2 {
+  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2 {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2 {
     return ComplexOptionType2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ComplexOptionType2Builder {
+  internal class func builder() -> ComplexOptionType2Builder {
+    return ComplexOptionType2.classBuilder() as ComplexOptionType2Builder
+  }
+  internal func builder() -> ComplexOptionType2Builder {
+    return classBuilder() as ComplexOptionType2Builder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType2Builder()
   }
-  class func builderWithPrototype(prototype:ComplexOptionType2) -> ComplexOptionType2Builder {
-    return ComplexOptionType2.builder().mergeFrom(prototype)
-  }
-  func builder() -> ComplexOptionType2Builder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType2.builder()
   }
-  func toBuilder() -> ComplexOptionType2Builder {
+  internal func toBuilder() -> ComplexOptionType2Builder {
     return ComplexOptionType2.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ComplexOptionType2) -> ComplexOptionType2Builder {
+    return ComplexOptionType2.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasBar {
       output += "\(indent) bar {\n"
       bar.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -3032,16 +3156,16 @@ final public class ComplexOptionType2 : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var barneyElementIndex:Int = 0
-    for element in barney {
+    for oneElementbarney in barney {
         output += "\(indent) barney[\(barneyElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementbarney.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         barneyElementIndex++
     }
     writeExtensionDescription(&output, startInclusive:Int32(100), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasBar {
@@ -3053,8 +3177,8 @@ final public class ComplexOptionType2 : ExtendableMessage {
           if hasFred {
             hashCode = (hashCode &* 31) &+ fred.hashValue
           }
-          for element in barney {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementbarney in barney {
+              hashCode = (hashCode &* 31) &+ oneElementbarney.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(100), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -3065,10 +3189,13 @@ final public class ComplexOptionType2 : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ComplexOptionType2"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ComplexOptionType2"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ComplexOptionType2.self
   }
 
@@ -3077,10 +3204,10 @@ final public class ComplexOptionType2 : ExtendableMessage {
 
 }
 
-final class ComplexOptionType2Builder : ExtendableMessageBuilder {
+final internal class ComplexOptionType2Builder : ExtendableMessageBuilder {
   private var builderResult:ComplexOptionType2
 
-  required override init () {
+  required override internal init () {
      builderResult = ComplexOptionType2()
      super.init()
   }
@@ -3098,12 +3225,12 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.bar = value
        }
   }
-  func setBarBuilder(builderForValue:ComplexOptionType1Builder) -> ComplexOptionType2Builder {
+  internal func setBarBuilder(builderForValue:ComplexOptionType1Builder) -> ComplexOptionType2Builder {
     bar = builderForValue.build()
     return self
   }
-  func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
-    if (builderResult.hasBar && builderResult.bar != ComplexOptionType1()) {
+  internal func mergeBar(value:ComplexOptionType1) -> ComplexOptionType2Builder {
+    if (builderResult.hasBar) {
       builderResult.bar = ComplexOptionType1.builderWithPrototype(builderResult.bar).mergeFrom(value).buildPartial()
     } else {
       builderResult.bar = value
@@ -3111,7 +3238,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     builderResult.hasBar = true
     return self
   }
-  func clearBar() -> ComplexOptionType2Builder {
+  internal func clearBar() -> ComplexOptionType2Builder {
     builderResult.hasBar = false
     builderResult.bar = ComplexOptionType1()
     return self
@@ -3130,7 +3257,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.baz = value
        }
   }
-  func clearBaz() -> ComplexOptionType2Builder{
+  internal func clearBaz() -> ComplexOptionType2Builder{
        builderResult.hasBaz = false
        builderResult.baz = Int32(0)
        return self
@@ -3149,12 +3276,12 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.fred = value
        }
   }
-  func setFredBuilder(builderForValue:ComplexOptionType2.ComplexOptionType4Builder) -> ComplexOptionType2Builder {
+  internal func setFredBuilder(builderForValue:ComplexOptionType2.ComplexOptionType4Builder) -> ComplexOptionType2Builder {
     fred = builderForValue.build()
     return self
   }
-  func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
-    if (builderResult.hasFred && builderResult.fred != ComplexOptionType2.ComplexOptionType4()) {
+  internal func mergeFred(value:ComplexOptionType2.ComplexOptionType4) -> ComplexOptionType2Builder {
+    if (builderResult.hasFred) {
       builderResult.fred = ComplexOptionType2.ComplexOptionType4.builderWithPrototype(builderResult.fred).mergeFrom(value).buildPartial()
     } else {
       builderResult.fred = value
@@ -3162,7 +3289,7 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     builderResult.hasFred = true
     return self
   }
-  func clearFred() -> ComplexOptionType2Builder {
+  internal func clearFred() -> ComplexOptionType2Builder {
     builderResult.hasFred = false
     builderResult.fred = ComplexOptionType2.ComplexOptionType4()
     return self
@@ -3175,31 +3302,31 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
            builderResult.barney = value
        }
   }
-  func clearBarney() -> ComplexOptionType2Builder {
+  internal func clearBarney() -> ComplexOptionType2Builder {
     builderResult.barney.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> ComplexOptionType2Builder {
+  internal override func clear() -> ComplexOptionType2Builder {
     builderResult = ComplexOptionType2()
     return self
   }
-  override func clone() -> ComplexOptionType2Builder {
+  internal override func clone() -> ComplexOptionType2Builder {
     return ComplexOptionType2.builderWithPrototype(builderResult)
   }
-  override func build() -> ComplexOptionType2 {
+  internal override func build() -> ComplexOptionType2 {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ComplexOptionType2 {
+  internal func buildPartial() -> ComplexOptionType2 {
     var returnMe:ComplexOptionType2 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
+  internal func mergeFrom(other:ComplexOptionType2) -> ComplexOptionType2Builder {
     if (other == ComplexOptionType2()) {
      return self
     }
@@ -3219,10 +3346,10 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType2Builder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType2Builder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3265,28 +3392,28 @@ final class ComplexOptionType2Builder : ExtendableMessageBuilder {
   }
 }
 
-final public class ComplexOptionType3 : GeneratedMessage {
+final internal class ComplexOptionType3 : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class ComplexOptionType5 : GeneratedMessage {
+    final internal class ComplexOptionType5 : GeneratedMessage {
       private(set) var hasPlugh:Bool = false
       private(set) var plugh:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasPlugh {
           output.writeInt32(3, value:plugh)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -3300,43 +3427,49 @@ final public class ComplexOptionType3 : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromData(data:[Byte]) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal class func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
+        return ComplexOptionType3.ComplexOptionType5.classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
+      }
+      internal func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
+        return classBuilder() as ComplexOptionType3.ComplexOptionType5Builder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return ComplexOptionType3.ComplexOptionType5Builder()
       }
-      class func builderWithPrototype(prototype:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
-        return ComplexOptionType3.ComplexOptionType5.builder().mergeFrom(prototype)
-      }
-      func builder() -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal override func classBuilder() -> MessageBuilder {
         return ComplexOptionType3.ComplexOptionType5.builder()
       }
-      func toBuilder() -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal func toBuilder() -> ComplexOptionType3.ComplexOptionType5Builder {
         return ComplexOptionType3.ComplexOptionType5.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
+        return ComplexOptionType3.ComplexOptionType5.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasPlugh {
           output += "\(indent) plugh: \(plugh) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasPlugh {
@@ -3350,10 +3483,13 @@ final public class ComplexOptionType3 : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "ComplexOptionType3.ComplexOptionType5"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "ComplexOptionType3.ComplexOptionType5"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return ComplexOptionType3.ComplexOptionType5.self
       }
 
@@ -3362,10 +3498,10 @@ final public class ComplexOptionType3 : GeneratedMessage {
 
     }
 
-    final class ComplexOptionType5Builder : GeneratedMessageBuilder {
+    final internal class ComplexOptionType5Builder : GeneratedMessageBuilder {
       private var builderResult:ComplexOptionType3.ComplexOptionType5
 
-      required override init () {
+      required override internal init () {
          builderResult = ComplexOptionType3.ComplexOptionType5()
          super.init()
       }
@@ -3383,32 +3519,32 @@ final public class ComplexOptionType3 : GeneratedMessage {
                builderResult.plugh = value
            }
       }
-      func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
+      internal func clearPlugh() -> ComplexOptionType3.ComplexOptionType5Builder{
            builderResult.hasPlugh = false
            builderResult.plugh = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal override func clear() -> ComplexOptionType3.ComplexOptionType5Builder {
         builderResult = ComplexOptionType3.ComplexOptionType5()
         return self
       }
-      override func clone() -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal override func clone() -> ComplexOptionType3.ComplexOptionType5Builder {
         return ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult)
       }
-      override func build() -> ComplexOptionType3.ComplexOptionType5 {
+      internal override func build() -> ComplexOptionType3.ComplexOptionType5 {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> ComplexOptionType3.ComplexOptionType5 {
+      internal func buildPartial() -> ComplexOptionType3.ComplexOptionType5 {
         var returnMe:ComplexOptionType3.ComplexOptionType5 = builderResult
         return returnMe
       }
-      func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal func mergeFrom(other:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3.ComplexOptionType5Builder {
         if (other == ComplexOptionType3.ComplexOptionType5()) {
          return self
         }
@@ -3418,10 +3554,10 @@ final public class ComplexOptionType3 : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3.ComplexOptionType5Builder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3.ComplexOptionType5Builder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5Builder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3.ComplexOptionType5Builder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -3452,13 +3588,13 @@ final public class ComplexOptionType3 : GeneratedMessage {
 
   private(set) var hasComplexOptionType5:Bool = false
   private(set) var complexOptionType5:ComplexOptionType3.ComplexOptionType5 = ComplexOptionType3.ComplexOptionType5()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasQux {
       output.writeInt32(1, value:qux)
     }
@@ -3467,7 +3603,7 @@ final public class ComplexOptionType3 : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -3484,37 +3620,43 @@ final public class ComplexOptionType3 : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ComplexOptionType3 {
+  internal class func parseFromData(data:[Byte]) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3 {
+  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3 {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3 {
     return ComplexOptionType3.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ComplexOptionType3Builder {
+  internal class func builder() -> ComplexOptionType3Builder {
+    return ComplexOptionType3.classBuilder() as ComplexOptionType3Builder
+  }
+  internal func builder() -> ComplexOptionType3Builder {
+    return classBuilder() as ComplexOptionType3Builder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOptionType3Builder()
   }
-  class func builderWithPrototype(prototype:ComplexOptionType3) -> ComplexOptionType3Builder {
-    return ComplexOptionType3.builder().mergeFrom(prototype)
-  }
-  func builder() -> ComplexOptionType3Builder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOptionType3.builder()
   }
-  func toBuilder() -> ComplexOptionType3Builder {
+  internal func toBuilder() -> ComplexOptionType3Builder {
     return ComplexOptionType3.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ComplexOptionType3) -> ComplexOptionType3Builder {
+    return ComplexOptionType3.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasQux {
       output += "\(indent) qux: \(qux) \n"
     }
@@ -3525,7 +3667,7 @@ final public class ComplexOptionType3 : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasQux {
@@ -3542,10 +3684,13 @@ final public class ComplexOptionType3 : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ComplexOptionType3"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ComplexOptionType3"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ComplexOptionType3.self
   }
 
@@ -3554,10 +3699,10 @@ final public class ComplexOptionType3 : GeneratedMessage {
 
 }
 
-final class ComplexOptionType3Builder : GeneratedMessageBuilder {
+final internal class ComplexOptionType3Builder : GeneratedMessageBuilder {
   private var builderResult:ComplexOptionType3
 
-  required override init () {
+  required override internal init () {
      builderResult = ComplexOptionType3()
      super.init()
   }
@@ -3575,7 +3720,7 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.qux = value
        }
   }
-  func clearQux() -> ComplexOptionType3Builder{
+  internal func clearQux() -> ComplexOptionType3Builder{
        builderResult.hasQux = false
        builderResult.qux = Int32(0)
        return self
@@ -3594,12 +3739,12 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
            builderResult.complexOptionType5 = value
        }
   }
-  func setComplexOptionType5Builder(builderForValue:ComplexOptionType3.ComplexOptionType5Builder) -> ComplexOptionType3Builder {
+  internal func setComplexOptionType5Builder(builderForValue:ComplexOptionType3.ComplexOptionType5Builder) -> ComplexOptionType3Builder {
     complexOptionType5 = builderForValue.build()
     return self
   }
-  func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
-    if (builderResult.hasComplexOptionType5 && builderResult.complexOptionType5 != ComplexOptionType3.ComplexOptionType5()) {
+  internal func mergeComplexOptionType5(value:ComplexOptionType3.ComplexOptionType5) -> ComplexOptionType3Builder {
+    if (builderResult.hasComplexOptionType5) {
       builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5.builderWithPrototype(builderResult.complexOptionType5).mergeFrom(value).buildPartial()
     } else {
       builderResult.complexOptionType5 = value
@@ -3607,32 +3752,32 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
     builderResult.hasComplexOptionType5 = true
     return self
   }
-  func clearComplexOptionType5() -> ComplexOptionType3Builder {
+  internal func clearComplexOptionType5() -> ComplexOptionType3Builder {
     builderResult.hasComplexOptionType5 = false
     builderResult.complexOptionType5 = ComplexOptionType3.ComplexOptionType5()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ComplexOptionType3Builder {
+  internal override func clear() -> ComplexOptionType3Builder {
     builderResult = ComplexOptionType3()
     return self
   }
-  override func clone() -> ComplexOptionType3Builder {
+  internal override func clone() -> ComplexOptionType3Builder {
     return ComplexOptionType3.builderWithPrototype(builderResult)
   }
-  override func build() -> ComplexOptionType3 {
+  internal override func build() -> ComplexOptionType3 {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ComplexOptionType3 {
+  internal func buildPartial() -> ComplexOptionType3 {
     var returnMe:ComplexOptionType3 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
+  internal func mergeFrom(other:ComplexOptionType3) -> ComplexOptionType3Builder {
     if (other == ComplexOptionType3()) {
      return self
     }
@@ -3645,10 +3790,10 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOptionType3Builder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOptionType3Builder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3678,23 +3823,23 @@ final class ComplexOptionType3Builder : GeneratedMessageBuilder {
   }
 }
 
-final public class ComplexOpt6 : GeneratedMessage {
+final internal class ComplexOpt6 : GeneratedMessage {
   private(set) var hasXyzzy:Bool = false
   private(set) var xyzzy:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasXyzzy {
       output.writeInt32(7593951, value:xyzzy)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -3708,43 +3853,49 @@ final public class ComplexOpt6 : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ComplexOpt6 {
+  internal class func parseFromData(data:[Byte]) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ComplexOpt6 {
+  internal class func parseFromInputStream(input:NSInputStream) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOpt6 {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOpt6 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6 {
     return ComplexOpt6.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ComplexOpt6Builder {
+  internal class func builder() -> ComplexOpt6Builder {
+    return ComplexOpt6.classBuilder() as ComplexOpt6Builder
+  }
+  internal func builder() -> ComplexOpt6Builder {
+    return classBuilder() as ComplexOpt6Builder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ComplexOpt6Builder()
   }
-  class func builderWithPrototype(prototype:ComplexOpt6) -> ComplexOpt6Builder {
-    return ComplexOpt6.builder().mergeFrom(prototype)
-  }
-  func builder() -> ComplexOpt6Builder {
+  internal override func classBuilder() -> MessageBuilder {
     return ComplexOpt6.builder()
   }
-  func toBuilder() -> ComplexOpt6Builder {
+  internal func toBuilder() -> ComplexOpt6Builder {
     return ComplexOpt6.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ComplexOpt6) -> ComplexOpt6Builder {
+    return ComplexOpt6.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasXyzzy {
       output += "\(indent) xyzzy: \(xyzzy) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasXyzzy {
@@ -3758,10 +3909,13 @@ final public class ComplexOpt6 : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ComplexOpt6"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ComplexOpt6"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ComplexOpt6.self
   }
 
@@ -3770,10 +3924,10 @@ final public class ComplexOpt6 : GeneratedMessage {
 
 }
 
-final class ComplexOpt6Builder : GeneratedMessageBuilder {
+final internal class ComplexOpt6Builder : GeneratedMessageBuilder {
   private var builderResult:ComplexOpt6
 
-  required override init () {
+  required override internal init () {
      builderResult = ComplexOpt6()
      super.init()
   }
@@ -3791,32 +3945,32 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
            builderResult.xyzzy = value
        }
   }
-  func clearXyzzy() -> ComplexOpt6Builder{
+  internal func clearXyzzy() -> ComplexOpt6Builder{
        builderResult.hasXyzzy = false
        builderResult.xyzzy = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ComplexOpt6Builder {
+  internal override func clear() -> ComplexOpt6Builder {
     builderResult = ComplexOpt6()
     return self
   }
-  override func clone() -> ComplexOpt6Builder {
+  internal override func clone() -> ComplexOpt6Builder {
     return ComplexOpt6.builderWithPrototype(builderResult)
   }
-  override func build() -> ComplexOpt6 {
+  internal override func build() -> ComplexOpt6 {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ComplexOpt6 {
+  internal func buildPartial() -> ComplexOpt6 {
     var returnMe:ComplexOpt6 = builderResult
     return returnMe
   }
-  func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
+  internal func mergeFrom(other:ComplexOpt6) -> ComplexOpt6Builder {
     if (other == ComplexOpt6()) {
      return self
     }
@@ -3826,10 +3980,10 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOpt6Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ComplexOpt6Builder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6Builder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ComplexOpt6Builder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3851,17 +4005,17 @@ final class ComplexOpt6Builder : GeneratedMessageBuilder {
   }
 }
 
-final public class VariousComplexOptions : GeneratedMessage {
-  required public init() {
+final internal class VariousComplexOptions : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -3872,40 +4026,46 @@ final public class VariousComplexOptions : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> VariousComplexOptions {
+  internal class func parseFromData(data:[Byte]) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> VariousComplexOptions {
+  internal class func parseFromInputStream(input:NSInputStream) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->VariousComplexOptions {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> VariousComplexOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptions {
     return VariousComplexOptions.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> VariousComplexOptionsBuilder {
+  internal class func builder() -> VariousComplexOptionsBuilder {
+    return VariousComplexOptions.classBuilder() as VariousComplexOptionsBuilder
+  }
+  internal func builder() -> VariousComplexOptionsBuilder {
+    return classBuilder() as VariousComplexOptionsBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return VariousComplexOptionsBuilder()
   }
-  class func builderWithPrototype(prototype:VariousComplexOptions) -> VariousComplexOptionsBuilder {
-    return VariousComplexOptions.builder().mergeFrom(prototype)
-  }
-  func builder() -> VariousComplexOptionsBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return VariousComplexOptions.builder()
   }
-  func toBuilder() -> VariousComplexOptionsBuilder {
+  internal func toBuilder() -> VariousComplexOptionsBuilder {
     return VariousComplexOptions.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:VariousComplexOptions) -> VariousComplexOptionsBuilder {
+    return VariousComplexOptions.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -3916,10 +4076,13 @@ final public class VariousComplexOptions : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "VariousComplexOptions"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "VariousComplexOptions"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return VariousComplexOptions.self
   }
 
@@ -3928,44 +4091,44 @@ final public class VariousComplexOptions : GeneratedMessage {
 
 }
 
-final class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
+final internal class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
   private var builderResult:VariousComplexOptions
 
-  required override init () {
+  required override internal init () {
      builderResult = VariousComplexOptions()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> VariousComplexOptionsBuilder {
+  internal override func clear() -> VariousComplexOptionsBuilder {
     builderResult = VariousComplexOptions()
     return self
   }
-  override func clone() -> VariousComplexOptionsBuilder {
+  internal override func clone() -> VariousComplexOptionsBuilder {
     return VariousComplexOptions.builderWithPrototype(builderResult)
   }
-  override func build() -> VariousComplexOptions {
+  internal override func build() -> VariousComplexOptions {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> VariousComplexOptions {
+  internal func buildPartial() -> VariousComplexOptions {
     var returnMe:VariousComplexOptions = builderResult
     return returnMe
   }
-  func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
+  internal func mergeFrom(other:VariousComplexOptions) -> VariousComplexOptionsBuilder {
     if (other == VariousComplexOptions()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->VariousComplexOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->VariousComplexOptionsBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptionsBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> VariousComplexOptionsBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -3984,21 +4147,21 @@ final class VariousComplexOptionsBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class AggregateMessageSet : ExtendableMessage {
-  required public init() {
+final internal class AggregateMessageSet : ExtendableMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(4), endExclusive:Int32(2147483647))
     unknownFields.writeAsMessageSetTo(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4010,41 +4173,47 @@ final public class AggregateMessageSet : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> AggregateMessageSet {
+  internal class func parseFromData(data:[Byte]) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSet {
+  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSet {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSet {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSet {
     return AggregateMessageSet.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AggregateMessageSetBuilder {
+  internal class func builder() -> AggregateMessageSetBuilder {
+    return AggregateMessageSet.classBuilder() as AggregateMessageSetBuilder
+  }
+  internal func builder() -> AggregateMessageSetBuilder {
+    return classBuilder() as AggregateMessageSetBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageSetBuilder()
   }
-  class func builderWithPrototype(prototype:AggregateMessageSet) -> AggregateMessageSetBuilder {
-    return AggregateMessageSet.builder().mergeFrom(prototype)
-  }
-  func builder() -> AggregateMessageSetBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessageSet.builder()
   }
-  func toBuilder() -> AggregateMessageSetBuilder {
+  internal func toBuilder() -> AggregateMessageSetBuilder {
     return AggregateMessageSet.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:AggregateMessageSet) -> AggregateMessageSetBuilder {
+    return AggregateMessageSet.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     writeExtensionDescription(&output, startInclusive:Int32(4), endExclusive:Int32(2147483647), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(4), endExclusive:Int32(2147483647)))
@@ -4056,10 +4225,13 @@ final public class AggregateMessageSet : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "AggregateMessageSet"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "AggregateMessageSet"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return AggregateMessageSet.self
   }
 
@@ -4068,34 +4240,34 @@ final public class AggregateMessageSet : ExtendableMessage {
 
 }
 
-final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
+final internal class AggregateMessageSetBuilder : ExtendableMessageBuilder {
   private var builderResult:AggregateMessageSet
 
-  required override init () {
+  required override internal init () {
      builderResult = AggregateMessageSet()
      super.init()
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> AggregateMessageSetBuilder {
+  internal override func clear() -> AggregateMessageSetBuilder {
     builderResult = AggregateMessageSet()
     return self
   }
-  override func clone() -> AggregateMessageSetBuilder {
+  internal override func clone() -> AggregateMessageSetBuilder {
     return AggregateMessageSet.builderWithPrototype(builderResult)
   }
-  override func build() -> AggregateMessageSet {
+  internal override func build() -> AggregateMessageSet {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> AggregateMessageSet {
+  internal func buildPartial() -> AggregateMessageSet {
     var returnMe:AggregateMessageSet = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
+  internal func mergeFrom(other:AggregateMessageSet) -> AggregateMessageSetBuilder {
     if (other == AggregateMessageSet()) {
      return self
     }
@@ -4103,10 +4275,10 @@ final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4125,26 +4297,26 @@ final class AggregateMessageSetBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class AggregateMessageSetElement : GeneratedMessage {
+final internal class AggregateMessageSetElement : GeneratedMessage {
   private(set) var hasS:Bool = false
   private(set) var s:String = ""
 
-  class func messageSetExtension() -> ConcreateExtensionField {
+  internal class func messageSetExtension() -> ConcreateExtensionField {
        return AggregateMessageSetElementmessageSetExtension
   }
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasS {
       output.writeString(1, value:s)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4158,43 +4330,49 @@ final public class AggregateMessageSetElement : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> AggregateMessageSetElement {
+  internal class func parseFromData(data:[Byte]) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSetElement {
+  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSetElement {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSetElement {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElement {
     return AggregateMessageSetElement.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AggregateMessageSetElementBuilder {
+  internal class func builder() -> AggregateMessageSetElementBuilder {
+    return AggregateMessageSetElement.classBuilder() as AggregateMessageSetElementBuilder
+  }
+  internal func builder() -> AggregateMessageSetElementBuilder {
+    return classBuilder() as AggregateMessageSetElementBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageSetElementBuilder()
   }
-  class func builderWithPrototype(prototype:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
-    return AggregateMessageSetElement.builder().mergeFrom(prototype)
-  }
-  func builder() -> AggregateMessageSetElementBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessageSetElement.builder()
   }
-  func toBuilder() -> AggregateMessageSetElementBuilder {
+  internal func toBuilder() -> AggregateMessageSetElementBuilder {
     return AggregateMessageSetElement.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
+    return AggregateMessageSetElement.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasS {
       output += "\(indent) s: \(s) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasS {
@@ -4208,10 +4386,13 @@ final public class AggregateMessageSetElement : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "AggregateMessageSetElement"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "AggregateMessageSetElement"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return AggregateMessageSetElement.self
   }
 
@@ -4220,10 +4401,10 @@ final public class AggregateMessageSetElement : GeneratedMessage {
 
 }
 
-final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
+final internal class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
   private var builderResult:AggregateMessageSetElement
 
-  required override init () {
+  required override internal init () {
      builderResult = AggregateMessageSetElement()
      super.init()
   }
@@ -4241,32 +4422,32 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
            builderResult.s = value
        }
   }
-  func clearS() -> AggregateMessageSetElementBuilder{
+  internal func clearS() -> AggregateMessageSetElementBuilder{
        builderResult.hasS = false
        builderResult.s = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> AggregateMessageSetElementBuilder {
+  internal override func clear() -> AggregateMessageSetElementBuilder {
     builderResult = AggregateMessageSetElement()
     return self
   }
-  override func clone() -> AggregateMessageSetElementBuilder {
+  internal override func clone() -> AggregateMessageSetElementBuilder {
     return AggregateMessageSetElement.builderWithPrototype(builderResult)
   }
-  override func build() -> AggregateMessageSetElement {
+  internal override func build() -> AggregateMessageSetElement {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> AggregateMessageSetElement {
+  internal func buildPartial() -> AggregateMessageSetElement {
     var returnMe:AggregateMessageSetElement = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
+  internal func mergeFrom(other:AggregateMessageSetElement) -> AggregateMessageSetElementBuilder {
     if (other == AggregateMessageSetElement()) {
      return self
     }
@@ -4276,10 +4457,10 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetElementBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageSetElementBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElementBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageSetElementBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4301,7 +4482,7 @@ final class AggregateMessageSetElementBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class Aggregate : GeneratedMessage {
+final internal class Aggregate : GeneratedMessage {
   private(set) var hasI:Bool = false
   private(set) var i:Int32 = Int32(0)
 
@@ -4314,13 +4495,13 @@ final public class Aggregate : GeneratedMessage {
   private(set) var file:PBFileOptions = PBFileOptions()
   private(set) var hasMset:Bool = false
   private(set) var mset:AggregateMessageSet = AggregateMessageSet()
-  class func nested() -> ConcreateExtensionField {
+  internal class func nested() -> ConcreateExtensionField {
        return Aggregatenested
   }
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if hasSub {
      if !sub.isInitialized() {
        return false
@@ -4338,7 +4519,7 @@ final public class Aggregate : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasI {
       output.writeInt32(1, value:i)
     }
@@ -4356,7 +4537,7 @@ final public class Aggregate : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4382,37 +4563,43 @@ final public class Aggregate : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> Aggregate {
+  internal class func parseFromData(data:[Byte]) -> Aggregate {
     return Aggregate.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Aggregate {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Aggregate {
     return Aggregate.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> Aggregate {
+  internal class func parseFromInputStream(input:NSInputStream) -> Aggregate {
     return Aggregate.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Aggregate {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Aggregate {
     return Aggregate.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> Aggregate {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> Aggregate {
     return Aggregate.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Aggregate {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Aggregate {
     return Aggregate.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AggregateBuilder {
+  internal class func builder() -> AggregateBuilder {
+    return Aggregate.classBuilder() as AggregateBuilder
+  }
+  internal func builder() -> AggregateBuilder {
+    return classBuilder() as AggregateBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateBuilder()
   }
-  class func builderWithPrototype(prototype:Aggregate) -> AggregateBuilder {
-    return Aggregate.builder().mergeFrom(prototype)
-  }
-  func builder() -> AggregateBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Aggregate.builder()
   }
-  func toBuilder() -> AggregateBuilder {
+  internal func toBuilder() -> AggregateBuilder {
     return Aggregate.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:Aggregate) -> AggregateBuilder {
+    return Aggregate.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasI {
       output += "\(indent) i: \(i) \n"
     }
@@ -4436,7 +4623,7 @@ final public class Aggregate : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasI {
@@ -4462,10 +4649,13 @@ final public class Aggregate : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "Aggregate"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "Aggregate"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return Aggregate.self
   }
 
@@ -4474,10 +4664,10 @@ final public class Aggregate : GeneratedMessage {
 
 }
 
-final class AggregateBuilder : GeneratedMessageBuilder {
+final internal class AggregateBuilder : GeneratedMessageBuilder {
   private var builderResult:Aggregate
 
-  required override init () {
+  required override internal init () {
      builderResult = Aggregate()
      super.init()
   }
@@ -4495,7 +4685,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.i = value
        }
   }
-  func clearI() -> AggregateBuilder{
+  internal func clearI() -> AggregateBuilder{
        builderResult.hasI = false
        builderResult.i = Int32(0)
        return self
@@ -4514,7 +4704,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.s = value
        }
   }
-  func clearS() -> AggregateBuilder{
+  internal func clearS() -> AggregateBuilder{
        builderResult.hasS = false
        builderResult.s = ""
        return self
@@ -4533,12 +4723,12 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.sub = value
        }
   }
-  func setSubBuilder(builderForValue:AggregateBuilder) -> AggregateBuilder {
+  internal func setSubBuilder(builderForValue:AggregateBuilder) -> AggregateBuilder {
     sub = builderForValue.build()
     return self
   }
-  func mergeSub(value:Aggregate) -> AggregateBuilder {
-    if (builderResult.hasSub && builderResult.sub != Aggregate()) {
+  internal func mergeSub(value:Aggregate) -> AggregateBuilder {
+    if (builderResult.hasSub) {
       builderResult.sub = Aggregate.builderWithPrototype(builderResult.sub).mergeFrom(value).buildPartial()
     } else {
       builderResult.sub = value
@@ -4546,7 +4736,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasSub = true
     return self
   }
-  func clearSub() -> AggregateBuilder {
+  internal func clearSub() -> AggregateBuilder {
     builderResult.hasSub = false
     builderResult.sub = Aggregate()
     return self
@@ -4565,12 +4755,12 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.file = value
        }
   }
-  func setFileBuilder(builderForValue:PBFileOptionsBuilder) -> AggregateBuilder {
+  internal func setFileBuilder(builderForValue:PBFileOptionsBuilder) -> AggregateBuilder {
     file = builderForValue.build()
     return self
   }
-  func mergeFile(value:PBFileOptions) -> AggregateBuilder {
-    if (builderResult.hasFile && builderResult.file != PBFileOptions()) {
+  internal func mergeFile(value:PBFileOptions) -> AggregateBuilder {
+    if (builderResult.hasFile) {
       builderResult.file = PBFileOptions.builderWithPrototype(builderResult.file).mergeFrom(value).buildPartial()
     } else {
       builderResult.file = value
@@ -4578,7 +4768,7 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasFile = true
     return self
   }
-  func clearFile() -> AggregateBuilder {
+  internal func clearFile() -> AggregateBuilder {
     builderResult.hasFile = false
     builderResult.file = PBFileOptions()
     return self
@@ -4597,12 +4787,12 @@ final class AggregateBuilder : GeneratedMessageBuilder {
            builderResult.mset = value
        }
   }
-  func setMsetBuilder(builderForValue:AggregateMessageSetBuilder) -> AggregateBuilder {
+  internal func setMsetBuilder(builderForValue:AggregateMessageSetBuilder) -> AggregateBuilder {
     mset = builderForValue.build()
     return self
   }
-  func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
-    if (builderResult.hasMset && builderResult.mset != AggregateMessageSet()) {
+  internal func mergeMset(value:AggregateMessageSet) -> AggregateBuilder {
+    if (builderResult.hasMset) {
       builderResult.mset = AggregateMessageSet.builderWithPrototype(builderResult.mset).mergeFrom(value).buildPartial()
     } else {
       builderResult.mset = value
@@ -4610,32 +4800,32 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     builderResult.hasMset = true
     return self
   }
-  func clearMset() -> AggregateBuilder {
+  internal func clearMset() -> AggregateBuilder {
     builderResult.hasMset = false
     builderResult.mset = AggregateMessageSet()
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> AggregateBuilder {
+  internal override func clear() -> AggregateBuilder {
     builderResult = Aggregate()
     return self
   }
-  override func clone() -> AggregateBuilder {
+  internal override func clone() -> AggregateBuilder {
     return Aggregate.builderWithPrototype(builderResult)
   }
-  override func build() -> Aggregate {
+  internal override func build() -> Aggregate {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> Aggregate {
+  internal func buildPartial() -> Aggregate {
     var returnMe:Aggregate = builderResult
     return returnMe
   }
-  func mergeFrom(other:Aggregate) -> AggregateBuilder {
+  internal func mergeFrom(other:Aggregate) -> AggregateBuilder {
     if (other == Aggregate()) {
      return self
     }
@@ -4657,10 +4847,10 @@ final class AggregateBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4709,23 +4899,23 @@ final class AggregateBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class AggregateMessage : GeneratedMessage {
+final internal class AggregateMessage : GeneratedMessage {
   private(set) var hasFieldname:Bool = false
   private(set) var fieldname:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasFieldname {
       output.writeInt32(1, value:fieldname)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -4739,43 +4929,49 @@ final public class AggregateMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> AggregateMessage {
+  internal class func parseFromData(data:[Byte]) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessage {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> AggregateMessage {
+  internal class func parseFromInputStream(input:NSInputStream) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessage {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->AggregateMessage {
     return AggregateMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessage {
     return AggregateMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> AggregateMessageBuilder {
+  internal class func builder() -> AggregateMessageBuilder {
+    return AggregateMessage.classBuilder() as AggregateMessageBuilder
+  }
+  internal func builder() -> AggregateMessageBuilder {
+    return classBuilder() as AggregateMessageBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return AggregateMessageBuilder()
   }
-  class func builderWithPrototype(prototype:AggregateMessage) -> AggregateMessageBuilder {
-    return AggregateMessage.builder().mergeFrom(prototype)
-  }
-  func builder() -> AggregateMessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return AggregateMessage.builder()
   }
-  func toBuilder() -> AggregateMessageBuilder {
+  internal func toBuilder() -> AggregateMessageBuilder {
     return AggregateMessage.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:AggregateMessage) -> AggregateMessageBuilder {
+    return AggregateMessage.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasFieldname {
       output += "\(indent) fieldname: \(fieldname) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasFieldname {
@@ -4789,10 +4985,13 @@ final public class AggregateMessage : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "AggregateMessage"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "AggregateMessage"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return AggregateMessage.self
   }
 
@@ -4801,10 +5000,10 @@ final public class AggregateMessage : GeneratedMessage {
 
 }
 
-final class AggregateMessageBuilder : GeneratedMessageBuilder {
+final internal class AggregateMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:AggregateMessage
 
-  required override init () {
+  required override internal init () {
      builderResult = AggregateMessage()
      super.init()
   }
@@ -4822,32 +5021,32 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
            builderResult.fieldname = value
        }
   }
-  func clearFieldname() -> AggregateMessageBuilder{
+  internal func clearFieldname() -> AggregateMessageBuilder{
        builderResult.hasFieldname = false
        builderResult.fieldname = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> AggregateMessageBuilder {
+  internal override func clear() -> AggregateMessageBuilder {
     builderResult = AggregateMessage()
     return self
   }
-  override func clone() -> AggregateMessageBuilder {
+  internal override func clone() -> AggregateMessageBuilder {
     return AggregateMessage.builderWithPrototype(builderResult)
   }
-  override func build() -> AggregateMessage {
+  internal override func build() -> AggregateMessage {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> AggregateMessage {
+  internal func buildPartial() -> AggregateMessage {
     var returnMe:AggregateMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
+  internal func mergeFrom(other:AggregateMessage) -> AggregateMessageBuilder {
     if (other == AggregateMessage()) {
      return self
     }
@@ -4857,10 +5056,10 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->AggregateMessageBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> AggregateMessageBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4882,28 +5081,28 @@ final class AggregateMessageBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class NestedOptionType : GeneratedMessage {
+final internal class NestedOptionType : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class NestedMessage : GeneratedMessage {
+    final internal class NestedMessage : GeneratedMessage {
       private(set) var hasNestedField:Bool = false
       private(set) var nestedField:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasNestedField {
           output.writeInt32(1, value:nestedField)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -4917,43 +5116,49 @@ final public class NestedOptionType : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> NestedOptionType.NestedMessage {
+      internal class func parseFromData(data:[Byte]) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> NestedOptionType.NestedMessage {
+      internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType.NestedMessage {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType.NestedMessage {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> NestedOptionType.NestedMessageBuilder {
+      internal class func builder() -> NestedOptionType.NestedMessageBuilder {
+        return NestedOptionType.NestedMessage.classBuilder() as NestedOptionType.NestedMessageBuilder
+      }
+      internal func builder() -> NestedOptionType.NestedMessageBuilder {
+        return classBuilder() as NestedOptionType.NestedMessageBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return NestedOptionType.NestedMessageBuilder()
       }
-      class func builderWithPrototype(prototype:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
-        return NestedOptionType.NestedMessage.builder().mergeFrom(prototype)
-      }
-      func builder() -> NestedOptionType.NestedMessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return NestedOptionType.NestedMessage.builder()
       }
-      func toBuilder() -> NestedOptionType.NestedMessageBuilder {
+      internal func toBuilder() -> NestedOptionType.NestedMessageBuilder {
         return NestedOptionType.NestedMessage.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
+        return NestedOptionType.NestedMessage.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasNestedField {
           output += "\(indent) nestedField: \(nestedField) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasNestedField {
@@ -4967,10 +5172,13 @@ final public class NestedOptionType : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "NestedOptionType.NestedMessage"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "NestedOptionType.NestedMessage"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return NestedOptionType.NestedMessage.self
       }
 
@@ -4979,10 +5187,10 @@ final public class NestedOptionType : GeneratedMessage {
 
     }
 
-    final class NestedMessageBuilder : GeneratedMessageBuilder {
+    final internal class NestedMessageBuilder : GeneratedMessageBuilder {
       private var builderResult:NestedOptionType.NestedMessage
 
-      required override init () {
+      required override internal init () {
          builderResult = NestedOptionType.NestedMessage()
          super.init()
       }
@@ -5000,32 +5208,32 @@ final public class NestedOptionType : GeneratedMessage {
                builderResult.nestedField = value
            }
       }
-      func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
+      internal func clearNestedField() -> NestedOptionType.NestedMessageBuilder{
            builderResult.hasNestedField = false
            builderResult.nestedField = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> NestedOptionType.NestedMessageBuilder {
+      internal override func clear() -> NestedOptionType.NestedMessageBuilder {
         builderResult = NestedOptionType.NestedMessage()
         return self
       }
-      override func clone() -> NestedOptionType.NestedMessageBuilder {
+      internal override func clone() -> NestedOptionType.NestedMessageBuilder {
         return NestedOptionType.NestedMessage.builderWithPrototype(builderResult)
       }
-      override func build() -> NestedOptionType.NestedMessage {
+      internal override func build() -> NestedOptionType.NestedMessage {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> NestedOptionType.NestedMessage {
+      internal func buildPartial() -> NestedOptionType.NestedMessage {
         var returnMe:NestedOptionType.NestedMessage = builderResult
         return returnMe
       }
-      func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
+      internal func mergeFrom(other:NestedOptionType.NestedMessage) -> NestedOptionType.NestedMessageBuilder {
         if (other == NestedOptionType.NestedMessage()) {
          return self
         }
@@ -5035,10 +5243,10 @@ final public class NestedOptionType : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionType.NestedMessageBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionType.NestedMessageBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessageBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType.NestedMessageBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -5068,16 +5276,14 @@ final public class NestedOptionType : GeneratedMessage {
 
     //Enum type declaration start 
 
-    enum NestedEnum:Int32 {
+    internal enum NestedEnum:Int32 {
       case NestedEnumValue = 1
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .NestedEnumValue:
-            return true;
-          default:
-            return false;
-        }
+      internal static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -5085,19 +5291,19 @@ final public class NestedOptionType : GeneratedMessage {
 
     //Enum type declaration end 
 
-  class func nestedExtension() -> ConcreateExtensionField {
+  internal class func nestedExtension() -> ConcreateExtensionField {
        return NestedOptionTypenestedExtension
   }
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5108,40 +5314,46 @@ final public class NestedOptionType : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> NestedOptionType {
+  internal class func parseFromData(data:[Byte]) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> NestedOptionType {
+  internal class func parseFromInputStream(input:NSInputStream) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->NestedOptionType {
     return NestedOptionType.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionType {
     return NestedOptionType.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> NestedOptionTypeBuilder {
+  internal class func builder() -> NestedOptionTypeBuilder {
+    return NestedOptionType.classBuilder() as NestedOptionTypeBuilder
+  }
+  internal func builder() -> NestedOptionTypeBuilder {
+    return classBuilder() as NestedOptionTypeBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return NestedOptionTypeBuilder()
   }
-  class func builderWithPrototype(prototype:NestedOptionType) -> NestedOptionTypeBuilder {
-    return NestedOptionType.builder().mergeFrom(prototype)
-  }
-  func builder() -> NestedOptionTypeBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return NestedOptionType.builder()
   }
-  func toBuilder() -> NestedOptionTypeBuilder {
+  internal func toBuilder() -> NestedOptionTypeBuilder {
     return NestedOptionType.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:NestedOptionType) -> NestedOptionTypeBuilder {
+    return NestedOptionType.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -5152,10 +5364,13 @@ final public class NestedOptionType : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "NestedOptionType"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "NestedOptionType"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return NestedOptionType.self
   }
 
@@ -5164,44 +5379,44 @@ final public class NestedOptionType : GeneratedMessage {
 
 }
 
-final class NestedOptionTypeBuilder : GeneratedMessageBuilder {
+final internal class NestedOptionTypeBuilder : GeneratedMessageBuilder {
   private var builderResult:NestedOptionType
 
-  required override init () {
+  required override internal init () {
      builderResult = NestedOptionType()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> NestedOptionTypeBuilder {
+  internal override func clear() -> NestedOptionTypeBuilder {
     builderResult = NestedOptionType()
     return self
   }
-  override func clone() -> NestedOptionTypeBuilder {
+  internal override func clone() -> NestedOptionTypeBuilder {
     return NestedOptionType.builderWithPrototype(builderResult)
   }
-  override func build() -> NestedOptionType {
+  internal override func build() -> NestedOptionType {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> NestedOptionType {
+  internal func buildPartial() -> NestedOptionType {
     var returnMe:NestedOptionType = builderResult
     return returnMe
   }
-  func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
+  internal func mergeFrom(other:NestedOptionType) -> NestedOptionTypeBuilder {
     if (other == NestedOptionType()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionTypeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->NestedOptionTypeBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionTypeBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> NestedOptionTypeBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5223,7 +5438,7 @@ final class NestedOptionTypeBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension TestMessageWithCustomOptions {
+internal extension TestMessageWithCustomOptions {
     class func parseFromNSData(data:NSData) -> TestMessageWithCustomOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5235,7 +5450,7 @@ extension TestMessageWithCustomOptions {
         return TestMessageWithCustomOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionFooRequest {
+internal extension CustomOptionFooRequest {
     class func parseFromNSData(data:NSData) -> CustomOptionFooRequest {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5247,7 +5462,7 @@ extension CustomOptionFooRequest {
         return CustomOptionFooRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionFooResponse {
+internal extension CustomOptionFooResponse {
     class func parseFromNSData(data:NSData) -> CustomOptionFooResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5259,7 +5474,7 @@ extension CustomOptionFooResponse {
         return CustomOptionFooResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionFooClientMessage {
+internal extension CustomOptionFooClientMessage {
     class func parseFromNSData(data:NSData) -> CustomOptionFooClientMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5271,7 +5486,7 @@ extension CustomOptionFooClientMessage {
         return CustomOptionFooClientMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionFooServerMessage {
+internal extension CustomOptionFooServerMessage {
     class func parseFromNSData(data:NSData) -> CustomOptionFooServerMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5283,7 +5498,7 @@ extension CustomOptionFooServerMessage {
         return CustomOptionFooServerMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension DummyMessageContainingEnum {
+internal extension DummyMessageContainingEnum {
     class func parseFromNSData(data:NSData) -> DummyMessageContainingEnum {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5295,7 +5510,7 @@ extension DummyMessageContainingEnum {
         return DummyMessageContainingEnum.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension DummyMessageInvalidAsOptionType {
+internal extension DummyMessageInvalidAsOptionType {
     class func parseFromNSData(data:NSData) -> DummyMessageInvalidAsOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5307,7 +5522,7 @@ extension DummyMessageInvalidAsOptionType {
         return DummyMessageInvalidAsOptionType.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionMinIntegerValues {
+internal extension CustomOptionMinIntegerValues {
     class func parseFromNSData(data:NSData) -> CustomOptionMinIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5319,7 +5534,7 @@ extension CustomOptionMinIntegerValues {
         return CustomOptionMinIntegerValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionMaxIntegerValues {
+internal extension CustomOptionMaxIntegerValues {
     class func parseFromNSData(data:NSData) -> CustomOptionMaxIntegerValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5331,7 +5546,7 @@ extension CustomOptionMaxIntegerValues {
         return CustomOptionMaxIntegerValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension CustomOptionOtherValues {
+internal extension CustomOptionOtherValues {
     class func parseFromNSData(data:NSData) -> CustomOptionOtherValues {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5343,7 +5558,7 @@ extension CustomOptionOtherValues {
         return CustomOptionOtherValues.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension SettingRealsFromPositiveInts {
+internal extension SettingRealsFromPositiveInts {
     class func parseFromNSData(data:NSData) -> SettingRealsFromPositiveInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5355,7 +5570,7 @@ extension SettingRealsFromPositiveInts {
         return SettingRealsFromPositiveInts.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension SettingRealsFromNegativeInts {
+internal extension SettingRealsFromNegativeInts {
     class func parseFromNSData(data:NSData) -> SettingRealsFromNegativeInts {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5367,7 +5582,7 @@ extension SettingRealsFromNegativeInts {
         return SettingRealsFromNegativeInts.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOptionType1 {
+internal extension ComplexOptionType1 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType1 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5379,7 +5594,7 @@ extension ComplexOptionType1 {
         return ComplexOptionType1.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOptionType2.ComplexOptionType4 {
+internal extension ComplexOptionType2.ComplexOptionType4 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType2.ComplexOptionType4 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5391,7 +5606,7 @@ extension ComplexOptionType2.ComplexOptionType4 {
         return ComplexOptionType2.ComplexOptionType4.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOptionType2 {
+internal extension ComplexOptionType2 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType2 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5403,7 +5618,7 @@ extension ComplexOptionType2 {
         return ComplexOptionType2.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOptionType3.ComplexOptionType5 {
+internal extension ComplexOptionType3.ComplexOptionType5 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType3.ComplexOptionType5 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5415,7 +5630,7 @@ extension ComplexOptionType3.ComplexOptionType5 {
         return ComplexOptionType3.ComplexOptionType5.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOptionType3 {
+internal extension ComplexOptionType3 {
     class func parseFromNSData(data:NSData) -> ComplexOptionType3 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5427,7 +5642,7 @@ extension ComplexOptionType3 {
         return ComplexOptionType3.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ComplexOpt6 {
+internal extension ComplexOpt6 {
     class func parseFromNSData(data:NSData) -> ComplexOpt6 {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5439,7 +5654,7 @@ extension ComplexOpt6 {
         return ComplexOpt6.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension VariousComplexOptions {
+internal extension VariousComplexOptions {
     class func parseFromNSData(data:NSData) -> VariousComplexOptions {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5451,7 +5666,7 @@ extension VariousComplexOptions {
         return VariousComplexOptions.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension AggregateMessageSet {
+internal extension AggregateMessageSet {
     class func parseFromNSData(data:NSData) -> AggregateMessageSet {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5463,7 +5678,7 @@ extension AggregateMessageSet {
         return AggregateMessageSet.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension AggregateMessageSetElement {
+internal extension AggregateMessageSetElement {
     class func parseFromNSData(data:NSData) -> AggregateMessageSetElement {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5475,7 +5690,7 @@ extension AggregateMessageSetElement {
         return AggregateMessageSetElement.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension Aggregate {
+internal extension Aggregate {
     class func parseFromNSData(data:NSData) -> Aggregate {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5487,7 +5702,7 @@ extension Aggregate {
         return Aggregate.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension AggregateMessage {
+internal extension AggregateMessage {
     class func parseFromNSData(data:NSData) -> AggregateMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5499,7 +5714,7 @@ extension AggregateMessage {
         return AggregateMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension NestedOptionType.NestedMessage {
+internal extension NestedOptionType.NestedMessage {
     class func parseFromNSData(data:NSData) -> NestedOptionType.NestedMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -5511,7 +5726,7 @@ extension NestedOptionType.NestedMessage {
         return NestedOptionType.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension NestedOptionType {
+internal extension NestedOptionType {
     class func parseFromNSData(data:NSData) -> NestedOptionType {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
