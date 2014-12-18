@@ -12,11 +12,13 @@ import MapKit
 class TruckLocationAnnotation: NSObject, MKAnnotation {
     
     let coordinate : CLLocationCoordinate2D
+    var index : Int
     var title : String!
     var subtitle : String!
     
-    init(location coord:CLLocationCoordinate2D) {
+    init(location coord:CLLocationCoordinate2D, index:Int) {
         self.coordinate = coord
+        self.index = index
         super.init()
     }
 }

@@ -23,7 +23,7 @@ class TruckLocationAnnotationView: MKAnnotationView {
     }
     
     override init(annotation:MKAnnotation, reuseIdentifier:String) {
-        
+
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.setupLabel()
         self.setCount(1)

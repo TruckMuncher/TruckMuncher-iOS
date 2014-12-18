@@ -28,6 +28,8 @@
 		0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDE19F456B9003F3962 /* Menu.pb.swift */; };
 		0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDF19F456B9003F3962 /* Trucks.pb.swift */; };
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
+		0643B6951A424DD800E205C9 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0643B6941A424DD800E205C9 /* Properties.plist */; };
+		0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */; };
 		06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF119F558DB00F44F02 /* closeWhite.png */; };
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
 		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
@@ -44,7 +46,6 @@
 		2736B1E819F5AE5000CBACC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E519F5AE5000CBACC2 /* Podfile */; };
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
-		27766FEC19DFB021000B5211 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27766FEB19DFB021000B5211 /* Properties.plist */; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
@@ -184,6 +185,8 @@
 		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
 		063945AD19E5859000B76100 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
+		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
 		06A36AF119F558DB00F44F02 /* closeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeWhite.png; sourceTree = "<group>"; };
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
 		06A36AF319F558DB00F44F02 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -201,7 +204,6 @@
 		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
-		27766FEB19DFB021000B5211 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = SOURCE_ROOT; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
 		278BFBB319D08F0C00510C6E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */,
 				061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */,
 				061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */,
 				06D90F5519FF59C30086FA57 /* TruckPin@2x.png */,
@@ -406,7 +409,7 @@
 		27AC00B119CB4B4F00F1F3B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				27766FEB19DFB021000B5211 /* Properties.plist */,
+				0643B6941A424DD800E205C9 /* Properties.plist */,
 				2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */,
 				2736B1E519F5AE5000CBACC2 /* Podfile */,
 				063945AB19E56DB900B76100 /* Milwaukee.gpx */,
@@ -641,6 +644,7 @@
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
+				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
 				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
@@ -654,7 +658,7 @@
 				2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
-				27766FEC19DFB021000B5211 /* Properties.plist in Resources */,
+				0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */,
 				060935EE19F303F40033F3D4 /* LocationSetterPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

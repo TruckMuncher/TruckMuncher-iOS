@@ -15,5 +15,6 @@
 #import "CCHMapClusterController.h"
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterAnnotation.h"
+#import "iCarousel.h"
 
 #endif
