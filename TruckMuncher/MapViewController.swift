@@ -9,7 +9,13 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CCHMapClusterControllerDelegate, iCarouselDataSource, iCarouselDelegate  {
+class MapViewController: UIViewController,
+    MKMapViewDelegate,
+    CLLocationManagerDelegate,
+    CCHMapClusterControllerDelegate,
+    iCarouselDataSource,
+    iCarouselDelegate,
+    UIViewControllerTransitioningDelegate  {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
@@ -29,6 +35,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let trucksManager = TrucksManager()
     
+    var transitionManager = TransitionManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
@@ -47,7 +55,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
+        truckCarousel.currentItemIndex = 0
         
+//        updateData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         updateData()
     }
     
@@ -95,7 +109,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
         var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
         
-        truckCarousel.scrollToItemAtIndex(truckLocationAnnotation!.index, animated: true)
+        let tappedTruckIndex = truckLocationAnnotation!.index
+        
+        truckCarousel.currentItemIndex = tappedTruckIndex
+        truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
         
         centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
     }
@@ -198,6 +215,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
     
+    func presentMenu() {
+        var menu = UIViewController()
+        menu.transitioningDelegate = self
+        menu.modalPresentationStyle = .Custom
+        self.presentViewController(menu, animated: true) { () -> Void in
+            
+        }
+    }
+    
     // MARK: - iCarouselDataSource Methods
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
@@ -219,6 +245,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             //recycled and used with other index values later
             view = UIView(frame:CGRectMake(0, 0, self.view.frame.width, 100))
             view.backgroundColor = UIColor.lightGrayColor()
+            
+            var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "presentMenu")
+            swipeRecognizer.direction = .Up
+            view.addGestureRecognizer(swipeRecognizer)
+
             
             var thirdScreenWidth = self.view.frame.width / 3
             
@@ -263,7 +294,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         var annotations = mapClusterController.annotations.allObjects
         
         if (annotations.count > 0) {
-            centerMapOverCoordinate(annotations[carousel.currentItemIndex].coordinate)
+            let curIndex = truckCarousel.currentItemIndex
+            centerMapOverCoordinate(annotations[curIndex].coordinate)
         }
     }
     
@@ -276,6 +308,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //        }
 //        return value
 //    }
+    
+    // MARK: - UIVieControllerTransitioningDelegate Methods
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        self.transitionManager.transitionTo = .MODAL;
+        return self.transitionManager;
+    }
+    
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.transitionManager.transitionTo = .INITIAL;
+        return self.transitionManager;
+    }
 
     // MARK: - Test Methods to be removed
     
