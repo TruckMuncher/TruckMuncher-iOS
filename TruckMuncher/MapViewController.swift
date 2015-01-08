@@ -240,10 +240,13 @@ class MapViewController: UIViewController,
         //create new view if no view is available for recycling
         if (view == nil)
         {
+            // TODO construct all of this from a .xib and save yourself ~30-40 lines of code
+            
             //don't do anything specific to the index within
             //this `if (view == nil) {...}` statement because the view will be
             //recycled and used with other index values later
-            view = UIView(frame:CGRectMake(0, 0, self.view.frame.width, 100))
+            let padding:CGFloat = 5.0
+            view = UIView(frame:CGRectMake(0, 0, self.view.frame.width, carousel.frame.size.height))
             view.backgroundColor = UIColor.lightGrayColor()
             
             var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "presentMenu")
@@ -254,15 +257,16 @@ class MapViewController: UIViewController,
             var thirdScreenWidth = self.view.frame.width / 3
             
             truckLogo = UIImageView(image: UIImage(named: "wickedUrbainGrill.jpg"))
-            truckLogo.frame = CGRectMake(10, 10, thirdScreenWidth - 10, 80)
+            truckLogo.contentMode = .ScaleAspectFit
+            truckLogo.frame = CGRectMake(padding, padding, thirdScreenWidth - padding, view.frame.size.height - (2 * padding))
             
-            truckNameLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + 10, 20, thirdScreenWidth * 2, 30))
+            truckNameLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), padding, thirdScreenWidth * 2, 25))
             truckNameLabel.backgroundColor = UIColor.clearColor()
             truckNameLabel.textAlignment = .Left
             truckNameLabel.font = truckNameLabel.font.fontWithSize(18)
             truckNameLabel.tag = 1
             
-            truckDetailsLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + 10, CGRectGetMaxY(truckNameLabel.frame), thirdScreenWidth * 2, 25))
+            truckDetailsLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), CGRectGetMaxY(truckNameLabel.frame) + padding, thirdScreenWidth * 2, 25))
             truckDetailsLabel.backgroundColor = UIColor.clearColor()
             truckDetailsLabel.textAlignment = .Left
             truckDetailsLabel.font = UIFont.italicSystemFontOfSize(14)

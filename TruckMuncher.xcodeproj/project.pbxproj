@@ -62,6 +62,7 @@
 		27AC00CA19CB4B4F00F1F3B7 /* TruckMuncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00C919CB4B4F00F1F3B7 /* TruckMuncherTests.swift */; };
 		27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */; };
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
+		27CA57581A5DFDF9000D09E3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CA57571A5DFDF9000D09E3 /* Reveal.framework */; };
 		27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27E680861A420FC8008173D3 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27E680931A421086008173D3 /* Search.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680921A421086008173D3 /* Search.pb.swift */; };
 		27E680951A4210E3008173D3 /* RSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680941A4210E3008173D3 /* RSearch.swift */; };
@@ -185,7 +186,6 @@
 		0636EDDE19F456B9003F3962 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
 		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
-		063945AD19E5859000B76100 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
 		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
 		0643B6A01A436BE000E205C9 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
@@ -225,6 +225,7 @@
 		27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
+		27CA57571A5DFDF9000D09E3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		27E680921A421086008173D3 /* Search.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.pb.swift; sourceTree = "<group>"; };
 		27E680941A4210E3008173D3 /* RSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSearch.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 				27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */,
 				27FE9D3019FF5D0600060F79 /* Realm.framework in Frameworks */,
 				277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */,
+				27CA57581A5DFDF9000D09E3 /* Reveal.framework in Frameworks */,
 				277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */,
 				2791284019DF417800D15932 /* Alamofire.framework in Frameworks */,
 				277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */,
@@ -479,9 +481,9 @@
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27CA57571A5DFDF9000D09E3 /* Reveal.framework */,
 				27FE9D3519FF5D2100060F79 /* libc++.dylib */,
 				27FE9D2F19FF5D0600060F79 /* Realm.framework */,
-				063945AD19E5859000B76100 /* Reveal.framework */,
 				06F2D04A19E4BE540030726D /* MapKit.framework */,
 				277AE77C19D2211E00914BE1 /* Crashlytics.framework */,
 				278BFBBE19D0AB7200510C6E /* Security.framework */,
