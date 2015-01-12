@@ -25,5 +25,17 @@ class TruckDetailView: UIView {
             keywords.append((keyword as RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)
+        
+        var colorPicker = LEColorPicker()
+        var colorScheme = colorPicker.colorSchemeFromImage(truckLogoImage.image)
+        menuTableView.backgroundColor = colorScheme.backgroundColor
+        backgroundColor = colorScheme.backgroundColor
+        truckNameLabel.textColor = colorScheme.primaryTextColor
+        truckTagsLabel.textColor = colorScheme.secondaryTextColor
+    }
+    
+    func tempTestUpdateWithDifferentImage(truck:RTruck!) {
+        truckLogoImage.image = UIImage(named:"MuncherLogo")
+        updateViewWithTruck(truck)
     }
 }
