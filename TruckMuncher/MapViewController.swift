@@ -43,6 +43,8 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TruckMuncher"
+        self.navigationController?.navigationBar.translucent = false
+
         
         initLocationManager()
         self.mapView.delegate = self
@@ -55,7 +57,7 @@ class MapViewController: UIViewController,
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, view.frame.height - 100.0, view.frame.width, view.frame.height))
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, view.frame.height - 56.0, view.frame.width, view.frame.height))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
@@ -255,10 +257,10 @@ class MapViewController: UIViewController,
         
         if recognizer.direction == .Up {
             let navFrame = self.navigationController?.navigationBar.frame
-            newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!), self.view.frame.width, self.view.frame.height)
+            newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!) - 40.0, self.view.frame.width, self.view.frame.height)
             showingMenu = true
         } else if recognizer.direction == .Down {
-            newRect = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+            newRect = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
             showingMenu = false
         }
         
@@ -298,13 +300,14 @@ class MapViewController: UIViewController,
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if (!showingMenu) {
-            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 130.0, self.view.frame.width, self.view.frame.height)
-            
-            UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
                 self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
-                
-                },
-                completion: nil)
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
+                }, completion: nil)
+            })
+            
         }
     }
     
