@@ -32,6 +32,7 @@ class MapViewController: UIViewController,
     var mapClusterController: CCHMapClusterController!
     var truckCarousel: iCarousel!
     var count: Int = 0
+    var showingMenu = false
     var activeTrucks = [RTruck]()
     
     let trucksManager = TrucksManager()
@@ -244,10 +245,12 @@ class MapViewController: UIViewController,
         var newRect: CGRect = CGRect.nullRect
         
         if recognizer.direction == .Up {
-                let navFrame = self.navigationController?.navigationBar.frame
-                newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!), self.view.frame.width, self.view.frame.height)
+            let navFrame = self.navigationController?.navigationBar.frame
+            newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!), self.view.frame.width, self.view.frame.height)
+            showingMenu = true
         } else if recognizer.direction == .Down {
-                newRect = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+            newRect = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+            showingMenu = false
         }
         
         UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
@@ -266,7 +269,11 @@ class MapViewController: UIViewController,
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+            if index < 1 {
+                (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+            } else {
+                (view as TruckDetailView).tempTestUpdateWithDifferentImage(activeTrucks[index])
+            }
         }
         return view
     }
@@ -281,13 +288,15 @@ class MapViewController: UIViewController,
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
-        self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 130.0, self.view.frame.width, self.view.frame.height)
-        
-        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+        if (!showingMenu) {
+            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 130.0, self.view.frame.width, self.view.frame.height)
             
-            },
-            completion: nil)
+            UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+                self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+                
+                },
+                completion: nil)
+        }
     }
     
     // MARK: - UIVieControllerTransitioningDelegate Methods
