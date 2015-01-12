@@ -229,9 +229,6 @@ class MapViewController: UIViewController,
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
-        let tapSelector: Selector = "handleTruckDetailTap:"
-        var tapRecognizer = UITapGestureRecognizer(target: self, action: tapSelector)
-        truckCarousel.addGestureRecognizer(tapRecognizer)
 
         let swipeSelector: Selector = "handleSwipe:"
         var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
@@ -258,16 +255,6 @@ class MapViewController: UIViewController,
             }, completion: nil)
     }
     
-    @IBAction func handleTruckDetailTap(sender: UITapGestureRecognizer) {
-        self.truckCarousel.frame = CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height)
-        
-        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
-            
-            },
-            completion: nil)
-    }
-    
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
     {
         return activeTrucks.count
@@ -291,6 +278,16 @@ class MapViewController: UIViewController,
             let curIndex = truckCarousel.currentItemIndex
             centerMapOverCoordinate(annotations[curIndex].coordinate)
         }
+    }
+    
+    func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
+        self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 130.0, self.view.frame.width, self.view.frame.height)
+        
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+            
+            },
+            completion: nil)
     }
     
     // MARK: - UIVieControllerTransitioningDelegate Methods
