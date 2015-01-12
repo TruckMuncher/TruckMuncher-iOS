@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class TruckDetailView: UIView {
     
@@ -18,8 +19,9 @@ class TruckDetailView: UIView {
     func updateViewWithTruck(truck:RTruck!) {
         truckNameLabel.text = truck.name
         var keywords = [String]()
-        // TODO figure out how to write our own SequenceType implemention for RLMArray
         for keyword in truck.keywords {
+            let v = (keyword as RString).value
+            print("keyword \(keyword) and \(v)")
             keywords.append((keyword as RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)

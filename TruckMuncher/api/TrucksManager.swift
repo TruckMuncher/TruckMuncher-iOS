@@ -35,7 +35,7 @@ class TrucksManager {
                 let activeTrucksResponseTruck = truck as ActiveTrucksResponse.Truck
                 let rresponse = RTruck.objectsWhere("id = %@", activeTrucksResponseTruck.id)
                 var rtruck: RTruck? = nil
-                if rresponse.count == 0 || rtruck == nil {
+                if rresponse.count == 0 {
                     rtruck = RTruck()
                     rtruck!.id = activeTrucksResponseTruck.id
                 } else {
