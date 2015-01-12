@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TruckDetailView" customModule="TruckMuncher" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wickedUrbainGrill.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="38h-US-Khm">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="8mn-ED-AUT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American Gyros" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-x6-f8U">
+                    <rect key="frame" x="125" y="13" width="261" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="ucd-TM-eGa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Os3-Sb-VHj">
+                    <rect key="frame" x="0.0" y="102" width="414" height="634"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greek" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yim-gN-GRW">
+                    <rect key="frame" x="125" y="49" width="261" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="iI2-Ft-u98"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="38h-US-Khm" secondAttribute="bottom" constant="2" id="09s-EK-bzI"/>
+                <constraint firstAttribute="trailing" secondItem="Os3-Sb-VHj" secondAttribute="trailing" id="1Bd-cd-0W0"/>
+                <constraint firstItem="yim-gN-GRW" firstAttribute="trailing" secondItem="eIT-x6-f8U" secondAttribute="trailing" id="CD0-aV-Xp0"/>
+                <constraint firstItem="eIT-x6-f8U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="EdQ-IO-0Jq"/>
+                <constraint firstItem="38h-US-Khm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JXB-CF-sTd"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="yim-gN-GRW" secondAttribute="bottom" constant="32" id="NUB-1I-i5v"/>
+                <constraint firstAttribute="trailing" secondItem="eIT-x6-f8U" secondAttribute="trailing" constant="28" id="WAA-jG-S2I"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="leading" secondItem="38h-US-Khm" secondAttribute="leading" id="Wsj-8s-3QU"/>
+                <constraint firstAttribute="bottom" secondItem="Os3-Sb-VHj" secondAttribute="bottom" id="gzR-UA-xho"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="q2A-vI-I8U"/>
+                <constraint firstItem="yim-gN-GRW" firstAttribute="top" secondItem="eIT-x6-f8U" secondAttribute="bottom" constant="15" id="qnO-8w-dJQ"/>
+                <constraint firstItem="yim-gN-GRW" firstAttribute="leading" secondItem="eIT-x6-f8U" secondAttribute="leading" id="sQe-cY-tkc"/>
+                <constraint firstItem="eIT-x6-f8U" firstAttribute="leading" secondItem="38h-US-Khm" secondAttribute="trailing" constant="25" id="upX-wS-fld"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="menuTableView" destination="Os3-Sb-VHj" id="dQV-ag-4yR"/>
+                <outlet property="truckLogoImage" destination="38h-US-Khm" id="BRC-Ec-iro"/>
+                <outlet property="truckNameLabel" destination="eIT-x6-f8U" id="PJR-g2-wQe"/>
+                <outlet property="truckTagsLabel" destination="yim-gN-GRW" id="TlU-5s-vyV"/>
+            </connections>
+            <point key="canvasLocation" x="558" y="423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wickedUrbainGrill.jpg" width="250" height="250"/>
+    </resources>
+</document>

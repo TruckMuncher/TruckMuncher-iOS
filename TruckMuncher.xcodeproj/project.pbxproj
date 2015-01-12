@@ -20,6 +20,7 @@
 		0609360119F33EB40033F3D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609360019F33EB40033F3D4 /* Colors.swift */; };
 		0609360419F3662B0033F3D4 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360219F3662B0033F3D4 /* Menu.png */; };
 		0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360319F3662B0033F3D4 /* Menu@2x.png */; };
+		0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0613ABC71A5F2EC10080202B /* TruckDetailView.xib */; };
 		061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */; };
 		061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */; };
 		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
@@ -31,6 +32,7 @@
 		0643B6951A424DD800E205C9 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0643B6941A424DD800E205C9 /* Properties.plist */; };
 		0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */; };
 		0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0643B6A01A436BE000E205C9 /* TransitionManager.swift */; };
+		0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699B38B1A63278800B8E0AE /* TruckDetailView.swift */; };
 		06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF119F558DB00F44F02 /* closeWhite.png */; };
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
 		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
@@ -179,6 +181,7 @@
 		0609360019F33EB40033F3D4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0609360219F3662B0033F3D4 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 		0609360319F3662B0033F3D4 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
+		0613ABC71A5F2EC10080202B /* TruckDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckDetailView.xib; sourceTree = "<group>"; };
 		061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SingleTruckAnnotationIcon@2x.png"; sourceTree = "<group>"; };
 		061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingleTruckAnnotationIcon.png; sourceTree = "<group>"; };
 		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
 		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
 		0643B6A01A436BE000E205C9 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		0699B38B1A63278800B8E0AE /* TruckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckDetailView.swift; sourceTree = "<group>"; };
 		06A36AF119F558DB00F44F02 /* closeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeWhite.png; sourceTree = "<group>"; };
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
 		06A36AF319F558DB00F44F02 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
@@ -417,6 +421,8 @@
 				27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */,
 				27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */,
 				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
+				0613ABC71A5F2EC10080202B /* TruckDetailView.xib */,
+				0699B38B1A63278800B8E0AE /* TruckDetailView.swift */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
+				0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */,
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
 				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
@@ -785,6 +792,7 @@
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 				27F5CD2C1A6372C00035E32F /* RString.swift in Sources */,
 				27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */,
+				0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
 				2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */,
 				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,

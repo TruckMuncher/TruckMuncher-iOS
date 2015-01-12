@@ -41,5 +41,4 @@ class MenuItemTableViewCell: UITableViewCell {
             lblDescription.attributedText = NSAttributedString(string: item.notes, attributes: attributes)
         }
     }
-    
 }
