@@ -13,10 +13,12 @@ class RTruck: RLMObject {
     dynamic var id = ""
     dynamic var name = ""
     dynamic var imageUrl = ""
-    dynamic var keywords = [String]()
+    //dynamic var keywords = [String]()
+    dynamic var keywords = RLMArray(objectClassName: RString.className())
     dynamic var latitude = 0.0
     dynamic var longitude = 0.0
     dynamic var isNew = false
+    dynamic var isInServingMode = false
     
     override init() {
         super.init()
@@ -35,7 +37,10 @@ class RTruck: RLMObject {
         rtruck.id = truck.id
         rtruck.name = truck.name
         rtruck.imageUrl = truck.imageUrl
-        rtruck.keywords = truck.keywords
+        //rtruck.keywords = truck.keywords
+        for keyword in truck.keywords {
+            rtruck.keywords.addObject(RString.initFromString(keyword))
+        }
         rtruck.isNew = isNew
         return rtruck
     }

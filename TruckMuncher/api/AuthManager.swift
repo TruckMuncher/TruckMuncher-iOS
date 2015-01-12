@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Realm
 
 struct AuthManager {
     let apiManager: APIManager
@@ -25,7 +26,14 @@ struct AuthManager {
         apiManager.post(request as NSURLRequest, success: { (response, data) -> () in
             // success
             var authResponse = AuthResponse.parseFromNSData(data!)
-            successBlock(response: RUser.initFromProto(authResponse))
+            let ruser = RUser.initFromProto(authResponse)
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            realm.addObject(ruser)
+            realm.commitWriteTransaction()
+            
+            successBlock(response: ruser)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
@@ -40,6 +48,11 @@ struct AuthManager {
         let builder = AuthRequest.builder()
         apiManager.post(APIRouter.deleteAuth(builder.build().getNSData()), success: { (response, data) -> () in
             // success
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            realm.deleteObjects(RUser.allObjectsInRealm(realm))
+            realm.commitWriteTransaction()
+            
             successBlock()
         }) { (response, data, error) -> () in
             // error

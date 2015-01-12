@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     var twitterAPI: STTwitterAPI?
     let authManager = AuthManager()
+    let mgr = MenuManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,9 +103,13 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func successfullyLoggedInAsTruck() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
-        })
+        mgr.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in
+                NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
+            })
+        }) { (error) -> () in
+            println("error fetching full menus \(error)")
+        }
     }
     
     func loginToAPI(authorizationHeader: String) {

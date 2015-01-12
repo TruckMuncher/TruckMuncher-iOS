@@ -288,6 +288,7 @@ class MapViewController: UIViewController,
         //views outside of the `if (view == nil) {...}` check otherwise
         //you'll get weird issues with carousel item content appearing
         //in the wrong place in the carousel
+        let at = activeTrucks[index]
         truckNameLabel.text = activeTrucks[index].name
         truckDetailsLabel.text = activeTrucks[index].id
         

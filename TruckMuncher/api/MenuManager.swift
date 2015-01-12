@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 struct MenuManager {
     let apiManager: APIManager
@@ -23,9 +24,25 @@ struct MenuManager {
             // success
             var menuItemResponse = MenuItemAvailabilityResponse.parseFromNSData(data!)
             var items = [RMenuItem]()
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
+            // TODO this process could use some optimization
+            // currently queries one menu item, updates properties, writes to DB, repeat
             for item in menuItemResponse.availabilities {
-                items.append(RMenuItem.initFromProto(item))
+                let id = (item as MenuItemAvailability).menuItemId
+                var rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as? RMenuItem
+                if rmenuItem == nil {
+                    rmenuItem = RMenuItem()
+                    rmenuItem!.id = id
+                }
+                rmenuItem!.isAvailable = (item as MenuItemAvailability).isAvailable
+                RMenuItem.createOrUpdateInRealm(realm, withObject: rmenuItem!)
+                items.append(rmenuItem!)
             }
+            realm.commitWriteTransaction()
+            
             successBlock(response: items)
         }) { (response, data, error) -> () in
             // error
@@ -47,9 +64,17 @@ struct MenuManager {
             // success
             var menuResponse = FullMenusResponse.parseFromNSData(data!)
             var menus = [RMenu]()
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
             for menu in menuResponse.menus {
-                menus.append(RMenu.initFromProto(menu))
+                let rmenu = RMenu.initFromProto(menu)
+                menus.append(rmenu)
+                RMenu.createOrUpdateInRealm(realm, withObject: rmenu)
             }
+            realm.commitWriteTransaction()
+            
             successBlock(response: menus)
         }) { (response, data, error) -> () in
             // error
@@ -68,7 +93,15 @@ struct MenuManager {
             // success
             // TODO persist results in realm and return
             var menuResponse = MenuResponse.parseFromNSData(data!)
-            successBlock(response: RMenu.initFromProto(menuResponse.menu))
+            
+            let rmenu = RMenu.initFromProto(menuResponse.menu)
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            RMenu.createOrUpdateInRealm(realm, withObject: rmenu)
+            realm.commitWriteTransaction()
+            
+            successBlock(response: rmenu)
         }) { (response, data, error) -> () in
             // error
             var errorResponse: Error? = nil
@@ -91,6 +124,17 @@ struct MenuManager {
         builder.diff = diffs
         apiManager.post(APIRouter.modifyMenuItemAvailability(builder.build().getNSData()), success: { (response, data) -> () in
             // success
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
+            for (id, available) in items {
+                let rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as RMenuItem
+                rmenuItem.isAvailable = available
+                RMenu.createOrUpdateInRealm(realm, withObject: rmenuItem)
+            }
+            realm.commitWriteTransaction()
+            
             successBlock()
         }) { (response, data, error) -> () in
             // error
