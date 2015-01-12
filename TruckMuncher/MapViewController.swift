@@ -15,7 +15,8 @@ class MapViewController: UIViewController,
     CCHMapClusterControllerDelegate,
     iCarouselDataSource,
     iCarouselDelegate,
-    UIViewControllerTransitioningDelegate  {
+    UIViewControllerTransitioningDelegate,
+    UIGestureRecognizerDelegate{
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
@@ -58,6 +59,7 @@ class MapViewController: UIViewController,
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
+        truckCarousel.bounces = false
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
@@ -227,25 +229,38 @@ class MapViewController: UIViewController,
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
-        var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: "handleUpwardSwipe")
+        let tapSelector: Selector = "handleTruckDetailTap:"
+        var tapRecognizer = UITapGestureRecognizer(target: self, action: tapSelector)
+        truckCarousel.addGestureRecognizer(tapRecognizer)
+
+        let swipeSelector: Selector = "handleSwipe:"
+        var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
         swipeUpRecognizer.direction = .Up
         truckCarousel.addGestureRecognizer(swipeUpRecognizer);
         
-        var swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: "handleDownwardSwipe")
+        var swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
         swipeDownRecognizer.direction = .Down
         truckCarousel.addGestureRecognizer(swipeDownRecognizer);
     }
     
-    func handleUpwardSwipe() {
-        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
-            let frame = self.navigationController?.navigationBar.frame
-            self.truckCarousel.frame = CGRectMake(0.0, CGRectGetMaxY(frame!), self.view.frame.width, self.view.frame.height)
-            
-            },
-            completion: nil)
+    @IBAction func handleSwipe(recognizer: UISwipeGestureRecognizer) {
+        var newRect: CGRect = CGRect.nullRect
+        
+        if recognizer.direction == .Up {
+                let navFrame = self.navigationController?.navigationBar.frame
+                newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!), self.view.frame.width, self.view.frame.height)
+        } else if recognizer.direction == .Down {
+                newRect = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+        }
+        
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+            self.truckCarousel.frame = newRect
+            }, completion: nil)
     }
     
-    func handleDownwardSwipe() {
+    @IBAction func handleTruckDetailTap(sender: UITapGestureRecognizer) {
+        self.truckCarousel.frame = CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height)
+        
         UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
             self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
             
@@ -288,5 +303,10 @@ class MapViewController: UIViewController,
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.transitionManager.transitionTo = .INITIAL;
         return self.transitionManager;
+    }
+    
+    // Mark: - UIGestureRecognizerDelegate Methods
+    func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
+            return true;
     }
 }
