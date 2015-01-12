@@ -36,6 +36,7 @@ class MapViewController: UIViewController,
     var activeTrucks = [RTruck]()
     
     let trucksManager = TrucksManager()
+    let menuManager = MenuManager()
     
     var transitionManager = TransitionManager()
     
@@ -65,7 +66,15 @@ class MapViewController: UIViewController,
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
         
-        updateData()
+        menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
+            self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
+                self.updateData()
+            }, error: { (error) -> () in
+                println("error fetching truck profiles \(error)")
+            })
+        }) { (error) -> () in
+            println("error fetching full menus \(error)")
+        }
     }
     
     func setClusterSettings() {

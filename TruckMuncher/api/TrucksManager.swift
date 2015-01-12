@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class TrucksManager {
     let apiManager: APIManager
@@ -24,9 +25,29 @@ class TrucksManager {
             // success
             var truckResponse = ActiveTrucksResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
+            // TODO this process could use some optimization
+            // currently queries one truck, updates properties, writes to DB, repeat
             for truck in truckResponse.trucks {
-                trucks.append(RTruck.initFromProto(truck))
+                let activeTrucksResponseTruck = truck as ActiveTrucksResponse.Truck
+                let rresponse = RTruck.objectsWhere("id = %@", activeTrucksResponseTruck.id)
+                var rtruck: RTruck? = nil
+                if rresponse.count == 0 {
+                    rtruck = RTruck()
+                    rtruck!.id = activeTrucksResponseTruck.id
+                } else {
+                    rtruck = rresponse[0] as? RTruck
+                }
+                rtruck!.latitude = activeTrucksResponseTruck.latitude
+                rtruck!.longitude = activeTrucksResponseTruck.longitude
+                RTruck.createOrUpdateInRealm(realm, withObject: rtruck!)
+                trucks.append(rtruck!)
             }
+            realm.commitWriteTransaction()
+            
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
@@ -45,9 +66,17 @@ class TrucksManager {
             // success
             var truckResponse = TrucksForVendorResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
             for truck in truckResponse.trucks {
-                trucks.append(RTruck.initFromProto(truck, isNew: truckResponse.isNew))
+                let rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
+                RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+                trucks.append(rtruck)
             }
+            realm.commitWriteTransaction()
+            
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
@@ -68,9 +97,17 @@ class TrucksManager {
             // success
             var truckResponse = TruckProfilesResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
             for truck in truckResponse.trucks {
-                trucks.append(RTruck.initFromProto(truck, isNew: false))
+                let rtruck = RTruck.initFromProto(truck, isNew: false)
+                RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+                trucks.append(rtruck)
             }
+            realm.commitWriteTransaction()
+            
             successBlock(response: trucks)
         }) { (response, data, error) -> () in
             // error
@@ -90,6 +127,18 @@ class TrucksManager {
         builder.truckLongitude = lon
         apiManager.post(APIRouter.modifyServingMode(builder.build().getNSData()), success: { (response, data) -> () in
             // success
+            
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            
+            let rtruck = RTruck.objectsWhere("id = %@", truckId)[0] as RTruck
+            rtruck.isInServingMode = servingMode
+            rtruck.latitude = lat
+            rtruck.longitude = lon
+            RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+            
+            realm.commitWriteTransaction()
+            
             successBlock()
         }) { (response, data, error) -> () in
             // error

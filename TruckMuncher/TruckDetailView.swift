@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class TruckDetailView: UIView {
     
@@ -16,8 +17,14 @@ class TruckDetailView: UIView {
     @IBOutlet var truckLogoImage: UIImageView!
 
     func updateViewWithTruck(truck:RTruck!) {
-        truckNameLabel.text = truck.id
-        truckTagsLabel.text = truck.description
+        truckNameLabel.text = truck.name
+        var keywords = [String]()
+        for keyword in truck.keywords {
+            let v = (keyword as RString).value
+            print("keyword \(keyword) and \(v)")
+            keywords.append((keyword as RString).value)
+        }
+        truckTagsLabel.text = join(", ", keywords)
         
         var colorPicker = LEColorPicker()
         var colorScheme = colorPicker.colorSchemeFromImage(truckLogoImage.image)

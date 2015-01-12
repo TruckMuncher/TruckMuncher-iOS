@@ -60,6 +60,7 @@
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		279E89A01A639CF300002446 /* RString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E899F1A639CF300002446 /* RString.swift */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -224,6 +225,7 @@
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		279E899F1A639CF300002446 /* RString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RString.swift; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 		27F536B619FF4A30009A8575 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				279E899F1A639CF300002446 /* RString.swift */,
 				27FE9D3719FF5D6200060F79 /* RLMSupport.swift */,
 				27FE9D471A0079EF00060F79 /* RUser.swift */,
 				27F536CD19FF5215009A8575 /* RTruck.swift */,
@@ -797,6 +800,7 @@
 				27E680971A42125A008173D3 /* SearchManager.swift in Sources */,
 				27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
+				279E89A01A639CF300002446 /* RString.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
