@@ -20,7 +20,7 @@ class MapViewController: UIViewController,
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
     
-    @IBOutlet var truckCarousel: iCarousel!
+    var truckCarousel: iCarousel!
     
     var items: [Int] = []
     
@@ -39,29 +39,29 @@ class MapViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "TruckMuncher"
+        
         initLocationManager()
         self.mapView.delegate = self
 
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
         setClusterSettings()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        for i in 0...99
-        {
-            items.append(i)
-        }
-        
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, view.frame.height - 100.0, view.frame.width, view.frame.height))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
         
-//        updateData()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        view.addSubview(truckCarousel)
+        attachGestureRecognizerToCarousel()
+        
         updateData()
     }
     
@@ -216,15 +216,42 @@ class MapViewController: UIViewController,
     }
     
     func presentMenu() {
-        var menu = UIViewController()
+        var menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
         menu.transitioningDelegate = self
-        menu.modalPresentationStyle = .Custom
-        self.presentViewController(menu, animated: true) { () -> Void in
+        menu.modalPresentationStyle = UIModalPresentationStyle.FullScreen
+        navigationController?.presentViewController(menu, animated: true, completion: { () -> Void in
             
-        }
+        })
     }
     
     // MARK: - iCarouselDataSource Methods
+    
+    func attachGestureRecognizerToCarousel() {
+        var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: "handleUpwardSwipe")
+        swipeUpRecognizer.direction = .Up
+        truckCarousel.addGestureRecognizer(swipeUpRecognizer);
+        
+        var swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: "handleDownwardSwipe")
+        swipeDownRecognizer.direction = .Down
+        truckCarousel.addGestureRecognizer(swipeDownRecognizer);
+    }
+    
+    func handleUpwardSwipe() {
+        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            let frame = self.navigationController?.navigationBar.frame
+            self.truckCarousel.frame = CGRectMake(0.0, CGRectGetMaxY(frame!), self.view.frame.width, self.view.frame.height)
+            
+            },
+            completion: nil)
+    }
+    
+    func handleDownwardSwipe() {
+        UIView.animateWithDuration(1.5, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: nil, animations: {
+            self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+            
+            },
+            completion: nil)
+    }
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
     {
@@ -233,65 +260,76 @@ class MapViewController: UIViewController,
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
     {
-        var truckNameLabel: UILabel! = nil
-        var truckDetailsLabel: UILabel! = nil
-        var truckLogo: UIImageView! = nil
-        
-        //create new view if no view is available for recycling
-        if (view == nil)
-        {
-            // TODO construct all of this from a .xib and save yourself ~30-40 lines of code
-            
-            //don't do anything specific to the index within
-            //this `if (view == nil) {...}` statement because the view will be
-            //recycled and used with other index values later
-            let padding:CGFloat = 5.0
-            view = UIView(frame:CGRectMake(0, 0, self.view.frame.width, carousel.frame.size.height))
-            view.backgroundColor = UIColor.lightGrayColor()
-            
-            var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "presentMenu")
-            swipeRecognizer.direction = .Up
-            view.addGestureRecognizer(swipeRecognizer)
-
-            
-            var thirdScreenWidth = self.view.frame.width / 3
-            
-            truckLogo = UIImageView(image: UIImage(named: "wickedUrbainGrill.jpg"))
-            truckLogo.contentMode = .ScaleAspectFit
-            truckLogo.frame = CGRectMake(padding, padding, thirdScreenWidth - padding, view.frame.size.height - (2 * padding))
-            
-            truckNameLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), padding, thirdScreenWidth * 2, 25))
-            truckNameLabel.backgroundColor = UIColor.clearColor()
-            truckNameLabel.textAlignment = .Left
-            truckNameLabel.font = truckNameLabel.font.fontWithSize(18)
-            truckNameLabel.tag = 1
-            
-            truckDetailsLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), CGRectGetMaxY(truckNameLabel.frame) + padding, thirdScreenWidth * 2, 25))
-            truckDetailsLabel.backgroundColor = UIColor.clearColor()
-            truckDetailsLabel.textAlignment = .Left
-            truckDetailsLabel.font = UIFont.italicSystemFontOfSize(14)
-            truckDetailsLabel.tag = 2
-            
-            view.addSubview(truckLogo)
-            view.addSubview(truckNameLabel)
-            view.addSubview(truckDetailsLabel)
+        if view == nil {
+            var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
+            view = viewArray[0] as TruckDetailView
+            view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
         }
-        else
-        {
-            //get a reference to the label in the recycled view
-            truckNameLabel = view.viewWithTag(1) as UILabel!
-            truckDetailsLabel = view.viewWithTag(2) as UILabel!
-        }
-        
-        //set item label
-        //remember to always set any properties of your carousel item
-        //views outside of the `if (view == nil) {...}` check otherwise
-        //you'll get weird issues with carousel item content appearing
-        //in the wrong place in the carousel
-        truckNameLabel.text = activeTrucks[index].name
-        truckDetailsLabel.text = activeTrucks[index].id
-        
         return view
+
+//
+//        var truckNameLabel: UILabel! = nil
+//        var truckDetailsLabel: UILabel! = nil
+//        var truckLogo: UIImageView! = nil
+//        
+//        //create new view if no view is available for recycling
+//        if (view == nil)
+//        {
+//            // TODO construct all of this from a .xib and save yourself ~30-40 lines of code
+//            var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
+//            view = viewArray[0] as TruckDetailView
+//            
+//            //don't do anything specific to the index within
+//            //this `if (view == nil) {...}` statement because the view will be
+//            //recycled and used with other index values later
+//            let padding:CGFloat = 5.0
+//            view = UIView(frame:CGRectMake(0, 0, self.view.frame.width, carousel.frame.size.height))
+//            view.backgroundColor = UIColor.lightGrayColor()
+//            
+//            var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "presentMenu")
+//            swipeRecognizer.direction = .Up
+//            view.addGestureRecognizer(swipeRecognizer)
+//
+//            
+//            var thirdScreenWidth = self.view.frame.width / 3
+//            
+//            truckLogo = UIImageView(image: UIImage(named: "wickedUrbainGrill.jpg"))
+//            truckLogo.contentMode = .ScaleAspectFit
+//            truckLogo.frame = CGRectMake(padding, padding, thirdScreenWidth - padding, view.frame.size.height - (2 * padding))
+//            
+//            truckNameLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), padding, thirdScreenWidth * 2, 25))
+//            truckNameLabel.backgroundColor = UIColor.clearColor()
+//            truckNameLabel.textAlignment = .Left
+//            truckNameLabel.font = truckNameLabel.font.fontWithSize(18)
+//            truckNameLabel.tag = 1
+//            
+//            truckDetailsLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(truckLogo.frame) + (2*padding), CGRectGetMaxY(truckNameLabel.frame) + padding, thirdScreenWidth * 2, 25))
+//            truckDetailsLabel.backgroundColor = UIColor.clearColor()
+//            truckDetailsLabel.textAlignment = .Left
+//            truckDetailsLabel.font = UIFont.italicSystemFontOfSize(14)
+//            truckDetailsLabel.tag = 2
+//            
+//            view.addSubview(truckLogo)
+//            view.addSubview(truckNameLabel)
+//            view.addSubview(truckDetailsLabel)
+//        }
+//        else
+//        {
+//            //get a reference to the label in the recycled view
+//            truckNameLabel = view.viewWithTag(1) as UILabel!
+//            truckDetailsLabel = view.viewWithTag(2) as UILabel!
+//        }
+//        
+//        //set item label
+//        //remember to always set any properties of your carousel item
+//        //views outside of the `if (view == nil) {...}` check otherwise
+//        //you'll get weird issues with carousel item content appearing
+//        //in the wrong place in the carousel
+//        truckNameLabel.text = activeTrucks[index].name
+//        truckDetailsLabel.text = activeTrucks[index].id
+//        
+//        return view
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {

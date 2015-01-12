@@ -22,8 +22,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Menu"
         
+        self.view.frame = UIScreen.mainScreen().bounds
+        navigationItem.title = "Menu"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTable")
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
@@ -33,6 +34,18 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tblMenu.estimatedRowHeight = 44.0
         tblMenu.rowHeight = UITableViewAutomaticDimension
         tblMenu.reloadData()
+        
+        attachGestureRecognizer()
+    }
+    
+    func attachGestureRecognizer() {
+        var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "dismissMenu")
+        swipeRecognizer.direction = .Left
+        tblMenu.addGestureRecognizer(swipeRecognizer)
+    }
+    
+    func dismissMenu() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateTestData() {
