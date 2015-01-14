@@ -229,15 +229,6 @@ class MapViewController: UIViewController,
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
     
-    func presentMenu() {
-        var menu = MenuViewController(nibName: "MenuViewController", bundle: nil)
-        menu.transitioningDelegate = self
-        menu.modalPresentationStyle = UIModalPresentationStyle.FullScreen
-        navigationController?.presentViewController(menu, animated: true, completion: { () -> Void in
-            
-        })
-    }
-    
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
@@ -280,11 +271,8 @@ class MapViewController: UIViewController,
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            if index < 1 {
-                (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
-            } else {
-                (view as TruckDetailView).tempTestUpdateWithDifferentImage(activeTrucks[index])
-            }
+            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+            
         }
         return view
     }
@@ -299,7 +287,7 @@ class MapViewController: UIViewController,
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
-        if (!showingMenu) {
+        if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
                 self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
             }, completion: { (Bool) -> Void in

@@ -31,6 +31,8 @@
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
 		063AB58F1A63905F003828F7 /* LEColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AB5881A63905F003828F7 /* LEColorPicker.m */; };
 		063AB5901A63905F003828F7 /* UIColor+YUVSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AB58A1A63905F003828F7 /* UIColor+YUVSpace.m */; };
+		063AB59A1A649002003828F7 /* colorfulTruck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5991A649001003828F7 /* colorfulTruck.jpg */; };
+		063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB59F1A6727C1003828F7 /* noImageAvailable.png */; };
 		0643B6951A424DD800E205C9 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0643B6941A424DD800E205C9 /* Properties.plist */; };
 		0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */; };
 		0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0643B6A01A436BE000E205C9 /* TransitionManager.swift */; };
@@ -196,6 +198,8 @@
 		063AB5881A63905F003828F7 /* LEColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEColorPicker.m; sourceTree = "<group>"; };
 		063AB5891A63905F003828F7 /* UIColor+YUVSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YUVSpace.h"; sourceTree = "<group>"; };
 		063AB58A1A63905F003828F7 /* UIColor+YUVSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YUVSpace.m"; sourceTree = "<group>"; };
+		063AB5991A649001003828F7 /* colorfulTruck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colorfulTruck.jpg; sourceTree = "<group>"; };
+		063AB59F1A6727C1003828F7 /* noImageAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageAvailable.png; sourceTree = "<group>"; };
 		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
 		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
 		0643B6A01A436BE000E205C9 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				063AB59F1A6727C1003828F7 /* noImageAvailable.png */,
+				063AB5991A649001003828F7 /* colorfulTruck.jpg */,
 				0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */,
 				061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */,
 				061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */,
@@ -679,6 +685,7 @@
 				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				060935FC19F334E30033F3D4 /* LocationSetterPinPink.png in Resources */,
+				063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */,
 				06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */,
 				2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */,
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
@@ -692,6 +699,7 @@
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
+				063AB59A1A649002003828F7 /* colorfulTruck.jpg in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
