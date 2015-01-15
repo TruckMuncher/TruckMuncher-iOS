@@ -41,7 +41,6 @@ class MapViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TruckMuncher"
         self.navigationController?.navigationBar.translucent = false
         
         initLocationManager()
@@ -61,6 +60,14 @@ class MapViewController: UIViewController,
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
+        
+        var muncherImage = UIImage(named: "truckmuncher")
+        var muncherImageView = UIImageView(image: muncherImage)
+        var navFrame = navigationController?.navigationBar.frame
+        muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
+        navigationController?.navigationBar.addSubview(muncherImageView)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
     }
     
     override func viewDidAppear(animated: Bool) {

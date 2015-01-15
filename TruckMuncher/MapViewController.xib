@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
-                <outlet property="loginButton" destination="22l-ml-hNX" id="gdq-bc-cYj"/>
                 <outlet property="mapView" destination="0bU-Q8-5aJ" id="fxP-8h-CFh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,24 +18,13 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22l-ml-hNX">
-                    <rect key="frame" x="508" y="46" width="64" height="64"/>
-                    <state key="normal" image="login.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="4cN-bE-7Nv"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="22l-ml-hNX" secondAttribute="trailing" constant="28" id="SBv-Ii-DjR"/>
-                <constraint firstAttribute="trailing" secondItem="0bU-Q8-5aJ" secondAttribute="trailing" id="bn6-y1-Q2L"/>
-                <constraint firstItem="22l-ml-hNX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="em9-u4-Iul"/>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f4i-0f-ggW"/>
-                <constraint firstAttribute="bottom" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="gf1-2r-trX"/>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zKk-ZP-L5j"/>
+                <constraint firstAttribute="trailing" secondItem="0bU-Q8-5aJ" secondAttribute="trailing" id="5MZ-ql-1Dd"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IJU-KK-4N3"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KP9-gl-Afq"/>
+                <constraint firstAttribute="bottom" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="muk-Ut-7I7"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -44,7 +32,4 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
         </view>
     </objects>
-    <resources>
-        <image name="login.png" width="64" height="64"/>
-    </resources>
 </document>
