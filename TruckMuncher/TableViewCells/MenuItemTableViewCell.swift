@@ -14,6 +14,10 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     
+    var truckBackgroundColor: UIColor!
+    var truckPrimaryTextColor: UIColor!
+    var truckSecondaryTextColor: UIColor!
+    
     private var privateMenuItem: MenuItem?
     
     var menuItem: MenuItem? {

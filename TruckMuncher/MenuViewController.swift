@@ -34,18 +34,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tblMenu.estimatedRowHeight = 44.0
         tblMenu.rowHeight = UITableViewAutomaticDimension
         tblMenu.reloadData()
-        
-        attachGestureRecognizer()
-    }
-    
-    func attachGestureRecognizer() {
-        var swipeRecognizer = UISwipeGestureRecognizer(target: self, action: "dismissMenu")
-        swipeRecognizer.direction = .Left
-        tblMenu.addGestureRecognizer(swipeRecognizer)
-    }
-    
-    func dismissMenu() {
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateTestData() {
