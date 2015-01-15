@@ -21,7 +21,6 @@ class MapViewController: UIViewController,
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
     
-    
     var items: [Int] = []
     
     @IBAction func loginAction(sender: AnyObject) { login() }
@@ -52,12 +51,8 @@ class MapViewController: UIViewController,
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
         setClusterSettings()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, view.frame.height - 56.0, view.frame.width, view.frame.height))
+        truckCarousel = iCarousel()
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
@@ -67,7 +62,12 @@ class MapViewController: UIViewController,
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        truckCarousel.frame = CGRectMake(0.0, view.frame.height - 56.0, view.frame.width, view.frame.height)
+
         menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
             self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
                 self.updateData()

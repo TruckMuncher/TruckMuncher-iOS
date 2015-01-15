@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import Alamofire
 
 class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
@@ -65,21 +66,17 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func getImageForTruck(truck:RTruck) {
-        self.truckLogoImage.image = UIImage(named: "noImageAvailable")
         var imgURL: NSURL? = NSURL(string: truck.imageUrl)
         
-        // Download an NSData representation of the image at the URL
-        let request: NSURLRequest = NSURLRequest(URL: imgURL!)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+        self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: UIImage(named: "noImageAvailable"), completed: { (image, error, type, url) -> Void in
             if error == nil {
-                self.truckLogoImage.image = UIImage(data: data)
                 self.updateColorScheme()
                 self.menuTableView.reloadData()
-                //TODO: Store these images someplace so we don't have to make network calls all the time
             }
             else {
                 println("Error: \(error.localizedDescription)")
             }
+
         })
     }
     
