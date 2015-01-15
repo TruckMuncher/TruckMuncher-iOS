@@ -16,11 +16,14 @@ class MapViewController: UIViewController,
     iCarouselDataSource,
     iCarouselDelegate,
     UIViewControllerTransitioningDelegate,
-    UIGestureRecognizerDelegate{
+    UIGestureRecognizerDelegate,
+    SearchCompletionProtocol {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    var searchDelegate: SearchDelegate?
     
     var items: [Int] = []
     
@@ -45,6 +48,8 @@ class MapViewController: UIViewController,
         self.title = "TruckMuncher"
         self.navigationController?.navigationBar.translucent = false
 
+        searchDelegate = SearchDelegate(completionDelegate: self)
+        searchBar.delegate = searchDelegate
         
         initLocationManager()
         self.mapView.delegate = self
@@ -326,5 +331,14 @@ class MapViewController: UIViewController,
     // Mark: - UIGestureRecognizerDelegate Methods
     func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
             return true;
+    }
+    
+    // MARK: - SearchCompletionProtocol
+    
+    func searchSuccessful(results: [RTruck]) {
+        println("SEARCH SUCCESS!")
+        activeTrucks = results
+        updateMapWithActiveTrucks()
+        truckCarousel.reloadData()
     }
 }

@@ -51,6 +51,7 @@
 		2736B1E819F5AE5000CBACC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E519F5AE5000CBACC2 /* Podfile */; };
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
+		2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755C45F1A670857006452F7 /* SearchDelegate.swift */; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
@@ -217,6 +218,7 @@
 		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
 		278BFBB319D08F0C00510C6E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				27AC00B119CB4B4F00F1F3B7 /* Supporting Files */,
 				0613ABC71A5F2EC10080202B /* TruckDetailView.xib */,
 				0699B38B1A63278800B8E0AE /* TruckDetailView.swift */,
+				2755C45F1A670857006452F7 /* SearchDelegate.swift */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27F536CE19FF5215009A8575 /* RTruck.swift in Sources */,
+				2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */,
 				27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */,
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
 				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
