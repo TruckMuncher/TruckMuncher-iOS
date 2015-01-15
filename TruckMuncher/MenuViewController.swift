@@ -14,7 +14,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tblMenu: UITableView!
     
     var selectedCells = [NSIndexPath]()
-    var menu: Menu?
+    var menu: RMenu?
     var item1Available = true
     var item2Available = false
     var item3Available = true
@@ -29,69 +29,69 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
 
-        generateTestData()
+//        generateTestData()
         
         tblMenu.estimatedRowHeight = 44.0
         tblMenu.rowHeight = UITableViewAutomaticDimension
         tblMenu.reloadData()
     }
     
-    func generateTestData() {
-        var builder = Menu.builder()
-        builder.truckId = "9570d5d3-3caa-46d2-89fd-ae503e032823"
-        
-        var item1 = MenuItem.builder()
-        item1.id = "1"
-        item1.isAvailable = item1Available
-        item1.name = "Roast Beef"
-        item1.notes = "Roast Beef sandwich with Au Jou"
-        item1.orderInCategory = 0
-        item1.price = 5.75
-        item1.tags = ["roast", "beef"]
-        
-        var item2 = MenuItem.builder()
-        item2.id = "2"
-        item2.isAvailable = item2Available
-        item2.name = "Double Cheese Burger"
-        item2.notes = "Pickles, Mayonnaise, Onions, Tomato, Lettuce"
-        item2.orderInCategory = 1
-        item2.price = 6.75
-        item2.tags = ["burger", "cheese"]
-        
-        var category1 = Category.builder()
-        category1.id = "aa65395b-ce29-4524-925b-9ebad1457dbf"
-        category1.menuItems = [item1.build(), item2.build()]
-        category1.name = "Sandwiches"
-        category1.notes = "Free chips and a drink with all sandwiches"
-        category1.orderInMenu = 0
-        
-        var item3 = MenuItem.builder()
-        item3.id = "3"
-        item3.isAvailable = item3Available
-        item3.name = "Coca-Cola"
-        item3.orderInCategory = 0
-        item3.price = 1.25
-        item3.tags = ["roast", "beef"]
-        
-        var item4 = MenuItem.builder()
-        item4.id = "4"
-        item4.isAvailable = item4Available
-        item4.name = "Water"
-        item4.notes = "Aquafina Bottled Water"
-        item4.orderInCategory = 1
-        item4.price = 1.00
-        item4.tags = ["bottled", "water"]
-        
-        var category2 = Category.builder()
-        category2.id = "6e6aaff8-6e8d-49bb-b64b-bb5ba57a08fc"
-        category2.menuItems = [item3.build(), item4.build()]
-        category2.name = "Drinks"
-        category2.orderInMenu = 1
-        
-        builder.categories = [category1.build(), category2.build()]
-        
-        menu = builder.build()
-    }
+//    func generateTestData() {
+//        var builder = Menu.builder()
+//        builder.truckId = "9570d5d3-3caa-46d2-89fd-ae503e032823"
+//        
+//        var item1 = MenuItem.builder()
+//        item1.id = "1"
+//        item1.isAvailable = item1Available
+//        item1.name = "Roast Beef"
+//        item1.notes = "Roast Beef sandwich with Au Jou"
+//        item1.orderInCategory = 0
+//        item1.price = 5.75
+//        item1.tags = ["roast", "beef"]
+//        
+//        var item2 = MenuItem.builder()
+//        item2.id = "2"
+//        item2.isAvailable = item2Available
+//        item2.name = "Double Cheese Burger"
+//        item2.notes = "Pickles, Mayonnaise, Onions, Tomato, Lettuce"
+//        item2.orderInCategory = 1
+//        item2.price = 6.75
+//        item2.tags = ["burger", "cheese"]
+//        
+//        var category1 = Category.builder()
+//        category1.id = "aa65395b-ce29-4524-925b-9ebad1457dbf"
+//        category1.menuItems = [item1.build(), item2.build()]
+//        category1.name = "Sandwiches"
+//        category1.notes = "Free chips and a drink with all sandwiches"
+//        category1.orderInMenu = 0
+//        
+//        var item3 = MenuItem.builder()
+//        item3.id = "3"
+//        item3.isAvailable = item3Available
+//        item3.name = "Coca-Cola"
+//        item3.orderInCategory = 0
+//        item3.price = 1.25
+//        item3.tags = ["roast", "beef"]
+//        
+//        var item4 = MenuItem.builder()
+//        item4.id = "4"
+//        item4.isAvailable = item4Available
+//        item4.name = "Water"
+//        item4.notes = "Aquafina Bottled Water"
+//        item4.orderInCategory = 1
+//        item4.price = 1.00
+//        item4.tags = ["bottled", "water"]
+//        
+//        var category2 = Category.builder()
+//        category2.id = "6e6aaff8-6e8d-49bb-b64b-bb5ba57a08fc"
+//        category2.menuItems = [item3.build(), item4.build()]
+//        category2.name = "Drinks"
+//        category2.orderInMenu = 1
+//        
+//        builder.categories = [category1.build(), category2.build()]
+//        
+//        menu = builder.build()
+//    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -135,18 +135,19 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
                     println("unknown menuItemId \(availability.menuItemId)")
             }
         }
-        generateTestData()
+//        generateTestData()
     }
     
     func doneEditingTable() {
         let requestBuilder = ModifyMenuItemAvailabilityRequest.builder()
         var diffs = [MenuItemAvailability]()
         for indexPath in selectedCells {
-            var currentItem = menu!.categories[indexPath.section].menuItems[indexPath.row]
+            var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
+            var currentItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
             
             let diffBuilder = MenuItemAvailability.builder()
-            diffBuilder.menuItemId = currentItem.id
-            diffBuilder.isAvailable = !currentItem.isAvailable
+            diffBuilder.menuItemId = currentItem!.id
+            diffBuilder.isAvailable = currentItem!.isAvailable
             diffs.append(diffBuilder.build())
         }
         
@@ -173,12 +174,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return menu!.categories.count
+        return Int(menu!.categories.count)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
-        cell.menuItem = menu!.categories[indexPath.section].menuItems[indexPath.row]
+        var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
+        cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
         var bgView = UIView()
         bgView.backgroundColor = navigationController?.navigationBar.barTintColor
         cell.selectedBackgroundView = bgView
@@ -186,11 +188,12 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menu!.categories[section].menuItems.count
+        return Int((menu?.categories.objectAtIndex(UInt(section)) as RCategory).menuItems.count)
+
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return menu?.categories[section].name
+        return (menu?.categories.objectAtIndex(UInt(section)) as RCategory).name
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -239,6 +242,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-        return menu!.categories[indexPath.section].menuItems[indexPath.row].isAvailable ? "Out of Stock" : "In Stock"
+        var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
+        var menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as RMenuItem
+        return menuItem.isAvailable ? "Out of Stock" : "In Stock"
     }
 }

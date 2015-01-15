@@ -271,9 +271,9 @@ class MapViewController: UIViewController,
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
-            
         }
+        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+
         return view
     }
     
