@@ -35,7 +35,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     func updateViewWithTruck(truck:RTruck!) {
         menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as? RMenu
         menuTableView.reloadData()
-        println(menu?.description)
         
         getImageForTruck(truck)
         

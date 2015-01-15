@@ -15,83 +15,32 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var selectedCells = [NSIndexPath]()
     var menu: RMenu?
-    var item1Available = true
-    var item2Available = false
-    var item3Available = true
-    var item4Available = true
+    var truckId: String = ""
+    
+    // TODO: Change this to take in an RTruck, not just the TruckID
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?,truckID truckId: String) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        self.truckId = truckId
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.frame = UIScreen.mainScreen().bounds
-        navigationItem.title = "Menu"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTable")
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
-
-//        generateTestData()
         
         tblMenu.estimatedRowHeight = 44.0
         tblMenu.rowHeight = UITableViewAutomaticDimension
+        
+        menu = RMenu.objectsWhere("truckId = %@", truckId).firstObject() as? RMenu
         tblMenu.reloadData()
     }
-    
-//    func generateTestData() {
-//        var builder = Menu.builder()
-//        builder.truckId = "9570d5d3-3caa-46d2-89fd-ae503e032823"
-//        
-//        var item1 = MenuItem.builder()
-//        item1.id = "1"
-//        item1.isAvailable = item1Available
-//        item1.name = "Roast Beef"
-//        item1.notes = "Roast Beef sandwich with Au Jou"
-//        item1.orderInCategory = 0
-//        item1.price = 5.75
-//        item1.tags = ["roast", "beef"]
-//        
-//        var item2 = MenuItem.builder()
-//        item2.id = "2"
-//        item2.isAvailable = item2Available
-//        item2.name = "Double Cheese Burger"
-//        item2.notes = "Pickles, Mayonnaise, Onions, Tomato, Lettuce"
-//        item2.orderInCategory = 1
-//        item2.price = 6.75
-//        item2.tags = ["burger", "cheese"]
-//        
-//        var category1 = Category.builder()
-//        category1.id = "aa65395b-ce29-4524-925b-9ebad1457dbf"
-//        category1.menuItems = [item1.build(), item2.build()]
-//        category1.name = "Sandwiches"
-//        category1.notes = "Free chips and a drink with all sandwiches"
-//        category1.orderInMenu = 0
-//        
-//        var item3 = MenuItem.builder()
-//        item3.id = "3"
-//        item3.isAvailable = item3Available
-//        item3.name = "Coca-Cola"
-//        item3.orderInCategory = 0
-//        item3.price = 1.25
-//        item3.tags = ["roast", "beef"]
-//        
-//        var item4 = MenuItem.builder()
-//        item4.id = "4"
-//        item4.isAvailable = item4Available
-//        item4.name = "Water"
-//        item4.notes = "Aquafina Bottled Water"
-//        item4.orderInCategory = 1
-//        item4.price = 1.00
-//        item4.tags = ["bottled", "water"]
-//        
-//        var category2 = Category.builder()
-//        category2.id = "6e6aaff8-6e8d-49bb-b64b-bb5ba57a08fc"
-//        category2.menuItems = [item3.build(), item4.build()]
-//        category2.name = "Drinks"
-//        category2.orderInMenu = 1
-//        
-//        builder.categories = [category1.build(), category2.build()]
-//        
-//        menu = builder.build()
-//    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -121,21 +70,20 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         // since protos are immutable and the API route would have to be redesigned for this to work even remotely nice, 
         // this little hack just updates the class level booleans indicating availability and regenerates the entire
         // menu object
-        for availability in request.diff {
-            switch (availability.menuItemId) {
-                case "1":
-                    item1Available = availability.isAvailable
-                case "2":
-                    item2Available = availability.isAvailable
-                case "3":
-                    item3Available = availability.isAvailable
-                case "4":
-                    item4Available = availability.isAvailable
-                default:
-                    println("unknown menuItemId \(availability.menuItemId)")
-            }
-        }
-//        generateTestData()
+//        for availability in request.diff {
+//            switch (availability.menuItemId) {
+//                case "1":
+//                    item1Available = availability.isAvailable
+//                case "2":
+//                    item2Available = availability.isAvailable
+//                case "3":
+//                    item3Available = availability.isAvailable
+//                case "4":
+//                    item4Available = availability.isAvailable
+//                default:
+//                    println("unknown menuItemId \(availability.menuItemId)")
+//            }
+//        }
     }
     
     func doneEditingTable() {
@@ -174,7 +122,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return Int(menu!.categories.count)
+        return menu == nil ? 0 : Int(menu!.categories.count)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

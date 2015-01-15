@@ -26,8 +26,8 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         requestServingMode(servingModeSwitch.on)
     }
     
-    @IBAction func openMenu(sender: AnyObject) {
-        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil), animated: true)
+    func openMenu() {
+        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil, truckID: "2d1dada3-80f1-4c0e-b878-a02626aafea7"), animated: true)
     }
     
     let deltaDegrees = 0.005
@@ -36,6 +36,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "openMenu")
     }
     
     func zoomToCurrentLocation() {
