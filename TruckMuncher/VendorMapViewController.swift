@@ -80,7 +80,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     func changeComponentsColors() {
         servingModeLabel.textColor = servingModeSwitch.on ? pinkColor : UIColor.blackColor()
-        navigationController?.navigationBar.barTintColor = servingModeSwitch.on ? pinkColor : wetAsphaltColor
+        navigationController?.navigationBar.barTintColor = servingModeSwitch.on ? pinkColor : UIColor.lightGrayColor()
         locationSetterImage.image = servingModeSwitch.on ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
     }
     
