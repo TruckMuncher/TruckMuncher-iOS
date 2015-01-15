@@ -43,7 +43,6 @@ class MapViewController: UIViewController,
         super.viewDidLoad()
         self.title = "TruckMuncher"
         self.navigationController?.navigationBar.translucent = false
-
         
         initLocationManager()
         self.mapView.delegate = self
@@ -66,7 +65,7 @@ class MapViewController: UIViewController,
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        truckCarousel.frame = CGRectMake(0.0, view.frame.height - 56.0, view.frame.width, view.frame.height)
+        truckCarousel.frame = CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
 
         menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
             self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
@@ -208,7 +207,6 @@ class MapViewController: UIViewController,
             self.activeTrucks = response as [RTruck]
             self.updateMapWithActiveTrucks()
             self.truckCarousel.reloadData()
-
         }) { (error) -> () in
             var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -245,17 +243,18 @@ class MapViewController: UIViewController,
     
     @IBAction func handleSwipe(recognizer: UISwipeGestureRecognizer) {
         var newRect: CGRect = CGRect.nullRect
-        
-        if recognizer.direction == .Up {
-            let navFrame = self.navigationController?.navigationBar.frame
-            newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!) - 40.0, self.view.frame.width, self.view.frame.height)
-            showingMenu = true
-        } else if recognizer.direction == .Down {
-            newRect = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
-            showingMenu = false
-        }
+        showingMenu = recognizer.direction == .Up
         
         UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.navigationController?.navigationBarHidden = self.showingMenu
+            
+            if recognizer.direction == .Up {
+                newRect = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            } else if recognizer.direction == .Down {
+                newRect = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            }
+            
             self.truckCarousel.frame = newRect
             }, completion: nil)
     }
@@ -289,13 +288,12 @@ class MapViewController: UIViewController,
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-                self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
             }, completion: { (Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
+                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
                 }, completion: nil)
             })
-            
         }
     }
     
@@ -314,5 +312,9 @@ class MapViewController: UIViewController,
     // Mark: - UIGestureRecognizerDelegate Methods
     func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
             return true;
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return showingMenu
     }
 }

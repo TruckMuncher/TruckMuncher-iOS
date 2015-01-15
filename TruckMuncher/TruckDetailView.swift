@@ -21,14 +21,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     var colorScheme = LEColorScheme()
     
     var menu: RMenu?
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -37,6 +29,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menuTableView.rowHeight = UITableViewAutomaticDimension
         menuTableView.delegate = self
         menuTableView.dataSource = self
+        menuTableView.separatorStyle = .None
     }
     
     func updateViewWithTruck(truck:RTruck!) {
@@ -76,7 +69,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             else {
                 println("Error: \(error.localizedDescription)")
             }
-
         })
     }
     
@@ -120,13 +112,5 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)
         return container
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
 }
