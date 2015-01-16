@@ -21,8 +21,6 @@ class MapViewController: UIViewController,
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
     
-    var items: [Int] = []
-    
     @IBAction func loginAction(sender: AnyObject) { login() }
     
     let deltaDegrees = 0.05
@@ -43,23 +41,7 @@ class MapViewController: UIViewController,
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
         
-        initLocationManager()
-        self.mapView.delegate = self
-
-        mapClusterController = CCHMapClusterController(mapView: self.mapView)
-        mapClusterController.delegate = self
-        setClusterSettings()
         
-        truckCarousel = iCarousel()
-        truckCarousel.type = .Linear
-        truckCarousel.delegate = self
-        truckCarousel.dataSource = self
-        truckCarousel.pagingEnabled = true
-        truckCarousel.currentItemIndex = 0
-        truckCarousel.bounces = false
-        
-        view.addSubview(truckCarousel)
-        attachGestureRecognizerToCarousel()
         
         var muncherImage = UIImage(named: "truckmuncher")
         var muncherImageView = UIImageView(image: muncherImage)
@@ -72,16 +54,50 @@ class MapViewController: UIViewController,
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        truckCarousel.frame = CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-
-        menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
-            self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
-                self.updateData()
-            }, error: { (error) -> () in
-                println("error fetching truck profiles \(error)")
-            })
-        }) { (error) -> () in
-            println("error fetching full menus \(error)")
+        updateCarouselWithTruckMenus()
+        
+        initLocationManager()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            locationManager.startUpdatingLocation()
+            mapClusterControllerSetup()
+            truckCarouselSetup()
+        }
+    }
+    
+    func mapClusterControllerSetup () {
+        self.mapView.delegate = self
+        
+        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+        mapClusterController.delegate = self
+        setClusterSettings()
+    }
+    
+    func truckCarouselSetup () {
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+        truckCarousel.type = .Linear
+        truckCarousel.delegate = self
+        truckCarousel.dataSource = self
+        truckCarousel.pagingEnabled = true
+        truckCarousel.currentItemIndex = 0
+        truckCarousel.bounces = false
+        
+        view.addSubview(truckCarousel)
+        attachGestureRecognizerToCarousel()
+    }
+    
+    func updateCarouselWithTruckMenus() {
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
+                self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
+                    if self.locationManager != nil {
+                        self.updateData()
+                    }
+                    }, error: { (error) -> () in
+                        println("error fetching truck profiles \(error)")
+                })
+                }) { (error) -> () in
+                    println("error fetching full menus \(error)")
+            }
         }
     }
     
@@ -97,10 +113,6 @@ class MapViewController: UIViewController,
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
-            locationManager.startUpdatingLocation()
-        }
     }
     
     // MARK: - MKMapViewDelegate Methods
@@ -178,7 +190,13 @@ class MapViewController: UIViewController,
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        zoomToCurrentLocation()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
+            locationManager.startUpdatingLocation()
+            mapClusterControllerSetup()
+            truckCarouselSetup()
+            updateCarouselWithTruckMenus()
+            zoomToCurrentLocation()
+        }
     }
     
     // MARK: - Helper Methods
@@ -208,23 +226,26 @@ class MapViewController: UIViewController,
     }
     
     func updateData() {
-        let lat = locationManager.location.coordinate.latitude
-        let long = locationManager.location.coordinate.longitude
-        trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
-            self.activeTrucks = response as [RTruck]
-            self.updateMapWithActiveTrucks()
-            self.truckCarousel.reloadData()
-        }) { (error) -> () in
-            var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        let location = locationManager.location
+        if location != nil {
+            let lat =  locationManager.location.coordinate.latitude
+            let long = locationManager.location.coordinate.longitude
+            trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
+                self.activeTrucks = response as [RTruck]
+                self.updateMapWithActiveTrucks()
+                self.truckCarousel.reloadData()
+                }) { (error) -> () in
+                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     
     func updateMapWithActiveTrucks() {
         var annotations = [TruckLocationAnnotation]()
         
-        for var i = 0; i < activeTrucks.count; i++ {
+        for i in 0..<activeTrucks.count {
             var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
             var a = TruckLocationAnnotation(location: location, index: i)
             annotations.append(a)

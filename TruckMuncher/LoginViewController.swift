@@ -103,13 +103,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func successfullyLoggedInAsTruck() {
-        mgr.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
-            self.dismissViewControllerAnimated(true, completion: { () -> Void in
-                NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
-            })
-        }) { (error) -> () in
-            println("error fetching full menus \(error)")
-        }
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
+        })
     }
     
     func loginToAPI(authorizationHeader: String) {
