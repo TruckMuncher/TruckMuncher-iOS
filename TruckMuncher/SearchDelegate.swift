@@ -32,7 +32,7 @@ class SearchDelegate: UISearchDisplayController, UISearchBarDelegate {
     }
     
     func showSearchBar() {
-//        displaysSearchBarInNavigationBar = true
+        displaysSearchBarInNavigationBar = true
         setActive(true, animated: true)
         searchBar.becomeFirstResponder()
         searchContentsController.setNeedsStatusBarAppearanceUpdate()
