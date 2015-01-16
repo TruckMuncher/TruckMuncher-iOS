@@ -43,8 +43,6 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
-
-        searchDelegate = SearchDelegate(completionDelegate: self)
         
         initLocationManager()
         self.mapView.delegate = self
@@ -66,11 +64,14 @@ class MapViewController: UIViewController,
         
         var muncherImage = UIImage(named: "truckmuncher")
         var muncherImageView = UIImageView(image: muncherImage)
-        var navFrame = navigationController?.navigationBar.frame
-        muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
-        navigationController?.navigationBar.addSubview(muncherImageView)
+        muncherImageView.frame = CGRectMake(0, 0, 40, 40)
+        muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        navigationItem.titleView = muncherImageView
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+        // TODO use an icon for this, using the words Sign In makes the titleView not centered
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+        
+        searchDelegate = SearchDelegate(completionDelegate: self)
     }
     
     override func viewDidAppear(animated: Bool) {

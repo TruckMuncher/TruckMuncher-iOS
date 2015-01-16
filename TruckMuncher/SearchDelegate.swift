@@ -14,7 +14,7 @@ protocol SearchCompletionProtocol {
     func searchCancelled()
 }
 
-class SearchDelegate: NSObject, UISearchBarDelegate {
+class SearchDelegate: UISearchDisplayController, UISearchBarDelegate {
     var items = [RLMObject]()
     let searchManager = SearchManager()
     let limit = 20
@@ -22,11 +22,25 @@ class SearchDelegate: NSObject, UISearchBarDelegate {
     var previousSearchTerm = ""
     let completionDelegate: SearchCompletionProtocol
     
-    init(completionDelegate: SearchCompletionProtocol) {
+    init<T: SearchCompletionProtocol where T: UIViewController>(completionDelegate: T) {
         self.completionDelegate = completionDelegate
+        let _searchBar = UISearchBar()
+        _searchBar.showsCancelButton = true
+        _searchBar.placeholder = "What are you hungry for?"
+        super.init(searchBar: _searchBar, contentsController: completionDelegate)
+        completionDelegate.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
+    }
+    
+    func showSearchBar() {
+//        displaysSearchBarInNavigationBar = true
+        setActive(true, animated: true)
+        searchBar.becomeFirstResponder()
+        searchContentsController.setNeedsStatusBarAppearanceUpdate()
+        searchContentsController.view.setNeedsDisplay()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
         let newTerm = searchBar.text
         if newTerm != previousSearchTerm {
             previousSearchTerm = newTerm
@@ -50,7 +64,6 @@ class SearchDelegate: NSObject, UISearchBarDelegate {
             }
             realm.commitWriteTransaction()
             // TODO the trucks need to be reduced and blurbs combined
-            trucks
             self.completionDelegate.searchSuccessful(trucks)
         }) { (error) -> () in
             println("error performing search \(error)")
@@ -58,6 +71,10 @@ class SearchDelegate: NSObject, UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.text = ""
+        self.searchBar.text = ""
+        displaysSearchBarInNavigationBar = false
+        setActive(false, animated: true)
+        searchBar.resignFirstResponder()
+        searchContentsController.setNeedsStatusBarAppearanceUpdate()
     }
 }
