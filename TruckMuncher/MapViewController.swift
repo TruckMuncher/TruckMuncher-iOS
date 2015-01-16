@@ -21,7 +21,7 @@ class MapViewController: UIViewController,
 
     @IBOutlet var mapView: MKMapView!
     
-    var searchDelegate: SearchDelegate?
+    var searchDelegate: SearchDelegate<MapViewController>?
     
     var items: [Int] = []
     

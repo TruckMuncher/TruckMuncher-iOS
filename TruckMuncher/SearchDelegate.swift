@@ -14,29 +14,33 @@ protocol SearchCompletionProtocol {
     func searchCancelled()
 }
 
-class SearchDelegate: UISearchDisplayController, UISearchBarDelegate {
+class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSObject, UISearchBarDelegate {
     var items = [RLMObject]()
     let searchManager = SearchManager()
     let limit = 20
     var offset = 0
     var previousSearchTerm = ""
-    let completionDelegate: SearchCompletionProtocol
+    let completionDelegate: T
+    let searchBar: UISearchBar
+    var titleView: UIView?
     
-    init<T: SearchCompletionProtocol where T: UIViewController>(completionDelegate: T) {
+    init(completionDelegate: T) {
         self.completionDelegate = completionDelegate
-        let _searchBar = UISearchBar()
-        _searchBar.showsCancelButton = true
-        _searchBar.placeholder = "What are you hungry for?"
-        super.init(searchBar: _searchBar, contentsController: completionDelegate)
-        completionDelegate.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
+        searchBar = UISearchBar()
+        searchBar.showsCancelButton = true
+        searchBar.placeholder = "What are you hungry for?"
+        super.init()
+        self.completionDelegate.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
     }
     
     func showSearchBar() {
-        displaysSearchBarInNavigationBar = true
-        setActive(true, animated: true)
+//        displaysSearchBarInNavigationBar = true
+//        setActive(true, animated: true)
         searchBar.becomeFirstResponder()
-        searchContentsController.setNeedsStatusBarAppearanceUpdate()
-        searchContentsController.view.setNeedsDisplay()
+        titleView = self.completionDelegate.navigationItem.titleView
+        self.completionDelegate.navigationItem.titleView = searchBar
+//        searchContentsController.setNeedsStatusBarAppearanceUpdate()
+//        searchContentsController.view.setNeedsDisplay()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -72,9 +76,11 @@ class SearchDelegate: UISearchDisplayController, UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         self.searchBar.text = ""
-        displaysSearchBarInNavigationBar = false
-        setActive(false, animated: true)
+//        displaysSearchBarInNavigationBar = false
+//        setActive(false, animated: true)
         searchBar.resignFirstResponder()
-        searchContentsController.setNeedsStatusBarAppearanceUpdate()
+        self.completionDelegate.navigationItem.titleView = titleView
+        titleView = nil
+//        searchContentsController.setNeedsStatusBarAppearanceUpdate()
     }
 }
