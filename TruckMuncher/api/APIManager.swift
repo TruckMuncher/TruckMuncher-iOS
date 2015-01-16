@@ -90,9 +90,7 @@ enum APIRouter: URLRequestConvertible {
         let mutableURLRequest = NSMutableURLRequest(URL: URL!.URLByAppendingPathComponent(properties.path))
         mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
         let sessionToken = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String
-        println("found token \(sessionToken)")
         if let st = sessionToken {
-            println("found val \(st)")
             mutableURLRequest.setValue("session_token=\(st)", forHTTPHeaderField: "Authorization")
             let val = mutableURLRequest.valueForHTTPHeaderField("Authorization")
         }

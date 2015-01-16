@@ -36,6 +36,7 @@ class MapViewController: UIViewController,
     var truckCarousel: iCarousel!
     var count: Int = 0
     var showingMenu = false
+    var originalTrucks = [RTruck]()
     var activeTrucks = [RTruck]()
     
     let trucksManager = TrucksManager()
@@ -325,7 +326,15 @@ class MapViewController: UIViewController,
     
     func searchSuccessful(results: [RTruck]) {
         println("SEARCH SUCCESS!")
-        activeTrucks = results
+        //originalTrucks = [RTruck](activeTrucks)
+        activeTrucks = results as [RTruck] //[RTruck](results as [RTruck])
+        updateMapWithActiveTrucks()
+        truckCarousel.reloadData()
+    }
+    
+    func searchCancelled() {
+        println("SEARCH CANCELLED")
+        activeTrucks = [RTruck](originalTrucks)
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
     }
