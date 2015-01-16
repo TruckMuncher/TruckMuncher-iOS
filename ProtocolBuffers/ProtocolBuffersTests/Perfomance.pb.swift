@@ -3,10 +3,10 @@
 import Foundation
 import ProtocolBuffers
 
-struct PerfomanceRoot {
-  static var sharedInstance : PerfomanceRoot {
+public struct ProtoPerfomanceRoot {
+  public static var sharedInstance : ProtoPerfomanceRoot {
    struct Static {
-       static let instance : PerfomanceRoot = PerfomanceRoot()
+       static let instance : ProtoPerfomanceRoot = ProtoPerfomanceRoot()
    }
    return Static.instance
   }
@@ -15,12 +15,13 @@ struct PerfomanceRoot {
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
+    SwiftDescriptorRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  public func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: Perfomance, rhs: Perfomance) -> Bool {
+public func == (lhs: ProtoPerfomance, rhs: ProtoPerfomance) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -30,24 +31,32 @@ func == (lhs: Perfomance, rhs: Perfomance) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
   fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
   fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
+  fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
+  fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class Perfomance : GeneratedMessage {
-  private(set) var hasInts:Bool = false
-  private(set) var ints:Int32 = Int32(0)
+final public class ProtoPerfomance : GeneratedMessage {
+  public private(set) var hasInts:Bool = false
+  public private(set) var ints:Int32 = Int32(0)
 
-  private(set) var hasInts64:Bool = false
-  private(set) var ints64:Int64 = Int64(0)
+  public private(set) var hasInts64:Bool = false
+  public private(set) var ints64:Int64 = Int64(0)
 
-  private(set) var hasDoubles:Bool = false
-  private(set) var doubles:Double = Double(0)
+  public private(set) var hasDoubles:Bool = false
+  public private(set) var doubles:Double = Double(0)
 
-  private(set) var hasFloats:Bool = false
-  private(set) var floats:Float = Float(0)
+  public private(set) var hasFloats:Bool = false
+  public private(set) var floats:Float = Float(0)
 
-  private(set) var hasStr:Bool = false
-  private(set) var str:String = ""
+  public private(set) var hasStr:Bool = false
+  public private(set) var str:String = ""
+
+  public private(set) var hasBytes:Bool = false
+  public private(set) var bytes:Array<Byte> = [Byte]()
+
+  public private(set) var hasDescription:Bool = false
+  public private(set) var description_:String = ""
 
   required public init() {
        super.init()
@@ -63,9 +72,6 @@ final public class Perfomance : GeneratedMessage {
       return false
     }
     if !hasFloats {
-      return false
-    }
-    if !hasStr {
       return false
     }
    return true
@@ -85,6 +91,12 @@ final public class Perfomance : GeneratedMessage {
     }
     if hasStr {
       output.writeString(5, value:str)
+    }
+    if hasBytes {
+      output.writeData(6, value:bytes)
+    }
+    if hasDescription {
+      output.writeString(7, value:description_)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -110,39 +122,51 @@ final public class Perfomance : GeneratedMessage {
     if hasStr {
       size += WireFormat.computeStringSize(5, value:str)
     }
+    if hasBytes {
+      size += WireFormat.computeDataSize(6, value:bytes)
+    }
+    if hasDescription {
+      size += WireFormat.computeStringSize(7, value:description_)
+    }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> Perfomance {
-    return Perfomance.builder().mergeFromData(data).build()
+  public class func parseFromData(data:[Byte]) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Perfomance {
-    return Perfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  public class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> Perfomance {
-    return Perfomance.builder().mergeFromInputStream(input).build()
+  public class func parseFromInputStream(input:NSInputStream) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Perfomance {
-    return Perfomance.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  public class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> Perfomance {
-    return Perfomance.builder().mergeFromCodedInputStream(input).build()
+  public class func parseFromCodedInputStream(input:CodedInputStream) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Perfomance {
-    return Perfomance.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  public class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
+    return ProtoPerfomance.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> PerfomanceBuilder {
-    return PerfomanceBuilder()
+  public class func builder() -> ProtoPerfomanceBuilder {
+    return ProtoPerfomance.classBuilder() as ProtoPerfomanceBuilder
   }
-  class func builderWithPrototype(prototype:Perfomance) -> PerfomanceBuilder {
-    return Perfomance.builder().mergeFrom(prototype)
+  public func builder() -> ProtoPerfomanceBuilder {
+    return classBuilder() as ProtoPerfomanceBuilder
   }
-  func builder() -> PerfomanceBuilder {
-    return Perfomance.builder()
+  public override class func classBuilder() -> MessageBuilder {
+    return ProtoPerfomanceBuilder()
   }
-  func toBuilder() -> PerfomanceBuilder {
-    return Perfomance.builderWithPrototype(self)
+  public override func classBuilder() -> MessageBuilder {
+    return ProtoPerfomance.builder()
+  }
+  public func toBuilder() -> ProtoPerfomanceBuilder {
+    return ProtoPerfomance.builderWithPrototype(self)
+  }
+  public class func builderWithPrototype(prototype:ProtoPerfomance) -> ProtoPerfomanceBuilder {
+    return ProtoPerfomance.builder().mergeFrom(prototype)
   }
   override public func writeDescriptionTo(inout output:String, indent:String) {
     if hasInts {
@@ -159,6 +183,12 @@ final public class Perfomance : GeneratedMessage {
     }
     if hasStr {
       output += "\(indent) str: \(str) \n"
+    }
+    if hasBytes {
+      output += "\(indent) bytes: \(bytes) \n"
+    }
+    if hasDescription {
+      output += "\(indent) description_: \(description_) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
@@ -180,6 +210,14 @@ final public class Perfomance : GeneratedMessage {
           if hasStr {
              hashCode = (hashCode &* 31) &+ str.hashValue
           }
+          if hasBytes {
+             for oneValuebytes in bytes {
+                 hashCode = (hashCode &* 31) &+ oneValuebytes.hashValue
+             }
+          }
+          if hasDescription {
+             hashCode = (hashCode &* 31) &+ description_.hashValue
+          }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
       }
@@ -189,10 +227,13 @@ final public class Perfomance : GeneratedMessage {
   //Meta information declaration start
 
   override public class func className() -> String {
-      return "Perfomance"
+      return "ProtoPerfomance"
+  }
+  override public func className() -> String {
+      return "ProtoPerfomance"
   }
   override public func classMetaType() -> GeneratedMessage.Type {
-      return Perfomance.self
+      return ProtoPerfomance.self
   }
 
 
@@ -200,19 +241,19 @@ final public class Perfomance : GeneratedMessage {
 
 }
 
-final class PerfomanceBuilder : GeneratedMessageBuilder {
-  private var builderResult:Perfomance
+final public class ProtoPerfomanceBuilder : GeneratedMessageBuilder {
+  private var builderResult:ProtoPerfomance
 
-  required override init () {
-     builderResult = Perfomance()
+  required override public init () {
+     builderResult = ProtoPerfomance()
      super.init()
   }
-  var hasInts:Bool {
+  public var hasInts:Bool {
        get {
             return builderResult.hasInts
        }
   }
-  var ints:Int32 {
+  public var ints:Int32 {
        get {
             return builderResult.ints
        }
@@ -221,17 +262,17 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.ints = value
        }
   }
-  func clearInts() -> PerfomanceBuilder{
+  public func clearInts() -> ProtoPerfomanceBuilder{
        builderResult.hasInts = false
        builderResult.ints = Int32(0)
        return self
   }
-  var hasInts64:Bool {
+  public var hasInts64:Bool {
        get {
             return builderResult.hasInts64
        }
   }
-  var ints64:Int64 {
+  public var ints64:Int64 {
        get {
             return builderResult.ints64
        }
@@ -240,17 +281,17 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.ints64 = value
        }
   }
-  func clearInts64() -> PerfomanceBuilder{
+  public func clearInts64() -> ProtoPerfomanceBuilder{
        builderResult.hasInts64 = false
        builderResult.ints64 = Int64(0)
        return self
   }
-  var hasDoubles:Bool {
+  public var hasDoubles:Bool {
        get {
             return builderResult.hasDoubles
        }
   }
-  var doubles:Double {
+  public var doubles:Double {
        get {
             return builderResult.doubles
        }
@@ -259,17 +300,17 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.doubles = value
        }
   }
-  func clearDoubles() -> PerfomanceBuilder{
+  public func clearDoubles() -> ProtoPerfomanceBuilder{
        builderResult.hasDoubles = false
        builderResult.doubles = Double(0)
        return self
   }
-  var hasFloats:Bool {
+  public var hasFloats:Bool {
        get {
             return builderResult.hasFloats
        }
   }
-  var floats:Float {
+  public var floats:Float {
        get {
             return builderResult.floats
        }
@@ -278,17 +319,17 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.floats = value
        }
   }
-  func clearFloats() -> PerfomanceBuilder{
+  public func clearFloats() -> ProtoPerfomanceBuilder{
        builderResult.hasFloats = false
        builderResult.floats = Float(0)
        return self
   }
-  var hasStr:Bool {
+  public var hasStr:Bool {
        get {
             return builderResult.hasStr
        }
   }
-  var str:String {
+  public var str:String {
        get {
             return builderResult.str
        }
@@ -297,33 +338,71 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
            builderResult.str = value
        }
   }
-  func clearStr() -> PerfomanceBuilder{
+  public func clearStr() -> ProtoPerfomanceBuilder{
        builderResult.hasStr = false
        builderResult.str = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  public var hasBytes:Bool {
+       get {
+            return builderResult.hasBytes
+       }
+  }
+  public var bytes:Array<Byte> {
+       get {
+            return builderResult.bytes
+       }
+       set (value) {
+           builderResult.hasBytes = true
+           builderResult.bytes = value
+       }
+  }
+  public func clearBytes() -> ProtoPerfomanceBuilder{
+       builderResult.hasBytes = false
+       builderResult.bytes = [Byte]()
+       return self
+  }
+  public var hasDescription:Bool {
+       get {
+            return builderResult.hasDescription
+       }
+  }
+  public var description_:String {
+       get {
+            return builderResult.description_
+       }
+       set (value) {
+           builderResult.hasDescription = true
+           builderResult.description_ = value
+       }
+  }
+  public func clearDescription() -> ProtoPerfomanceBuilder{
+       builderResult.hasDescription = false
+       builderResult.description_ = ""
+       return self
+  }
+  override public var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> PerfomanceBuilder {
-    builderResult = Perfomance()
+  public override func clear() -> ProtoPerfomanceBuilder {
+    builderResult = ProtoPerfomance()
     return self
   }
-  override func clone() -> PerfomanceBuilder {
-    return Perfomance.builderWithPrototype(builderResult)
+  public override func clone() -> ProtoPerfomanceBuilder {
+    return ProtoPerfomance.builderWithPrototype(builderResult)
   }
-  override func build() -> Perfomance {
+  public override func build() -> ProtoPerfomance {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> Perfomance {
-    var returnMe:Perfomance = builderResult
+  public func buildPartial() -> ProtoPerfomance {
+    var returnMe:ProtoPerfomance = builderResult
     return returnMe
   }
-  func mergeFrom(other:Perfomance) -> PerfomanceBuilder {
-    if (other == Perfomance()) {
+  public func mergeFrom(other:ProtoPerfomance) -> ProtoPerfomanceBuilder {
+    if (other == ProtoPerfomance()) {
      return self
     }
     if other.hasInts {
@@ -341,13 +420,19 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
     if other.hasStr {
          str = other.str
     }
+    if other.hasBytes {
+         bytes = other.bytes
+    }
+    if other.hasDescription {
+         description_ = other.description_
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->PerfomanceBuilder {
+  public override func mergeFromCodedInputStream(input:CodedInputStream) ->ProtoPerfomanceBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> PerfomanceBuilder {
+  public override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ProtoPerfomanceBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -371,6 +456,12 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
       case 42 :
         str = input.readString()
 
+      case 50 :
+        bytes = input.readData()
+
+      case 58 :
+        description_ = input.readString()
+
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
            unknownFields = unknownFieldsBuilder.build()
@@ -384,16 +475,16 @@ final class PerfomanceBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension Perfomance {
-    class func parseFromNSData(data:NSData) -> Perfomance {
+public extension ProtoPerfomance {
+    class func parseFromNSData(data:NSData) -> ProtoPerfomance {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return Perfomance.builder().mergeFromData(bytes).build()
+        return ProtoPerfomance.builder().mergeFromData(bytes).build()
     }
-    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> Perfomance {
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ProtoPerfomance {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
-        return Perfomance.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+        return ProtoPerfomance.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
 

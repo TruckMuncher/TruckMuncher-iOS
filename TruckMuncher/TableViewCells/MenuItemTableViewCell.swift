@@ -14,9 +14,13 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     
-    private var privateMenuItem: MenuItem?
+    var truckBackgroundColor: UIColor!
+    var truckPrimaryTextColor: UIColor!
+    var truckSecondaryTextColor: UIColor!
     
-    var menuItem: MenuItem? {
+    private var privateMenuItem: RMenuItem?
+    
+    var menuItem: RMenuItem? {
         set {
             privateMenuItem = newValue
             reloadFromMenuItem()
@@ -41,5 +45,4 @@ class MenuItemTableViewCell: UITableViewCell {
             lblDescription.attributedText = NSAttributedString(string: item.notes, attributes: attributes)
         }
     }
-    
 }

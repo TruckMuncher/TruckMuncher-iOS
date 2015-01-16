@@ -25,6 +25,13 @@ class CodedInputStreamTests: XCTestCase
         return returnData
     }
     
+    func bytesArray(var from:[Byte]) -> NSData
+    {
+        var returnData:NSMutableData = NSMutableData()
+        returnData.appendBytes(&from, length: from.count)
+        return returnData
+    }
+    
     func testDecodeZigZag()
     {
         XCTAssertEqual(Int32(0), WireFormat.decodeZigZag32(0))
@@ -39,8 +46,8 @@ class CodedInputStreamTests: XCTestCase
         
 //        XCTAssertEqual(0xFFFFFFFFC0000000, WireFormat.decodeZigZag32(0x7FFFFFFF))
         
-        //  XCTAssertEqual((SInt32)0x7FFFFFFF, decodeZigZag32(0xFFFFFFFE));
-        //  XCTAssertEqual((SInt32)0x80000000, decodeZigZag32(0xFFFFFFFF));
+        //  XCTAssertEqual((SInt32)0x7FFFFFFF, decodeZigZag32(0xFFFFFFFE))
+        //  XCTAssertEqual((SInt32)0x80000000, decodeZigZag32(0xFFFFFFFF))
         
         XCTAssertEqual(Int64(0), WireFormat.decodeZigZag64(0))
         XCTAssertEqual(Int64(-1), WireFormat.decodeZigZag64(1))
@@ -80,7 +87,7 @@ class CodedInputStreamTests: XCTestCase
         
         var input4:CodedInputStream = CodedInputStream(inputStream:NSInputStream(data:data))
         var result4 = input4.readRawVarint64()
-        XCTAssertTrue(value == result4, "");
+        XCTAssertTrue(value == result4, "")
     
     // Try different block sizes.
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
@@ -108,8 +115,8 @@ class CodedInputStreamTests: XCTestCase
         data.getBytes(&dataByte)
         
         var input:CodedInputStream = CodedInputStream(data:dataByte)
-        var readRes = input.readRawLittleEndian32();
-        XCTAssertTrue(value == readRes, "");
+        var readRes = input.readRawLittleEndian32()
+        XCTAssertTrue(value == readRes, "")
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
         {
             var smallblock:SmallBlockInputStream = SmallBlockInputStream()
@@ -128,7 +135,7 @@ class CodedInputStreamTests: XCTestCase
         data.getBytes(&dataByte)
         
         var input:CodedInputStream = CodedInputStream(data:dataByte)
-        XCTAssertTrue(value == input.readRawLittleEndian64(), "");
+        XCTAssertTrue(value == input.readRawLittleEndian64(), "")
         for (var blockSize:Int32 = 1; blockSize <= 16; blockSize *= 2)
         {
             var smallblock:SmallBlockInputStream = SmallBlockInputStream()
@@ -238,7 +245,75 @@ class CodedInputStreamTests: XCTestCase
         var input:CodedInputStream = CodedInputStream(data: bytes2)
         XCTAssertTrue(tag == input.readTag(), "")
     
-//        XCTAssertThrows([input readData], @"");
+    }
+    
+    func testReadWholeMessage()
+    {
+        
+        var message = TestUtilities.allSet()
+        var rawBytes = message.data()
+        XCTAssertTrue(Int32(rawBytes.count) == message.serializedSize(), "")
+    
+        var message2 = TestAllTypes.parseFromData(rawBytes)
+        TestUtilities.assertAllFieldsSet(message2)
+        var data:NSData = bytesArray(rawBytes)
+        var stream:NSInputStream = NSInputStream(data: data)
+        var codedStream  = CodedInputStream(inputStream:stream)
+        var message3 = TestAllTypes.parseFromCodedInputStream(codedStream)
+        TestUtilities.assertAllFieldsSet(message3)
+        XCTAssertTrue(message3 == message2, "")
+        
+        for (var blockSize:Int32 = 1; blockSize < 256; blockSize *= 2) {
+            var smallblock:SmallBlockInputStream = SmallBlockInputStream()
+            smallblock.setup(data: data, blocksSize: blockSize)
+            message2 = TestAllTypes.parseFromInputStream(smallblock)
+            TestUtilities.assertAllFieldsSet(message2)
+        }
+    }
+    
+    func testSkipWholeMessage()
+    {
+        var message = TestUtilities.allSet()
+        var rawBytes = message.data()
+        var input1 = CodedInputStream(data:rawBytes)
+        var input2 = CodedInputStream(data:rawBytes)
+        var unknownFields = UnknownFieldSetBuilder()
+    
+        while (true) {
+            var tag  = input1.readTag()
+            var tag2 = input2.readTag()
+            XCTAssertTrue(tag == tag2, "")
+            if (tag2 == 0) {
+                break
+            }
+            unknownFields.mergeFieldFrom(tag, input:input1)
+            input2.skipField(tag2)
+        }
+    }
+    
+    
+    func testReadHugeBlob()
+    {
+        // Allocate and initialize a 1MB blob.
+        var blob = [Byte](count:Int(1 << 20), repeatedValue:0)
+        for (var i:Int = 0; Int(i) < blob.count; i++) {
+            blob[i] = 1
+        }
+        var builder = TestAllTypes.builder()
+        TestUtilities.setAllFields(builder)
+    
+        builder.optionalBytes = blob
+        var message = builder.build()
+        var data = NSMutableData()
+        var bytesArray = message.data()
+        data.appendBytes(&bytesArray, length:message.data().count)
+        var message2 = TestAllTypes.parseFromInputStream(NSInputStream(data:data))
+        XCTAssertTrue(message.optionalBytes == message2.optionalBytes, "")
+        
+        var builder3 = TestAllTypes.builderWithPrototype(message2)
+        builder3.optionalBytes = TestUtilities.allSet().optionalBytes
+        var message3 = builder3.build()
+        TestUtilities.assertAllFieldsSet(message3)
     }
     
     

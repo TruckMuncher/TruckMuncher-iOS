@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct ErrorRoot {
-  static var sharedInstance : ErrorRoot {
+internal struct ErrorRoot {
+  internal static var sharedInstance : ErrorRoot {
    struct Static {
        static let instance : ErrorRoot = ErrorRoot()
    }
@@ -16,11 +16,11 @@ struct ErrorRoot {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
-func == (lhs: Error, rhs: Error) -> Bool {
+internal func == (lhs: Error, rhs: Error) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -30,17 +30,17 @@ func == (lhs: Error, rhs: Error) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class Error : GeneratedMessage {
+final internal class Error : GeneratedMessage {
   private(set) var hasInternalCode:Bool = false
   private(set) var internalCode:String = ""
 
   private(set) var hasUserMessage:Bool = false
   private(set) var userMessage:String = ""
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasInternalCode {
       return false
     }
@@ -49,7 +49,7 @@ final public class Error : GeneratedMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasInternalCode {
       output.writeString(1, value:internalCode)
     }
@@ -58,7 +58,7 @@ final public class Error : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -75,37 +75,43 @@ final public class Error : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> Error {
+  internal class func parseFromData(data:[Byte]) -> Error {
     return Error.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Error {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> Error {
     return Error.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> Error {
+  internal class func parseFromInputStream(input:NSInputStream) -> Error {
     return Error.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Error {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->Error {
     return Error.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> Error {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> Error {
     return Error.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Error {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> Error {
     return Error.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ErrorBuilder {
+  internal class func builder() -> ErrorBuilder {
+    return Error.classBuilder() as ErrorBuilder
+  }
+  internal func builder() -> ErrorBuilder {
+    return classBuilder() as ErrorBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ErrorBuilder()
   }
-  class func builderWithPrototype(prototype:Error) -> ErrorBuilder {
-    return Error.builder().mergeFrom(prototype)
-  }
-  func builder() -> ErrorBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return Error.builder()
   }
-  func toBuilder() -> ErrorBuilder {
+  internal func toBuilder() -> ErrorBuilder {
     return Error.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:Error) -> ErrorBuilder {
+    return Error.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasInternalCode {
       output += "\(indent) internalCode: \(internalCode) \n"
     }
@@ -114,7 +120,7 @@ final public class Error : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasInternalCode {
@@ -131,10 +137,13 @@ final public class Error : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "Error"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "Error"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return Error.self
   }
 
@@ -143,10 +152,10 @@ final public class Error : GeneratedMessage {
 
 }
 
-final class ErrorBuilder : GeneratedMessageBuilder {
+final internal class ErrorBuilder : GeneratedMessageBuilder {
   private var builderResult:Error
 
-  required override init () {
+  required override internal init () {
      builderResult = Error()
      super.init()
   }
@@ -164,7 +173,7 @@ final class ErrorBuilder : GeneratedMessageBuilder {
            builderResult.internalCode = value
        }
   }
-  func clearInternalCode() -> ErrorBuilder{
+  internal func clearInternalCode() -> ErrorBuilder{
        builderResult.hasInternalCode = false
        builderResult.internalCode = ""
        return self
@@ -183,32 +192,32 @@ final class ErrorBuilder : GeneratedMessageBuilder {
            builderResult.userMessage = value
        }
   }
-  func clearUserMessage() -> ErrorBuilder{
+  internal func clearUserMessage() -> ErrorBuilder{
        builderResult.hasUserMessage = false
        builderResult.userMessage = ""
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ErrorBuilder {
+  internal override func clear() -> ErrorBuilder {
     builderResult = Error()
     return self
   }
-  override func clone() -> ErrorBuilder {
+  internal override func clone() -> ErrorBuilder {
     return Error.builderWithPrototype(builderResult)
   }
-  override func build() -> Error {
+  internal override func build() -> Error {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> Error {
+  internal func buildPartial() -> Error {
     var returnMe:Error = builderResult
     return returnMe
   }
-  func mergeFrom(other:Error) -> ErrorBuilder {
+  internal func mergeFrom(other:Error) -> ErrorBuilder {
     if (other == Error()) {
      return self
     }
@@ -221,10 +230,10 @@ final class ErrorBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ErrorBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ErrorBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ErrorBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ErrorBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -252,7 +261,7 @@ final class ErrorBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension Error {
+internal extension Error {
     class func parseFromNSData(data:NSData) -> Error {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

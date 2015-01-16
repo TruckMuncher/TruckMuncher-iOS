@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     var twitterAPI: STTwitterAPI?
     let authManager = AuthManager()
+    let mgr = MenuManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()

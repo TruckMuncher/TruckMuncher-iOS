@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -30,14 +30,14 @@ public class CodedOutputStream
         buffer = RingBuffer(data:data)
     }
   
-    public init(output aOutput:NSOutputStream!, bufferSize:Int32?)
+    public init(output aOutput:NSOutputStream!, bufferSize:Int32)
     {
-        var data = [Byte](count: Int(bufferSize!), repeatedValue: 0)
+        var data = [Byte](count: Int(bufferSize), repeatedValue: 0)
         output = aOutput
         buffer = RingBuffer(data: data)
     }
    
-    public init(output:NSOutputStream?)
+    public init(output:NSOutputStream)
     {
         var data = [Byte](count: Int(DEFAULT_BUFFER_SIZE), repeatedValue: 0)
         self.output = output
@@ -51,7 +51,12 @@ public class CodedOutputStream
     
     public func flush()
     {
-        buffer.flushToOutputStream(output!)
+        if output == nil
+        {
+            NSException(name:"OutOfSpace", reason:"", userInfo: nil).raise()
+        }
+
+       var size = buffer.flushToOutputStream(output!)
     }
    
     public func writeRawByte(byte aByte:Byte)
@@ -67,14 +72,16 @@ public class CodedOutputStream
         writeRawData(data, offset:0, length: Int32(data.count))
     
     }
-    public func writeRawData(data:[Byte], var offset aOffset:Int32, var length aLength:Int32)
+    public func writeRawData(data:[Byte], offset:Int32, length:Int32)
     {
+        var aLength = length
+        var aOffset = offset
         while (aLength > 0)
         {
             var written:Int32 = buffer.appendData(data, offset: aOffset, length: aLength)
             aOffset += Int32(written)
             aLength -= Int32(written)
-            if (written == 0 && aLength > 0)
+            if (written == 0 || aLength > 0)
             {
                 flush()
             }
@@ -237,13 +244,13 @@ public class CodedOutputStream
         writeMessageNoTag(value)
     }
     
-    public func writeDataNoTag(data:[Byte]?)
+    public func writeDataNoTag(data:[Byte])
     {
-        writeRawVarint32(Int32(data!.count))
-        writeRawData(data!)
+        writeRawVarint32(Int32(data.count))
+        writeRawData(data)
     }
     
-    public func writeData(fieldNumber:Int32, value:[Byte]?)
+    public func writeData(fieldNumber:Int32, value:[Byte])
     {
         writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
         writeDataNoTag(value)
@@ -296,7 +303,7 @@ public class CodedOutputStream
     }
     
     public func writeSInt32NoTag(value:Int32) {
-        writeRawVarint32(WireFormat.encodeZigZag32(value));
+        writeRawVarint32(WireFormat.encodeZigZag32(value))
     }
     
     public func writeSInt32(fieldNumber:Int32, value:Int32)
@@ -306,7 +313,7 @@ public class CodedOutputStream
     }
     
     public func writeSInt64NoTag(value:Int64) {
-        writeRawVarint64(WireFormat.encodeZigZag64(value));
+        writeRawVarint64(WireFormat.encodeZigZag64(value))
     }
     
     public func writeSInt64(fieldNumber:Int32, value:Int64)
@@ -374,7 +381,7 @@ public class CodedOutputStream
         while (true) {
             if ((value & ~0x7F) == 0) {
                 writeRawByte(byte:Byte(value))
-                break;
+                break
             } else {
                 writeRawByte(byte: Byte((value & 0x7F) | 0x80))
                 value = WireFormat.logicalRightShift64(value: value, spaces: 7)

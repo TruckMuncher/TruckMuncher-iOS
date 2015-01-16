@@ -14,7 +14,8 @@ class RMenuItem: RLMObject {
     dynamic var name = ""
     dynamic var price = 0.0
     dynamic var notes = ""
-    dynamic var tags = [String]()
+    //dynamic var tags = [String]()
+    dynamic var tags = RLMArray(objectClassName: RString.className())
     dynamic var orderInCategory = 0
     dynamic var isAvailable = true
     
@@ -35,7 +36,10 @@ class RMenuItem: RLMObject {
         rmenuitem.name = menuItem.name
         rmenuitem.price = Double(menuItem.price)
         rmenuitem.notes = menuItem.notes
-        rmenuitem.tags = menuItem.tags
+        //rmenuitem.tags = menuItem.tags
+        for tag in menuItem.tags {
+            rmenuitem.tags.addObject(RString.initFromString(tag))
+        }
         rmenuitem.orderInCategory = Int(menuItem.orderInCategory)
         rmenuitem.isAvailable = menuItem.isAvailable
         return rmenuitem

@@ -3,468 +3,468 @@
 import Foundation
 import ProtocolBuffers
 
-var UnittestLiteRootoptionalInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalInt32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalInt32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalInt64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalInt64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalUint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalUint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalUint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalUint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalSint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalSint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalFixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalFixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalSfixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSfixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalSfixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSfixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalFloatExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFloatExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalDoubleExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalDoubleExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalBoolExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalBoolExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalStringExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalStringExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalBytesExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalBytesExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalGroupExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalGroupExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalGroupExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalNestedMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalNestedMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalForeignMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalForeignMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalForeignMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalImportMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalImportMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalNestedEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalNestedEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalForeignEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalForeignEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalImportEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalImportEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalStringPieceExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalStringPieceExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalCordExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalCordExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalPublicImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalPublicImportMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalPublicImportMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootoptionalLazyMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoptionalLazyMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalLazyMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedInt32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedInt32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedInt64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedInt64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedUint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedUint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedUint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedUint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedSint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedSint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedFixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedFixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedSfixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSfixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedSfixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSfixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedFloatExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFloatExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedDoubleExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedDoubleExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedBoolExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedBoolExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedStringExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedStringExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedBytesExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedBytesExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedGroupExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedGroupExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedGroupExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedNestedMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedForeignMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedForeignMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedImportMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedImportMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedImportMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedNestedEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedNestedEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedForeignEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedForeignEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedImportEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedImportEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedStringPieceExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedStringPieceExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedCordExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedCordExtensionLiteStatic
    }
 }
-var UnittestLiteRootrepeatedLazyMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootrepeatedLazyMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultInt32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultInt32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultInt64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultInt64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultUint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultUint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultUint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultUint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultSint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultSint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultFixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultFixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultSfixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSfixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultSfixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSfixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultFloatExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFloatExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultDoubleExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultDoubleExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultBoolExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultBoolExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultStringExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultStringExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultBytesExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultBytesExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultNestedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultNestedEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultNestedEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultForeignEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultForeignEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultForeignEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultImportEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultImportEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultImportEnumExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultStringPieceExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultStringPieceExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultStringPieceExtensionLiteStatic
    }
 }
-var UnittestLiteRootdefaultCordExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootdefaultCordExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultCordExtensionLiteStatic
    }
 }
-var UnittestLiteRootoneofUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoneofUint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofUint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootoneofNestedMessageExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoneofNestedMessageExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofNestedMessageExtensionLiteStatic
    }
 }
-var UnittestLiteRootoneofStringExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoneofStringExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofStringExtensionLiteStatic
    }
 }
-var UnittestLiteRootoneofBytesExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootoneofBytesExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofBytesExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedInt32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedInt32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedInt32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedInt64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedInt64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedInt64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedUint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedUint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedUint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedUint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedUint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedUint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedSint32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedSint32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSint32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedSint64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedSint64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSint64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedFixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedFixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedFixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedFixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedSfixed32ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedSfixed32ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSfixed32ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedSfixed64ExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedSfixed64ExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSfixed64ExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedFloatExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedFloatExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFloatExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedDoubleExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedDoubleExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedDoubleExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedBoolExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedBoolExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedBoolExtensionLiteStatic
    }
 }
-var UnittestLiteRootpackedEnumExtensionLite:ConcreateExtensionField {
+internal var UnittestLiteRootpackedEnumExtensionLite:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedEnumExtensionLiteStatic
    }
 }
-var TestNestedExtensionLitenestedExtension:ConcreateExtensionField {
+internal var TestNestedExtensionLitenestedExtension:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.TestNestedExtensionLitenestedExtensionStatic
    }
 }
-var TestParsingMergeLiteoptionalExt:ConcreateExtensionField {
+internal var TestParsingMergeLiteoptionalExt:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.TestParsingMergeLiteoptionalExtStatic
    }
 }
-var TestParsingMergeLiterepeatedExt:ConcreateExtensionField {
+internal var TestParsingMergeLiterepeatedExt:ConcreateExtensionField {
    get {
        return UnittestLiteRoot.sharedInstance.TestParsingMergeLiterepeatedExtStatic
    }
 }
-struct UnittestLiteRoot {
-  static var sharedInstance : UnittestLiteRoot {
+internal struct UnittestLiteRoot {
+  internal static var sharedInstance : UnittestLiteRoot {
    struct Static {
        static let instance : UnittestLiteRoot = UnittestLiteRoot()
    }
@@ -606,16 +606,16 @@ struct UnittestLiteRoot {
     UnittestLiteRootrepeatedBoolExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBool, extendedClass:TestAllExtensionsLite.self, fieldNumber: 43, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedStringExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 44, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedBytesExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeBytes, extendedClass:TestAllExtensionsLite.self, fieldNumber: 45, defaultValue:Array<[Byte]>(), messageOrGroupClass:[Byte].self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<RepeatedGroup_extension_lite>(), messageOrGroupClass:RepeatedGroup_extension_lite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<TestAllTypesLite.NestedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<ForeignMessageLite>(), messageOrGroupClass:ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<ImportMessageLite>(), messageOrGroupClass:ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedGroupExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeGroup, extendedClass:TestAllExtensionsLite.self, fieldNumber: 46, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:RepeatedGroup_extension_lite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 48, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 49, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ForeignMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedImportMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 50, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ImportMessageLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedNestedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 51, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedForeignEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 52, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedImportEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestAllExtensionsLite.self, fieldNumber: 53, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedStringPieceExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 54, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootrepeatedCordExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeString, extendedClass:TestAllExtensionsLite.self, fieldNumber: 55, defaultValue:Array<String>(), messageOrGroupClass:String.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
-    UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<TestAllTypesLite.NestedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestAllExtensionsLite.self, fieldNumber: 57, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.NestedMessage.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultInt32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 61, defaultValue:Int32(41), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultInt64ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt64, extendedClass:TestAllExtensionsLite.self, fieldNumber: 62, defaultValue:Int64(42), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     UnittestLiteRootdefaultUint32ExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeUInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 63, defaultValue:UInt32(43), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -656,12 +656,12 @@ struct UnittestLiteRoot {
     UnittestLiteRootpackedEnumExtensionLiteStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeEnum, extendedClass:TestPackedExtensionsLite.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
     TestNestedExtensionLitenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeInt32, extendedClass:TestAllExtensionsLite.self, fieldNumber: 12345, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
     TestParsingMergeLiteoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1000, defaultValue:TestAllTypesLite(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-    TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<TestAllTypesLite>(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
+    TestParsingMergeLiterepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.ExtensionTypeMessage, extendedClass:TestParsingMergeLite.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:TestAllTypesLite.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(extensionRegistry)
     UnittestImportLiteRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
     registry.addExtension(UnittestLiteRootoptionalInt32ExtensionLiteStatic)
     registry.addExtension(UnittestLiteRootoptionalInt64ExtensionLiteStatic)
     registry.addExtension(UnittestLiteRootoptionalUint32ExtensionLiteStatic)
@@ -755,271 +755,271 @@ struct UnittestLiteRoot {
     registry.addExtension(TestParsingMergeLiteoptionalExtStatic)
     registry.addExtension(TestParsingMergeLiterepeatedExtStatic)
   }
-  static func optionalInt32ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalInt32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalInt32ExtensionLiteStatic
   }
-  static func optionalInt64ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalInt64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalInt64ExtensionLiteStatic
   }
-  static func optionalUint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalUint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalUint32ExtensionLiteStatic
   }
-  static func optionalUint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalUint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalUint64ExtensionLiteStatic
   }
-  static func optionalSint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalSint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSint32ExtensionLiteStatic
   }
-  static func optionalSint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalSint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSint64ExtensionLiteStatic
   }
-  static func optionalFixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalFixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFixed32ExtensionLiteStatic
   }
-  static func optionalFixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalFixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFixed64ExtensionLiteStatic
   }
-  static func optionalSfixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalSfixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSfixed32ExtensionLiteStatic
   }
-  static func optionalSfixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalSfixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalSfixed64ExtensionLiteStatic
   }
-  static func optionalFloatExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalFloatExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalFloatExtensionLiteStatic
   }
-  static func optionalDoubleExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalDoubleExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalDoubleExtensionLiteStatic
   }
-  static func optionalBoolExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalBoolExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalBoolExtensionLiteStatic
   }
-  static func optionalStringExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalStringExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalStringExtensionLiteStatic
   }
-  static func optionalBytesExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalBytesExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalBytesExtensionLiteStatic
   }
-  static func optionalGroupExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalGroupExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalGroupExtensionLiteStatic
   }
-  static func optionalNestedMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalNestedMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalNestedMessageExtensionLiteStatic
   }
-  static func optionalForeignMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalForeignMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalForeignMessageExtensionLiteStatic
   }
-  static func optionalImportMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalImportMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalImportMessageExtensionLiteStatic
   }
-  static func optionalNestedEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalNestedEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalNestedEnumExtensionLiteStatic
   }
-  static func optionalForeignEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalForeignEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalForeignEnumExtensionLiteStatic
   }
-  static func optionalImportEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalImportEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalImportEnumExtensionLiteStatic
   }
-  static func optionalStringPieceExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalStringPieceExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalStringPieceExtensionLiteStatic
   }
-  static func optionalCordExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalCordExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalCordExtensionLiteStatic
   }
-  static func optionalPublicImportMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalPublicImportMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalPublicImportMessageExtensionLiteStatic
   }
-  static func optionalLazyMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func optionalLazyMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoptionalLazyMessageExtensionLiteStatic
   }
-  static func repeatedInt32ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedInt32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedInt32ExtensionLiteStatic
   }
-  static func repeatedInt64ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedInt64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedInt64ExtensionLiteStatic
   }
-  static func repeatedUint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedUint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedUint32ExtensionLiteStatic
   }
-  static func repeatedUint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedUint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedUint64ExtensionLiteStatic
   }
-  static func repeatedSint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedSint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSint32ExtensionLiteStatic
   }
-  static func repeatedSint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedSint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSint64ExtensionLiteStatic
   }
-  static func repeatedFixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedFixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFixed32ExtensionLiteStatic
   }
-  static func repeatedFixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedFixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFixed64ExtensionLiteStatic
   }
-  static func repeatedSfixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedSfixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSfixed32ExtensionLiteStatic
   }
-  static func repeatedSfixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedSfixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedSfixed64ExtensionLiteStatic
   }
-  static func repeatedFloatExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedFloatExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedFloatExtensionLiteStatic
   }
-  static func repeatedDoubleExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedDoubleExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedDoubleExtensionLiteStatic
   }
-  static func repeatedBoolExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedBoolExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedBoolExtensionLiteStatic
   }
-  static func repeatedStringExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedStringExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedStringExtensionLiteStatic
   }
-  static func repeatedBytesExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedBytesExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedBytesExtensionLiteStatic
   }
-  static func repeatedGroupExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedGroupExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedGroupExtensionLiteStatic
   }
-  static func repeatedNestedMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedNestedMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedNestedMessageExtensionLiteStatic
   }
-  static func repeatedForeignMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedForeignMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedForeignMessageExtensionLiteStatic
   }
-  static func repeatedImportMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedImportMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedImportMessageExtensionLiteStatic
   }
-  static func repeatedNestedEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedNestedEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedNestedEnumExtensionLiteStatic
   }
-  static func repeatedForeignEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedForeignEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedForeignEnumExtensionLiteStatic
   }
-  static func repeatedImportEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedImportEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedImportEnumExtensionLiteStatic
   }
-  static func repeatedStringPieceExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedStringPieceExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedStringPieceExtensionLiteStatic
   }
-  static func repeatedCordExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedCordExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedCordExtensionLiteStatic
   }
-  static func repeatedLazyMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func repeatedLazyMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic
   }
-  static func defaultInt32ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultInt32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultInt32ExtensionLiteStatic
   }
-  static func defaultInt64ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultInt64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultInt64ExtensionLiteStatic
   }
-  static func defaultUint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultUint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultUint32ExtensionLiteStatic
   }
-  static func defaultUint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultUint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultUint64ExtensionLiteStatic
   }
-  static func defaultSint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultSint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSint32ExtensionLiteStatic
   }
-  static func defaultSint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultSint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSint64ExtensionLiteStatic
   }
-  static func defaultFixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultFixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFixed32ExtensionLiteStatic
   }
-  static func defaultFixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultFixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFixed64ExtensionLiteStatic
   }
-  static func defaultSfixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultSfixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSfixed32ExtensionLiteStatic
   }
-  static func defaultSfixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultSfixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultSfixed64ExtensionLiteStatic
   }
-  static func defaultFloatExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultFloatExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultFloatExtensionLiteStatic
   }
-  static func defaultDoubleExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultDoubleExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultDoubleExtensionLiteStatic
   }
-  static func defaultBoolExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultBoolExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultBoolExtensionLiteStatic
   }
-  static func defaultStringExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultStringExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultStringExtensionLiteStatic
   }
-  static func defaultBytesExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultBytesExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultBytesExtensionLiteStatic
   }
-  static func defaultNestedEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultNestedEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultNestedEnumExtensionLiteStatic
   }
-  static func defaultForeignEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultForeignEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultForeignEnumExtensionLiteStatic
   }
-  static func defaultImportEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultImportEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultImportEnumExtensionLiteStatic
   }
-  static func defaultStringPieceExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultStringPieceExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultStringPieceExtensionLiteStatic
   }
-  static func defaultCordExtensionLite() -> ConcreateExtensionField {
+  internal static func defaultCordExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootdefaultCordExtensionLiteStatic
   }
-  static func oneofUint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func oneofUint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofUint32ExtensionLiteStatic
   }
-  static func oneofNestedMessageExtensionLite() -> ConcreateExtensionField {
+  internal static func oneofNestedMessageExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofNestedMessageExtensionLiteStatic
   }
-  static func oneofStringExtensionLite() -> ConcreateExtensionField {
+  internal static func oneofStringExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofStringExtensionLiteStatic
   }
-  static func oneofBytesExtensionLite() -> ConcreateExtensionField {
+  internal static func oneofBytesExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootoneofBytesExtensionLiteStatic
   }
-  static func packedInt32ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedInt32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedInt32ExtensionLiteStatic
   }
-  static func packedInt64ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedInt64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedInt64ExtensionLiteStatic
   }
-  static func packedUint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedUint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedUint32ExtensionLiteStatic
   }
-  static func packedUint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedUint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedUint64ExtensionLiteStatic
   }
-  static func packedSint32ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedSint32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSint32ExtensionLiteStatic
   }
-  static func packedSint64ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedSint64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSint64ExtensionLiteStatic
   }
-  static func packedFixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedFixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFixed32ExtensionLiteStatic
   }
-  static func packedFixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedFixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFixed64ExtensionLiteStatic
   }
-  static func packedSfixed32ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedSfixed32ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSfixed32ExtensionLiteStatic
   }
-  static func packedSfixed64ExtensionLite() -> ConcreateExtensionField {
+  internal static func packedSfixed64ExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedSfixed64ExtensionLiteStatic
   }
-  static func packedFloatExtensionLite() -> ConcreateExtensionField {
+  internal static func packedFloatExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedFloatExtensionLiteStatic
   }
-  static func packedDoubleExtensionLite() -> ConcreateExtensionField {
+  internal static func packedDoubleExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedDoubleExtensionLiteStatic
   }
-  static func packedBoolExtensionLite() -> ConcreateExtensionField {
+  internal static func packedBoolExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedBoolExtensionLiteStatic
   }
-  static func packedEnumExtensionLite() -> ConcreateExtensionField {
+  internal static func packedEnumExtensionLite() -> ConcreateExtensionField {
        return UnittestLiteRoot.sharedInstance.UnittestLiteRootpackedEnumExtensionLiteStatic
   }
 }
@@ -1028,18 +1028,16 @@ struct UnittestLiteRoot {
 
 //Enum type declaration start 
 
-enum ForeignEnumLite:Int32 {
+internal enum ForeignEnumLite:Int32 {
   case ForeignLiteFoo = 4
   case ForeignLiteBar = 5
   case ForeignLiteBaz = 6
 
-  static func IsValidValue(value:ForeignEnumLite) ->Bool {
-    switch value {
-      case .ForeignLiteFoo, .ForeignLiteBar, .ForeignLiteBaz:
-        return true;
-      default:
-        return false;
-    }
+  internal static func IsValidValue(value:Int32) ->Bool {
+      if let check = ForeignEnumLite(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -1047,7 +1045,7 @@ enum ForeignEnumLite:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: TestAllTypesLite.NestedMessage, rhs: TestAllTypesLite.NestedMessage) -> Bool {
+internal func == (lhs: TestAllTypesLite.NestedMessage, rhs: TestAllTypesLite.NestedMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1056,7 +1054,7 @@ func == (lhs: TestAllTypesLite.NestedMessage, rhs: TestAllTypesLite.NestedMessag
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestAllTypesLite.OptionalGroup, rhs: TestAllTypesLite.OptionalGroup) -> Bool {
+internal func == (lhs: TestAllTypesLite.OptionalGroup, rhs: TestAllTypesLite.OptionalGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1065,7 +1063,7 @@ func == (lhs: TestAllTypesLite.OptionalGroup, rhs: TestAllTypesLite.OptionalGrou
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestAllTypesLite.RepeatedGroup, rhs: TestAllTypesLite.RepeatedGroup) -> Bool {
+internal func == (lhs: TestAllTypesLite.RepeatedGroup, rhs: TestAllTypesLite.RepeatedGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1074,7 +1072,7 @@ func == (lhs: TestAllTypesLite.RepeatedGroup, rhs: TestAllTypesLite.RepeatedGrou
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestAllTypesLite, rhs: TestAllTypesLite) -> Bool {
+internal func == (lhs: TestAllTypesLite, rhs: TestAllTypesLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1157,7 +1155,7 @@ func == (lhs: TestAllTypesLite, rhs: TestAllTypesLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: ForeignMessageLite, rhs: ForeignMessageLite) -> Bool {
+internal func == (lhs: ForeignMessageLite, rhs: ForeignMessageLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1166,7 +1164,7 @@ func == (lhs: ForeignMessageLite, rhs: ForeignMessageLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestPackedTypesLite, rhs: TestPackedTypesLite) -> Bool {
+internal func == (lhs: TestPackedTypesLite, rhs: TestPackedTypesLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1188,7 +1186,7 @@ func == (lhs: TestPackedTypesLite, rhs: TestPackedTypesLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestAllExtensionsLite, rhs: TestAllExtensionsLite) -> Bool {
+internal func == (lhs: TestAllExtensionsLite, rhs: TestAllExtensionsLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1197,7 +1195,7 @@ func == (lhs: TestAllExtensionsLite, rhs: TestAllExtensionsLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: OptionalGroup_extension_lite, rhs: OptionalGroup_extension_lite) -> Bool {
+internal func == (lhs: OptionalGroup_extension_lite, rhs: OptionalGroup_extension_lite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1206,7 +1204,7 @@ func == (lhs: OptionalGroup_extension_lite, rhs: OptionalGroup_extension_lite) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: RepeatedGroup_extension_lite, rhs: RepeatedGroup_extension_lite) -> Bool {
+internal func == (lhs: RepeatedGroup_extension_lite, rhs: RepeatedGroup_extension_lite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1215,7 +1213,7 @@ func == (lhs: RepeatedGroup_extension_lite, rhs: RepeatedGroup_extension_lite) -
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestPackedExtensionsLite, rhs: TestPackedExtensionsLite) -> Bool {
+internal func == (lhs: TestPackedExtensionsLite, rhs: TestPackedExtensionsLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1224,7 +1222,7 @@ func == (lhs: TestPackedExtensionsLite, rhs: TestPackedExtensionsLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestNestedExtensionLite, rhs: TestNestedExtensionLite) -> Bool {
+internal func == (lhs: TestNestedExtensionLite, rhs: TestNestedExtensionLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1232,7 +1230,7 @@ func == (lhs: TestNestedExtensionLite, rhs: TestNestedExtensionLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestDeprecatedLite, rhs: TestDeprecatedLite) -> Bool {
+internal func == (lhs: TestDeprecatedLite, rhs: TestDeprecatedLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1241,7 +1239,7 @@ func == (lhs: TestDeprecatedLite, rhs: TestDeprecatedLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestParsingMergeLite.RepeatedFieldsGenerator, rhs: TestParsingMergeLite.RepeatedFieldsGenerator) -> Bool {
+internal func == (lhs: TestParsingMergeLite.RepeatedFieldsGenerator, rhs: TestParsingMergeLite.RepeatedFieldsGenerator) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1256,7 +1254,7 @@ func == (lhs: TestParsingMergeLite.RepeatedFieldsGenerator, rhs: TestParsingMerg
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestParsingMergeLite.OptionalGroup, rhs: TestParsingMergeLite.OptionalGroup) -> Bool {
+internal func == (lhs: TestParsingMergeLite.OptionalGroup, rhs: TestParsingMergeLite.OptionalGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1265,7 +1263,7 @@ func == (lhs: TestParsingMergeLite.OptionalGroup, rhs: TestParsingMergeLite.Opti
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestParsingMergeLite.RepeatedGroup, rhs: TestParsingMergeLite.RepeatedGroup) -> Bool {
+internal func == (lhs: TestParsingMergeLite.RepeatedGroup, rhs: TestParsingMergeLite.RepeatedGroup) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1274,7 +1272,7 @@ func == (lhs: TestParsingMergeLite.RepeatedGroup, rhs: TestParsingMergeLite.Repe
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestParsingMergeLite, rhs: TestParsingMergeLite) -> Bool {
+internal func == (lhs: TestParsingMergeLite, rhs: TestParsingMergeLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1288,7 +1286,7 @@ func == (lhs: TestParsingMergeLite, rhs: TestParsingMergeLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestEmptyMessageLite, rhs: TestEmptyMessageLite) -> Bool {
+internal func == (lhs: TestEmptyMessageLite, rhs: TestEmptyMessageLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1296,7 +1294,7 @@ func == (lhs: TestEmptyMessageLite, rhs: TestEmptyMessageLite) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-func == (lhs: TestEmptyMessageWithExtensionsLite, rhs: TestEmptyMessageWithExtensionsLite) -> Bool {
+internal func == (lhs: TestEmptyMessageWithExtensionsLite, rhs: TestEmptyMessageWithExtensionsLite) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -1305,28 +1303,28 @@ func == (lhs: TestEmptyMessageWithExtensionsLite, rhs: TestEmptyMessageWithExten
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class TestAllTypesLite : GeneratedMessage {
+final internal class TestAllTypesLite : GeneratedMessage {
 
 
   //Nested type declaration start
 
-    final public class NestedMessage : GeneratedMessage {
+    final internal class NestedMessage : GeneratedMessage {
       private(set) var hasBb:Bool = false
       private(set) var bb:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasBb {
           output.writeInt32(1, value:bb)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -1340,43 +1338,49 @@ final public class TestAllTypesLite : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestAllTypesLite.NestedMessage {
+      internal class func parseFromData(data:[Byte]) -> TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessage {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.NestedMessage {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.NestedMessage {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.NestedMessage {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessage {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestAllTypesLite.NestedMessageBuilder {
+      internal class func builder() -> TestAllTypesLite.NestedMessageBuilder {
+        return TestAllTypesLite.NestedMessage.classBuilder() as TestAllTypesLite.NestedMessageBuilder
+      }
+      internal func builder() -> TestAllTypesLite.NestedMessageBuilder {
+        return classBuilder() as TestAllTypesLite.NestedMessageBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.NestedMessageBuilder()
       }
-      class func builderWithPrototype(prototype:TestAllTypesLite.NestedMessage) -> TestAllTypesLite.NestedMessageBuilder {
-        return TestAllTypesLite.NestedMessage.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestAllTypesLite.NestedMessageBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.NestedMessage.builder()
       }
-      func toBuilder() -> TestAllTypesLite.NestedMessageBuilder {
+      internal func toBuilder() -> TestAllTypesLite.NestedMessageBuilder {
         return TestAllTypesLite.NestedMessage.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestAllTypesLite.NestedMessage) -> TestAllTypesLite.NestedMessageBuilder {
+        return TestAllTypesLite.NestedMessage.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasBb {
           output += "\(indent) bb: \(bb) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasBb {
@@ -1390,10 +1394,13 @@ final public class TestAllTypesLite : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestAllTypesLite.NestedMessage"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestAllTypesLite.NestedMessage"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypesLite.NestedMessage.self
       }
 
@@ -1402,10 +1409,10 @@ final public class TestAllTypesLite : GeneratedMessage {
 
     }
 
-    final class NestedMessageBuilder : GeneratedMessageBuilder {
+    final internal class NestedMessageBuilder : GeneratedMessageBuilder {
       private var builderResult:TestAllTypesLite.NestedMessage
 
-      required override init () {
+      required override internal init () {
          builderResult = TestAllTypesLite.NestedMessage()
          super.init()
       }
@@ -1423,32 +1430,32 @@ final public class TestAllTypesLite : GeneratedMessage {
                builderResult.bb = value
            }
       }
-      func clearBb() -> TestAllTypesLite.NestedMessageBuilder{
+      internal func clearBb() -> TestAllTypesLite.NestedMessageBuilder{
            builderResult.hasBb = false
            builderResult.bb = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestAllTypesLite.NestedMessageBuilder {
+      internal override func clear() -> TestAllTypesLite.NestedMessageBuilder {
         builderResult = TestAllTypesLite.NestedMessage()
         return self
       }
-      override func clone() -> TestAllTypesLite.NestedMessageBuilder {
+      internal override func clone() -> TestAllTypesLite.NestedMessageBuilder {
         return TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult)
       }
-      override func build() -> TestAllTypesLite.NestedMessage {
+      internal override func build() -> TestAllTypesLite.NestedMessage {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestAllTypesLite.NestedMessage {
+      internal func buildPartial() -> TestAllTypesLite.NestedMessage {
         var returnMe:TestAllTypesLite.NestedMessage = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestAllTypesLite.NestedMessage) -> TestAllTypesLite.NestedMessageBuilder {
+      internal func mergeFrom(other:TestAllTypesLite.NestedMessage) -> TestAllTypesLite.NestedMessageBuilder {
         if (other == TestAllTypesLite.NestedMessage()) {
          return self
         }
@@ -1458,10 +1465,10 @@ final public class TestAllTypesLite : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.NestedMessageBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.NestedMessageBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessageBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.NestedMessageBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -1491,23 +1498,23 @@ final public class TestAllTypesLite : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class OptionalGroup : GeneratedMessage {
+    final internal class OptionalGroup : GeneratedMessage {
       private(set) var hasA:Bool = false
       private(set) var a:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasA {
           output.writeInt32(17, value:a)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -1521,43 +1528,49 @@ final public class TestAllTypesLite : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestAllTypesLite.OptionalGroup {
+      internal class func parseFromData(data:[Byte]) -> TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroup {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.OptionalGroup {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.OptionalGroup {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.OptionalGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestAllTypesLite.OptionalGroupBuilder {
+      internal class func builder() -> TestAllTypesLite.OptionalGroupBuilder {
+        return TestAllTypesLite.OptionalGroup.classBuilder() as TestAllTypesLite.OptionalGroupBuilder
+      }
+      internal func builder() -> TestAllTypesLite.OptionalGroupBuilder {
+        return classBuilder() as TestAllTypesLite.OptionalGroupBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.OptionalGroupBuilder()
       }
-      class func builderWithPrototype(prototype:TestAllTypesLite.OptionalGroup) -> TestAllTypesLite.OptionalGroupBuilder {
-        return TestAllTypesLite.OptionalGroup.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestAllTypesLite.OptionalGroupBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.OptionalGroup.builder()
       }
-      func toBuilder() -> TestAllTypesLite.OptionalGroupBuilder {
+      internal func toBuilder() -> TestAllTypesLite.OptionalGroupBuilder {
         return TestAllTypesLite.OptionalGroup.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestAllTypesLite.OptionalGroup) -> TestAllTypesLite.OptionalGroupBuilder {
+        return TestAllTypesLite.OptionalGroup.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasA {
           output += "\(indent) a: \(a) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasA {
@@ -1571,10 +1584,13 @@ final public class TestAllTypesLite : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestAllTypesLite.OptionalGroup"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestAllTypesLite.OptionalGroup"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypesLite.OptionalGroup.self
       }
 
@@ -1583,10 +1599,10 @@ final public class TestAllTypesLite : GeneratedMessage {
 
     }
 
-    final class OptionalGroupBuilder : GeneratedMessageBuilder {
+    final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
       private var builderResult:TestAllTypesLite.OptionalGroup
 
-      required override init () {
+      required override internal init () {
          builderResult = TestAllTypesLite.OptionalGroup()
          super.init()
       }
@@ -1604,32 +1620,32 @@ final public class TestAllTypesLite : GeneratedMessage {
                builderResult.a = value
            }
       }
-      func clearA() -> TestAllTypesLite.OptionalGroupBuilder{
+      internal func clearA() -> TestAllTypesLite.OptionalGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestAllTypesLite.OptionalGroupBuilder {
+      internal override func clear() -> TestAllTypesLite.OptionalGroupBuilder {
         builderResult = TestAllTypesLite.OptionalGroup()
         return self
       }
-      override func clone() -> TestAllTypesLite.OptionalGroupBuilder {
+      internal override func clone() -> TestAllTypesLite.OptionalGroupBuilder {
         return TestAllTypesLite.OptionalGroup.builderWithPrototype(builderResult)
       }
-      override func build() -> TestAllTypesLite.OptionalGroup {
+      internal override func build() -> TestAllTypesLite.OptionalGroup {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestAllTypesLite.OptionalGroup {
+      internal func buildPartial() -> TestAllTypesLite.OptionalGroup {
         var returnMe:TestAllTypesLite.OptionalGroup = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestAllTypesLite.OptionalGroup) -> TestAllTypesLite.OptionalGroupBuilder {
+      internal func mergeFrom(other:TestAllTypesLite.OptionalGroup) -> TestAllTypesLite.OptionalGroupBuilder {
         if (other == TestAllTypesLite.OptionalGroup()) {
          return self
         }
@@ -1639,10 +1655,10 @@ final public class TestAllTypesLite : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.OptionalGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.OptionalGroupBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.OptionalGroupBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -1672,23 +1688,23 @@ final public class TestAllTypesLite : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class RepeatedGroup : GeneratedMessage {
+    final internal class RepeatedGroup : GeneratedMessage {
       private(set) var hasA:Bool = false
       private(set) var a:Int32 = Int32(0)
 
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasA {
           output.writeInt32(47, value:a)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -1702,43 +1718,49 @@ final public class TestAllTypesLite : GeneratedMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromData(data:[Byte]) -> TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal class func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
+        return TestAllTypesLite.RepeatedGroup.classBuilder() as TestAllTypesLite.RepeatedGroupBuilder
+      }
+      internal func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
+        return classBuilder() as TestAllTypesLite.RepeatedGroupBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.RepeatedGroupBuilder()
       }
-      class func builderWithPrototype(prototype:TestAllTypesLite.RepeatedGroup) -> TestAllTypesLite.RepeatedGroupBuilder {
-        return TestAllTypesLite.RepeatedGroup.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestAllTypesLite.RepeatedGroup.builder()
       }
-      func toBuilder() -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal func toBuilder() -> TestAllTypesLite.RepeatedGroupBuilder {
         return TestAllTypesLite.RepeatedGroup.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestAllTypesLite.RepeatedGroup) -> TestAllTypesLite.RepeatedGroupBuilder {
+        return TestAllTypesLite.RepeatedGroup.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasA {
           output += "\(indent) a: \(a) \n"
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasA {
@@ -1752,10 +1774,13 @@ final public class TestAllTypesLite : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestAllTypesLite.RepeatedGroup"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestAllTypesLite.RepeatedGroup"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestAllTypesLite.RepeatedGroup.self
       }
 
@@ -1764,10 +1789,10 @@ final public class TestAllTypesLite : GeneratedMessage {
 
     }
 
-    final class RepeatedGroupBuilder : GeneratedMessageBuilder {
+    final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
       private var builderResult:TestAllTypesLite.RepeatedGroup
 
-      required override init () {
+      required override internal init () {
          builderResult = TestAllTypesLite.RepeatedGroup()
          super.init()
       }
@@ -1785,32 +1810,32 @@ final public class TestAllTypesLite : GeneratedMessage {
                builderResult.a = value
            }
       }
-      func clearA() -> TestAllTypesLite.RepeatedGroupBuilder{
+      internal func clearA() -> TestAllTypesLite.RepeatedGroupBuilder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
            return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal override func clear() -> TestAllTypesLite.RepeatedGroupBuilder {
         builderResult = TestAllTypesLite.RepeatedGroup()
         return self
       }
-      override func clone() -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal override func clone() -> TestAllTypesLite.RepeatedGroupBuilder {
         return TestAllTypesLite.RepeatedGroup.builderWithPrototype(builderResult)
       }
-      override func build() -> TestAllTypesLite.RepeatedGroup {
+      internal override func build() -> TestAllTypesLite.RepeatedGroup {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestAllTypesLite.RepeatedGroup {
+      internal func buildPartial() -> TestAllTypesLite.RepeatedGroup {
         var returnMe:TestAllTypesLite.RepeatedGroup = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestAllTypesLite.RepeatedGroup) -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal func mergeFrom(other:TestAllTypesLite.RepeatedGroup) -> TestAllTypesLite.RepeatedGroupBuilder {
         if (other == TestAllTypesLite.RepeatedGroup()) {
          return self
         }
@@ -1820,10 +1845,10 @@ final public class TestAllTypesLite : GeneratedMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.RepeatedGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLite.RepeatedGroupBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite.RepeatedGroupBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -1853,10 +1878,10 @@ final public class TestAllTypesLite : GeneratedMessage {
 
   //OneOf declaration start
 
-  enum OneofField {
+  internal enum OneofField {
     case OneofFieldOneOfNotSet
 
-    func checkOneOfIsSet() -> Bool {
+    internal func checkOneOfIsSet() -> Bool {
          switch self {
          case .OneofFieldOneOfNotSet:
               return false
@@ -1866,7 +1891,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     case OneofUint32(UInt32)
 
-    static func getOneofUint32(value:OneofField) ->UInt32? {
+    internal static func getOneofUint32(value:OneofField) ->UInt32? {
          switch value {
          case .OneofUint32(let enumValue):
               return enumValue
@@ -1876,7 +1901,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     case OneofNestedMessage(TestAllTypesLite.NestedMessage)
 
-    static func getOneofNestedMessage(value:OneofField) ->TestAllTypesLite.NestedMessage? {
+    internal static func getOneofNestedMessage(value:OneofField) ->TestAllTypesLite.NestedMessage? {
          switch value {
          case .OneofNestedMessage(let enumValue):
               return enumValue
@@ -1886,7 +1911,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     case OneofString(String)
 
-    static func getOneofString(value:OneofField) ->String? {
+    internal static func getOneofString(value:OneofField) ->String? {
          switch value {
          case .OneofString(let enumValue):
               return enumValue
@@ -1896,7 +1921,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     case OneofBytes([Byte])
 
-    static func getOneofBytes(value:OneofField) ->[Byte]? {
+    internal static func getOneofBytes(value:OneofField) ->[Byte]? {
          switch value {
          case .OneofBytes(let enumValue):
               return enumValue
@@ -1915,18 +1940,16 @@ final public class TestAllTypesLite : GeneratedMessage {
 
     //Enum type declaration start 
 
-    enum NestedEnum:Int32 {
+    internal enum NestedEnum:Int32 {
       case Foo = 1
       case Bar = 2
       case Baz = 3
 
-      static func IsValidValue(value:NestedEnum) ->Bool {
-        switch value {
-          case .Foo, .Bar, .Baz:
-            return true;
-          default:
-            return false;
-        }
+      internal static func IsValidValue(value:Int32) ->Bool {
+          if let check = NestedEnum(rawValue:value) {
+              return true
+          }
+          return false
       }
     }
 
@@ -2160,13 +2183,13 @@ final public class TestAllTypesLite : GeneratedMessage {
   private(set) var repeatedStringPiece:Array<String> = Array<String>()
   private(set) var repeatedCord:Array<String> = Array<String>()
   private(set) var repeatedLazyMessage:Array<TestAllTypesLite.NestedMessage>  = Array<TestAllTypesLite.NestedMessage>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasOptionalInt32 {
       output.writeInt32(1, value:optionalInt32)
     }
@@ -2246,113 +2269,113 @@ final public class TestAllTypesLite : GeneratedMessage {
       output.writeMessage(27, value:optionalLazyMessage)
     }
     if !repeatedInt32.isEmpty {
-      for value in repeatedInt32 {
-        output.writeInt32(31, value:value)
+      for oneValuerepeatedInt32 in repeatedInt32 {
+        output.writeInt32(31, value:oneValuerepeatedInt32)
       }
     }
     if !repeatedInt64.isEmpty {
-      for value in repeatedInt64 {
-        output.writeInt64(32, value:value)
+      for oneValuerepeatedInt64 in repeatedInt64 {
+        output.writeInt64(32, value:oneValuerepeatedInt64)
       }
     }
     if !repeatedUint32.isEmpty {
-      for value in repeatedUint32 {
-        output.writeUInt32(33, value:value)
+      for oneValuerepeatedUint32 in repeatedUint32 {
+        output.writeUInt32(33, value:oneValuerepeatedUint32)
       }
     }
     if !repeatedUint64.isEmpty {
-      for value in repeatedUint64 {
-        output.writeUInt64(34, value:value)
+      for oneValuerepeatedUint64 in repeatedUint64 {
+        output.writeUInt64(34, value:oneValuerepeatedUint64)
       }
     }
     if !repeatedSint32.isEmpty {
-      for value in repeatedSint32 {
-        output.writeSInt32(35, value:value)
+      for oneValuerepeatedSint32 in repeatedSint32 {
+        output.writeSInt32(35, value:oneValuerepeatedSint32)
       }
     }
     if !repeatedSint64.isEmpty {
-      for value in repeatedSint64 {
-        output.writeSInt64(36, value:value)
+      for oneValuerepeatedSint64 in repeatedSint64 {
+        output.writeSInt64(36, value:oneValuerepeatedSint64)
       }
     }
     if !repeatedFixed32.isEmpty {
-      for value in repeatedFixed32 {
-        output.writeFixed32(37, value:value)
+      for oneValuerepeatedFixed32 in repeatedFixed32 {
+        output.writeFixed32(37, value:oneValuerepeatedFixed32)
       }
     }
     if !repeatedFixed64.isEmpty {
-      for value in repeatedFixed64 {
-        output.writeFixed64(38, value:value)
+      for oneValuerepeatedFixed64 in repeatedFixed64 {
+        output.writeFixed64(38, value:oneValuerepeatedFixed64)
       }
     }
     if !repeatedSfixed32.isEmpty {
-      for value in repeatedSfixed32 {
-        output.writeSFixed32(39, value:value)
+      for oneValuerepeatedSfixed32 in repeatedSfixed32 {
+        output.writeSFixed32(39, value:oneValuerepeatedSfixed32)
       }
     }
     if !repeatedSfixed64.isEmpty {
-      for value in repeatedSfixed64 {
-        output.writeSFixed64(40, value:value)
+      for oneValuerepeatedSfixed64 in repeatedSfixed64 {
+        output.writeSFixed64(40, value:oneValuerepeatedSfixed64)
       }
     }
     if !repeatedFloat.isEmpty {
-      for value in repeatedFloat {
-        output.writeFloat(41, value:value)
+      for oneValuerepeatedFloat in repeatedFloat {
+        output.writeFloat(41, value:oneValuerepeatedFloat)
       }
     }
     if !repeatedDouble.isEmpty {
-      for value in repeatedDouble {
-        output.writeDouble(42, value:value)
+      for oneValuerepeatedDouble in repeatedDouble {
+        output.writeDouble(42, value:oneValuerepeatedDouble)
       }
     }
     if !repeatedBool.isEmpty {
-      for value in repeatedBool {
-        output.writeBool(43, value:value)
+      for oneValuerepeatedBool in repeatedBool {
+        output.writeBool(43, value:oneValuerepeatedBool)
       }
     }
     if !repeatedString.isEmpty {
-      for value in repeatedString {
-        output.writeString(44, value:value)
+      for oneValuerepeatedString in repeatedString {
+        output.writeString(44, value:oneValuerepeatedString)
       }
     }
     if !repeatedBytes.isEmpty {
-      for value in repeatedBytes {
-        output.writeData(45, value:value)
+      for oneValuerepeatedBytes in repeatedBytes {
+        output.writeData(45, value:oneValuerepeatedBytes)
       }
     }
-    for element in repeatedGroup {
-        output.writeGroup(46, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        output.writeGroup(46, value:oneElementrepeatedGroup)
     }
-    for element in repeatedNestedMessage {
-        output.writeMessage(48, value:element)
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+        output.writeMessage(48, value:oneElementrepeatedNestedMessage)
     }
-    for element in repeatedForeignMessage {
-        output.writeMessage(49, value:element)
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+        output.writeMessage(49, value:oneElementrepeatedForeignMessage)
     }
-    for element in repeatedImportMessage {
-        output.writeMessage(50, value:element)
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
+        output.writeMessage(50, value:oneElementrepeatedImportMessage)
     }
-    for value in repeatedNestedEnum {
-        output.writeEnum(51, value:value.rawValue)
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        output.writeEnum(51, value:oneValueOfrepeatedNestedEnum.rawValue)
     }
-    for value in repeatedForeignEnum {
-        output.writeEnum(52, value:value.rawValue)
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        output.writeEnum(52, value:oneValueOfrepeatedForeignEnum.rawValue)
     }
-    for value in repeatedImportEnum {
-        output.writeEnum(53, value:value.rawValue)
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        output.writeEnum(53, value:oneValueOfrepeatedImportEnum.rawValue)
     }
     if !repeatedStringPiece.isEmpty {
-      for value in repeatedStringPiece {
-        output.writeString(54, value:value)
+      for oneValuerepeatedStringPiece in repeatedStringPiece {
+        output.writeString(54, value:oneValuerepeatedStringPiece)
       }
     }
     if !repeatedCord.isEmpty {
-      for value in repeatedCord {
-        output.writeString(55, value:value)
+      for oneValuerepeatedCord in repeatedCord {
+        output.writeString(55, value:oneValuerepeatedCord)
       }
     }
-    for element in repeatedLazyMessage {
-        output.writeMessage(57, value:element)
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+        output.writeMessage(57, value:oneElementrepeatedLazyMessage)
     }
     if hasDefaultInt32 {
       output.writeInt32(61, value:defaultInt32)
@@ -2428,7 +2451,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -2514,38 +2537,38 @@ final public class TestAllTypesLite : GeneratedMessage {
       size += WireFormat.computeMessageSize(27, value:optionalLazyMessage)
     }
     var dataSizeRepeatedInt32:Int32 = 0
-    for element in repeatedInt32 {
-        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuerepeatedInt32 in repeatedInt32 {
+        dataSizeRepeatedInt32 += WireFormat.computeInt32SizeNoTag(oneValuerepeatedInt32)
     }
     size += dataSizeRepeatedInt32
     size += 2 * Int32(repeatedInt32.count)
     var dataSizeRepeatedInt64:Int32 = 0
-    for element in repeatedInt64 {
-        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValuerepeatedInt64 in repeatedInt64 {
+        dataSizeRepeatedInt64 += WireFormat.computeInt64SizeNoTag(oneValuerepeatedInt64)
     }
     size += dataSizeRepeatedInt64
     size += 2 * Int32(repeatedInt64.count)
     var dataSizeRepeatedUint32:Int32 = 0
-    for element in repeatedUint32 {
-        dataSizeRepeatedUint32 += WireFormat.computeUInt32SizeNoTag(element)
+    for oneValuerepeatedUint32 in repeatedUint32 {
+        dataSizeRepeatedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuerepeatedUint32)
     }
     size += dataSizeRepeatedUint32
     size += 2 * Int32(repeatedUint32.count)
     var dataSizeRepeatedUint64:Int32 = 0
-    for element in repeatedUint64 {
-        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValuerepeatedUint64 in repeatedUint64 {
+        dataSizeRepeatedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuerepeatedUint64)
     }
     size += dataSizeRepeatedUint64
     size += 2 * Int32(repeatedUint64.count)
     var dataSizeRepeatedSint32:Int32 = 0
-    for element in repeatedSint32 {
-        dataSizeRepeatedSint32 += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValuerepeatedSint32 in repeatedSint32 {
+        dataSizeRepeatedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuerepeatedSint32)
     }
     size += dataSizeRepeatedSint32
     size += 2 * Int32(repeatedSint32.count)
     var dataSizeRepeatedSint64:Int32 = 0
-    for element in repeatedSint64 {
-        dataSizeRepeatedSint64 += WireFormat.computeSInt64SizeNoTag(element)
+    for oneValuerepeatedSint64 in repeatedSint64 {
+        dataSizeRepeatedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuerepeatedSint64)
     }
     size += dataSizeRepeatedSint64
     size += 2 * Int32(repeatedSint64.count)
@@ -2578,61 +2601,61 @@ final public class TestAllTypesLite : GeneratedMessage {
     size += dataSizeRepeatedBool
     size += 2 * Int32(repeatedBool.count)
     var dataSizeRepeatedString:Int32 = 0
-    for element in repeatedString {
-        dataSizeRepeatedString += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedString in repeatedString {
+        dataSizeRepeatedString += WireFormat.computeStringSizeNoTag(oneValuerepeatedString)
     }
     size += dataSizeRepeatedString
     size += 2 * Int32(repeatedString.count)
     var dataSizeRepeatedBytes:Int32 = 0
-    for element in repeatedBytes {
-        dataSizeRepeatedBytes += WireFormat.computeDataSizeNoTag(element)
+    for oneValuerepeatedBytes in repeatedBytes {
+        dataSizeRepeatedBytes += WireFormat.computeDataSizeNoTag(oneValuerepeatedBytes)
     }
     size += dataSizeRepeatedBytes
     size += 2 * Int32(repeatedBytes.count)
-    for element in repeatedGroup {
-        size += WireFormat.computeGroupSize(46, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        size += WireFormat.computeGroupSize(46, value:oneElementrepeatedGroup)
     }
-    for element in repeatedNestedMessage {
-        size += WireFormat.computeMessageSize(48, value:element)
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+        size += WireFormat.computeMessageSize(48, value:oneElementrepeatedNestedMessage)
     }
-    for element in repeatedForeignMessage {
-        size += WireFormat.computeMessageSize(49, value:element)
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+        size += WireFormat.computeMessageSize(49, value:oneElementrepeatedForeignMessage)
     }
-    for element in repeatedImportMessage {
-        size += WireFormat.computeMessageSize(50, value:element)
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
+        size += WireFormat.computeMessageSize(50, value:oneElementrepeatedImportMessage)
     }
     var dataSizerepeatedNestedEnum:Int32 = 0
-    for value in repeatedNestedEnum {
-        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        dataSizerepeatedNestedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedNestedEnum.rawValue)
     }
     size += dataSizerepeatedNestedEnum
     size += (2 * Int32(repeatedNestedEnum.count))
     var dataSizerepeatedForeignEnum:Int32 = 0
-    for value in repeatedForeignEnum {
-        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        dataSizerepeatedForeignEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedForeignEnum.rawValue)
     }
     size += dataSizerepeatedForeignEnum
     size += (2 * Int32(repeatedForeignEnum.count))
     var dataSizerepeatedImportEnum:Int32 = 0
-    for value in repeatedImportEnum {
-        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        dataSizerepeatedImportEnum += WireFormat.computeEnumSizeNoTag(oneValueOfrepeatedImportEnum.rawValue)
     }
     size += dataSizerepeatedImportEnum
     size += (2 * Int32(repeatedImportEnum.count))
     var dataSizeRepeatedStringPiece:Int32 = 0
-    for element in repeatedStringPiece {
-        dataSizeRepeatedStringPiece += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedStringPiece in repeatedStringPiece {
+        dataSizeRepeatedStringPiece += WireFormat.computeStringSizeNoTag(oneValuerepeatedStringPiece)
     }
     size += dataSizeRepeatedStringPiece
     size += 2 * Int32(repeatedStringPiece.count)
     var dataSizeRepeatedCord:Int32 = 0
-    for element in repeatedCord {
-        dataSizeRepeatedCord += WireFormat.computeStringSizeNoTag(element)
+    for oneValuerepeatedCord in repeatedCord {
+        dataSizeRepeatedCord += WireFormat.computeStringSizeNoTag(oneValuerepeatedCord)
     }
     size += dataSizeRepeatedCord
     size += 2 * Int32(repeatedCord.count)
-    for element in repeatedLazyMessage {
-        size += WireFormat.computeMessageSize(57, value:element)
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+        size += WireFormat.computeMessageSize(57, value:oneElementrepeatedLazyMessage)
     }
     if hasDefaultInt32 {
       size += WireFormat.computeInt32Size(61, value:defaultInt32)
@@ -2710,37 +2733,43 @@ final public class TestAllTypesLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestAllTypesLite {
+  internal class func parseFromData(data:[Byte]) -> TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLite {
     return TestAllTypesLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestAllTypesLiteBuilder {
+  internal class func builder() -> TestAllTypesLiteBuilder {
+    return TestAllTypesLite.classBuilder() as TestAllTypesLiteBuilder
+  }
+  internal func builder() -> TestAllTypesLiteBuilder {
+    return classBuilder() as TestAllTypesLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllTypesLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestAllTypesLite) -> TestAllTypesLiteBuilder {
-    return TestAllTypesLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestAllTypesLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllTypesLite.builder()
   }
-  func toBuilder() -> TestAllTypesLiteBuilder {
+  internal func toBuilder() -> TestAllTypesLiteBuilder {
     return TestAllTypesLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestAllTypesLite) -> TestAllTypesLiteBuilder {
+    return TestAllTypesLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasOptionalInt32 {
       output += "\(indent) optionalInt32: \(optionalInt32) \n"
     }
@@ -2832,137 +2861,137 @@ final public class TestAllTypesLite : GeneratedMessage {
       output += "\(indent) }\n"
     }
     var repeatedInt32ElementIndex:Int = 0
-    for element in repeatedInt32  {
-        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt32 in repeatedInt32  {
+        output += "\(indent) repeatedInt32[\(repeatedInt32ElementIndex)]: \(oneValuerepeatedInt32)\n"
         repeatedInt32ElementIndex++
     }
     var repeatedInt64ElementIndex:Int = 0
-    for element in repeatedInt64  {
-        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedInt64 in repeatedInt64  {
+        output += "\(indent) repeatedInt64[\(repeatedInt64ElementIndex)]: \(oneValuerepeatedInt64)\n"
         repeatedInt64ElementIndex++
     }
     var repeatedUint32ElementIndex:Int = 0
-    for element in repeatedUint32  {
-        output += "\(indent) repeatedUint32[\(repeatedUint32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedUint32 in repeatedUint32  {
+        output += "\(indent) repeatedUint32[\(repeatedUint32ElementIndex)]: \(oneValuerepeatedUint32)\n"
         repeatedUint32ElementIndex++
     }
     var repeatedUint64ElementIndex:Int = 0
-    for element in repeatedUint64  {
-        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedUint64 in repeatedUint64  {
+        output += "\(indent) repeatedUint64[\(repeatedUint64ElementIndex)]: \(oneValuerepeatedUint64)\n"
         repeatedUint64ElementIndex++
     }
     var repeatedSint32ElementIndex:Int = 0
-    for element in repeatedSint32  {
-        output += "\(indent) repeatedSint32[\(repeatedSint32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSint32 in repeatedSint32  {
+        output += "\(indent) repeatedSint32[\(repeatedSint32ElementIndex)]: \(oneValuerepeatedSint32)\n"
         repeatedSint32ElementIndex++
     }
     var repeatedSint64ElementIndex:Int = 0
-    for element in repeatedSint64  {
-        output += "\(indent) repeatedSint64[\(repeatedSint64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSint64 in repeatedSint64  {
+        output += "\(indent) repeatedSint64[\(repeatedSint64ElementIndex)]: \(oneValuerepeatedSint64)\n"
         repeatedSint64ElementIndex++
     }
     var repeatedFixed32ElementIndex:Int = 0
-    for element in repeatedFixed32  {
-        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed32 in repeatedFixed32  {
+        output += "\(indent) repeatedFixed32[\(repeatedFixed32ElementIndex)]: \(oneValuerepeatedFixed32)\n"
         repeatedFixed32ElementIndex++
     }
     var repeatedFixed64ElementIndex:Int = 0
-    for element in repeatedFixed64  {
-        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedFixed64 in repeatedFixed64  {
+        output += "\(indent) repeatedFixed64[\(repeatedFixed64ElementIndex)]: \(oneValuerepeatedFixed64)\n"
         repeatedFixed64ElementIndex++
     }
     var repeatedSfixed32ElementIndex:Int = 0
-    for element in repeatedSfixed32  {
-        output += "\(indent) repeatedSfixed32[\(repeatedSfixed32ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSfixed32 in repeatedSfixed32  {
+        output += "\(indent) repeatedSfixed32[\(repeatedSfixed32ElementIndex)]: \(oneValuerepeatedSfixed32)\n"
         repeatedSfixed32ElementIndex++
     }
     var repeatedSfixed64ElementIndex:Int = 0
-    for element in repeatedSfixed64  {
-        output += "\(indent) repeatedSfixed64[\(repeatedSfixed64ElementIndex)]: \(element)\n"
+    for oneValuerepeatedSfixed64 in repeatedSfixed64  {
+        output += "\(indent) repeatedSfixed64[\(repeatedSfixed64ElementIndex)]: \(oneValuerepeatedSfixed64)\n"
         repeatedSfixed64ElementIndex++
     }
     var repeatedFloatElementIndex:Int = 0
-    for element in repeatedFloat  {
-        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(element)\n"
+    for oneValuerepeatedFloat in repeatedFloat  {
+        output += "\(indent) repeatedFloat[\(repeatedFloatElementIndex)]: \(oneValuerepeatedFloat)\n"
         repeatedFloatElementIndex++
     }
     var repeatedDoubleElementIndex:Int = 0
-    for element in repeatedDouble  {
-        output += "\(indent) repeatedDouble[\(repeatedDoubleElementIndex)]: \(element)\n"
+    for oneValuerepeatedDouble in repeatedDouble  {
+        output += "\(indent) repeatedDouble[\(repeatedDoubleElementIndex)]: \(oneValuerepeatedDouble)\n"
         repeatedDoubleElementIndex++
     }
     var repeatedBoolElementIndex:Int = 0
-    for element in repeatedBool  {
-        output += "\(indent) repeatedBool[\(repeatedBoolElementIndex)]: \(element)\n"
+    for oneValuerepeatedBool in repeatedBool  {
+        output += "\(indent) repeatedBool[\(repeatedBoolElementIndex)]: \(oneValuerepeatedBool)\n"
         repeatedBoolElementIndex++
     }
     var repeatedStringElementIndex:Int = 0
-    for element in repeatedString  {
-        output += "\(indent) repeatedString[\(repeatedStringElementIndex)]: \(element)\n"
+    for oneValuerepeatedString in repeatedString  {
+        output += "\(indent) repeatedString[\(repeatedStringElementIndex)]: \(oneValuerepeatedString)\n"
         repeatedStringElementIndex++
     }
     var repeatedBytesElementIndex:Int = 0
-    for element in repeatedBytes  {
-        output += "\(indent) repeatedBytes[\(repeatedBytesElementIndex)]: \(element)\n"
+    for oneValuerepeatedBytes in repeatedBytes  {
+        output += "\(indent) repeatedBytes[\(repeatedBytesElementIndex)]: \(oneValuerepeatedBytes)\n"
         repeatedBytesElementIndex++
     }
     var repeatedGroupElementIndex:Int = 0
-    for element in repeatedGroup {
+    for oneElementrepeatedGroup in repeatedGroup {
         output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedGroupElementIndex++
     }
     var repeatedNestedMessageElementIndex:Int = 0
-    for element in repeatedNestedMessage {
+    for oneElementrepeatedNestedMessage in repeatedNestedMessage {
         output += "\(indent) repeatedNestedMessage[\(repeatedNestedMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedNestedMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedNestedMessageElementIndex++
     }
     var repeatedForeignMessageElementIndex:Int = 0
-    for element in repeatedForeignMessage {
+    for oneElementrepeatedForeignMessage in repeatedForeignMessage {
         output += "\(indent) repeatedForeignMessage[\(repeatedForeignMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedForeignMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedForeignMessageElementIndex++
     }
     var repeatedImportMessageElementIndex:Int = 0
-    for element in repeatedImportMessage {
+    for oneElementrepeatedImportMessage in repeatedImportMessage {
         output += "\(indent) repeatedImportMessage[\(repeatedImportMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedImportMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedImportMessageElementIndex++
     }
     var repeatedNestedEnumElementIndex:Int = 0
-    for element in repeatedNestedEnum {
-        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(element.rawValue)"
+    for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+        output += "\(indent) repeatedNestedEnum[\(repeatedNestedEnumElementIndex)]: \(oneValueOfrepeatedNestedEnum.rawValue)\n"
         repeatedNestedEnumElementIndex++
     }
     var repeatedForeignEnumElementIndex:Int = 0
-    for element in repeatedForeignEnum {
-        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(element.rawValue)"
+    for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+        output += "\(indent) repeatedForeignEnum[\(repeatedForeignEnumElementIndex)]: \(oneValueOfrepeatedForeignEnum.rawValue)\n"
         repeatedForeignEnumElementIndex++
     }
     var repeatedImportEnumElementIndex:Int = 0
-    for element in repeatedImportEnum {
-        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(element.rawValue)"
+    for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+        output += "\(indent) repeatedImportEnum[\(repeatedImportEnumElementIndex)]: \(oneValueOfrepeatedImportEnum.rawValue)\n"
         repeatedImportEnumElementIndex++
     }
     var repeatedStringPieceElementIndex:Int = 0
-    for element in repeatedStringPiece  {
-        output += "\(indent) repeatedStringPiece[\(repeatedStringPieceElementIndex)]: \(element)\n"
+    for oneValuerepeatedStringPiece in repeatedStringPiece  {
+        output += "\(indent) repeatedStringPiece[\(repeatedStringPieceElementIndex)]: \(oneValuerepeatedStringPiece)\n"
         repeatedStringPieceElementIndex++
     }
     var repeatedCordElementIndex:Int = 0
-    for element in repeatedCord  {
-        output += "\(indent) repeatedCord[\(repeatedCordElementIndex)]: \(element)\n"
+    for oneValuerepeatedCord in repeatedCord  {
+        output += "\(indent) repeatedCord[\(repeatedCordElementIndex)]: \(oneValuerepeatedCord)\n"
         repeatedCordElementIndex++
     }
     var repeatedLazyMessageElementIndex:Int = 0
-    for element in repeatedLazyMessage {
+    for oneElementrepeatedLazyMessage in repeatedLazyMessage {
         output += "\(indent) repeatedLazyMessage[\(repeatedLazyMessageElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedLazyMessage.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedLazyMessageElementIndex++
     }
@@ -3042,7 +3071,7 @@ final public class TestAllTypesLite : GeneratedMessage {
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasOptionalInt32 {
@@ -3087,8 +3116,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasOptionalString {
              hashCode = (hashCode &* 31) &+ optionalString.hashValue
           }
-          for value in optionalBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOptionalBytes {
+             for oneValueoptionalBytes in optionalBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueoptionalBytes.hashValue
+             }
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
@@ -3123,82 +3154,82 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasOptionalLazyMessage {
             hashCode = (hashCode &* 31) &+ optionalLazyMessage.hashValue
           }
-          for element in repeatedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt32 in repeatedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt32.hashValue
           }
-          for element in repeatedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedInt64 in repeatedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedInt64.hashValue
           }
-          for element in repeatedUint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedUint32 in repeatedUint32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedUint32.hashValue
           }
-          for element in repeatedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedUint64 in repeatedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedUint64.hashValue
           }
-          for element in repeatedSint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSint32 in repeatedSint32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSint32.hashValue
           }
-          for element in repeatedSint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSint64 in repeatedSint64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSint64.hashValue
           }
-          for element in repeatedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed32 in repeatedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed32.hashValue
           }
-          for element in repeatedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFixed64 in repeatedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFixed64.hashValue
           }
-          for element in repeatedSfixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSfixed32 in repeatedSfixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSfixed32.hashValue
           }
-          for element in repeatedSfixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedSfixed64 in repeatedSfixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedSfixed64.hashValue
           }
-          for element in repeatedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedFloat in repeatedFloat {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedFloat.hashValue
           }
-          for element in repeatedDouble {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedDouble in repeatedDouble {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedDouble.hashValue
           }
-          for element in repeatedBool {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedBool in repeatedBool {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedBool.hashValue
           }
-          for element in repeatedString {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedString in repeatedString {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedString.hashValue
           }
-          for value in repeatedBytes {
-            for element in value {
-                hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedBytes in repeatedBytes {
+            for elementOneValuerepeatedBytes in oneValuerepeatedBytes {
+                hashCode = (hashCode &* 31) &+ elementOneValuerepeatedBytes.hashValue
             }
           }
-          for element in repeatedGroup {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedGroup in repeatedGroup {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
           }
-          for element in repeatedNestedMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedNestedMessage in repeatedNestedMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedNestedMessage.hashValue
           }
-          for element in repeatedForeignMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedForeignMessage in repeatedForeignMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedForeignMessage.hashValue
           }
-          for element in repeatedImportMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedImportMessage in repeatedImportMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedImportMessage.hashValue
           }
-          for element in repeatedNestedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedNestedEnum.rawValue)
           }
-          for element in repeatedForeignEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedForeignEnum.rawValue)
           }
-          for element in repeatedImportEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfrepeatedImportEnum in repeatedImportEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfrepeatedImportEnum.rawValue)
           }
-          for element in repeatedStringPiece {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedStringPiece in repeatedStringPiece {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedStringPiece.hashValue
           }
-          for element in repeatedCord {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuerepeatedCord in repeatedCord {
+              hashCode = (hashCode &* 31) &+ oneValuerepeatedCord.hashValue
           }
-          for element in repeatedLazyMessage {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedLazyMessage in repeatedLazyMessage {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedLazyMessage.hashValue
           }
           if hasDefaultInt32 {
              hashCode = (hashCode &* 31) &+ defaultInt32.hashValue
@@ -3242,8 +3273,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasDefaultString {
              hashCode = (hashCode &* 31) &+ defaultString.hashValue
           }
-          for value in defaultBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasDefaultBytes {
+             for oneValuedefaultBytes in defaultBytes {
+                 hashCode = (hashCode &* 31) &+ oneValuedefaultBytes.hashValue
+             }
           }
           if hasDefaultNestedEnum {
              hashCode = (hashCode &* 31) &+ Int(defaultNestedEnum.rawValue)
@@ -3269,8 +3302,10 @@ final public class TestAllTypesLite : GeneratedMessage {
           if hasOneofString {
              hashCode = (hashCode &* 31) &+ oneofString.hashValue
           }
-          for value in oneofBytes {
-             hashCode = (hashCode &* 31) &+ value.hashValue
+          if hasOneofBytes {
+             for oneValueoneofBytes in oneofBytes {
+                 hashCode = (hashCode &* 31) &+ oneValueoneofBytes.hashValue
+             }
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -3280,10 +3315,13 @@ final public class TestAllTypesLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestAllTypesLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestAllTypesLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestAllTypesLite.self
   }
 
@@ -3292,10 +3330,10 @@ final public class TestAllTypesLite : GeneratedMessage {
 
 }
 
-final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
+final internal class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestAllTypesLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestAllTypesLite()
      super.init()
   }
@@ -3313,7 +3351,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalInt32 = value
        }
   }
-  func clearOptionalInt32() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalInt32() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalInt32 = false
        builderResult.optionalInt32 = Int32(0)
        return self
@@ -3332,7 +3370,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalInt64 = value
        }
   }
-  func clearOptionalInt64() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalInt64() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalInt64 = false
        builderResult.optionalInt64 = Int64(0)
        return self
@@ -3351,7 +3389,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalUint32 = value
        }
   }
-  func clearOptionalUint32() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalUint32() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalUint32 = false
        builderResult.optionalUint32 = UInt32(0)
        return self
@@ -3370,7 +3408,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalUint64 = value
        }
   }
-  func clearOptionalUint64() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalUint64() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalUint64 = false
        builderResult.optionalUint64 = UInt64(0)
        return self
@@ -3389,7 +3427,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalSint32 = value
        }
   }
-  func clearOptionalSint32() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalSint32() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalSint32 = false
        builderResult.optionalSint32 = Int32(0)
        return self
@@ -3408,7 +3446,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalSint64 = value
        }
   }
-  func clearOptionalSint64() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalSint64() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalSint64 = false
        builderResult.optionalSint64 = Int64(0)
        return self
@@ -3427,7 +3465,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalFixed32 = value
        }
   }
-  func clearOptionalFixed32() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalFixed32() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalFixed32 = false
        builderResult.optionalFixed32 = UInt32(0)
        return self
@@ -3446,7 +3484,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalFixed64 = value
        }
   }
-  func clearOptionalFixed64() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalFixed64() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalFixed64 = false
        builderResult.optionalFixed64 = UInt64(0)
        return self
@@ -3465,7 +3503,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalSfixed32 = value
        }
   }
-  func clearOptionalSfixed32() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalSfixed32() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalSfixed32 = false
        builderResult.optionalSfixed32 = Int32(0)
        return self
@@ -3484,7 +3522,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalSfixed64 = value
        }
   }
-  func clearOptionalSfixed64() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalSfixed64() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalSfixed64 = false
        builderResult.optionalSfixed64 = Int64(0)
        return self
@@ -3503,7 +3541,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalFloat = value
        }
   }
-  func clearOptionalFloat() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalFloat() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalFloat = false
        builderResult.optionalFloat = Float(0)
        return self
@@ -3522,7 +3560,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalDouble = value
        }
   }
-  func clearOptionalDouble() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalDouble() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalDouble = false
        builderResult.optionalDouble = Double(0)
        return self
@@ -3541,7 +3579,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalBool = value
        }
   }
-  func clearOptionalBool() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalBool() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalBool = false
        builderResult.optionalBool = false
        return self
@@ -3560,7 +3598,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalString = value
        }
   }
-  func clearOptionalString() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalString() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalString = false
        builderResult.optionalString = ""
        return self
@@ -3579,7 +3617,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalBytes = value
        }
   }
-  func clearOptionalBytes() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalBytes() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalBytes = false
        builderResult.optionalBytes = [Byte]()
        return self
@@ -3598,12 +3636,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalGroup = value
        }
   }
-  func setOptionalGroupBuilder(builderForValue:TestAllTypesLite.OptionalGroupBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalGroupBuilder(builderForValue:TestAllTypesLite.OptionalGroupBuilder) -> TestAllTypesLiteBuilder {
     optionalGroup = builderForValue.build()
     return self
   }
-  func mergeOptionalGroup(value:TestAllTypesLite.OptionalGroup) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestAllTypesLite.OptionalGroup()) {
+  internal func mergeOptionalGroup(value:TestAllTypesLite.OptionalGroup) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestAllTypesLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value
@@ -3611,7 +3649,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalGroup = true
     return self
   }
-  func clearOptionalGroup() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalGroup() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalGroup = false
     builderResult.optionalGroup = TestAllTypesLite.OptionalGroup()
     return self
@@ -3630,12 +3668,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalNestedMessage = value
        }
   }
-  func setOptionalNestedMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalNestedMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
     optionalNestedMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalNestedMessage && builderResult.optionalNestedMessage != TestAllTypesLite.NestedMessage()) {
+  internal func mergeOptionalNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalNestedMessage) {
       builderResult.optionalNestedMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalNestedMessage = value
@@ -3643,7 +3681,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalNestedMessage = true
     return self
   }
-  func clearOptionalNestedMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalNestedMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalNestedMessage = false
     builderResult.optionalNestedMessage = TestAllTypesLite.NestedMessage()
     return self
@@ -3662,12 +3700,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalForeignMessage = value
        }
   }
-  func setOptionalForeignMessageBuilder(builderForValue:ForeignMessageLiteBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalForeignMessageBuilder(builderForValue:ForeignMessageLiteBuilder) -> TestAllTypesLiteBuilder {
     optionalForeignMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalForeignMessage(value:ForeignMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalForeignMessage && builderResult.optionalForeignMessage != ForeignMessageLite()) {
+  internal func mergeOptionalForeignMessage(value:ForeignMessageLite) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalForeignMessage) {
       builderResult.optionalForeignMessage = ForeignMessageLite.builderWithPrototype(builderResult.optionalForeignMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalForeignMessage = value
@@ -3675,7 +3713,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalForeignMessage = true
     return self
   }
-  func clearOptionalForeignMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalForeignMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalForeignMessage = false
     builderResult.optionalForeignMessage = ForeignMessageLite()
     return self
@@ -3694,12 +3732,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalImportMessage = value
        }
   }
-  func setOptionalImportMessageBuilder(builderForValue:ImportMessageLiteBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalImportMessageBuilder(builderForValue:ImportMessageLiteBuilder) -> TestAllTypesLiteBuilder {
     optionalImportMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalImportMessage(value:ImportMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalImportMessage && builderResult.optionalImportMessage != ImportMessageLite()) {
+  internal func mergeOptionalImportMessage(value:ImportMessageLite) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalImportMessage) {
       builderResult.optionalImportMessage = ImportMessageLite.builderWithPrototype(builderResult.optionalImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalImportMessage = value
@@ -3707,7 +3745,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalImportMessage = true
     return self
   }
-  func clearOptionalImportMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalImportMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalImportMessage = false
     builderResult.optionalImportMessage = ImportMessageLite()
     return self
@@ -3726,7 +3764,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.optionalNestedEnum = value
         }
     }
-    func clearOptionalNestedEnum() -> TestAllTypesLiteBuilder {
+    internal func clearOptionalNestedEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasOptionalNestedEnum = false
        builderResult.optionalNestedEnum = .Foo
        return self
@@ -3745,7 +3783,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.optionalForeignEnum = value
         }
     }
-    func clearOptionalForeignEnum() -> TestAllTypesLiteBuilder {
+    internal func clearOptionalForeignEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasOptionalForeignEnum = false
        builderResult.optionalForeignEnum = .ForeignLiteFoo
        return self
@@ -3764,7 +3802,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.optionalImportEnum = value
         }
     }
-    func clearOptionalImportEnum() -> TestAllTypesLiteBuilder {
+    internal func clearOptionalImportEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasOptionalImportEnum = false
        builderResult.optionalImportEnum = .ImportLiteFoo
        return self
@@ -3783,7 +3821,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalStringPiece = value
        }
   }
-  func clearOptionalStringPiece() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalStringPiece() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalStringPiece = false
        builderResult.optionalStringPiece = ""
        return self
@@ -3802,7 +3840,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalCord = value
        }
   }
-  func clearOptionalCord() -> TestAllTypesLiteBuilder{
+  internal func clearOptionalCord() -> TestAllTypesLiteBuilder{
        builderResult.hasOptionalCord = false
        builderResult.optionalCord = ""
        return self
@@ -3821,12 +3859,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalPublicImportMessage = value
        }
   }
-  func setOptionalPublicImportMessageBuilder(builderForValue:PublicImportMessageLiteBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalPublicImportMessageBuilder(builderForValue:PublicImportMessageLiteBuilder) -> TestAllTypesLiteBuilder {
     optionalPublicImportMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalPublicImportMessage(value:PublicImportMessageLite) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalPublicImportMessage && builderResult.optionalPublicImportMessage != PublicImportMessageLite()) {
+  internal func mergeOptionalPublicImportMessage(value:PublicImportMessageLite) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalPublicImportMessage) {
       builderResult.optionalPublicImportMessage = PublicImportMessageLite.builderWithPrototype(builderResult.optionalPublicImportMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalPublicImportMessage = value
@@ -3834,7 +3872,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalPublicImportMessage = true
     return self
   }
-  func clearOptionalPublicImportMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalPublicImportMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalPublicImportMessage = false
     builderResult.optionalPublicImportMessage = PublicImportMessageLite()
     return self
@@ -3853,12 +3891,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.optionalLazyMessage = value
        }
   }
-  func setOptionalLazyMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOptionalLazyMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
     optionalLazyMessage = builderForValue.build()
     return self
   }
-  func mergeOptionalLazyMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOptionalLazyMessage && builderResult.optionalLazyMessage != TestAllTypesLite.NestedMessage()) {
+  internal func mergeOptionalLazyMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOptionalLazyMessage) {
       builderResult.optionalLazyMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.optionalLazyMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalLazyMessage = value
@@ -3866,7 +3904,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOptionalLazyMessage = true
     return self
   }
-  func clearOptionalLazyMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOptionalLazyMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOptionalLazyMessage = false
     builderResult.optionalLazyMessage = TestAllTypesLite.NestedMessage()
     return self
@@ -3879,7 +3917,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedInt32 = array
        }
   }
-  func clearRepeatedInt32() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedInt32() -> TestAllTypesLiteBuilder {
      builderResult.repeatedInt32.removeAll(keepCapacity: false)
      return self
   }
@@ -3891,7 +3929,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedInt64 = array
        }
   }
-  func clearRepeatedInt64() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedInt64() -> TestAllTypesLiteBuilder {
      builderResult.repeatedInt64.removeAll(keepCapacity: false)
      return self
   }
@@ -3903,7 +3941,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedUint32 = array
        }
   }
-  func clearRepeatedUint32() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedUint32() -> TestAllTypesLiteBuilder {
      builderResult.repeatedUint32.removeAll(keepCapacity: false)
      return self
   }
@@ -3915,7 +3953,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedUint64 = array
        }
   }
-  func clearRepeatedUint64() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedUint64() -> TestAllTypesLiteBuilder {
      builderResult.repeatedUint64.removeAll(keepCapacity: false)
      return self
   }
@@ -3927,7 +3965,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSint32 = array
        }
   }
-  func clearRepeatedSint32() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedSint32() -> TestAllTypesLiteBuilder {
      builderResult.repeatedSint32.removeAll(keepCapacity: false)
      return self
   }
@@ -3939,7 +3977,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSint64 = array
        }
   }
-  func clearRepeatedSint64() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedSint64() -> TestAllTypesLiteBuilder {
      builderResult.repeatedSint64.removeAll(keepCapacity: false)
      return self
   }
@@ -3951,7 +3989,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedFixed32 = array
        }
   }
-  func clearRepeatedFixed32() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedFixed32() -> TestAllTypesLiteBuilder {
      builderResult.repeatedFixed32.removeAll(keepCapacity: false)
      return self
   }
@@ -3963,7 +4001,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedFixed64 = array
        }
   }
-  func clearRepeatedFixed64() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedFixed64() -> TestAllTypesLiteBuilder {
      builderResult.repeatedFixed64.removeAll(keepCapacity: false)
      return self
   }
@@ -3975,7 +4013,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSfixed32 = array
        }
   }
-  func clearRepeatedSfixed32() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedSfixed32() -> TestAllTypesLiteBuilder {
      builderResult.repeatedSfixed32.removeAll(keepCapacity: false)
      return self
   }
@@ -3987,7 +4025,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedSfixed64 = array
        }
   }
-  func clearRepeatedSfixed64() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedSfixed64() -> TestAllTypesLiteBuilder {
      builderResult.repeatedSfixed64.removeAll(keepCapacity: false)
      return self
   }
@@ -3999,7 +4037,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedFloat = array
        }
   }
-  func clearRepeatedFloat() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedFloat() -> TestAllTypesLiteBuilder {
      builderResult.repeatedFloat.removeAll(keepCapacity: false)
      return self
   }
@@ -4011,7 +4049,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedDouble = array
        }
   }
-  func clearRepeatedDouble() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedDouble() -> TestAllTypesLiteBuilder {
      builderResult.repeatedDouble.removeAll(keepCapacity: false)
      return self
   }
@@ -4023,7 +4061,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedBool = array
        }
   }
-  func clearRepeatedBool() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedBool() -> TestAllTypesLiteBuilder {
      builderResult.repeatedBool.removeAll(keepCapacity: false)
      return self
   }
@@ -4035,7 +4073,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedString = array
        }
   }
-  func clearRepeatedString() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedString() -> TestAllTypesLiteBuilder {
      builderResult.repeatedString.removeAll(keepCapacity: false)
      return self
   }
@@ -4047,7 +4085,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedBytes = array
        }
   }
-  func clearRepeatedBytes() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedBytes() -> TestAllTypesLiteBuilder {
      builderResult.repeatedBytes.removeAll(keepCapacity: false)
      return self
   }
@@ -4059,7 +4097,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedGroup = value
        }
   }
-  func clearRepeatedGroup() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedGroup() -> TestAllTypesLiteBuilder {
     builderResult.repeatedGroup.removeAll(keepCapacity: false)
     return self
   }
@@ -4071,7 +4109,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedNestedMessage = value
        }
   }
-  func clearRepeatedNestedMessage() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedNestedMessage() -> TestAllTypesLiteBuilder {
     builderResult.repeatedNestedMessage.removeAll(keepCapacity: false)
     return self
   }
@@ -4083,7 +4121,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedForeignMessage = value
        }
   }
-  func clearRepeatedForeignMessage() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedForeignMessage() -> TestAllTypesLiteBuilder {
     builderResult.repeatedForeignMessage.removeAll(keepCapacity: false)
     return self
   }
@@ -4095,7 +4133,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedImportMessage = value
        }
   }
-  func clearRepeatedImportMessage() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedImportMessage() -> TestAllTypesLiteBuilder {
     builderResult.repeatedImportMessage.removeAll(keepCapacity: false)
     return self
   }
@@ -4104,10 +4142,10 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedNestedEnum
       }
       set (value) {
-          builderResult.repeatedNestedEnum += value
+          builderResult.repeatedNestedEnum = value
       }
   }
-  func clearRepeatedNestedEnum() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedNestedEnum() -> TestAllTypesLiteBuilder {
     builderResult.repeatedNestedEnum.removeAll(keepCapacity: false)
     return self
   }
@@ -4116,10 +4154,10 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedForeignEnum
       }
       set (value) {
-          builderResult.repeatedForeignEnum += value
+          builderResult.repeatedForeignEnum = value
       }
   }
-  func clearRepeatedForeignEnum() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedForeignEnum() -> TestAllTypesLiteBuilder {
     builderResult.repeatedForeignEnum.removeAll(keepCapacity: false)
     return self
   }
@@ -4128,10 +4166,10 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.repeatedImportEnum
       }
       set (value) {
-          builderResult.repeatedImportEnum += value
+          builderResult.repeatedImportEnum = value
       }
   }
-  func clearRepeatedImportEnum() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedImportEnum() -> TestAllTypesLiteBuilder {
     builderResult.repeatedImportEnum.removeAll(keepCapacity: false)
     return self
   }
@@ -4143,7 +4181,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedStringPiece = array
        }
   }
-  func clearRepeatedStringPiece() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedStringPiece() -> TestAllTypesLiteBuilder {
      builderResult.repeatedStringPiece.removeAll(keepCapacity: false)
      return self
   }
@@ -4155,7 +4193,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedCord = array
        }
   }
-  func clearRepeatedCord() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedCord() -> TestAllTypesLiteBuilder {
      builderResult.repeatedCord.removeAll(keepCapacity: false)
      return self
   }
@@ -4167,7 +4205,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.repeatedLazyMessage = value
        }
   }
-  func clearRepeatedLazyMessage() -> TestAllTypesLiteBuilder {
+  internal func clearRepeatedLazyMessage() -> TestAllTypesLiteBuilder {
     builderResult.repeatedLazyMessage.removeAll(keepCapacity: false)
     return self
   }
@@ -4185,7 +4223,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultInt32 = value
        }
   }
-  func clearDefaultInt32() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultInt32() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultInt32 = false
        builderResult.defaultInt32 = Int32(41)
        return self
@@ -4204,7 +4242,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultInt64 = value
        }
   }
-  func clearDefaultInt64() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultInt64() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultInt64 = false
        builderResult.defaultInt64 = Int64(42)
        return self
@@ -4223,7 +4261,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultUint32 = value
        }
   }
-  func clearDefaultUint32() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultUint32() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultUint32 = false
        builderResult.defaultUint32 = UInt32(43)
        return self
@@ -4242,7 +4280,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultUint64 = value
        }
   }
-  func clearDefaultUint64() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultUint64() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultUint64 = false
        builderResult.defaultUint64 = UInt64(44)
        return self
@@ -4261,7 +4299,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultSint32 = value
        }
   }
-  func clearDefaultSint32() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultSint32() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultSint32 = false
        builderResult.defaultSint32 = Int32(-45)
        return self
@@ -4280,7 +4318,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultSint64 = value
        }
   }
-  func clearDefaultSint64() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultSint64() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultSint64 = false
        builderResult.defaultSint64 = Int64(46)
        return self
@@ -4299,7 +4337,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultFixed32 = value
        }
   }
-  func clearDefaultFixed32() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultFixed32() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultFixed32 = false
        builderResult.defaultFixed32 = UInt32(47)
        return self
@@ -4318,7 +4356,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultFixed64 = value
        }
   }
-  func clearDefaultFixed64() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultFixed64() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultFixed64 = false
        builderResult.defaultFixed64 = UInt64(48)
        return self
@@ -4337,7 +4375,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultSfixed32 = value
        }
   }
-  func clearDefaultSfixed32() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultSfixed32() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultSfixed32 = false
        builderResult.defaultSfixed32 = Int32(49)
        return self
@@ -4356,7 +4394,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultSfixed64 = value
        }
   }
-  func clearDefaultSfixed64() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultSfixed64() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultSfixed64 = false
        builderResult.defaultSfixed64 = Int64(-50)
        return self
@@ -4375,7 +4413,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultFloat = value
        }
   }
-  func clearDefaultFloat() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultFloat() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultFloat = false
        builderResult.defaultFloat = Float(51.5)
        return self
@@ -4394,7 +4432,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultDouble = value
        }
   }
-  func clearDefaultDouble() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultDouble() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultDouble = false
        builderResult.defaultDouble = Double(52000)
        return self
@@ -4413,7 +4451,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultBool = value
        }
   }
-  func clearDefaultBool() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultBool() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultBool = false
        builderResult.defaultBool = true
        return self
@@ -4432,7 +4470,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultString = value
        }
   }
-  func clearDefaultString() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultString() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultString = false
        builderResult.defaultString = "hello"
        return self
@@ -4451,7 +4489,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultBytes = value
        }
   }
-  func clearDefaultBytes() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultBytes() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultBytes = false
        builderResult.defaultBytes = ([Byte]() + "world".utf8)
        return self
@@ -4470,7 +4508,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.defaultNestedEnum = value
         }
     }
-    func clearDefaultNestedEnum() -> TestAllTypesLiteBuilder {
+    internal func clearDefaultNestedEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasDefaultNestedEnum = false
        builderResult.defaultNestedEnum = .Bar
        return self
@@ -4489,7 +4527,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.defaultForeignEnum = value
         }
     }
-    func clearDefaultForeignEnum() -> TestAllTypesLiteBuilder {
+    internal func clearDefaultForeignEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasDefaultForeignEnum = false
        builderResult.defaultForeignEnum = .ForeignLiteBar
        return self
@@ -4508,7 +4546,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
             builderResult.defaultImportEnum = value
         }
     }
-    func clearDefaultImportEnum() -> TestAllTypesLiteBuilder {
+    internal func clearDefaultImportEnum() -> TestAllTypesLiteBuilder {
        builderResult.hasDefaultImportEnum = false
        builderResult.defaultImportEnum = .ImportLiteBar
        return self
@@ -4527,7 +4565,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultStringPiece = value
        }
   }
-  func clearDefaultStringPiece() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultStringPiece() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultStringPiece = false
        builderResult.defaultStringPiece = "abc"
        return self
@@ -4546,7 +4584,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.defaultCord = value
        }
   }
-  func clearDefaultCord() -> TestAllTypesLiteBuilder{
+  internal func clearDefaultCord() -> TestAllTypesLiteBuilder{
        builderResult.hasDefaultCord = false
        builderResult.defaultCord = "123"
        return self
@@ -4565,7 +4603,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.oneofUint32 = value
        }
   }
-  func clearOneofUint32() -> TestAllTypesLiteBuilder{
+  internal func clearOneofUint32() -> TestAllTypesLiteBuilder{
        builderResult.hasOneofUint32 = false
        builderResult.oneofUint32 = UInt32(0)
        return self
@@ -4584,12 +4622,12 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.oneofNestedMessage = value
        }
   }
-  func setOneofNestedMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
+  internal func setOneofNestedMessageBuilder(builderForValue:TestAllTypesLite.NestedMessageBuilder) -> TestAllTypesLiteBuilder {
     oneofNestedMessage = builderForValue.build()
     return self
   }
-  func mergeOneofNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
-    if (builderResult.hasOneofNestedMessage && builderResult.oneofNestedMessage != TestAllTypesLite.NestedMessage()) {
+  internal func mergeOneofNestedMessage(value:TestAllTypesLite.NestedMessage) -> TestAllTypesLiteBuilder {
+    if (builderResult.hasOneofNestedMessage) {
       builderResult.oneofNestedMessage = TestAllTypesLite.NestedMessage.builderWithPrototype(builderResult.oneofNestedMessage).mergeFrom(value).buildPartial()
     } else {
       builderResult.oneofNestedMessage = value
@@ -4597,7 +4635,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     builderResult.hasOneofNestedMessage = true
     return self
   }
-  func clearOneofNestedMessage() -> TestAllTypesLiteBuilder {
+  internal func clearOneofNestedMessage() -> TestAllTypesLiteBuilder {
     builderResult.hasOneofNestedMessage = false
     builderResult.oneofNestedMessage = TestAllTypesLite.NestedMessage()
     return self
@@ -4616,7 +4654,7 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.oneofString = value
        }
   }
-  func clearOneofString() -> TestAllTypesLiteBuilder{
+  internal func clearOneofString() -> TestAllTypesLiteBuilder{
        builderResult.hasOneofString = false
        builderResult.oneofString = ""
        return self
@@ -4635,32 +4673,32 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.oneofBytes = value
        }
   }
-  func clearOneofBytes() -> TestAllTypesLiteBuilder{
+  internal func clearOneofBytes() -> TestAllTypesLiteBuilder{
        builderResult.hasOneofBytes = false
        builderResult.oneofBytes = [Byte]()
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestAllTypesLiteBuilder {
+  internal override func clear() -> TestAllTypesLiteBuilder {
     builderResult = TestAllTypesLite()
     return self
   }
-  override func clone() -> TestAllTypesLiteBuilder {
+  internal override func clone() -> TestAllTypesLiteBuilder {
     return TestAllTypesLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestAllTypesLite {
+  internal override func build() -> TestAllTypesLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestAllTypesLite {
+  internal func buildPartial() -> TestAllTypesLite {
     var returnMe:TestAllTypesLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestAllTypesLite) -> TestAllTypesLiteBuilder {
+  internal func mergeFrom(other:TestAllTypesLite) -> TestAllTypesLiteBuilder {
     if (other == TestAllTypesLite()) {
      return self
     }
@@ -4892,10 +4930,10 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllTypesLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllTypesLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -4982,30 +5020,27 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
         optionalImportMessage = subBuilder.buildPartial()
 
       case 168 :
-        var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
-        if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
-             optionalNestedEnum = enumMergResult
+        let valueIntoptionalNestedEnum = input.readEnum()
+        if let enumsoptionalNestedEnum = TestAllTypesLite.NestedEnum(rawValue:valueIntoptionalNestedEnum){
+             optionalNestedEnum = enumsoptionalNestedEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(21, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(21, value:Int64(valueIntoptionalNestedEnum))
         }
 
       case 176 :
-        var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
-        if (ForeignEnumLite.IsValidValue(enumMergResult)) {
-             optionalForeignEnum = enumMergResult
+        let valueIntoptionalForeignEnum = input.readEnum()
+        if let enumsoptionalForeignEnum = ForeignEnumLite(rawValue:valueIntoptionalForeignEnum){
+             optionalForeignEnum = enumsoptionalForeignEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(22, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(22, value:Int64(valueIntoptionalForeignEnum))
         }
 
       case 184 :
-        var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
-        if (ImportEnumLite.IsValidValue(enumMergResult)) {
-             optionalImportEnum = enumMergResult
+        let valueIntoptionalImportEnum = input.readEnum()
+        if let enumsoptionalImportEnum = ImportEnumLite(rawValue:valueIntoptionalImportEnum){
+             optionalImportEnum = enumsoptionalImportEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(23, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(23, value:Int64(valueIntoptionalImportEnum))
         }
 
       case 194 :
@@ -5096,27 +5131,27 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
         repeatedImportMessage += [subBuilder.buildPartial()]
 
       case 408 :
-        var value:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:input.readEnum())!
-        if TestAllTypesLite.NestedEnum.IsValidValue(value) {
-             builderResult.repeatedNestedEnum += [value]
+        let valueIntrepeatedNestedEnum = input.readEnum()
+        if let enumsrepeatedNestedEnum = TestAllTypesLite.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
+             builderResult.repeatedNestedEnum += [enumsrepeatedNestedEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(51, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(51, value:Int64(valueIntrepeatedNestedEnum))
         }
 
       case 416 :
-        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
-        if ForeignEnumLite.IsValidValue(value) {
-             builderResult.repeatedForeignEnum += [value]
+        let valueIntrepeatedForeignEnum = input.readEnum()
+        if let enumsrepeatedForeignEnum = ForeignEnumLite(rawValue:valueIntrepeatedForeignEnum) {
+             builderResult.repeatedForeignEnum += [enumsrepeatedForeignEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(52, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(52, value:Int64(valueIntrepeatedForeignEnum))
         }
 
       case 424 :
-        var value:ImportEnumLite = ImportEnumLite(rawValue:input.readEnum())!
-        if ImportEnumLite.IsValidValue(value) {
-             builderResult.repeatedImportEnum += [value]
+        let valueIntrepeatedImportEnum = input.readEnum()
+        if let enumsrepeatedImportEnum = ImportEnumLite(rawValue:valueIntrepeatedImportEnum) {
+             builderResult.repeatedImportEnum += [enumsrepeatedImportEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(53, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(53, value:Int64(valueIntrepeatedImportEnum))
         }
 
       case 434 :
@@ -5176,30 +5211,27 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
         defaultBytes = input.readData()
 
       case 648 :
-        var value = input.readEnum()
-        var enumMergResult:TestAllTypesLite.NestedEnum = TestAllTypesLite.NestedEnum(rawValue:value)!
-        if (TestAllTypesLite.NestedEnum.IsValidValue(enumMergResult)) {
-             defaultNestedEnum = enumMergResult
+        let valueIntdefaultNestedEnum = input.readEnum()
+        if let enumsdefaultNestedEnum = TestAllTypesLite.NestedEnum(rawValue:valueIntdefaultNestedEnum){
+             defaultNestedEnum = enumsdefaultNestedEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(81, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(81, value:Int64(valueIntdefaultNestedEnum))
         }
 
       case 656 :
-        var value = input.readEnum()
-        var enumMergResult:ForeignEnumLite = ForeignEnumLite(rawValue:value)!
-        if (ForeignEnumLite.IsValidValue(enumMergResult)) {
-             defaultForeignEnum = enumMergResult
+        let valueIntdefaultForeignEnum = input.readEnum()
+        if let enumsdefaultForeignEnum = ForeignEnumLite(rawValue:valueIntdefaultForeignEnum){
+             defaultForeignEnum = enumsdefaultForeignEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(82, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(82, value:Int64(valueIntdefaultForeignEnum))
         }
 
       case 664 :
-        var value = input.readEnum()
-        var enumMergResult:ImportEnumLite = ImportEnumLite(rawValue:value)!
-        if (ImportEnumLite.IsValidValue(enumMergResult)) {
-             defaultImportEnum = enumMergResult
+        let valueIntdefaultImportEnum = input.readEnum()
+        if let enumsdefaultImportEnum = ImportEnumLite(rawValue:valueIntdefaultImportEnum){
+             defaultImportEnum = enumsdefaultImportEnum
         } else {
-             unknownFieldsBuilder.mergeVarintField(83, value:Int64(value))
+             unknownFieldsBuilder.mergeVarintField(83, value:Int64(valueIntdefaultImportEnum))
         }
 
       case 674 :
@@ -5235,23 +5267,23 @@ final class TestAllTypesLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class ForeignMessageLite : GeneratedMessage {
+final internal class ForeignMessageLite : GeneratedMessage {
   private(set) var hasC:Bool = false
   private(set) var c:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasC {
       output.writeInt32(1, value:c)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5265,43 +5297,49 @@ final public class ForeignMessageLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ForeignMessageLite {
+  internal class func parseFromData(data:[Byte]) -> ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ForeignMessageLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ForeignMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ForeignMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ForeignMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ForeignMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ForeignMessageLite {
     return ForeignMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ForeignMessageLiteBuilder {
+  internal class func builder() -> ForeignMessageLiteBuilder {
+    return ForeignMessageLite.classBuilder() as ForeignMessageLiteBuilder
+  }
+  internal func builder() -> ForeignMessageLiteBuilder {
+    return classBuilder() as ForeignMessageLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ForeignMessageLiteBuilder()
   }
-  class func builderWithPrototype(prototype:ForeignMessageLite) -> ForeignMessageLiteBuilder {
-    return ForeignMessageLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> ForeignMessageLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ForeignMessageLite.builder()
   }
-  func toBuilder() -> ForeignMessageLiteBuilder {
+  internal func toBuilder() -> ForeignMessageLiteBuilder {
     return ForeignMessageLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ForeignMessageLite) -> ForeignMessageLiteBuilder {
+    return ForeignMessageLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasC {
       output += "\(indent) c: \(c) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasC {
@@ -5315,10 +5353,13 @@ final public class ForeignMessageLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ForeignMessageLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ForeignMessageLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ForeignMessageLite.self
   }
 
@@ -5327,10 +5368,10 @@ final public class ForeignMessageLite : GeneratedMessage {
 
 }
 
-final class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
+final internal class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:ForeignMessageLite
 
-  required override init () {
+  required override internal init () {
      builderResult = ForeignMessageLite()
      super.init()
   }
@@ -5348,32 +5389,32 @@ final class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
            builderResult.c = value
        }
   }
-  func clearC() -> ForeignMessageLiteBuilder{
+  internal func clearC() -> ForeignMessageLiteBuilder{
        builderResult.hasC = false
        builderResult.c = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ForeignMessageLiteBuilder {
+  internal override func clear() -> ForeignMessageLiteBuilder {
     builderResult = ForeignMessageLite()
     return self
   }
-  override func clone() -> ForeignMessageLiteBuilder {
+  internal override func clone() -> ForeignMessageLiteBuilder {
     return ForeignMessageLite.builderWithPrototype(builderResult)
   }
-  override func build() -> ForeignMessageLite {
+  internal override func build() -> ForeignMessageLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ForeignMessageLite {
+  internal func buildPartial() -> ForeignMessageLite {
     var returnMe:ForeignMessageLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:ForeignMessageLite) -> ForeignMessageLiteBuilder {
+  internal func mergeFrom(other:ForeignMessageLite) -> ForeignMessageLiteBuilder {
     if (other == ForeignMessageLite()) {
      return self
     }
@@ -5383,10 +5424,10 @@ final class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ForeignMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ForeignMessageLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ForeignMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ForeignMessageLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -5408,7 +5449,7 @@ final class ForeignMessageLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestPackedTypesLite : GeneratedMessage {
+final internal class TestPackedTypesLite : GeneratedMessage {
   private(set) var packedInt32:Array<Int32> = Array<Int32>()
   private var packedInt32MemoizedSerializedSize:Int32 = -1
   private(set) var packedInt64:Array<Int64> = Array<Int64>()
@@ -5437,114 +5478,114 @@ final public class TestPackedTypesLite : GeneratedMessage {
   private var packedBoolMemoizedSerializedSize:Int32 = -1
   private var packedEnumMemoizedSerializedSize:Int32 = 0
   private(set) var packedEnum:Array<ForeignEnumLite> = Array<ForeignEnumLite>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if !packedInt32.isEmpty {
       output.writeRawVarint32(722)
       output.writeRawVarint32(packedInt32MemoizedSerializedSize)
-      for value in packedInt32 {
-        output.writeInt32NoTag(value)
+      for oneValuepackedInt32 in packedInt32 {
+        output.writeInt32NoTag(oneValuepackedInt32)
       }
     }
     if !packedInt64.isEmpty {
       output.writeRawVarint32(730)
       output.writeRawVarint32(packedInt64MemoizedSerializedSize)
-      for value in packedInt64 {
-        output.writeInt64NoTag(value)
+      for oneValuepackedInt64 in packedInt64 {
+        output.writeInt64NoTag(oneValuepackedInt64)
       }
     }
     if !packedUint32.isEmpty {
       output.writeRawVarint32(738)
       output.writeRawVarint32(packedUint32MemoizedSerializedSize)
-      for value in packedUint32 {
-        output.writeUInt32NoTag(value)
+      for oneValuepackedUint32 in packedUint32 {
+        output.writeUInt32NoTag(oneValuepackedUint32)
       }
     }
     if !packedUint64.isEmpty {
       output.writeRawVarint32(746)
       output.writeRawVarint32(packedUint64MemoizedSerializedSize)
-      for value in packedUint64 {
-        output.writeUInt64NoTag(value)
+      for oneValuepackedUint64 in packedUint64 {
+        output.writeUInt64NoTag(oneValuepackedUint64)
       }
     }
     if !packedSint32.isEmpty {
       output.writeRawVarint32(754)
       output.writeRawVarint32(packedSint32MemoizedSerializedSize)
-      for value in packedSint32 {
-        output.writeSInt32NoTag(value)
+      for oneValuepackedSint32 in packedSint32 {
+        output.writeSInt32NoTag(oneValuepackedSint32)
       }
     }
     if !packedSint64.isEmpty {
       output.writeRawVarint32(762)
       output.writeRawVarint32(packedSint64MemoizedSerializedSize)
-      for value in packedSint64 {
-        output.writeSInt64NoTag(value)
+      for oneValuepackedSint64 in packedSint64 {
+        output.writeSInt64NoTag(oneValuepackedSint64)
       }
     }
     if !packedFixed32.isEmpty {
       output.writeRawVarint32(770)
       output.writeRawVarint32(packedFixed32MemoizedSerializedSize)
-      for value in packedFixed32 {
-        output.writeFixed32NoTag(value)
+      for oneValuepackedFixed32 in packedFixed32 {
+        output.writeFixed32NoTag(oneValuepackedFixed32)
       }
     }
     if !packedFixed64.isEmpty {
       output.writeRawVarint32(778)
       output.writeRawVarint32(packedFixed64MemoizedSerializedSize)
-      for value in packedFixed64 {
-        output.writeFixed64NoTag(value)
+      for oneValuepackedFixed64 in packedFixed64 {
+        output.writeFixed64NoTag(oneValuepackedFixed64)
       }
     }
     if !packedSfixed32.isEmpty {
       output.writeRawVarint32(786)
       output.writeRawVarint32(packedSfixed32MemoizedSerializedSize)
-      for value in packedSfixed32 {
-        output.writeSFixed32NoTag(value)
+      for oneValuepackedSfixed32 in packedSfixed32 {
+        output.writeSFixed32NoTag(oneValuepackedSfixed32)
       }
     }
     if !packedSfixed64.isEmpty {
       output.writeRawVarint32(794)
       output.writeRawVarint32(packedSfixed64MemoizedSerializedSize)
-      for value in packedSfixed64 {
-        output.writeSFixed64NoTag(value)
+      for oneValuepackedSfixed64 in packedSfixed64 {
+        output.writeSFixed64NoTag(oneValuepackedSfixed64)
       }
     }
     if !packedFloat.isEmpty {
       output.writeRawVarint32(802)
       output.writeRawVarint32(packedFloatMemoizedSerializedSize)
-      for value in packedFloat {
-        output.writeFloatNoTag(value)
+      for oneValuepackedFloat in packedFloat {
+        output.writeFloatNoTag(oneValuepackedFloat)
       }
     }
     if !packedDouble.isEmpty {
       output.writeRawVarint32(810)
       output.writeRawVarint32(packedDoubleMemoizedSerializedSize)
-      for value in packedDouble {
-        output.writeDoubleNoTag(value)
+      for oneValuepackedDouble in packedDouble {
+        output.writeDoubleNoTag(oneValuepackedDouble)
       }
     }
     if !packedBool.isEmpty {
       output.writeRawVarint32(818)
       output.writeRawVarint32(packedBoolMemoizedSerializedSize)
-      for value in packedBool {
-        output.writeBoolNoTag(value)
+      for oneValuepackedBool in packedBool {
+        output.writeBoolNoTag(oneValuepackedBool)
       }
     }
     if !packedEnum.isEmpty {
       output.writeRawVarint32(826)
       output.writeRawVarint32(packedEnumMemoizedSerializedSize)
     }
-    for value in packedEnum {
-        output.writeEnumNoTag(value.rawValue)
+    for oneValueOfpackedEnum in packedEnum {
+        output.writeEnumNoTag(oneValueOfpackedEnum.rawValue)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -5552,8 +5593,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
 
     size = 0
     var dataSizePackedInt32:Int32 = 0
-    for element in packedInt32 {
-        dataSizePackedInt32 += WireFormat.computeInt32SizeNoTag(element)
+    for oneValuepackedInt32 in packedInt32 {
+        dataSizePackedInt32 += WireFormat.computeInt32SizeNoTag(oneValuepackedInt32)
     }
     size += dataSizePackedInt32
     if !packedInt32.isEmpty {
@@ -5562,8 +5603,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedInt32MemoizedSerializedSize = dataSizePackedInt32
     var dataSizePackedInt64:Int32 = 0
-    for element in packedInt64 {
-        dataSizePackedInt64 += WireFormat.computeInt64SizeNoTag(element)
+    for oneValuepackedInt64 in packedInt64 {
+        dataSizePackedInt64 += WireFormat.computeInt64SizeNoTag(oneValuepackedInt64)
     }
     size += dataSizePackedInt64
     if !packedInt64.isEmpty {
@@ -5572,8 +5613,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedInt64MemoizedSerializedSize = dataSizePackedInt64
     var dataSizePackedUint32:Int32 = 0
-    for element in packedUint32 {
-        dataSizePackedUint32 += WireFormat.computeUInt32SizeNoTag(element)
+    for oneValuepackedUint32 in packedUint32 {
+        dataSizePackedUint32 += WireFormat.computeUInt32SizeNoTag(oneValuepackedUint32)
     }
     size += dataSizePackedUint32
     if !packedUint32.isEmpty {
@@ -5582,8 +5623,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedUint32MemoizedSerializedSize = dataSizePackedUint32
     var dataSizePackedUint64:Int32 = 0
-    for element in packedUint64 {
-        dataSizePackedUint64 += WireFormat.computeUInt64SizeNoTag(element)
+    for oneValuepackedUint64 in packedUint64 {
+        dataSizePackedUint64 += WireFormat.computeUInt64SizeNoTag(oneValuepackedUint64)
     }
     size += dataSizePackedUint64
     if !packedUint64.isEmpty {
@@ -5592,8 +5633,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedUint64MemoizedSerializedSize = dataSizePackedUint64
     var dataSizePackedSint32:Int32 = 0
-    for element in packedSint32 {
-        dataSizePackedSint32 += WireFormat.computeSInt32SizeNoTag(element)
+    for oneValuepackedSint32 in packedSint32 {
+        dataSizePackedSint32 += WireFormat.computeSInt32SizeNoTag(oneValuepackedSint32)
     }
     size += dataSizePackedSint32
     if !packedSint32.isEmpty {
@@ -5602,8 +5643,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedSint32MemoizedSerializedSize = dataSizePackedSint32
     var dataSizePackedSint64:Int32 = 0
-    for element in packedSint64 {
-        dataSizePackedSint64 += WireFormat.computeSInt64SizeNoTag(element)
+    for oneValuepackedSint64 in packedSint64 {
+        dataSizePackedSint64 += WireFormat.computeSInt64SizeNoTag(oneValuepackedSint64)
     }
     size += dataSizePackedSint64
     if !packedSint64.isEmpty {
@@ -5668,8 +5709,8 @@ final public class TestPackedTypesLite : GeneratedMessage {
     }
     packedBoolMemoizedSerializedSize = dataSizePackedBool
     var dataSizepackedEnum:Int32 = 0
-    for value in packedEnum {
-        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(value.rawValue)
+    for oneValueOfpackedEnum in packedEnum {
+        dataSizepackedEnum += WireFormat.computeEnumSizeNoTag(oneValueOfpackedEnum.rawValue)
     }
     size += dataSizepackedEnum
     if !packedEnum.isEmpty {
@@ -5681,153 +5722,159 @@ final public class TestPackedTypesLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestPackedTypesLite {
+  internal class func parseFromData(data:[Byte]) -> TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedTypesLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestPackedTypesLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestPackedTypesLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestPackedTypesLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedTypesLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedTypesLite {
     return TestPackedTypesLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestPackedTypesLiteBuilder {
+  internal class func builder() -> TestPackedTypesLiteBuilder {
+    return TestPackedTypesLite.classBuilder() as TestPackedTypesLiteBuilder
+  }
+  internal func builder() -> TestPackedTypesLiteBuilder {
+    return classBuilder() as TestPackedTypesLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedTypesLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestPackedTypesLite) -> TestPackedTypesLiteBuilder {
-    return TestPackedTypesLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestPackedTypesLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedTypesLite.builder()
   }
-  func toBuilder() -> TestPackedTypesLiteBuilder {
+  internal func toBuilder() -> TestPackedTypesLiteBuilder {
     return TestPackedTypesLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestPackedTypesLite) -> TestPackedTypesLiteBuilder {
+    return TestPackedTypesLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     var packedInt32ElementIndex:Int = 0
-    for element in packedInt32  {
-        output += "\(indent) packedInt32[\(packedInt32ElementIndex)]: \(element)\n"
+    for oneValuepackedInt32 in packedInt32  {
+        output += "\(indent) packedInt32[\(packedInt32ElementIndex)]: \(oneValuepackedInt32)\n"
         packedInt32ElementIndex++
     }
     var packedInt64ElementIndex:Int = 0
-    for element in packedInt64  {
-        output += "\(indent) packedInt64[\(packedInt64ElementIndex)]: \(element)\n"
+    for oneValuepackedInt64 in packedInt64  {
+        output += "\(indent) packedInt64[\(packedInt64ElementIndex)]: \(oneValuepackedInt64)\n"
         packedInt64ElementIndex++
     }
     var packedUint32ElementIndex:Int = 0
-    for element in packedUint32  {
-        output += "\(indent) packedUint32[\(packedUint32ElementIndex)]: \(element)\n"
+    for oneValuepackedUint32 in packedUint32  {
+        output += "\(indent) packedUint32[\(packedUint32ElementIndex)]: \(oneValuepackedUint32)\n"
         packedUint32ElementIndex++
     }
     var packedUint64ElementIndex:Int = 0
-    for element in packedUint64  {
-        output += "\(indent) packedUint64[\(packedUint64ElementIndex)]: \(element)\n"
+    for oneValuepackedUint64 in packedUint64  {
+        output += "\(indent) packedUint64[\(packedUint64ElementIndex)]: \(oneValuepackedUint64)\n"
         packedUint64ElementIndex++
     }
     var packedSint32ElementIndex:Int = 0
-    for element in packedSint32  {
-        output += "\(indent) packedSint32[\(packedSint32ElementIndex)]: \(element)\n"
+    for oneValuepackedSint32 in packedSint32  {
+        output += "\(indent) packedSint32[\(packedSint32ElementIndex)]: \(oneValuepackedSint32)\n"
         packedSint32ElementIndex++
     }
     var packedSint64ElementIndex:Int = 0
-    for element in packedSint64  {
-        output += "\(indent) packedSint64[\(packedSint64ElementIndex)]: \(element)\n"
+    for oneValuepackedSint64 in packedSint64  {
+        output += "\(indent) packedSint64[\(packedSint64ElementIndex)]: \(oneValuepackedSint64)\n"
         packedSint64ElementIndex++
     }
     var packedFixed32ElementIndex:Int = 0
-    for element in packedFixed32  {
-        output += "\(indent) packedFixed32[\(packedFixed32ElementIndex)]: \(element)\n"
+    for oneValuepackedFixed32 in packedFixed32  {
+        output += "\(indent) packedFixed32[\(packedFixed32ElementIndex)]: \(oneValuepackedFixed32)\n"
         packedFixed32ElementIndex++
     }
     var packedFixed64ElementIndex:Int = 0
-    for element in packedFixed64  {
-        output += "\(indent) packedFixed64[\(packedFixed64ElementIndex)]: \(element)\n"
+    for oneValuepackedFixed64 in packedFixed64  {
+        output += "\(indent) packedFixed64[\(packedFixed64ElementIndex)]: \(oneValuepackedFixed64)\n"
         packedFixed64ElementIndex++
     }
     var packedSfixed32ElementIndex:Int = 0
-    for element in packedSfixed32  {
-        output += "\(indent) packedSfixed32[\(packedSfixed32ElementIndex)]: \(element)\n"
+    for oneValuepackedSfixed32 in packedSfixed32  {
+        output += "\(indent) packedSfixed32[\(packedSfixed32ElementIndex)]: \(oneValuepackedSfixed32)\n"
         packedSfixed32ElementIndex++
     }
     var packedSfixed64ElementIndex:Int = 0
-    for element in packedSfixed64  {
-        output += "\(indent) packedSfixed64[\(packedSfixed64ElementIndex)]: \(element)\n"
+    for oneValuepackedSfixed64 in packedSfixed64  {
+        output += "\(indent) packedSfixed64[\(packedSfixed64ElementIndex)]: \(oneValuepackedSfixed64)\n"
         packedSfixed64ElementIndex++
     }
     var packedFloatElementIndex:Int = 0
-    for element in packedFloat  {
-        output += "\(indent) packedFloat[\(packedFloatElementIndex)]: \(element)\n"
+    for oneValuepackedFloat in packedFloat  {
+        output += "\(indent) packedFloat[\(packedFloatElementIndex)]: \(oneValuepackedFloat)\n"
         packedFloatElementIndex++
     }
     var packedDoubleElementIndex:Int = 0
-    for element in packedDouble  {
-        output += "\(indent) packedDouble[\(packedDoubleElementIndex)]: \(element)\n"
+    for oneValuepackedDouble in packedDouble  {
+        output += "\(indent) packedDouble[\(packedDoubleElementIndex)]: \(oneValuepackedDouble)\n"
         packedDoubleElementIndex++
     }
     var packedBoolElementIndex:Int = 0
-    for element in packedBool  {
-        output += "\(indent) packedBool[\(packedBoolElementIndex)]: \(element)\n"
+    for oneValuepackedBool in packedBool  {
+        output += "\(indent) packedBool[\(packedBoolElementIndex)]: \(oneValuepackedBool)\n"
         packedBoolElementIndex++
     }
     var packedEnumElementIndex:Int = 0
-    for element in packedEnum {
-        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(element.rawValue)"
+    for oneValueOfpackedEnum in packedEnum {
+        output += "\(indent) packedEnum[\(packedEnumElementIndex)]: \(oneValueOfpackedEnum.rawValue)\n"
         packedEnumElementIndex++
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
-          for element in packedInt32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedInt32 in packedInt32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedInt32.hashValue
           }
-          for element in packedInt64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedInt64 in packedInt64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedInt64.hashValue
           }
-          for element in packedUint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedUint32 in packedUint32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedUint32.hashValue
           }
-          for element in packedUint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedUint64 in packedUint64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedUint64.hashValue
           }
-          for element in packedSint32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSint32 in packedSint32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSint32.hashValue
           }
-          for element in packedSint64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSint64 in packedSint64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSint64.hashValue
           }
-          for element in packedFixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFixed32 in packedFixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFixed32.hashValue
           }
-          for element in packedFixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFixed64 in packedFixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFixed64.hashValue
           }
-          for element in packedSfixed32 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSfixed32 in packedSfixed32 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSfixed32.hashValue
           }
-          for element in packedSfixed64 {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedSfixed64 in packedSfixed64 {
+              hashCode = (hashCode &* 31) &+ oneValuepackedSfixed64.hashValue
           }
-          for element in packedFloat {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedFloat in packedFloat {
+              hashCode = (hashCode &* 31) &+ oneValuepackedFloat.hashValue
           }
-          for element in packedDouble {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedDouble in packedDouble {
+              hashCode = (hashCode &* 31) &+ oneValuepackedDouble.hashValue
           }
-          for element in packedBool {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneValuepackedBool in packedBool {
+              hashCode = (hashCode &* 31) &+ oneValuepackedBool.hashValue
           }
-          for element in packedEnum {
-              hashCode = (hashCode &* 31) &+ Int(element.rawValue)
+          for oneValueOfpackedEnum in packedEnum {
+              hashCode = (hashCode &* 31) &+ Int(oneValueOfpackedEnum.rawValue)
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -5837,10 +5884,13 @@ final public class TestPackedTypesLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestPackedTypesLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestPackedTypesLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestPackedTypesLite.self
   }
 
@@ -5849,10 +5899,10 @@ final public class TestPackedTypesLite : GeneratedMessage {
 
 }
 
-final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
+final internal class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestPackedTypesLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestPackedTypesLite()
      super.init()
   }
@@ -5864,7 +5914,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedInt32 = array
        }
   }
-  func clearPackedInt32() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedInt32() -> TestPackedTypesLiteBuilder {
      builderResult.packedInt32.removeAll(keepCapacity: false)
      return self
   }
@@ -5876,7 +5926,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedInt64 = array
        }
   }
-  func clearPackedInt64() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedInt64() -> TestPackedTypesLiteBuilder {
      builderResult.packedInt64.removeAll(keepCapacity: false)
      return self
   }
@@ -5888,7 +5938,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedUint32 = array
        }
   }
-  func clearPackedUint32() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedUint32() -> TestPackedTypesLiteBuilder {
      builderResult.packedUint32.removeAll(keepCapacity: false)
      return self
   }
@@ -5900,7 +5950,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedUint64 = array
        }
   }
-  func clearPackedUint64() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedUint64() -> TestPackedTypesLiteBuilder {
      builderResult.packedUint64.removeAll(keepCapacity: false)
      return self
   }
@@ -5912,7 +5962,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedSint32 = array
        }
   }
-  func clearPackedSint32() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedSint32() -> TestPackedTypesLiteBuilder {
      builderResult.packedSint32.removeAll(keepCapacity: false)
      return self
   }
@@ -5924,7 +5974,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedSint64 = array
        }
   }
-  func clearPackedSint64() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedSint64() -> TestPackedTypesLiteBuilder {
      builderResult.packedSint64.removeAll(keepCapacity: false)
      return self
   }
@@ -5936,7 +5986,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedFixed32 = array
        }
   }
-  func clearPackedFixed32() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedFixed32() -> TestPackedTypesLiteBuilder {
      builderResult.packedFixed32.removeAll(keepCapacity: false)
      return self
   }
@@ -5948,7 +5998,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedFixed64 = array
        }
   }
-  func clearPackedFixed64() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedFixed64() -> TestPackedTypesLiteBuilder {
      builderResult.packedFixed64.removeAll(keepCapacity: false)
      return self
   }
@@ -5960,7 +6010,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedSfixed32 = array
        }
   }
-  func clearPackedSfixed32() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedSfixed32() -> TestPackedTypesLiteBuilder {
      builderResult.packedSfixed32.removeAll(keepCapacity: false)
      return self
   }
@@ -5972,7 +6022,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedSfixed64 = array
        }
   }
-  func clearPackedSfixed64() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedSfixed64() -> TestPackedTypesLiteBuilder {
      builderResult.packedSfixed64.removeAll(keepCapacity: false)
      return self
   }
@@ -5984,7 +6034,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedFloat = array
        }
   }
-  func clearPackedFloat() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedFloat() -> TestPackedTypesLiteBuilder {
      builderResult.packedFloat.removeAll(keepCapacity: false)
      return self
   }
@@ -5996,7 +6046,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedDouble = array
        }
   }
-  func clearPackedDouble() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedDouble() -> TestPackedTypesLiteBuilder {
      builderResult.packedDouble.removeAll(keepCapacity: false)
      return self
   }
@@ -6008,7 +6058,7 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
            builderResult.packedBool = array
        }
   }
-  func clearPackedBool() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedBool() -> TestPackedTypesLiteBuilder {
      builderResult.packedBool.removeAll(keepCapacity: false)
      return self
   }
@@ -6017,34 +6067,34 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
           return builderResult.packedEnum
       }
       set (value) {
-          builderResult.packedEnum += value
+          builderResult.packedEnum = value
       }
   }
-  func clearPackedEnum() -> TestPackedTypesLiteBuilder {
+  internal func clearPackedEnum() -> TestPackedTypesLiteBuilder {
     builderResult.packedEnum.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestPackedTypesLiteBuilder {
+  internal override func clear() -> TestPackedTypesLiteBuilder {
     builderResult = TestPackedTypesLite()
     return self
   }
-  override func clone() -> TestPackedTypesLiteBuilder {
+  internal override func clone() -> TestPackedTypesLiteBuilder {
     return TestPackedTypesLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestPackedTypesLite {
+  internal override func build() -> TestPackedTypesLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestPackedTypesLite {
+  internal func buildPartial() -> TestPackedTypesLite {
     var returnMe:TestPackedTypesLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestPackedTypesLite) -> TestPackedTypesLiteBuilder {
+  internal func mergeFrom(other:TestPackedTypesLite) -> TestPackedTypesLiteBuilder {
     if (other == TestPackedTypesLite()) {
      return self
     }
@@ -6093,10 +6143,10 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestPackedTypesLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestPackedTypesLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedTypesLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedTypesLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6213,11 +6263,11 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
         var length:Int32 = input.readRawVarint32()
         var oldLimit:Int32 = input.pushLimit(length)
         while input.bytesUntilLimit() > 0 {
-        var value:ForeignEnumLite = ForeignEnumLite(rawValue:input.readEnum())!
-        if ForeignEnumLite.IsValidValue(value) {
-             builderResult.packedEnum += [value]
+        let valueIntpackedEnum = input.readEnum()
+        if let enumspackedEnum = ForeignEnumLite(rawValue:valueIntpackedEnum) {
+             builderResult.packedEnum += [enumspackedEnum]
         } else {
-             unknownFieldsBuilder.mergeVarintField(103, value:Int64(value.rawValue))
+             unknownFieldsBuilder.mergeVarintField(103, value:Int64(valueIntpackedEnum))
         }
         }
         input.popLimit(oldLimit)
@@ -6232,21 +6282,21 @@ final class TestPackedTypesLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestAllExtensionsLite : ExtendableMessage {
-  required public init() {
+final internal class TestAllExtensionsLite : ExtendableMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6258,41 +6308,47 @@ final public class TestAllExtensionsLite : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestAllExtensionsLite {
+  internal class func parseFromData(data:[Byte]) -> TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestAllExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLite {
     return TestAllExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestAllExtensionsLiteBuilder {
+  internal class func builder() -> TestAllExtensionsLiteBuilder {
+    return TestAllExtensionsLite.classBuilder() as TestAllExtensionsLiteBuilder
+  }
+  internal func builder() -> TestAllExtensionsLiteBuilder {
+    return classBuilder() as TestAllExtensionsLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestAllExtensionsLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestAllExtensionsLite) -> TestAllExtensionsLiteBuilder {
-    return TestAllExtensionsLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestAllExtensionsLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestAllExtensionsLite.builder()
   }
-  func toBuilder() -> TestAllExtensionsLiteBuilder {
+  internal func toBuilder() -> TestAllExtensionsLiteBuilder {
     return TestAllExtensionsLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestAllExtensionsLite) -> TestAllExtensionsLiteBuilder {
+    return TestAllExtensionsLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
@@ -6304,10 +6360,13 @@ final public class TestAllExtensionsLite : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestAllExtensionsLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestAllExtensionsLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestAllExtensionsLite.self
   }
 
@@ -6316,34 +6375,34 @@ final public class TestAllExtensionsLite : ExtendableMessage {
 
 }
 
-final class TestAllExtensionsLiteBuilder : ExtendableMessageBuilder {
+final internal class TestAllExtensionsLiteBuilder : ExtendableMessageBuilder {
   private var builderResult:TestAllExtensionsLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestAllExtensionsLite()
      super.init()
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> TestAllExtensionsLiteBuilder {
+  internal override func clear() -> TestAllExtensionsLiteBuilder {
     builderResult = TestAllExtensionsLite()
     return self
   }
-  override func clone() -> TestAllExtensionsLiteBuilder {
+  internal override func clone() -> TestAllExtensionsLiteBuilder {
     return TestAllExtensionsLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestAllExtensionsLite {
+  internal override func build() -> TestAllExtensionsLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestAllExtensionsLite {
+  internal func buildPartial() -> TestAllExtensionsLite {
     var returnMe:TestAllExtensionsLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestAllExtensionsLite) -> TestAllExtensionsLiteBuilder {
+  internal func mergeFrom(other:TestAllExtensionsLite) -> TestAllExtensionsLiteBuilder {
     if (other == TestAllExtensionsLite()) {
      return self
     }
@@ -6351,10 +6410,10 @@ final class TestAllExtensionsLiteBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestAllExtensionsLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestAllExtensionsLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6373,23 +6432,23 @@ final class TestAllExtensionsLiteBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class OptionalGroup_extension_lite : GeneratedMessage {
+final internal class OptionalGroup_extension_lite : GeneratedMessage {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasA {
       output.writeInt32(17, value:a)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6403,43 +6462,49 @@ final public class OptionalGroup_extension_lite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> OptionalGroup_extension_lite {
+  internal class func parseFromData(data:[Byte]) -> OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_lite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> OptionalGroup_extension_lite {
+  internal class func parseFromInputStream(input:NSInputStream) -> OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->OptionalGroup_extension_lite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> OptionalGroup_extension_lite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_lite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_lite {
     return OptionalGroup_extension_lite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> OptionalGroup_extension_liteBuilder {
+  internal class func builder() -> OptionalGroup_extension_liteBuilder {
+    return OptionalGroup_extension_lite.classBuilder() as OptionalGroup_extension_liteBuilder
+  }
+  internal func builder() -> OptionalGroup_extension_liteBuilder {
+    return classBuilder() as OptionalGroup_extension_liteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return OptionalGroup_extension_liteBuilder()
   }
-  class func builderWithPrototype(prototype:OptionalGroup_extension_lite) -> OptionalGroup_extension_liteBuilder {
-    return OptionalGroup_extension_lite.builder().mergeFrom(prototype)
-  }
-  func builder() -> OptionalGroup_extension_liteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return OptionalGroup_extension_lite.builder()
   }
-  func toBuilder() -> OptionalGroup_extension_liteBuilder {
+  internal func toBuilder() -> OptionalGroup_extension_liteBuilder {
     return OptionalGroup_extension_lite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:OptionalGroup_extension_lite) -> OptionalGroup_extension_liteBuilder {
+    return OptionalGroup_extension_lite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasA {
       output += "\(indent) a: \(a) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasA {
@@ -6453,10 +6518,13 @@ final public class OptionalGroup_extension_lite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "OptionalGroup_extension_lite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "OptionalGroup_extension_lite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return OptionalGroup_extension_lite.self
   }
 
@@ -6465,10 +6533,10 @@ final public class OptionalGroup_extension_lite : GeneratedMessage {
 
 }
 
-final class OptionalGroup_extension_liteBuilder : GeneratedMessageBuilder {
+final internal class OptionalGroup_extension_liteBuilder : GeneratedMessageBuilder {
   private var builderResult:OptionalGroup_extension_lite
 
-  required override init () {
+  required override internal init () {
      builderResult = OptionalGroup_extension_lite()
      super.init()
   }
@@ -6486,32 +6554,32 @@ final class OptionalGroup_extension_liteBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
-  func clearA() -> OptionalGroup_extension_liteBuilder{
+  internal func clearA() -> OptionalGroup_extension_liteBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> OptionalGroup_extension_liteBuilder {
+  internal override func clear() -> OptionalGroup_extension_liteBuilder {
     builderResult = OptionalGroup_extension_lite()
     return self
   }
-  override func clone() -> OptionalGroup_extension_liteBuilder {
+  internal override func clone() -> OptionalGroup_extension_liteBuilder {
     return OptionalGroup_extension_lite.builderWithPrototype(builderResult)
   }
-  override func build() -> OptionalGroup_extension_lite {
+  internal override func build() -> OptionalGroup_extension_lite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> OptionalGroup_extension_lite {
+  internal func buildPartial() -> OptionalGroup_extension_lite {
     var returnMe:OptionalGroup_extension_lite = builderResult
     return returnMe
   }
-  func mergeFrom(other:OptionalGroup_extension_lite) -> OptionalGroup_extension_liteBuilder {
+  internal func mergeFrom(other:OptionalGroup_extension_lite) -> OptionalGroup_extension_liteBuilder {
     if (other == OptionalGroup_extension_lite()) {
      return self
     }
@@ -6521,10 +6589,10 @@ final class OptionalGroup_extension_liteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->OptionalGroup_extension_liteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->OptionalGroup_extension_liteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_liteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> OptionalGroup_extension_liteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6546,23 +6614,23 @@ final class OptionalGroup_extension_liteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class RepeatedGroup_extension_lite : GeneratedMessage {
+final internal class RepeatedGroup_extension_lite : GeneratedMessage {
   private(set) var hasA:Bool = false
   private(set) var a:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasA {
       output.writeInt32(47, value:a)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6576,43 +6644,49 @@ final public class RepeatedGroup_extension_lite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> RepeatedGroup_extension_lite {
+  internal class func parseFromData(data:[Byte]) -> RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_lite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> RepeatedGroup_extension_lite {
+  internal class func parseFromInputStream(input:NSInputStream) -> RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->RepeatedGroup_extension_lite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> RepeatedGroup_extension_lite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_lite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_lite {
     return RepeatedGroup_extension_lite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> RepeatedGroup_extension_liteBuilder {
+  internal class func builder() -> RepeatedGroup_extension_liteBuilder {
+    return RepeatedGroup_extension_lite.classBuilder() as RepeatedGroup_extension_liteBuilder
+  }
+  internal func builder() -> RepeatedGroup_extension_liteBuilder {
+    return classBuilder() as RepeatedGroup_extension_liteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extension_liteBuilder()
   }
-  class func builderWithPrototype(prototype:RepeatedGroup_extension_lite) -> RepeatedGroup_extension_liteBuilder {
-    return RepeatedGroup_extension_lite.builder().mergeFrom(prototype)
-  }
-  func builder() -> RepeatedGroup_extension_liteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return RepeatedGroup_extension_lite.builder()
   }
-  func toBuilder() -> RepeatedGroup_extension_liteBuilder {
+  internal func toBuilder() -> RepeatedGroup_extension_liteBuilder {
     return RepeatedGroup_extension_lite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:RepeatedGroup_extension_lite) -> RepeatedGroup_extension_liteBuilder {
+    return RepeatedGroup_extension_lite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasA {
       output += "\(indent) a: \(a) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasA {
@@ -6626,10 +6700,13 @@ final public class RepeatedGroup_extension_lite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "RepeatedGroup_extension_lite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "RepeatedGroup_extension_lite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return RepeatedGroup_extension_lite.self
   }
 
@@ -6638,10 +6715,10 @@ final public class RepeatedGroup_extension_lite : GeneratedMessage {
 
 }
 
-final class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuilder {
+final internal class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuilder {
   private var builderResult:RepeatedGroup_extension_lite
 
-  required override init () {
+  required override internal init () {
      builderResult = RepeatedGroup_extension_lite()
      super.init()
   }
@@ -6659,32 +6736,32 @@ final class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuilder {
            builderResult.a = value
        }
   }
-  func clearA() -> RepeatedGroup_extension_liteBuilder{
+  internal func clearA() -> RepeatedGroup_extension_liteBuilder{
        builderResult.hasA = false
        builderResult.a = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> RepeatedGroup_extension_liteBuilder {
+  internal override func clear() -> RepeatedGroup_extension_liteBuilder {
     builderResult = RepeatedGroup_extension_lite()
     return self
   }
-  override func clone() -> RepeatedGroup_extension_liteBuilder {
+  internal override func clone() -> RepeatedGroup_extension_liteBuilder {
     return RepeatedGroup_extension_lite.builderWithPrototype(builderResult)
   }
-  override func build() -> RepeatedGroup_extension_lite {
+  internal override func build() -> RepeatedGroup_extension_lite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> RepeatedGroup_extension_lite {
+  internal func buildPartial() -> RepeatedGroup_extension_lite {
     var returnMe:RepeatedGroup_extension_lite = builderResult
     return returnMe
   }
-  func mergeFrom(other:RepeatedGroup_extension_lite) -> RepeatedGroup_extension_liteBuilder {
+  internal func mergeFrom(other:RepeatedGroup_extension_lite) -> RepeatedGroup_extension_liteBuilder {
     if (other == RepeatedGroup_extension_lite()) {
      return self
     }
@@ -6694,10 +6771,10 @@ final class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->RepeatedGroup_extension_liteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->RepeatedGroup_extension_liteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_liteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> RepeatedGroup_extension_liteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6719,21 +6796,21 @@ final class RepeatedGroup_extension_liteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestPackedExtensionsLite : ExtendableMessage {
-  required public init() {
+final internal class TestPackedExtensionsLite : ExtendableMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6745,41 +6822,47 @@ final public class TestPackedExtensionsLite : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestPackedExtensionsLite {
+  internal class func parseFromData(data:[Byte]) -> TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestPackedExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestPackedExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestPackedExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLite {
     return TestPackedExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestPackedExtensionsLiteBuilder {
+  internal class func builder() -> TestPackedExtensionsLiteBuilder {
+    return TestPackedExtensionsLite.classBuilder() as TestPackedExtensionsLiteBuilder
+  }
+  internal func builder() -> TestPackedExtensionsLiteBuilder {
+    return classBuilder() as TestPackedExtensionsLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestPackedExtensionsLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestPackedExtensionsLite) -> TestPackedExtensionsLiteBuilder {
-    return TestPackedExtensionsLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestPackedExtensionsLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestPackedExtensionsLite.builder()
   }
-  func toBuilder() -> TestPackedExtensionsLiteBuilder {
+  internal func toBuilder() -> TestPackedExtensionsLiteBuilder {
     return TestPackedExtensionsLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestPackedExtensionsLite) -> TestPackedExtensionsLiteBuilder {
+    return TestPackedExtensionsLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
@@ -6791,10 +6874,13 @@ final public class TestPackedExtensionsLite : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestPackedExtensionsLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestPackedExtensionsLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestPackedExtensionsLite.self
   }
 
@@ -6803,34 +6889,34 @@ final public class TestPackedExtensionsLite : ExtendableMessage {
 
 }
 
-final class TestPackedExtensionsLiteBuilder : ExtendableMessageBuilder {
+final internal class TestPackedExtensionsLiteBuilder : ExtendableMessageBuilder {
   private var builderResult:TestPackedExtensionsLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestPackedExtensionsLite()
      super.init()
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> TestPackedExtensionsLiteBuilder {
+  internal override func clear() -> TestPackedExtensionsLiteBuilder {
     builderResult = TestPackedExtensionsLite()
     return self
   }
-  override func clone() -> TestPackedExtensionsLiteBuilder {
+  internal override func clone() -> TestPackedExtensionsLiteBuilder {
     return TestPackedExtensionsLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestPackedExtensionsLite {
+  internal override func build() -> TestPackedExtensionsLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestPackedExtensionsLite {
+  internal func buildPartial() -> TestPackedExtensionsLite {
     var returnMe:TestPackedExtensionsLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestPackedExtensionsLite) -> TestPackedExtensionsLiteBuilder {
+  internal func mergeFrom(other:TestPackedExtensionsLite) -> TestPackedExtensionsLiteBuilder {
     if (other == TestPackedExtensionsLite()) {
      return self
     }
@@ -6838,10 +6924,10 @@ final class TestPackedExtensionsLiteBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestPackedExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestPackedExtensionsLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestPackedExtensionsLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6860,20 +6946,20 @@ final class TestPackedExtensionsLiteBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class TestNestedExtensionLite : GeneratedMessage {
-  class func nestedExtension() -> ConcreateExtensionField {
+final internal class TestNestedExtensionLite : GeneratedMessage {
+  internal class func nestedExtension() -> ConcreateExtensionField {
        return TestNestedExtensionLitenestedExtension
   }
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -6884,40 +6970,46 @@ final public class TestNestedExtensionLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestNestedExtensionLite {
+  internal class func parseFromData(data:[Byte]) -> TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestNestedExtensionLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestNestedExtensionLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestNestedExtensionLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLite {
     return TestNestedExtensionLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestNestedExtensionLiteBuilder {
+  internal class func builder() -> TestNestedExtensionLiteBuilder {
+    return TestNestedExtensionLite.classBuilder() as TestNestedExtensionLiteBuilder
+  }
+  internal func builder() -> TestNestedExtensionLiteBuilder {
+    return classBuilder() as TestNestedExtensionLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestNestedExtensionLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestNestedExtensionLite) -> TestNestedExtensionLiteBuilder {
-    return TestNestedExtensionLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestNestedExtensionLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestNestedExtensionLite.builder()
   }
-  func toBuilder() -> TestNestedExtensionLiteBuilder {
+  internal func toBuilder() -> TestNestedExtensionLiteBuilder {
     return TestNestedExtensionLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestNestedExtensionLite) -> TestNestedExtensionLiteBuilder {
+    return TestNestedExtensionLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -6928,10 +7020,13 @@ final public class TestNestedExtensionLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestNestedExtensionLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestNestedExtensionLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestNestedExtensionLite.self
   }
 
@@ -6940,44 +7035,44 @@ final public class TestNestedExtensionLite : GeneratedMessage {
 
 }
 
-final class TestNestedExtensionLiteBuilder : GeneratedMessageBuilder {
+final internal class TestNestedExtensionLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestNestedExtensionLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestNestedExtensionLite()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestNestedExtensionLiteBuilder {
+  internal override func clear() -> TestNestedExtensionLiteBuilder {
     builderResult = TestNestedExtensionLite()
     return self
   }
-  override func clone() -> TestNestedExtensionLiteBuilder {
+  internal override func clone() -> TestNestedExtensionLiteBuilder {
     return TestNestedExtensionLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestNestedExtensionLite {
+  internal override func build() -> TestNestedExtensionLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestNestedExtensionLite {
+  internal func buildPartial() -> TestNestedExtensionLite {
     var returnMe:TestNestedExtensionLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestNestedExtensionLite) -> TestNestedExtensionLiteBuilder {
+  internal func mergeFrom(other:TestNestedExtensionLite) -> TestNestedExtensionLiteBuilder {
     if (other == TestNestedExtensionLite()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestNestedExtensionLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestNestedExtensionLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestNestedExtensionLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -6996,23 +7091,23 @@ final class TestNestedExtensionLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestDeprecatedLite : GeneratedMessage {
+final internal class TestDeprecatedLite : GeneratedMessage {
   private(set) var hasDeprecatedField:Bool = false
   private(set) var deprecatedField:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasDeprecatedField {
       output.writeInt32(1, value:deprecatedField)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -7026,43 +7121,49 @@ final public class TestDeprecatedLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestDeprecatedLite {
+  internal class func parseFromData(data:[Byte]) -> TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDeprecatedLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestDeprecatedLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestDeprecatedLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestDeprecatedLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestDeprecatedLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestDeprecatedLite {
     return TestDeprecatedLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestDeprecatedLiteBuilder {
+  internal class func builder() -> TestDeprecatedLiteBuilder {
+    return TestDeprecatedLite.classBuilder() as TestDeprecatedLiteBuilder
+  }
+  internal func builder() -> TestDeprecatedLiteBuilder {
+    return classBuilder() as TestDeprecatedLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestDeprecatedLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestDeprecatedLite) -> TestDeprecatedLiteBuilder {
-    return TestDeprecatedLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestDeprecatedLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestDeprecatedLite.builder()
   }
-  func toBuilder() -> TestDeprecatedLiteBuilder {
+  internal func toBuilder() -> TestDeprecatedLiteBuilder {
     return TestDeprecatedLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestDeprecatedLite) -> TestDeprecatedLiteBuilder {
+    return TestDeprecatedLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasDeprecatedField {
       output += "\(indent) deprecatedField: \(deprecatedField) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasDeprecatedField {
@@ -7076,10 +7177,13 @@ final public class TestDeprecatedLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestDeprecatedLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestDeprecatedLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestDeprecatedLite.self
   }
 
@@ -7088,10 +7192,10 @@ final public class TestDeprecatedLite : GeneratedMessage {
 
 }
 
-final class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
+final internal class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestDeprecatedLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestDeprecatedLite()
      super.init()
   }
@@ -7109,32 +7213,32 @@ final class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
            builderResult.deprecatedField = value
        }
   }
-  func clearDeprecatedField() -> TestDeprecatedLiteBuilder{
+  internal func clearDeprecatedField() -> TestDeprecatedLiteBuilder{
        builderResult.hasDeprecatedField = false
        builderResult.deprecatedField = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestDeprecatedLiteBuilder {
+  internal override func clear() -> TestDeprecatedLiteBuilder {
     builderResult = TestDeprecatedLite()
     return self
   }
-  override func clone() -> TestDeprecatedLiteBuilder {
+  internal override func clone() -> TestDeprecatedLiteBuilder {
     return TestDeprecatedLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestDeprecatedLite {
+  internal override func build() -> TestDeprecatedLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestDeprecatedLite {
+  internal func buildPartial() -> TestDeprecatedLite {
     var returnMe:TestDeprecatedLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestDeprecatedLite) -> TestDeprecatedLiteBuilder {
+  internal func mergeFrom(other:TestDeprecatedLite) -> TestDeprecatedLiteBuilder {
     if (other == TestDeprecatedLite()) {
      return self
     }
@@ -7144,10 +7248,10 @@ final class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestDeprecatedLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestDeprecatedLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestDeprecatedLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestDeprecatedLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -7169,32 +7273,32 @@ final class TestDeprecatedLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestParsingMergeLite : ExtendableMessage {
+final internal class TestParsingMergeLite : ExtendableMessage {
 
 
   //Nested type declaration start
 
-    final public class RepeatedFieldsGenerator : GeneratedMessage {
+    final internal class RepeatedFieldsGenerator : GeneratedMessage {
 
 
       //Nested type declaration start
 
-        final public class Group1 : GeneratedMessage {
+        final internal class Group1 : GeneratedMessage {
           private(set) var hasField1:Bool = false
           private(set) var field1:TestAllTypesLite = TestAllTypesLite()
-          required public init() {
+          required internal init() {
                super.init()
           }
-          override public func isInitialized() -> Bool {
+          override internal func isInitialized() -> Bool {
            return true
           }
-          override public func writeToCodedOutputStream(output:CodedOutputStream) {
+          override internal func writeToCodedOutputStream(output:CodedOutputStream) {
             if hasField1 {
               output.writeMessage(11, value:field1)
             }
             unknownFields.writeToCodedOutputStream(output)
           }
-          override public func serializedSize() -> Int32 {
+          override internal func serializedSize() -> Int32 {
             var size:Int32 = memoizedSerializedSize
             if size != -1 {
              return size
@@ -7208,37 +7312,43 @@ final public class TestParsingMergeLite : ExtendableMessage {
             memoizedSerializedSize = size
             return size
           }
-          class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data).build()
           }
-          class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
           }
-          class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromInputStream(input).build()
           }
-          class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
           }
-          class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromCodedInputStream(input).build()
           }
-          class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
-          class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder
+          }
+          internal func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+            return classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder
+          }
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder()
           }
-          class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFrom(prototype)
-          }
-          func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder()
           }
-          func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(self)
           }
-          override public func writeDescriptionTo(inout output:String, indent:String) {
+          internal class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builder().mergeFrom(prototype)
+          }
+          override internal func writeDescriptionTo(inout output:String, indent:String) {
             if hasField1 {
               output += "\(indent) field1 {\n"
               field1.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -7246,7 +7356,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
             }
             unknownFields.writeDescriptionTo(&output, indent:indent)
           }
-          override public var hashValue:Int {
+          override internal var hashValue:Int {
               get {
                   var hashCode:Int = 7
                   if hasField1 {
@@ -7260,10 +7370,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
           //Meta information declaration start
 
-          override public class func className() -> String {
+          override internal class func className() -> String {
               return "TestParsingMergeLite.RepeatedFieldsGenerator.Group1"
           }
-          override public func classMetaType() -> GeneratedMessage.Type {
+          override internal func className() -> String {
+              return "TestParsingMergeLite.RepeatedFieldsGenerator.Group1"
+          }
+          override internal func classMetaType() -> GeneratedMessage.Type {
               return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.self
           }
 
@@ -7272,10 +7385,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
         }
 
-        final class Group1Builder : GeneratedMessageBuilder {
+        final internal class Group1Builder : GeneratedMessageBuilder {
           private var builderResult:TestParsingMergeLite.RepeatedFieldsGenerator.Group1
 
-          required override init () {
+          required override internal init () {
              builderResult = TestParsingMergeLite.RepeatedFieldsGenerator.Group1()
              super.init()
           }
@@ -7293,12 +7406,12 @@ final public class TestParsingMergeLite : ExtendableMessage {
                    builderResult.field1 = value
                }
           }
-          func setField1Builder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal func setField1Builder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             field1 = builderForValue.build()
             return self
           }
-          func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypesLite()) {
+          internal func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -7306,32 +7419,32 @@ final public class TestParsingMergeLite : ExtendableMessage {
             builderResult.hasField1 = true
             return self
           }
-          func clearField1() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal func clearField1() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             builderResult.hasField1 = false
             builderResult.field1 = TestAllTypesLite()
             return self
           }
-          override var internalGetResult:GeneratedMessage {
+          override internal var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override func clear() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal override func clear() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             builderResult = TestParsingMergeLite.RepeatedFieldsGenerator.Group1()
             return self
           }
-          override func clone() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal override func clone() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group1.builderWithPrototype(builderResult)
           }
-          override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
                checkInitialized()
                return buildPartial()
           }
-          func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
+          internal func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1 {
             var returnMe:TestParsingMergeLite.RepeatedFieldsGenerator.Group1 = builderResult
             return returnMe
           }
-          func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             if (other == TestParsingMergeLite.RepeatedFieldsGenerator.Group1()) {
              return self
             }
@@ -7341,10 +7454,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
             mergeUnknownFields(other.unknownFields)
             return self
           }
-          override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group1Builder {
             var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               var tag = input.readTag()
@@ -7379,22 +7492,22 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
       //Nested type declaration start
 
-        final public class Group2 : GeneratedMessage {
+        final internal class Group2 : GeneratedMessage {
           private(set) var hasField1:Bool = false
           private(set) var field1:TestAllTypesLite = TestAllTypesLite()
-          required public init() {
+          required internal init() {
                super.init()
           }
-          override public func isInitialized() -> Bool {
+          override internal func isInitialized() -> Bool {
            return true
           }
-          override public func writeToCodedOutputStream(output:CodedOutputStream) {
+          override internal func writeToCodedOutputStream(output:CodedOutputStream) {
             if hasField1 {
               output.writeMessage(21, value:field1)
             }
             unknownFields.writeToCodedOutputStream(output)
           }
-          override public func serializedSize() -> Int32 {
+          override internal func serializedSize() -> Int32 {
             var size:Int32 = memoizedSerializedSize
             if size != -1 {
              return size
@@ -7408,37 +7521,43 @@ final public class TestParsingMergeLite : ExtendableMessage {
             memoizedSerializedSize = size
             return size
           }
-          class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data).build()
           }
-          class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
           }
-          class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromInputStream(input).build()
           }
-          class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
           }
-          class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromCodedInputStream(input).build()
           }
-          class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
           }
-          class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder
+          }
+          internal func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+            return classBuilder() as TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder
+          }
+          internal override class func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder()
           }
-          class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
-            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFrom(prototype)
-          }
-          func builder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal override func classBuilder() -> MessageBuilder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder()
           }
-          func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(self)
           }
-          override public func writeDescriptionTo(inout output:String, indent:String) {
+          internal class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+            return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builder().mergeFrom(prototype)
+          }
+          override internal func writeDescriptionTo(inout output:String, indent:String) {
             if hasField1 {
               output += "\(indent) field1 {\n"
               field1.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -7446,7 +7565,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
             }
             unknownFields.writeDescriptionTo(&output, indent:indent)
           }
-          override public var hashValue:Int {
+          override internal var hashValue:Int {
               get {
                   var hashCode:Int = 7
                   if hasField1 {
@@ -7460,10 +7579,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
           //Meta information declaration start
 
-          override public class func className() -> String {
+          override internal class func className() -> String {
               return "TestParsingMergeLite.RepeatedFieldsGenerator.Group2"
           }
-          override public func classMetaType() -> GeneratedMessage.Type {
+          override internal func className() -> String {
+              return "TestParsingMergeLite.RepeatedFieldsGenerator.Group2"
+          }
+          override internal func classMetaType() -> GeneratedMessage.Type {
               return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.self
           }
 
@@ -7472,10 +7594,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
         }
 
-        final class Group2Builder : GeneratedMessageBuilder {
+        final internal class Group2Builder : GeneratedMessageBuilder {
           private var builderResult:TestParsingMergeLite.RepeatedFieldsGenerator.Group2
 
-          required override init () {
+          required override internal init () {
              builderResult = TestParsingMergeLite.RepeatedFieldsGenerator.Group2()
              super.init()
           }
@@ -7493,12 +7615,12 @@ final public class TestParsingMergeLite : ExtendableMessage {
                    builderResult.field1 = value
                }
           }
-          func setField1Builder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal func setField1Builder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             field1 = builderForValue.build()
             return self
           }
-          func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
-            if (builderResult.hasField1 && builderResult.field1 != TestAllTypesLite()) {
+          internal func mergeField1(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+            if (builderResult.hasField1) {
               builderResult.field1 = TestAllTypesLite.builderWithPrototype(builderResult.field1).mergeFrom(value).buildPartial()
             } else {
               builderResult.field1 = value
@@ -7506,32 +7628,32 @@ final public class TestParsingMergeLite : ExtendableMessage {
             builderResult.hasField1 = true
             return self
           }
-          func clearField1() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal func clearField1() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             builderResult.hasField1 = false
             builderResult.field1 = TestAllTypesLite()
             return self
           }
-          override var internalGetResult:GeneratedMessage {
+          override internal var internalGetResult:GeneratedMessage {
                get {
                   return builderResult
                }
           }
-          override func clear() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal override func clear() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             builderResult = TestParsingMergeLite.RepeatedFieldsGenerator.Group2()
             return self
           }
-          override func clone() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal override func clone() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             return TestParsingMergeLite.RepeatedFieldsGenerator.Group2.builderWithPrototype(builderResult)
           }
-          override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
                checkInitialized()
                return buildPartial()
           }
-          func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
+          internal func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2 {
             var returnMe:TestParsingMergeLite.RepeatedFieldsGenerator.Group2 = builderResult
             return returnMe
           }
-          func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             if (other == TestParsingMergeLite.RepeatedFieldsGenerator.Group2()) {
              return self
             }
@@ -7541,10 +7663,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
             mergeUnknownFields(other.unknownFields)
             return self
           }
-          override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
                return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
           }
-          override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
+          internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator.Group2Builder {
             var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
             while (true) {
               var tag = input.readTag()
@@ -7582,173 +7704,179 @@ final public class TestParsingMergeLite : ExtendableMessage {
       private(set) var group2:Array<TestParsingMergeLite.RepeatedFieldsGenerator.Group2>  = Array<TestParsingMergeLite.RepeatedFieldsGenerator.Group2>()
       private(set) var ext1:Array<TestAllTypesLite>  = Array<TestAllTypesLite>()
       private(set) var ext2:Array<TestAllTypesLite>  = Array<TestAllTypesLite>()
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
-        for element in field1 {
-            output.writeMessage(1, value:element)
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+        for oneElementfield1 in field1 {
+            output.writeMessage(1, value:oneElementfield1)
         }
-        for element in field2 {
-            output.writeMessage(2, value:element)
+        for oneElementfield2 in field2 {
+            output.writeMessage(2, value:oneElementfield2)
         }
-        for element in field3 {
-            output.writeMessage(3, value:element)
+        for oneElementfield3 in field3 {
+            output.writeMessage(3, value:oneElementfield3)
         }
-        for element in group1 {
-            output.writeGroup(10, value:element)
+        for oneElementgroup1 in group1 {
+            output.writeGroup(10, value:oneElementgroup1)
         }
-        for element in group2 {
-            output.writeGroup(20, value:element)
+        for oneElementgroup2 in group2 {
+            output.writeGroup(20, value:oneElementgroup2)
         }
-        for element in ext1 {
-            output.writeMessage(1000, value:element)
+        for oneElementext1 in ext1 {
+            output.writeMessage(1000, value:oneElementext1)
         }
-        for element in ext2 {
-            output.writeMessage(1001, value:element)
+        for oneElementext2 in ext2 {
+            output.writeMessage(1001, value:oneElementext2)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
         }
 
         size = 0
-        for element in field1 {
-            size += WireFormat.computeMessageSize(1, value:element)
+        for oneElementfield1 in field1 {
+            size += WireFormat.computeMessageSize(1, value:oneElementfield1)
         }
-        for element in field2 {
-            size += WireFormat.computeMessageSize(2, value:element)
+        for oneElementfield2 in field2 {
+            size += WireFormat.computeMessageSize(2, value:oneElementfield2)
         }
-        for element in field3 {
-            size += WireFormat.computeMessageSize(3, value:element)
+        for oneElementfield3 in field3 {
+            size += WireFormat.computeMessageSize(3, value:oneElementfield3)
         }
-        for element in group1 {
-            size += WireFormat.computeGroupSize(10, value:element)
+        for oneElementgroup1 in group1 {
+            size += WireFormat.computeGroupSize(10, value:oneElementgroup1)
         }
-        for element in group2 {
-            size += WireFormat.computeGroupSize(20, value:element)
+        for oneElementgroup2 in group2 {
+            size += WireFormat.computeGroupSize(20, value:oneElementgroup2)
         }
-        for element in ext1 {
-            size += WireFormat.computeMessageSize(1000, value:element)
+        for oneElementext1 in ext1 {
+            size += WireFormat.computeMessageSize(1000, value:oneElementext1)
         }
-        for element in ext2 {
-            size += WireFormat.computeMessageSize(1001, value:element)
+        for oneElementext2 in ext2 {
+            size += WireFormat.computeMessageSize(1001, value:oneElementext2)
         }
         size += unknownFields.serializedSize()
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal class func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+        return TestParsingMergeLite.RepeatedFieldsGenerator.classBuilder() as TestParsingMergeLite.RepeatedFieldsGeneratorBuilder
+      }
+      internal func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+        return classBuilder() as TestParsingMergeLite.RepeatedFieldsGeneratorBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedFieldsGeneratorBuilder()
       }
-      class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
-        return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder()
       }
-      func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func toBuilder() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedFieldsGenerator) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+        return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         var field1ElementIndex:Int = 0
-        for element in field1 {
+        for oneElementfield1 in field1 {
             output += "\(indent) field1[\(field1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field1ElementIndex++
         }
         var field2ElementIndex:Int = 0
-        for element in field2 {
+        for oneElementfield2 in field2 {
             output += "\(indent) field2[\(field2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field2ElementIndex++
         }
         var field3ElementIndex:Int = 0
-        for element in field3 {
+        for oneElementfield3 in field3 {
             output += "\(indent) field3[\(field3ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementfield3.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             field3ElementIndex++
         }
         var group1ElementIndex:Int = 0
-        for element in group1 {
+        for oneElementgroup1 in group1 {
             output += "\(indent) group1[\(group1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementgroup1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             group1ElementIndex++
         }
         var group2ElementIndex:Int = 0
-        for element in group2 {
+        for oneElementgroup2 in group2 {
             output += "\(indent) group2[\(group2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementgroup2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             group2ElementIndex++
         }
         var ext1ElementIndex:Int = 0
-        for element in ext1 {
+        for oneElementext1 in ext1 {
             output += "\(indent) ext1[\(ext1ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementext1.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             ext1ElementIndex++
         }
         var ext2ElementIndex:Int = 0
-        for element in ext2 {
+        for oneElementext2 in ext2 {
             output += "\(indent) ext2[\(ext2ElementIndex)] {\n"
-            element.writeDescriptionTo(&output, indent:"\(indent)  ")
+            oneElementext2.writeDescriptionTo(&output, indent:"\(indent)  ")
             output += "\(indent)}\n"
             ext2ElementIndex++
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
-              for element in field1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield1 in field1 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield1.hashValue
               }
-              for element in field2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield2 in field2 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield2.hashValue
               }
-              for element in field3 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementfield3 in field3 {
+                  hashCode = (hashCode &* 31) &+ oneElementfield3.hashValue
               }
-              for element in group1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementgroup1 in group1 {
+                  hashCode = (hashCode &* 31) &+ oneElementgroup1.hashValue
               }
-              for element in group2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementgroup2 in group2 {
+                  hashCode = (hashCode &* 31) &+ oneElementgroup2.hashValue
               }
-              for element in ext1 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementext1 in ext1 {
+                  hashCode = (hashCode &* 31) &+ oneElementext1.hashValue
               }
-              for element in ext2 {
-                  hashCode = (hashCode &* 31) &+ element.hashValue
+              for oneElementext2 in ext2 {
+                  hashCode = (hashCode &* 31) &+ oneElementext2.hashValue
               }
               hashCode = (hashCode &* 31) &+  unknownFields.hashValue
               return hashCode
@@ -7758,10 +7886,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestParsingMergeLite.RepeatedFieldsGenerator"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestParsingMergeLite.RepeatedFieldsGenerator"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMergeLite.RepeatedFieldsGenerator.self
       }
 
@@ -7770,10 +7901,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
     }
 
-    final class RepeatedFieldsGeneratorBuilder : GeneratedMessageBuilder {
+    final internal class RepeatedFieldsGeneratorBuilder : GeneratedMessageBuilder {
       private var builderResult:TestParsingMergeLite.RepeatedFieldsGenerator
 
-      required override init () {
+      required override internal init () {
          builderResult = TestParsingMergeLite.RepeatedFieldsGenerator()
          super.init()
       }
@@ -7785,7 +7916,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.field1 = value
            }
       }
-      func clearField1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearField1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.field1.removeAll(keepCapacity: false)
         return self
       }
@@ -7797,7 +7928,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.field2 = value
            }
       }
-      func clearField2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearField2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.field2.removeAll(keepCapacity: false)
         return self
       }
@@ -7809,7 +7940,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.field3 = value
            }
       }
-      func clearField3() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearField3() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.field3.removeAll(keepCapacity: false)
         return self
       }
@@ -7821,7 +7952,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.group1 = value
            }
       }
-      func clearGroup1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearGroup1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.group1.removeAll(keepCapacity: false)
         return self
       }
@@ -7833,7 +7964,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.group2 = value
            }
       }
-      func clearGroup2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearGroup2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.group2.removeAll(keepCapacity: false)
         return self
       }
@@ -7845,7 +7976,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.ext1 = value
            }
       }
-      func clearExt1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearExt1() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.ext1.removeAll(keepCapacity: false)
         return self
       }
@@ -7857,31 +7988,31 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.ext2 = value
            }
       }
-      func clearExt2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func clearExt2() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult.ext2.removeAll(keepCapacity: false)
         return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal override func clear() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         builderResult = TestParsingMergeLite.RepeatedFieldsGenerator()
         return self
       }
-      override func clone() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal override func clone() -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builderWithPrototype(builderResult)
       }
-      override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal override func build() -> TestParsingMergeLite.RepeatedFieldsGenerator {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator {
+      internal func buildPartial() -> TestParsingMergeLite.RepeatedFieldsGenerator {
         var returnMe:TestParsingMergeLite.RepeatedFieldsGenerator = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal func mergeFrom(other:TestParsingMergeLite.RepeatedFieldsGenerator) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         if (other == TestParsingMergeLite.RepeatedFieldsGenerator()) {
          return self
         }
@@ -7909,10 +8040,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedFieldsGeneratorBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -7974,22 +8105,22 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
   //Nested type declaration start
 
-    final public class OptionalGroup : GeneratedMessage {
+    final internal class OptionalGroup : GeneratedMessage {
       private(set) var hasOptionalGroupAllTypes:Bool = false
       private(set) var optionalGroupAllTypes:TestAllTypesLite = TestAllTypesLite()
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasOptionalGroupAllTypes {
           output.writeMessage(11, value:optionalGroupAllTypes)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -8003,37 +8134,43 @@ final public class TestParsingMergeLite : ExtendableMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal class func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
+        return TestParsingMergeLite.OptionalGroup.classBuilder() as TestParsingMergeLite.OptionalGroupBuilder
+      }
+      internal func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
+        return classBuilder() as TestParsingMergeLite.OptionalGroupBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.OptionalGroupBuilder()
       }
-      class func builderWithPrototype(prototype:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLite.OptionalGroupBuilder {
-        return TestParsingMergeLite.OptionalGroup.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.OptionalGroup.builder()
       }
-      func toBuilder() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal func toBuilder() -> TestParsingMergeLite.OptionalGroupBuilder {
         return TestParsingMergeLite.OptionalGroup.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLite.OptionalGroupBuilder {
+        return TestParsingMergeLite.OptionalGroup.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasOptionalGroupAllTypes {
           output += "\(indent) optionalGroupAllTypes {\n"
           optionalGroupAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -8041,7 +8178,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasOptionalGroupAllTypes {
@@ -8055,10 +8192,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestParsingMergeLite.OptionalGroup"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestParsingMergeLite.OptionalGroup"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMergeLite.OptionalGroup.self
       }
 
@@ -8067,10 +8207,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
     }
 
-    final class OptionalGroupBuilder : GeneratedMessageBuilder {
+    final internal class OptionalGroupBuilder : GeneratedMessageBuilder {
       private var builderResult:TestParsingMergeLite.OptionalGroup
 
-      required override init () {
+      required override internal init () {
          builderResult = TestParsingMergeLite.OptionalGroup()
          super.init()
       }
@@ -8088,12 +8228,12 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.optionalGroupAllTypes = value
            }
       }
-      func setOptionalGroupAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal func setOptionalGroupAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.OptionalGroupBuilder {
         optionalGroupAllTypes = builderForValue.build()
         return self
       }
-      func mergeOptionalGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.OptionalGroupBuilder {
-        if (builderResult.hasOptionalGroupAllTypes && builderResult.optionalGroupAllTypes != TestAllTypesLite()) {
+      internal func mergeOptionalGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.OptionalGroupBuilder {
+        if (builderResult.hasOptionalGroupAllTypes) {
           builderResult.optionalGroupAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.optionalGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.optionalGroupAllTypes = value
@@ -8101,32 +8241,32 @@ final public class TestParsingMergeLite : ExtendableMessage {
         builderResult.hasOptionalGroupAllTypes = true
         return self
       }
-      func clearOptionalGroupAllTypes() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal func clearOptionalGroupAllTypes() -> TestParsingMergeLite.OptionalGroupBuilder {
         builderResult.hasOptionalGroupAllTypes = false
         builderResult.optionalGroupAllTypes = TestAllTypesLite()
         return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal override func clear() -> TestParsingMergeLite.OptionalGroupBuilder {
         builderResult = TestParsingMergeLite.OptionalGroup()
         return self
       }
-      override func clone() -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal override func clone() -> TestParsingMergeLite.OptionalGroupBuilder {
         return TestParsingMergeLite.OptionalGroup.builderWithPrototype(builderResult)
       }
-      override func build() -> TestParsingMergeLite.OptionalGroup {
+      internal override func build() -> TestParsingMergeLite.OptionalGroup {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestParsingMergeLite.OptionalGroup {
+      internal func buildPartial() -> TestParsingMergeLite.OptionalGroup {
         var returnMe:TestParsingMergeLite.OptionalGroup = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal func mergeFrom(other:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLite.OptionalGroupBuilder {
         if (other == TestParsingMergeLite.OptionalGroup()) {
          return self
         }
@@ -8136,10 +8276,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.OptionalGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.OptionalGroupBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.OptionalGroupBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -8174,22 +8314,22 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
   //Nested type declaration start
 
-    final public class RepeatedGroup : GeneratedMessage {
+    final internal class RepeatedGroup : GeneratedMessage {
       private(set) var hasRepeatedGroupAllTypes:Bool = false
       private(set) var repeatedGroupAllTypes:TestAllTypesLite = TestAllTypesLite()
-      required public init() {
+      required internal init() {
            super.init()
       }
-      override public func isInitialized() -> Bool {
+      override internal func isInitialized() -> Bool {
        return true
       }
-      override public func writeToCodedOutputStream(output:CodedOutputStream) {
+      override internal func writeToCodedOutputStream(output:CodedOutputStream) {
         if hasRepeatedGroupAllTypes {
           output.writeMessage(21, value:repeatedGroupAllTypes)
         }
         unknownFields.writeToCodedOutputStream(output)
       }
-      override public func serializedSize() -> Int32 {
+      override internal func serializedSize() -> Int32 {
         var size:Int32 = memoizedSerializedSize
         if size != -1 {
          return size
@@ -8203,37 +8343,43 @@ final public class TestParsingMergeLite : ExtendableMessage {
         memoizedSerializedSize = size
         return size
       }
-      class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(data).build()
       }
-      class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromInputStream(input).build()
       }
-      class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromCodedInputStream(input).build()
       }
-      class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroup {
+      internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
       }
-      class func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal class func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
+        return TestParsingMergeLite.RepeatedGroup.classBuilder() as TestParsingMergeLite.RepeatedGroupBuilder
+      }
+      internal func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
+        return classBuilder() as TestParsingMergeLite.RepeatedGroupBuilder
+      }
+      internal override class func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedGroupBuilder()
       }
-      class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedGroup) -> TestParsingMergeLite.RepeatedGroupBuilder {
-        return TestParsingMergeLite.RepeatedGroup.builder().mergeFrom(prototype)
-      }
-      func builder() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal override func classBuilder() -> MessageBuilder {
         return TestParsingMergeLite.RepeatedGroup.builder()
       }
-      func toBuilder() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal func toBuilder() -> TestParsingMergeLite.RepeatedGroupBuilder {
         return TestParsingMergeLite.RepeatedGroup.builderWithPrototype(self)
       }
-      override public func writeDescriptionTo(inout output:String, indent:String) {
+      internal class func builderWithPrototype(prototype:TestParsingMergeLite.RepeatedGroup) -> TestParsingMergeLite.RepeatedGroupBuilder {
+        return TestParsingMergeLite.RepeatedGroup.builder().mergeFrom(prototype)
+      }
+      override internal func writeDescriptionTo(inout output:String, indent:String) {
         if hasRepeatedGroupAllTypes {
           output += "\(indent) repeatedGroupAllTypes {\n"
           repeatedGroupAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -8241,7 +8387,7 @@ final public class TestParsingMergeLite : ExtendableMessage {
         }
         unknownFields.writeDescriptionTo(&output, indent:indent)
       }
-      override public var hashValue:Int {
+      override internal var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasRepeatedGroupAllTypes {
@@ -8255,10 +8401,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      override internal class func className() -> String {
           return "TestParsingMergeLite.RepeatedGroup"
       }
-      override public func classMetaType() -> GeneratedMessage.Type {
+      override internal func className() -> String {
+          return "TestParsingMergeLite.RepeatedGroup"
+      }
+      override internal func classMetaType() -> GeneratedMessage.Type {
           return TestParsingMergeLite.RepeatedGroup.self
       }
 
@@ -8267,10 +8416,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
     }
 
-    final class RepeatedGroupBuilder : GeneratedMessageBuilder {
+    final internal class RepeatedGroupBuilder : GeneratedMessageBuilder {
       private var builderResult:TestParsingMergeLite.RepeatedGroup
 
-      required override init () {
+      required override internal init () {
          builderResult = TestParsingMergeLite.RepeatedGroup()
          super.init()
       }
@@ -8288,12 +8437,12 @@ final public class TestParsingMergeLite : ExtendableMessage {
                builderResult.repeatedGroupAllTypes = value
            }
       }
-      func setRepeatedGroupAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal func setRepeatedGroupAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLite.RepeatedGroupBuilder {
         repeatedGroupAllTypes = builderForValue.build()
         return self
       }
-      func mergeRepeatedGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedGroupBuilder {
-        if (builderResult.hasRepeatedGroupAllTypes && builderResult.repeatedGroupAllTypes != TestAllTypesLite()) {
+      internal func mergeRepeatedGroupAllTypes(value:TestAllTypesLite) -> TestParsingMergeLite.RepeatedGroupBuilder {
+        if (builderResult.hasRepeatedGroupAllTypes) {
           builderResult.repeatedGroupAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.repeatedGroupAllTypes).mergeFrom(value).buildPartial()
         } else {
           builderResult.repeatedGroupAllTypes = value
@@ -8301,32 +8450,32 @@ final public class TestParsingMergeLite : ExtendableMessage {
         builderResult.hasRepeatedGroupAllTypes = true
         return self
       }
-      func clearRepeatedGroupAllTypes() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal func clearRepeatedGroupAllTypes() -> TestParsingMergeLite.RepeatedGroupBuilder {
         builderResult.hasRepeatedGroupAllTypes = false
         builderResult.repeatedGroupAllTypes = TestAllTypesLite()
         return self
       }
-      override var internalGetResult:GeneratedMessage {
+      override internal var internalGetResult:GeneratedMessage {
            get {
               return builderResult
            }
       }
-      override func clear() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal override func clear() -> TestParsingMergeLite.RepeatedGroupBuilder {
         builderResult = TestParsingMergeLite.RepeatedGroup()
         return self
       }
-      override func clone() -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal override func clone() -> TestParsingMergeLite.RepeatedGroupBuilder {
         return TestParsingMergeLite.RepeatedGroup.builderWithPrototype(builderResult)
       }
-      override func build() -> TestParsingMergeLite.RepeatedGroup {
+      internal override func build() -> TestParsingMergeLite.RepeatedGroup {
            checkInitialized()
            return buildPartial()
       }
-      func buildPartial() -> TestParsingMergeLite.RepeatedGroup {
+      internal func buildPartial() -> TestParsingMergeLite.RepeatedGroup {
         var returnMe:TestParsingMergeLite.RepeatedGroup = builderResult
         return returnMe
       }
-      func mergeFrom(other:TestParsingMergeLite.RepeatedGroup) -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal func mergeFrom(other:TestParsingMergeLite.RepeatedGroup) -> TestParsingMergeLite.RepeatedGroupBuilder {
         if (other == TestParsingMergeLite.RepeatedGroup()) {
          return self
         }
@@ -8336,10 +8485,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
         mergeUnknownFields(other.unknownFields)
         return self
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLite.RepeatedGroupBuilder {
            return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
       }
-      override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroupBuilder {
+      internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite.RepeatedGroupBuilder {
         var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
         while (true) {
           var tag = input.readTag()
@@ -8376,18 +8525,18 @@ final public class TestParsingMergeLite : ExtendableMessage {
   private(set) var optionalAllTypes:TestAllTypesLite = TestAllTypesLite()
   private(set) var hasOptionalGroup:Bool = false
   private(set) var optionalGroup:TestParsingMergeLite.OptionalGroup = TestParsingMergeLite.OptionalGroup()
-  class func optionalExt() -> ConcreateExtensionField {
+  internal class func optionalExt() -> ConcreateExtensionField {
        return TestParsingMergeLiteoptionalExt
   }
-  class func repeatedExt() -> ConcreateExtensionField {
+  internal class func repeatedExt() -> ConcreateExtensionField {
        return TestParsingMergeLiterepeatedExt
   }
   private(set) var repeatedAllTypes:Array<TestAllTypesLite>  = Array<TestAllTypesLite>()
   private(set) var repeatedGroup:Array<TestParsingMergeLite.RepeatedGroup>  = Array<TestParsingMergeLite.RepeatedGroup>()
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !hasRequiredAllTypes {
       return false
     }
@@ -8396,26 +8545,26 @@ final public class TestParsingMergeLite : ExtendableMessage {
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasRequiredAllTypes {
       output.writeMessage(1, value:requiredAllTypes)
     }
     if hasOptionalAllTypes {
       output.writeMessage(2, value:optionalAllTypes)
     }
-    for element in repeatedAllTypes {
-        output.writeMessage(3, value:element)
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
+        output.writeMessage(3, value:oneElementrepeatedAllTypes)
     }
     if hasOptionalGroup {
       output.writeGroup(10, value:optionalGroup)
     }
-    for element in repeatedGroup {
-        output.writeGroup(20, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        output.writeGroup(20, value:oneElementrepeatedGroup)
     }
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1000), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -8428,51 +8577,57 @@ final public class TestParsingMergeLite : ExtendableMessage {
     if hasOptionalAllTypes {
       size += WireFormat.computeMessageSize(2, value:optionalAllTypes)
     }
-    for element in repeatedAllTypes {
-        size += WireFormat.computeMessageSize(3, value:element)
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
+        size += WireFormat.computeMessageSize(3, value:oneElementrepeatedAllTypes)
     }
     if hasOptionalGroup {
       size += WireFormat.computeGroupSize(10, value:optionalGroup)
     }
-    for element in repeatedGroup {
-        size += WireFormat.computeGroupSize(20, value:element)
+    for oneElementrepeatedGroup in repeatedGroup {
+        size += WireFormat.computeGroupSize(20, value:oneElementrepeatedGroup)
     }
     size += extensionsSerializedSize()
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestParsingMergeLite {
+  internal class func parseFromData(data:[Byte]) -> TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLite {
     return TestParsingMergeLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestParsingMergeLiteBuilder {
+  internal class func builder() -> TestParsingMergeLiteBuilder {
+    return TestParsingMergeLite.classBuilder() as TestParsingMergeLiteBuilder
+  }
+  internal func builder() -> TestParsingMergeLiteBuilder {
+    return classBuilder() as TestParsingMergeLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestParsingMergeLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestParsingMergeLite) -> TestParsingMergeLiteBuilder {
-    return TestParsingMergeLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestParsingMergeLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestParsingMergeLite.builder()
   }
-  func toBuilder() -> TestParsingMergeLiteBuilder {
+  internal func toBuilder() -> TestParsingMergeLiteBuilder {
     return TestParsingMergeLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestParsingMergeLite) -> TestParsingMergeLiteBuilder {
+    return TestParsingMergeLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasRequiredAllTypes {
       output += "\(indent) requiredAllTypes {\n"
       requiredAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
@@ -8484,9 +8639,9 @@ final public class TestParsingMergeLite : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var repeatedAllTypesElementIndex:Int = 0
-    for element in repeatedAllTypes {
+    for oneElementrepeatedAllTypes in repeatedAllTypes {
         output += "\(indent) repeatedAllTypes[\(repeatedAllTypesElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedAllTypes.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedAllTypesElementIndex++
     }
@@ -8496,16 +8651,16 @@ final public class TestParsingMergeLite : ExtendableMessage {
       output += "\(indent) }\n"
     }
     var repeatedGroupElementIndex:Int = 0
-    for element in repeatedGroup {
+    for oneElementrepeatedGroup in repeatedGroup {
         output += "\(indent) repeatedGroup[\(repeatedGroupElementIndex)] {\n"
-        element.writeDescriptionTo(&output, indent:"\(indent)  ")
+        oneElementrepeatedGroup.writeDescriptionTo(&output, indent:"\(indent)  ")
         output += "\(indent)}\n"
         repeatedGroupElementIndex++
     }
     writeExtensionDescription(&output, startInclusive:Int32(1000), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasRequiredAllTypes {
@@ -8514,14 +8669,14 @@ final public class TestParsingMergeLite : ExtendableMessage {
           if hasOptionalAllTypes {
             hashCode = (hashCode &* 31) &+ optionalAllTypes.hashValue
           }
-          for element in repeatedAllTypes {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedAllTypes in repeatedAllTypes {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedAllTypes.hashValue
           }
           if hasOptionalGroup {
             hashCode = (hashCode &* 31) &+ optionalGroup.hashValue
           }
-          for element in repeatedGroup {
-              hashCode = (hashCode &* 31) &+ element.hashValue
+          for oneElementrepeatedGroup in repeatedGroup {
+              hashCode = (hashCode &* 31) &+ oneElementrepeatedGroup.hashValue
           }
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1000), endExclusive:Int32(536870912)))
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -8532,10 +8687,13 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestParsingMergeLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestParsingMergeLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestParsingMergeLite.self
   }
 
@@ -8544,10 +8702,10 @@ final public class TestParsingMergeLite : ExtendableMessage {
 
 }
 
-final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
+final internal class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
   private var builderResult:TestParsingMergeLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestParsingMergeLite()
      super.init()
   }
@@ -8565,12 +8723,12 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
            builderResult.requiredAllTypes = value
        }
   }
-  func setRequiredAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLiteBuilder {
+  internal func setRequiredAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLiteBuilder {
     requiredAllTypes = builderForValue.build()
     return self
   }
-  func mergeRequiredAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasRequiredAllTypes && builderResult.requiredAllTypes != TestAllTypesLite()) {
+  internal func mergeRequiredAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
+    if (builderResult.hasRequiredAllTypes) {
       builderResult.requiredAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.requiredAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.requiredAllTypes = value
@@ -8578,7 +8736,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     builderResult.hasRequiredAllTypes = true
     return self
   }
-  func clearRequiredAllTypes() -> TestParsingMergeLiteBuilder {
+  internal func clearRequiredAllTypes() -> TestParsingMergeLiteBuilder {
     builderResult.hasRequiredAllTypes = false
     builderResult.requiredAllTypes = TestAllTypesLite()
     return self
@@ -8597,12 +8755,12 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
            builderResult.optionalAllTypes = value
        }
   }
-  func setOptionalAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLiteBuilder {
+  internal func setOptionalAllTypesBuilder(builderForValue:TestAllTypesLiteBuilder) -> TestParsingMergeLiteBuilder {
     optionalAllTypes = builderForValue.build()
     return self
   }
-  func mergeOptionalAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasOptionalAllTypes && builderResult.optionalAllTypes != TestAllTypesLite()) {
+  internal func mergeOptionalAllTypes(value:TestAllTypesLite) -> TestParsingMergeLiteBuilder {
+    if (builderResult.hasOptionalAllTypes) {
       builderResult.optionalAllTypes = TestAllTypesLite.builderWithPrototype(builderResult.optionalAllTypes).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalAllTypes = value
@@ -8610,7 +8768,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     builderResult.hasOptionalAllTypes = true
     return self
   }
-  func clearOptionalAllTypes() -> TestParsingMergeLiteBuilder {
+  internal func clearOptionalAllTypes() -> TestParsingMergeLiteBuilder {
     builderResult.hasOptionalAllTypes = false
     builderResult.optionalAllTypes = TestAllTypesLite()
     return self
@@ -8623,7 +8781,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
            builderResult.repeatedAllTypes = value
        }
   }
-  func clearRepeatedAllTypes() -> TestParsingMergeLiteBuilder {
+  internal func clearRepeatedAllTypes() -> TestParsingMergeLiteBuilder {
     builderResult.repeatedAllTypes.removeAll(keepCapacity: false)
     return self
   }
@@ -8641,12 +8799,12 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
            builderResult.optionalGroup = value
        }
   }
-  func setOptionalGroupBuilder(builderForValue:TestParsingMergeLite.OptionalGroupBuilder) -> TestParsingMergeLiteBuilder {
+  internal func setOptionalGroupBuilder(builderForValue:TestParsingMergeLite.OptionalGroupBuilder) -> TestParsingMergeLiteBuilder {
     optionalGroup = builderForValue.build()
     return self
   }
-  func mergeOptionalGroup(value:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLiteBuilder {
-    if (builderResult.hasOptionalGroup && builderResult.optionalGroup != TestParsingMergeLite.OptionalGroup()) {
+  internal func mergeOptionalGroup(value:TestParsingMergeLite.OptionalGroup) -> TestParsingMergeLiteBuilder {
+    if (builderResult.hasOptionalGroup) {
       builderResult.optionalGroup = TestParsingMergeLite.OptionalGroup.builderWithPrototype(builderResult.optionalGroup).mergeFrom(value).buildPartial()
     } else {
       builderResult.optionalGroup = value
@@ -8654,7 +8812,7 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     builderResult.hasOptionalGroup = true
     return self
   }
-  func clearOptionalGroup() -> TestParsingMergeLiteBuilder {
+  internal func clearOptionalGroup() -> TestParsingMergeLiteBuilder {
     builderResult.hasOptionalGroup = false
     builderResult.optionalGroup = TestParsingMergeLite.OptionalGroup()
     return self
@@ -8667,31 +8825,31 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
            builderResult.repeatedGroup = value
        }
   }
-  func clearRepeatedGroup() -> TestParsingMergeLiteBuilder {
+  internal func clearRepeatedGroup() -> TestParsingMergeLiteBuilder {
     builderResult.repeatedGroup.removeAll(keepCapacity: false)
     return self
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> TestParsingMergeLiteBuilder {
+  internal override func clear() -> TestParsingMergeLiteBuilder {
     builderResult = TestParsingMergeLite()
     return self
   }
-  override func clone() -> TestParsingMergeLiteBuilder {
+  internal override func clone() -> TestParsingMergeLiteBuilder {
     return TestParsingMergeLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestParsingMergeLite {
+  internal override func build() -> TestParsingMergeLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestParsingMergeLite {
+  internal func buildPartial() -> TestParsingMergeLite {
     var returnMe:TestParsingMergeLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestParsingMergeLite) -> TestParsingMergeLiteBuilder {
+  internal func mergeFrom(other:TestParsingMergeLite) -> TestParsingMergeLiteBuilder {
     if (other == TestParsingMergeLite()) {
      return self
     }
@@ -8714,10 +8872,10 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestParsingMergeLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestParsingMergeLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -8770,17 +8928,17 @@ final class TestParsingMergeLiteBuilder : ExtendableMessageBuilder {
   }
 }
 
-final public class TestEmptyMessageLite : GeneratedMessage {
-  required public init() {
+final internal class TestEmptyMessageLite : GeneratedMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -8791,40 +8949,46 @@ final public class TestEmptyMessageLite : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestEmptyMessageLite {
+  internal class func parseFromData(data:[Byte]) -> TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEmptyMessageLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestEmptyMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLite {
     return TestEmptyMessageLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestEmptyMessageLiteBuilder {
+  internal class func builder() -> TestEmptyMessageLiteBuilder {
+    return TestEmptyMessageLite.classBuilder() as TestEmptyMessageLiteBuilder
+  }
+  internal func builder() -> TestEmptyMessageLiteBuilder {
+    return classBuilder() as TestEmptyMessageLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestEmptyMessageLite) -> TestEmptyMessageLiteBuilder {
-    return TestEmptyMessageLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestEmptyMessageLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessageLite.builder()
   }
-  func toBuilder() -> TestEmptyMessageLiteBuilder {
+  internal func toBuilder() -> TestEmptyMessageLiteBuilder {
     return TestEmptyMessageLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestEmptyMessageLite) -> TestEmptyMessageLiteBuilder {
+    return TestEmptyMessageLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -8835,10 +8999,13 @@ final public class TestEmptyMessageLite : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestEmptyMessageLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestEmptyMessageLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestEmptyMessageLite.self
   }
 
@@ -8847,44 +9014,44 @@ final public class TestEmptyMessageLite : GeneratedMessage {
 
 }
 
-final class TestEmptyMessageLiteBuilder : GeneratedMessageBuilder {
+final internal class TestEmptyMessageLiteBuilder : GeneratedMessageBuilder {
   private var builderResult:TestEmptyMessageLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestEmptyMessageLite()
      super.init()
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> TestEmptyMessageLiteBuilder {
+  internal override func clear() -> TestEmptyMessageLiteBuilder {
     builderResult = TestEmptyMessageLite()
     return self
   }
-  override func clone() -> TestEmptyMessageLiteBuilder {
+  internal override func clone() -> TestEmptyMessageLiteBuilder {
     return TestEmptyMessageLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestEmptyMessageLite {
+  internal override func build() -> TestEmptyMessageLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestEmptyMessageLite {
+  internal func buildPartial() -> TestEmptyMessageLite {
     var returnMe:TestEmptyMessageLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestEmptyMessageLite) -> TestEmptyMessageLiteBuilder {
+  internal func mergeFrom(other:TestEmptyMessageLite) -> TestEmptyMessageLiteBuilder {
     if (other == TestEmptyMessageLite()) {
      return self
     }
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEmptyMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEmptyMessageLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -8903,21 +9070,21 @@ final class TestEmptyMessageLiteBuilder : GeneratedMessageBuilder {
   }
 }
 
-final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
-  required public init() {
+final internal class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
     if !extensionsAreInitialized() {
      return false
     }
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     writeExtensionsToCodedOutputStream(output, startInclusive:Int32(1), endExclusive:Int32(536870912))
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -8929,41 +9096,47 @@ final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromData(data:[Byte]) -> TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream) -> TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLite {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLite {
     return TestEmptyMessageWithExtensionsLite.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal class func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
+    return TestEmptyMessageWithExtensionsLite.classBuilder() as TestEmptyMessageWithExtensionsLiteBuilder
+  }
+  internal func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
+    return classBuilder() as TestEmptyMessageWithExtensionsLiteBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensionsLiteBuilder()
   }
-  class func builderWithPrototype(prototype:TestEmptyMessageWithExtensionsLite) -> TestEmptyMessageWithExtensionsLiteBuilder {
-    return TestEmptyMessageWithExtensionsLite.builder().mergeFrom(prototype)
-  }
-  func builder() -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return TestEmptyMessageWithExtensionsLite.builder()
   }
-  func toBuilder() -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal func toBuilder() -> TestEmptyMessageWithExtensionsLiteBuilder {
     return TestEmptyMessageWithExtensionsLite.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:TestEmptyMessageWithExtensionsLite) -> TestEmptyMessageWithExtensionsLiteBuilder {
+    return TestEmptyMessageWithExtensionsLite.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     writeExtensionDescription(&output, startInclusive:Int32(1), endExclusive:Int32(536870912), indent:indent)
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(Int32(1), endExclusive:Int32(536870912)))
@@ -8975,10 +9148,13 @@ final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "TestEmptyMessageWithExtensionsLite"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "TestEmptyMessageWithExtensionsLite"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return TestEmptyMessageWithExtensionsLite.self
   }
 
@@ -8987,34 +9163,34 @@ final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
 
 }
 
-final class TestEmptyMessageWithExtensionsLiteBuilder : ExtendableMessageBuilder {
+final internal class TestEmptyMessageWithExtensionsLiteBuilder : ExtendableMessageBuilder {
   private var builderResult:TestEmptyMessageWithExtensionsLite
 
-  required override init () {
+  required override internal init () {
      builderResult = TestEmptyMessageWithExtensionsLite()
      super.init()
   }
-  override var internalGetResult:ExtendableMessage {
+  override internal var internalGetResult:ExtendableMessage {
        get {
            return builderResult
        }
   }
-  override func clear() -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal override func clear() -> TestEmptyMessageWithExtensionsLiteBuilder {
     builderResult = TestEmptyMessageWithExtensionsLite()
     return self
   }
-  override func clone() -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal override func clone() -> TestEmptyMessageWithExtensionsLiteBuilder {
     return TestEmptyMessageWithExtensionsLite.builderWithPrototype(builderResult)
   }
-  override func build() -> TestEmptyMessageWithExtensionsLite {
+  internal override func build() -> TestEmptyMessageWithExtensionsLite {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> TestEmptyMessageWithExtensionsLite {
+  internal func buildPartial() -> TestEmptyMessageWithExtensionsLite {
     var returnMe:TestEmptyMessageWithExtensionsLite = builderResult
     return returnMe
   }
-  func mergeFrom(other:TestEmptyMessageWithExtensionsLite) -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal func mergeFrom(other:TestEmptyMessageWithExtensionsLite) -> TestEmptyMessageWithExtensionsLiteBuilder {
     if (other == TestEmptyMessageWithExtensionsLite()) {
      return self
     }
@@ -9022,10 +9198,10 @@ final class TestEmptyMessageWithExtensionsLiteBuilder : ExtendableMessageBuilder
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEmptyMessageWithExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->TestEmptyMessageWithExtensionsLiteBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLiteBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> TestEmptyMessageWithExtensionsLiteBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -9047,7 +9223,7 @@ final class TestEmptyMessageWithExtensionsLiteBuilder : ExtendableMessageBuilder
 //Class extensions: NSData
 
 
-extension TestAllTypesLite.NestedMessage {
+internal extension TestAllTypesLite.NestedMessage {
     class func parseFromNSData(data:NSData) -> TestAllTypesLite.NestedMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9059,7 +9235,7 @@ extension TestAllTypesLite.NestedMessage {
         return TestAllTypesLite.NestedMessage.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestAllTypesLite.OptionalGroup {
+internal extension TestAllTypesLite.OptionalGroup {
     class func parseFromNSData(data:NSData) -> TestAllTypesLite.OptionalGroup {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9071,7 +9247,7 @@ extension TestAllTypesLite.OptionalGroup {
         return TestAllTypesLite.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestAllTypesLite.RepeatedGroup {
+internal extension TestAllTypesLite.RepeatedGroup {
     class func parseFromNSData(data:NSData) -> TestAllTypesLite.RepeatedGroup {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9083,7 +9259,7 @@ extension TestAllTypesLite.RepeatedGroup {
         return TestAllTypesLite.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestAllTypesLite {
+internal extension TestAllTypesLite {
     class func parseFromNSData(data:NSData) -> TestAllTypesLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9095,7 +9271,7 @@ extension TestAllTypesLite {
         return TestAllTypesLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension ForeignMessageLite {
+internal extension ForeignMessageLite {
     class func parseFromNSData(data:NSData) -> ForeignMessageLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9107,7 +9283,7 @@ extension ForeignMessageLite {
         return ForeignMessageLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestPackedTypesLite {
+internal extension TestPackedTypesLite {
     class func parseFromNSData(data:NSData) -> TestPackedTypesLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9119,7 +9295,7 @@ extension TestPackedTypesLite {
         return TestPackedTypesLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestAllExtensionsLite {
+internal extension TestAllExtensionsLite {
     class func parseFromNSData(data:NSData) -> TestAllExtensionsLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9131,7 +9307,7 @@ extension TestAllExtensionsLite {
         return TestAllExtensionsLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension OptionalGroup_extension_lite {
+internal extension OptionalGroup_extension_lite {
     class func parseFromNSData(data:NSData) -> OptionalGroup_extension_lite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9143,7 +9319,7 @@ extension OptionalGroup_extension_lite {
         return OptionalGroup_extension_lite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension RepeatedGroup_extension_lite {
+internal extension RepeatedGroup_extension_lite {
     class func parseFromNSData(data:NSData) -> RepeatedGroup_extension_lite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9155,7 +9331,7 @@ extension RepeatedGroup_extension_lite {
         return RepeatedGroup_extension_lite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestPackedExtensionsLite {
+internal extension TestPackedExtensionsLite {
     class func parseFromNSData(data:NSData) -> TestPackedExtensionsLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9167,7 +9343,7 @@ extension TestPackedExtensionsLite {
         return TestPackedExtensionsLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestNestedExtensionLite {
+internal extension TestNestedExtensionLite {
     class func parseFromNSData(data:NSData) -> TestNestedExtensionLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9179,7 +9355,7 @@ extension TestNestedExtensionLite {
         return TestNestedExtensionLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestDeprecatedLite {
+internal extension TestDeprecatedLite {
     class func parseFromNSData(data:NSData) -> TestDeprecatedLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9191,7 +9367,7 @@ extension TestDeprecatedLite {
         return TestDeprecatedLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestParsingMergeLite.RepeatedFieldsGenerator {
+internal extension TestParsingMergeLite.RepeatedFieldsGenerator {
     class func parseFromNSData(data:NSData) -> TestParsingMergeLite.RepeatedFieldsGenerator {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9203,7 +9379,7 @@ extension TestParsingMergeLite.RepeatedFieldsGenerator {
         return TestParsingMergeLite.RepeatedFieldsGenerator.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestParsingMergeLite.OptionalGroup {
+internal extension TestParsingMergeLite.OptionalGroup {
     class func parseFromNSData(data:NSData) -> TestParsingMergeLite.OptionalGroup {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9215,7 +9391,7 @@ extension TestParsingMergeLite.OptionalGroup {
         return TestParsingMergeLite.OptionalGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestParsingMergeLite.RepeatedGroup {
+internal extension TestParsingMergeLite.RepeatedGroup {
     class func parseFromNSData(data:NSData) -> TestParsingMergeLite.RepeatedGroup {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9227,7 +9403,7 @@ extension TestParsingMergeLite.RepeatedGroup {
         return TestParsingMergeLite.RepeatedGroup.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestParsingMergeLite {
+internal extension TestParsingMergeLite {
     class func parseFromNSData(data:NSData) -> TestParsingMergeLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9239,7 +9415,7 @@ extension TestParsingMergeLite {
         return TestParsingMergeLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestEmptyMessageLite {
+internal extension TestEmptyMessageLite {
     class func parseFromNSData(data:NSData) -> TestEmptyMessageLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
@@ -9251,7 +9427,7 @@ extension TestEmptyMessageLite {
         return TestEmptyMessageLite.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
-extension TestEmptyMessageWithExtensionsLite {
+internal extension TestEmptyMessageWithExtensionsLite {
     class func parseFromNSData(data:NSData) -> TestEmptyMessageWithExtensionsLite {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

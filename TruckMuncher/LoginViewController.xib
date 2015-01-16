@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TruckMuncher" customModuleProvider="target">
@@ -28,14 +28,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MuncherLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-4e-DXJ">
-                                            <rect key="frame" x="155" y="60" width="290" height="160"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truckmuncher.png" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-4e-DXJ">
+                                            <rect key="frame" x="190" y="78" width="220" height="200"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="290" id="HNC-Hc-G3b"/>
+                                                <constraint firstAttribute="height" constant="200" id="Kct-1k-BaF"/>
+                                                <constraint firstAttribute="width" constant="220" id="llf-ok-wQS"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
-                                            <rect key="frame" x="221" y="286" width="158" height="28"/>
+                                            <rect key="frame" x="221" y="312" width="158" height="28"/>
                                             <state key="normal" image="sign-in-with-twitter-gray.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -53,31 +54,31 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apa-se-YMc" customClass="FBLoginView">
-                                            <rect key="frame" x="221" y="340" width="158" height="50"/>
+                                            <rect key="frame" x="221" y="357" width="158" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Vy0-yD-zwM" firstAttribute="top" secondItem="apa-se-YMc" secondAttribute="bottom" constant="95" id="09F-FJ-k61"/>
-                                        <constraint firstItem="apa-se-YMc" firstAttribute="trailing" secondItem="mla-si-cff" secondAttribute="trailing" id="0GA-7E-PB7"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="hkz-4e-DXJ" secondAttribute="bottom" constant="66" id="1Hr-MO-tdR"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="centerY" secondItem="NFM-c7-Js7" secondAttribute="centerY" id="6GR-1V-Nle"/>
-                                        <constraint firstItem="hkz-4e-DXJ" firstAttribute="centerX" secondItem="mla-si-cff" secondAttribute="centerX" id="GGY-6F-3SN"/>
-                                        <constraint firstItem="Vy0-yD-zwM" firstAttribute="centerX" secondItem="apa-se-YMc" secondAttribute="centerX" id="Nid-VW-agJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="Vy0-yD-zwM" secondAttribute="bottom" constant="51" id="Rql-5M-hyq"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="leading" secondItem="apa-se-YMc" secondAttribute="leading" id="SYb-I5-eld"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="NFM-c7-Js7" secondAttribute="centerX" id="Xr8-uR-u5P"/>
-                                        <constraint firstItem="apa-se-YMc" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="26" id="wn7-FA-Hqr"/>
+                                        <constraint firstAttribute="bottom" secondItem="Vy0-yD-zwM" secondAttribute="bottom" constant="51" id="0fw-z9-XZI"/>
+                                        <constraint firstItem="apa-se-YMc" firstAttribute="leading" secondItem="mla-si-cff" secondAttribute="leading" id="1aa-2k-SjM"/>
+                                        <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="NFM-c7-Js7" secondAttribute="centerX" id="2dp-uX-8qE"/>
+                                        <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="hkz-4e-DXJ" secondAttribute="bottom" constant="34" id="GIh-sc-ykw"/>
+                                        <constraint firstItem="mla-si-cff" firstAttribute="trailing" secondItem="apa-se-YMc" secondAttribute="trailing" id="WCu-Qp-z8H"/>
+                                        <constraint firstItem="apa-se-YMc" firstAttribute="centerX" secondItem="Vy0-yD-zwM" secondAttribute="centerX" id="Y5y-J4-Wep"/>
+                                        <constraint firstItem="hkz-4e-DXJ" firstAttribute="top" secondItem="NFM-c7-Js7" secondAttribute="top" constant="78" id="fbe-ei-SKn"/>
+                                        <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="hkz-4e-DXJ" secondAttribute="centerX" id="fzd-UJ-kl6"/>
+                                        <constraint firstItem="apa-se-YMc" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="17" id="m0S-x8-hvH"/>
+                                        <constraint firstItem="Vy0-yD-zwM" firstAttribute="top" secondItem="apa-se-YMc" secondAttribute="bottom" constant="78" id="tlE-Vp-POQ"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="raY-32-cCc" firstAttribute="leading" secondItem="ARx-Ir-8fA" secondAttribute="leading" id="AyE-je-IKB"/>
-                            <constraint firstAttribute="bottom" secondItem="raY-32-cCc" secondAttribute="bottom" id="bBQ-vw-D3F"/>
-                            <constraint firstItem="raY-32-cCc" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" id="qsA-uk-qr1"/>
-                            <constraint firstAttribute="trailing" secondItem="raY-32-cCc" secondAttribute="trailing" id="tzY-Ls-jfR"/>
+                            <constraint firstItem="raY-32-cCc" firstAttribute="leading" secondItem="ARx-Ir-8fA" secondAttribute="leading" id="1Eg-sx-h99"/>
+                            <constraint firstAttribute="bottom" secondItem="raY-32-cCc" secondAttribute="bottom" id="L3v-66-sSN"/>
+                            <constraint firstItem="raY-32-cCc" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" id="bEb-Fp-gQW"/>
+                            <constraint firstAttribute="trailing" secondItem="raY-32-cCc" secondAttribute="trailing" id="n99-zR-fNe"/>
                         </constraints>
                     </view>
                     <blurEffect style="light"/>
@@ -85,16 +86,16 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="F0P-Hf-FcR"/>
-                <constraint firstAttribute="bottom" secondItem="YxX-Nt-YCZ" secondAttribute="bottom" id="P6R-Bd-qlG"/>
-                <constraint firstAttribute="trailing" secondItem="YxX-Nt-YCZ" secondAttribute="trailing" id="WOS-ZC-lQp"/>
-                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yp9-3d-NoE"/>
+                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0aY-3Q-vgp"/>
+                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4zK-ib-KL2"/>
+                <constraint firstAttribute="trailing" secondItem="YxX-Nt-YCZ" secondAttribute="trailing" id="f8V-ji-mTw"/>
+                <constraint firstAttribute="bottom" secondItem="YxX-Nt-YCZ" secondAttribute="bottom" id="lSQ-M1-g3F"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="MuncherLogo.png" width="289" height="160"/>
         <image name="closeWhite.png" width="64" height="64"/>
         <image name="sign-in-with-twitter-gray.png" width="158" height="28"/>
+        <image name="truckmuncher.png" width="1140" height="1048"/>
     </resources>
 </document>

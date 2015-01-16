@@ -3,8 +3,8 @@
 import Foundation
 import ProtocolBuffers
 
-struct UnittestImportRoot {
-  static var sharedInstance : UnittestImportRoot {
+internal struct UnittestImportRoot {
+  internal static var sharedInstance : UnittestImportRoot {
    struct Static {
        static let instance : UnittestImportRoot = UnittestImportRoot()
    }
@@ -17,7 +17,7 @@ struct UnittestImportRoot {
     registerAllExtensions(extensionRegistry)
     UnittestImportPublicRoot.sharedInstance.registerAllExtensions(extensionRegistry)
   }
-  func registerAllExtensions(registry:ExtensionRegistry) {
+  internal func registerAllExtensions(registry:ExtensionRegistry) {
   }
 }
 
@@ -25,18 +25,16 @@ struct UnittestImportRoot {
 
 //Enum type declaration start 
 
-enum ImportEnum:Int32 {
+internal enum ImportEnum:Int32 {
   case ImportFoo = 7
   case ImportBar = 8
   case ImportBaz = 9
 
-  static func IsValidValue(value:ImportEnum) ->Bool {
-    switch value {
-      case .ImportFoo, .ImportBar, .ImportBaz:
-        return true;
-      default:
-        return false;
-    }
+  internal static func IsValidValue(value:Int32) ->Bool {
+      if let check = ImportEnum(rawValue:value) {
+          return true
+      }
+      return false
   }
 }
 
@@ -44,7 +42,7 @@ enum ImportEnum:Int32 {
 
 //Enum type declaration end 
 
-func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
+internal func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
   if (lhs === rhs) {
     return true
   }
@@ -53,23 +51,23 @@ func == (lhs: ImportMessage, rhs: ImportMessage) -> Bool {
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
-final public class ImportMessage : GeneratedMessage {
+final internal class ImportMessage : GeneratedMessage {
   private(set) var hasD:Bool = false
   private(set) var d:Int32 = Int32(0)
 
-  required public init() {
+  required internal init() {
        super.init()
   }
-  override public func isInitialized() -> Bool {
+  override internal func isInitialized() -> Bool {
    return true
   }
-  override public func writeToCodedOutputStream(output:CodedOutputStream) {
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
     if hasD {
       output.writeInt32(1, value:d)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
-  override public func serializedSize() -> Int32 {
+  override internal func serializedSize() -> Int32 {
     var size:Int32 = memoizedSerializedSize
     if size != -1 {
      return size
@@ -83,43 +81,49 @@ final public class ImportMessage : GeneratedMessage {
     memoizedSerializedSize = size
     return size
   }
-  class func parseFromData(data:[Byte]) -> ImportMessage {
+  internal class func parseFromData(data:[Byte]) -> ImportMessage {
     return ImportMessage.builder().mergeFromData(data).build()
   }
-  class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ImportMessage {
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ImportMessage {
     return ImportMessage.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromInputStream(input:NSInputStream) -> ImportMessage {
+  internal class func parseFromInputStream(input:NSInputStream) -> ImportMessage {
     return ImportMessage.builder().mergeFromInputStream(input).build()
   }
-  class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ImportMessage {
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ImportMessage {
     return ImportMessage.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream) -> ImportMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ImportMessage {
     return ImportMessage.builder().mergeFromCodedInputStream(input).build()
   }
-  class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessage {
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessage {
     return ImportMessage.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
   }
-  class func builder() -> ImportMessageBuilder {
+  internal class func builder() -> ImportMessageBuilder {
+    return ImportMessage.classBuilder() as ImportMessageBuilder
+  }
+  internal func builder() -> ImportMessageBuilder {
+    return classBuilder() as ImportMessageBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
     return ImportMessageBuilder()
   }
-  class func builderWithPrototype(prototype:ImportMessage) -> ImportMessageBuilder {
-    return ImportMessage.builder().mergeFrom(prototype)
-  }
-  func builder() -> ImportMessageBuilder {
+  internal override func classBuilder() -> MessageBuilder {
     return ImportMessage.builder()
   }
-  func toBuilder() -> ImportMessageBuilder {
+  internal func toBuilder() -> ImportMessageBuilder {
     return ImportMessage.builderWithPrototype(self)
   }
-  override public func writeDescriptionTo(inout output:String, indent:String) {
+  internal class func builderWithPrototype(prototype:ImportMessage) -> ImportMessageBuilder {
+    return ImportMessage.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
     if hasD {
       output += "\(indent) d: \(d) \n"
     }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
-  override public var hashValue:Int {
+  override internal var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasD {
@@ -133,10 +137,13 @@ final public class ImportMessage : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  override internal class func className() -> String {
       return "ImportMessage"
   }
-  override public func classMetaType() -> GeneratedMessage.Type {
+  override internal func className() -> String {
+      return "ImportMessage"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
       return ImportMessage.self
   }
 
@@ -145,10 +152,10 @@ final public class ImportMessage : GeneratedMessage {
 
 }
 
-final class ImportMessageBuilder : GeneratedMessageBuilder {
+final internal class ImportMessageBuilder : GeneratedMessageBuilder {
   private var builderResult:ImportMessage
 
-  required override init () {
+  required override internal init () {
      builderResult = ImportMessage()
      super.init()
   }
@@ -166,32 +173,32 @@ final class ImportMessageBuilder : GeneratedMessageBuilder {
            builderResult.d = value
        }
   }
-  func clearD() -> ImportMessageBuilder{
+  internal func clearD() -> ImportMessageBuilder{
        builderResult.hasD = false
        builderResult.d = Int32(0)
        return self
   }
-  override var internalGetResult:GeneratedMessage {
+  override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
        }
   }
-  override func clear() -> ImportMessageBuilder {
+  internal override func clear() -> ImportMessageBuilder {
     builderResult = ImportMessage()
     return self
   }
-  override func clone() -> ImportMessageBuilder {
+  internal override func clone() -> ImportMessageBuilder {
     return ImportMessage.builderWithPrototype(builderResult)
   }
-  override func build() -> ImportMessage {
+  internal override func build() -> ImportMessage {
        checkInitialized()
        return buildPartial()
   }
-  func buildPartial() -> ImportMessage {
+  internal func buildPartial() -> ImportMessage {
     var returnMe:ImportMessage = builderResult
     return returnMe
   }
-  func mergeFrom(other:ImportMessage) -> ImportMessageBuilder {
+  internal func mergeFrom(other:ImportMessage) -> ImportMessageBuilder {
     if (other == ImportMessage()) {
      return self
     }
@@ -201,10 +208,10 @@ final class ImportMessageBuilder : GeneratedMessageBuilder {
     mergeUnknownFields(other.unknownFields)
     return self
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream) ->ImportMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ImportMessageBuilder {
        return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
   }
-  override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageBuilder {
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ImportMessageBuilder {
     var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
     while (true) {
       var tag = input.readTag()
@@ -229,7 +236,7 @@ final class ImportMessageBuilder : GeneratedMessageBuilder {
 //Class extensions: NSData
 
 
-extension ImportMessage {
+internal extension ImportMessage {
     class func parseFromNSData(data:NSData) -> ImportMessage {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)

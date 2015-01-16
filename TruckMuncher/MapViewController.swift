@@ -9,7 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, CCHMapClusterControllerDelegate  {
+class MapViewController: UIViewController,
+    MKMapViewDelegate,
+    CLLocationManagerDelegate,
+    CCHMapClusterControllerDelegate,
+    iCarouselDataSource,
+    iCarouselDelegate,
+    UIViewControllerTransitioningDelegate,
+    UIGestureRecognizerDelegate{
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var loginButton: UIButton!
@@ -20,21 +27,78 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
+    var truckCarousel: iCarousel!
     var count: Int = 0
+    var showingMenu = false
     var activeTrucks = [RTruck]()
     
     let trucksManager = TrucksManager()
+    let menuManager = MenuManager()
+    
+    var transitionManager = TransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.translucent = false
+        
+        
+        
+        var muncherImage = UIImage(named: "truckmuncher")
+        var muncherImageView = UIImageView(image: muncherImage)
+        var navFrame = navigationController?.navigationBar.frame
+        muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
+        navigationController?.navigationBar.addSubview(muncherImageView)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        updateCarouselWithTruckMenus()
+        
         initLocationManager()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            locationManager.startUpdatingLocation()
+            mapClusterControllerSetup()
+            truckCarouselSetup()
+        }
+    }
+    
+    func mapClusterControllerSetup () {
         self.mapView.delegate = self
-
+        
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
         setClusterSettings()
+    }
+    
+    func truckCarouselSetup () {
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+        truckCarousel.type = .Linear
+        truckCarousel.delegate = self
+        truckCarousel.dataSource = self
+        truckCarousel.pagingEnabled = true
+        truckCarousel.currentItemIndex = 0
+        truckCarousel.bounces = false
         
-        updateData()
+        view.addSubview(truckCarousel)
+        attachGestureRecognizerToCarousel()
+    }
+    
+    func updateCarouselWithTruckMenus() {
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
+                self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
+                    if self.locationManager != nil {
+                        self.updateData()
+                    }
+                    }, error: { (error) -> () in
+                        println("error fetching truck profiles \(error)")
+                })
+                }) { (error) -> () in
+                    println("error fetching full menus \(error)")
+            }
+        }
     }
     
     func setClusterSettings() {
@@ -43,6 +107,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapClusterController.maxZoomLevelForClustering = 25
         mapClusterController.minUniqueLocationsForClustering = 2
     }
+    
+    func initLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+    }
+    
+    // MARK: - MKMapViewDelegate Methods
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         var annotationView: MKAnnotationView!
@@ -64,6 +137,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         return annotationView
     }
     
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
+        var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
+        
+        let tappedTruckIndex = truckLocationAnnotation!.index
+        
+        truckCarousel.currentItemIndex = tappedTruckIndex
+        truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
+        
+        centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
+    }
+    
+    // MARK: - CCHMapClusterControllerDelegate Methods
+
     func mapClusterController(mapClusterController: CCHMapClusterController!, willReuseMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) {
         if var clusterAnnotationView = self.mapView.viewForAnnotation(mapClusterAnnotation!) as? TruckLocationAnnotationView {
             clusterAnnotationView.setCount(mapClusterAnnotation.annotations.count)
@@ -76,29 +163,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
             locationManager.location != nil){
                 
-            var latitude = locationManager.location.coordinate.latitude
-            var longitude = locationManager.location.coordinate.longitude
-            var latDelta = deltaDegrees
-            var longDelta = deltaDegrees
-            
-            var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
-            var center = CLLocationCoordinate2DMake(latitude, longitude)
-            var region = MKCoordinateRegionMake(center, span)
-            
-            mapView.setRegion(region, animated: true)
+            centerMapOverCoordinate(locationManager.location.coordinate)
         }
     }
     
-    func initLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+    func centerMapOverCoordinate(coordinate: CLLocationCoordinate2D) {
+        var latitude = coordinate.latitude
+        var longitude = coordinate.longitude
+        var latDelta = deltaDegrees
+        var longDelta = deltaDegrees
         
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
-            locationManager.startUpdatingLocation()
-        }
+        var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
+        var center = CLLocationCoordinate2DMake(latitude, longitude)
+        var region = MKCoordinateRegionMake(center, span)
+        
+        mapView.setRegion(region, animated: true)
     }
+    
+    // MARK: - CLLocationManagerDelegate Methods
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         locationManager.stopUpdatingLocation()
@@ -108,8 +190,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        zoomToCurrentLocation()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
+            locationManager.startUpdatingLocation()
+            mapClusterControllerSetup()
+            truckCarouselSetup()
+            updateCarouselWithTruckMenus()
+            zoomToCurrentLocation()
+        }
     }
+    
+    // MARK: - Helper Methods
     
     func login () {
         var config: NSDictionary = NSDictionary()
@@ -136,68 +226,123 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     func updateData() {
-        let lat = locationManager.location.coordinate.latitude
-        let long = locationManager.location.coordinate.longitude
-        trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
-            self.activeTrucks = response as [RTruck]
-            self.updateMapWithActiveTrucks()
-        }) { (error) -> () in
-            var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        let location = locationManager.location
+        if location != nil {
+            let lat =  locationManager.location.coordinate.latitude
+            let long = locationManager.location.coordinate.longitude
+            trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
+                self.activeTrucks = response as [RTruck]
+                self.updateMapWithActiveTrucks()
+                self.truckCarousel.reloadData()
+                }) { (error) -> () in
+                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
-    }
-    
-    func getTestData() -> [TruckLocationAnnotation] {
-        var data: [Double] =
-        [43.05265631,-87.90401198,
-         43.03576388,-87.91721352,
-         43.02638076,-87.90735085,
-         43.04600575,-87.90082287,
-         43.0476906,-87.90938226,
-         43.04207734,-87.9229517,
-         43.04833173,-87.89582687,
-         43.03738504,-87.89517655,
-         43.0290022,-87.91630814,
-         43.04188092,-87.91600996,
-         43.04538683,-87.90294789,
-         43.04069801,-87.90840926,
-         43.03756858,-87.90004066,
-         43.02641297,-87.91294862,
-         43.03851439,-87.91370365,
-         43.03334973,-87.91801331,
-         43.05091557,-87.91482627,
-         43.05074858,-87.89720238,
-         43.02518068,-87.90899585,
-         43.04223255,-87.91285668,
-         43.04306691,-87.92162701,
-         43.04274613,-87.90421682,
-         43.04925296,-87.90021438,
-         43.04333435,-87.89825707,
-         43.04386196,-87.90218619,
-         43.02695604,-87.90862889]
-        
-        var points = [TruckLocationAnnotation]()
-
-        for var i = 0; i < data.count; i+=2 {
-            var location = CLLocationCoordinate2D(latitude: data[i], longitude: data[i+1])
-            var a = TruckLocationAnnotation(location: location)
-            points.append(a)
-        }
-        
-        return points
     }
     
     func updateMapWithActiveTrucks() {
         var annotations = [TruckLocationAnnotation]()
         
-        for var i = 0; i < activeTrucks.count; i++ {
+        for i in 0..<activeTrucks.count {
             var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
-            var a = TruckLocationAnnotation(location: location)
+            var a = TruckLocationAnnotation(location: location, index: i)
             annotations.append(a)
         }
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
+    }
+    
+    // MARK: - iCarouselDataSource Methods
+    
+    func attachGestureRecognizerToCarousel() {
+
+        let swipeSelector: Selector = "handleSwipe:"
+        var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
+        swipeUpRecognizer.direction = .Up
+        truckCarousel.addGestureRecognizer(swipeUpRecognizer);
+        
+        var swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
+        swipeDownRecognizer.direction = .Down
+        truckCarousel.addGestureRecognizer(swipeDownRecognizer);
+    }
+    
+    @IBAction func handleSwipe(recognizer: UISwipeGestureRecognizer) {
+        var newRect: CGRect = CGRect.nullRect
+        showingMenu = recognizer.direction == .Up
+        
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.navigationController?.navigationBarHidden = self.showingMenu
+            
+            if recognizer.direction == .Up {
+                newRect = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            } else if recognizer.direction == .Down {
+                newRect = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            }
+            
+            self.truckCarousel.frame = newRect
+            }, completion: nil)
+    }
+    
+    func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
+    {
+        return activeTrucks.count
+    }
+    
+    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
+    {
+        if view == nil {
+            var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
+            view = viewArray[0] as TruckDetailView
+            view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+        }
+        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+
+        return view
+    }
+    
+    func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
+        var annotations = mapClusterController.annotations.allObjects
+        
+        if (annotations.count > 0) {
+            let curIndex = truckCarousel.currentItemIndex
+            centerMapOverCoordinate(annotations[curIndex].coordinate)
+        }
+    }
+    
+    func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
+        if !showingMenu {
+            UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+                }, completion: nil)
+            })
+        }
+    }
+    
+    // MARK: - UIVieControllerTransitioningDelegate Methods
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        self.transitionManager.transitionTo = .MODAL;
+        return self.transitionManager;
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        self.transitionManager.transitionTo = .INITIAL;
+        return self.transitionManager;
+    }
+    
+    // Mark: - UIGestureRecognizerDelegate Methods
+    func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
+            return true;
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return showingMenu
     }
 }

@@ -3,7 +3,7 @@
 // Copyright 2014 Alexey Khohklov(AlexeyXo).
 // Copyright 2008 Google Inc.
 //
-// Licensed under the Apache License, Version 2.0 (the "License");
+// Licensed under the Apache License, Version 2.0 (the "License")
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
@@ -48,7 +48,7 @@ final public class ConcreateExtensionField:ExtensionField,Equatable
     internal var type:ExtensionType
     public var fieldNumber:Int32
     public var extendedClass:AnyClassType
-    var messageOrGroupClass:Any.Type
+    public var messageOrGroupClass:Any.Type
     var defaultValue:Any
     var isRepeated:Bool = false
     var isPacked:Bool
@@ -133,7 +133,7 @@ messageOrGroupClass:Any.Type,
         switch (type) {
             case .ExtensionTypeBool,.ExtensionTypeFixed32,.ExtensionTypeSFixed32,.ExtensionTypeFloat,.ExtensionTypeFixed64,.ExtensionTypeSFixed64,.ExtensionTypeDouble: return true
             default:
-                return false;
+                return false
         }
     }
     
@@ -141,11 +141,11 @@ messageOrGroupClass:Any.Type,
     func typeSize(type:ExtensionType) -> Int32
     {
         switch (type) {
-            case .ExtensionTypeBool: return 1;
+            case .ExtensionTypeBool: return 1
             case .ExtensionTypeFixed32, .ExtensionTypeSFixed32, .ExtensionTypeFloat: return 4
             case .ExtensionTypeFixed64,.ExtensionTypeSFixed64, .ExtensionTypeDouble: return 8
             default:
-                return 0;
+                return 0
         }
     }
     
@@ -385,7 +385,7 @@ messageOrGroupClass:Any.Type,
             
         case .ExtensionTypeGroup:
             var downCastValue = value as GeneratedMessage
-            return WireFormat.computeGroupSizeNoTag(downCastValue)
+            return WireFormat.computeGroupSize(fieldNumber, value:downCastValue)
             
         case .ExtensionTypeMessage where isMessageSetWireFormat == true:
             var downCastValue = value as GeneratedMessage
@@ -401,7 +401,7 @@ messageOrGroupClass:Any.Type,
         return 0
     }
     
-    func  computeSingleSerializedPrimitivesSizeNoTag(value:Any) -> Int32
+    func  computeSingleSerializedSizeNoTag(value:Any) -> Int32
     {
         switch type {
 
@@ -501,10 +501,10 @@ messageOrGroupClass:Any.Type,
         
     }
     
-    func writeRepeatedValuesIncludingTags(values:Array<Any>, output:CodedOutputStream) {
+    func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) {
         if (isPacked) {
             output.writeTag(fieldNumber, format: WireFormat.WireFormatLengthDelimited)
-            var dataSize:Int32 = 0;
+            var dataSize:Int32 = 0
             
             if (typeIsFixedSize(type))
             {
@@ -514,7 +514,7 @@ messageOrGroupClass:Any.Type,
             {
                 for value in values
                 {
-                    dataSize += computeSingleSerializedPrimitivesSizeNoTag(value)
+                    dataSize += computeSingleSerializedSizeNoTag(value)
                 }
             }
             output.writeRawVarint32(dataSize)
@@ -533,7 +533,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func computeRepeatedSerializedSizeIncludingTags(values:Array<Any>) -> Int32
+    func computeRepeatedSerializedSizeIncludingTags<T>(values:Array<T>) -> Int32
     {
         if (isPacked) {
             var size:Int32 = 0
@@ -544,7 +544,7 @@ messageOrGroupClass:Any.Type,
             {
                 for value in values
                 {
-                    size += computeSingleSerializedPrimitivesSizeNoTag(value)
+                    size += computeSingleSerializedSizeNoTag(value)
                 }
             }
             return size + WireFormat.computeTagSize(fieldNumber) + WireFormat.computeRawVarint32Size(size)
@@ -563,9 +563,33 @@ messageOrGroupClass:Any.Type,
     
     public func computeSerializedSizeIncludingTag(value:Any) -> Int32
     {
-        if let values = value as? Array<Any>
+        if isRepeated
         {
-            return computeRepeatedSerializedSizeIncludingTags(values)
+            switch value
+            {
+            case let values as [Int32]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Int64]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [UInt64]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [UInt32]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Float]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Double]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [Bool]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [String]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as Array<Array<Byte>>:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            case let values as [GeneratedMessage]:
+                return computeRepeatedSerializedSizeIncludingTags(values)
+            default:
+                return 0
+            }
         }
         else
         {
@@ -576,9 +600,35 @@ messageOrGroupClass:Any.Type,
     
     public func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream)
     {
-        if let values = value as? Array<Any>
+        
+        if isRepeated
         {
-             writeRepeatedValuesIncludingTags(values, output:output)
+            switch value
+            {
+            case let values as [Int32]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Int64]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [UInt64]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [UInt32]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Bool]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Float]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [Double]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [String]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as Array<Array<Byte>>:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            case let values as [GeneratedMessage]:
+                writeRepeatedValuesIncludingTags(values, output:output)
+            default:
+                break
+            }
+            
         }
         else
         {
@@ -586,20 +636,54 @@ messageOrGroupClass:Any.Type,
         }
     }
     
+    private func iterationRepetedValuesForDescription<T>(values:Array<T>, inout output:String, indent:String)
+    {
+        for singleValue in values
+        {
+            writeDescriptionOfSingleValue(singleValue, output: &output, indent: indent)
+        }
+    }
+    
     public func writeDescriptionOf(value:Any, inout output:String, indent:String)
     {
-        if let values = value as? Array<Any>
+  
+        
+        if isRepeated
         {
-            for singleValue in values
+            switch value
             {
-                writeDescriptionOfSingleValue(singleValue, output: &output, indent: indent)
+            case let values as [Int32]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Int64]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [UInt64]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [UInt32]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Bool]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Float]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [Double]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [String]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as Array<Array<Byte>>:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            case let values as [GeneratedMessage]:
+                iterationRepetedValuesForDescription(values, output: &output, indent: indent)
+            default:
+                break
             }
+
         }
         else
         {
                 writeDescriptionOfSingleValue(value, output:&output, indent:indent)
         }
     }
+    
+  
     
     func mergeMessageSetExtentionFromCodedInputStream(input:CodedInputStream, unknownFields:UnknownFieldSetBuilder)
     {
@@ -644,7 +728,7 @@ messageOrGroupClass:Any.Type,
         case .ExtensionTypeGroup:
             if let mg = messageOrGroupClass as? GeneratedMessage.Type
             {
-                var buider = mg.buider()
+                var buider = mg.classBuilder()
                 input.readGroup(fieldNumber, builder: buider, extensionRegistry: extensionRegistry)
                 var mes = buider.build()
                 return mes
@@ -652,7 +736,7 @@ messageOrGroupClass:Any.Type,
         case .ExtensionTypeMessage:
             if let mg = messageOrGroupClass as? GeneratedMessage.Type
             {
-                var buider = mg.buider()
+                var buider = mg.classBuilder()
                 input.readMessage(buider, extensionRegistry: extensionRegistry)
                 var mes = buider.build()
                 return mes
@@ -678,7 +762,9 @@ messageOrGroupClass:Any.Type,
         else if isMessageSetWireFormat
         {
             mergeMessageSetExtentionFromCodedInputStream(input, unknownFields:unknownFields)
-        } else {
+        }
+        else
+        {
             var value = readSingleValueFromCodedInputStream(input, extensionRegistry:extensionRegistry)
             if (isRepeated) {
                 builder.addExtension(self, value:value)
