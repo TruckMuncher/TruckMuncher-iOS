@@ -56,59 +56,43 @@
                             </switch>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="zRx-QL-dg3" firstAttribute="top" secondItem="l4M-40-3VL" secondAttribute="top" constant="17" id="Ggh-W6-Bdh"/>
-                            <constraint firstItem="im3-Q8-x3E" firstAttribute="centerX" secondItem="l4M-40-3VL" secondAttribute="centerX" id="LxZ-Jh-X4c"/>
-                            <constraint firstItem="im3-Q8-x3E" firstAttribute="centerY" secondItem="zRx-QL-dg3" secondAttribute="centerY" id="NeF-mO-ddO"/>
-                            <constraint firstAttribute="bottom" secondItem="VeW-4j-JhW" secondAttribute="bottom" constant="-63" id="NkC-OQ-UhO"/>
-                            <constraint firstItem="VeW-4j-JhW" firstAttribute="top" secondItem="l4M-40-3VL" secondAttribute="top" id="R8K-Br-NgF"/>
-                            <constraint firstAttribute="trailing" secondItem="zRx-QL-dg3" secondAttribute="trailing" constant="31" id="Ryv-xH-MJs"/>
-                            <constraint firstItem="VeW-4j-JhW" firstAttribute="leading" secondItem="l4M-40-3VL" secondAttribute="leading" id="SGq-82-6bK"/>
-                            <constraint firstItem="im3-Q8-x3E" firstAttribute="leading" secondItem="VeW-4j-JhW" secondAttribute="trailing" constant="7" id="sNg-MX-tRx"/>
-                            <constraint firstItem="zRx-QL-dg3" firstAttribute="centerY" secondItem="l4M-40-3VL" secondAttribute="centerY" id="vA4-KH-mwv"/>
+                            <constraint firstAttribute="trailing" secondItem="zRx-QL-dg3" secondAttribute="trailing" constant="31" id="3X6-3j-cAm"/>
+                            <constraint firstAttribute="bottom" secondItem="VeW-4j-JhW" secondAttribute="bottom" constant="-63" id="DPV-HR-MXz"/>
+                            <constraint firstItem="zRx-QL-dg3" firstAttribute="centerY" secondItem="im3-Q8-x3E" secondAttribute="centerY" id="Dar-p6-dcv"/>
+                            <constraint firstItem="zRx-QL-dg3" firstAttribute="top" secondItem="l4M-40-3VL" secondAttribute="top" constant="17" id="Qpj-Sj-r2g"/>
+                            <constraint firstItem="im3-Q8-x3E" firstAttribute="centerX" secondItem="l4M-40-3VL" secondAttribute="centerX" id="SsH-m9-5vl"/>
+                            <constraint firstItem="VeW-4j-JhW" firstAttribute="top" secondItem="l4M-40-3VL" secondAttribute="top" id="fIb-Wt-z3f"/>
+                            <constraint firstItem="VeW-4j-JhW" firstAttribute="leading" secondItem="l4M-40-3VL" secondAttribute="leading" id="j62-6s-Gb6"/>
+                            <constraint firstItem="im3-Q8-x3E" firstAttribute="leading" secondItem="VeW-4j-JhW" secondAttribute="trailing" constant="7" id="nIa-XM-91s"/>
+                            <constraint firstItem="im3-Q8-x3E" firstAttribute="centerY" secondItem="l4M-40-3VL" secondAttribute="centerY" id="uYD-Yd-nwj"/>
                         </constraints>
                     </view>
                     <blurEffect style="light"/>
                 </visualEffectView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-ae-IqJ">
-                    <rect key="frame" x="25" y="94" width="55" height="55"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="55" id="KDC-WK-yQ8"/>
-                        <constraint firstAttribute="width" constant="55" id="VPD-Zk-P34"/>
-                    </constraints>
-                    <state key="normal" image="Menu.png">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="openMenu:" destination="-1" eventType="touchUpInside" id="Ldf-Uh-2g5"/>
-                    </connections>
-                </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocationSetterPin.png" translatesAutoresizingMaskIntoConstraints="NO" id="wAf-G7-3zh">
                     <rect key="frame" x="280" y="270" width="40" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="DvA-2E-o8M"/>
-                        <constraint firstAttribute="width" constant="40" id="HXW-l6-PET"/>
+                        <constraint firstAttribute="width" constant="40" id="HV9-Gp-7fp"/>
+                        <constraint firstAttribute="height" constant="60" id="N68-ey-QUQ"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="wAf-G7-3zh" firstAttribute="centerY" secondItem="MLG-qh-KtB" secondAttribute="centerY" id="1FE-dd-0fW"/>
-                <constraint firstItem="Eco-ae-IqJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="94" id="1hN-zI-Q6S"/>
-                <constraint firstItem="Eco-ae-IqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="JhU-kn-V3c"/>
-                <constraint firstItem="9vx-6u-OJ6" firstAttribute="bottom" secondItem="MLG-qh-KtB" secondAttribute="bottom" id="QEO-J5-uZL"/>
-                <constraint firstAttribute="bottom" secondItem="9vx-6u-OJ6" secondAttribute="bottom" id="QjI-A6-Dka"/>
-                <constraint firstAttribute="trailing" secondItem="9vx-6u-OJ6" secondAttribute="trailing" id="RFz-mL-KLr"/>
-                <constraint firstItem="MLG-qh-KtB" firstAttribute="leading" secondItem="9vx-6u-OJ6" secondAttribute="leading" id="XPJ-1N-35c"/>
-                <constraint firstItem="MLG-qh-KtB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bB2-Mc-9VO"/>
-                <constraint firstItem="MLG-qh-KtB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bFj-oA-eiM"/>
-                <constraint firstItem="MLG-qh-KtB" firstAttribute="trailing" secondItem="9vx-6u-OJ6" secondAttribute="trailing" id="cNw-xk-zec"/>
-                <constraint firstItem="wAf-G7-3zh" firstAttribute="centerX" secondItem="9vx-6u-OJ6" secondAttribute="centerX" id="wfL-wn-okN"/>
+                <constraint firstItem="MLG-qh-KtB" firstAttribute="trailing" secondItem="9vx-6u-OJ6" secondAttribute="trailing" id="3Wu-I9-w7s"/>
+                <constraint firstAttribute="bottom" secondItem="MLG-qh-KtB" secondAttribute="bottom" id="ACC-wc-xoC"/>
+                <constraint firstItem="9vx-6u-OJ6" firstAttribute="leading" secondItem="MLG-qh-KtB" secondAttribute="leading" id="Dfy-HS-6m3"/>
+                <constraint firstItem="MLG-qh-KtB" firstAttribute="bottom" secondItem="9vx-6u-OJ6" secondAttribute="bottom" id="OuW-YU-0y9"/>
+                <constraint firstItem="MLG-qh-KtB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SIt-2S-cb4"/>
+                <constraint firstItem="MLG-qh-KtB" firstAttribute="centerY" secondItem="wAf-G7-3zh" secondAttribute="centerY" id="ZNp-9W-KOY"/>
+                <constraint firstItem="MLG-qh-KtB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fcb-CW-UAc"/>
+                <constraint firstAttribute="trailing" secondItem="MLG-qh-KtB" secondAttribute="trailing" id="iXg-Js-qXY"/>
+                <constraint firstItem="wAf-G7-3zh" firstAttribute="centerX" secondItem="9vx-6u-OJ6" secondAttribute="centerX" id="xt0-wz-AQq"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
     <resources>
         <image name="LocationSetterPin.png" width="64" height="93"/>
-        <image name="Menu.png" width="64" height="64"/>
     </resources>
 </document>

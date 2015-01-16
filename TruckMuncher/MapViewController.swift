@@ -20,14 +20,10 @@ class MapViewController: UIViewController,
     SearchCompletionProtocol {
 
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
     
     var searchDelegate: SearchDelegate?
     
     var items: [Int] = []
-    
-    @IBAction func loginAction(sender: AnyObject) { login() }
     
     let deltaDegrees = 0.05
     var locationManager: CLLocationManager!
@@ -46,11 +42,9 @@ class MapViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TruckMuncher"
         self.navigationController?.navigationBar.translucent = false
 
         searchDelegate = SearchDelegate(completionDelegate: self)
-        searchBar.delegate = searchDelegate
         
         initLocationManager()
         self.mapView.delegate = self
@@ -58,12 +52,8 @@ class MapViewController: UIViewController,
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
         setClusterSettings()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, view.frame.height - 56.0, view.frame.width, view.frame.height))
+        truckCarousel = iCarousel()
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
@@ -74,6 +64,19 @@ class MapViewController: UIViewController,
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
         
+        var muncherImage = UIImage(named: "truckmuncher")
+        var muncherImageView = UIImageView(image: muncherImage)
+        var navFrame = navigationController?.navigationBar.frame
+        muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
+        navigationController?.navigationBar.addSubview(muncherImageView)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        truckCarousel.frame = CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+
         menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
             self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
                 self.updateData()
@@ -214,7 +217,6 @@ class MapViewController: UIViewController,
             self.activeTrucks = response as [RTruck]
             self.updateMapWithActiveTrucks()
             self.truckCarousel.reloadData()
-
         }) { (error) -> () in
             var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -251,17 +253,18 @@ class MapViewController: UIViewController,
     
     @IBAction func handleSwipe(recognizer: UISwipeGestureRecognizer) {
         var newRect: CGRect = CGRect.nullRect
-        
-        if recognizer.direction == .Up {
-            let navFrame = self.navigationController?.navigationBar.frame
-            newRect = CGRectMake(0.0, CGRectGetMaxY(navFrame!) - 40.0, self.view.frame.width, self.view.frame.height)
-            showingMenu = true
-        } else if recognizer.direction == .Down {
-            newRect = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
-            showingMenu = false
-        }
+        showingMenu = recognizer.direction == .Up
         
         UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+            self.navigationController?.navigationBarHidden = self.showingMenu
+            
+            if recognizer.direction == .Up {
+                newRect = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            } else if recognizer.direction == .Down {
+                newRect = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            }
+            
             self.truckCarousel.frame = newRect
             }, completion: nil)
     }
@@ -277,9 +280,9 @@ class MapViewController: UIViewController,
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
-            
         }
+        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+
         return view
     }
     
@@ -295,13 +298,12 @@ class MapViewController: UIViewController,
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-                self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 100.0, self.view.frame.width, self.view.frame.height)
+                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
             }, completion: { (Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.truckCarousel.frame = CGRectMake(0.0, self.view.frame.height - 56.0, self.view.frame.width, self.view.frame.height)
+                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
                 }, completion: nil)
             })
-            
         }
     }
     
@@ -337,5 +339,9 @@ class MapViewController: UIViewController,
         activeTrucks = [RTruck](originalTrucks)
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
+    }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return showingMenu
     }
 }

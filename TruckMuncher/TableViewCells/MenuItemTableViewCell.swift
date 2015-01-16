@@ -18,9 +18,9 @@ class MenuItemTableViewCell: UITableViewCell {
     var truckPrimaryTextColor: UIColor!
     var truckSecondaryTextColor: UIColor!
     
-    private var privateMenuItem: MenuItem?
+    private var privateMenuItem: RMenuItem?
     
-    var menuItem: MenuItem? {
+    var menuItem: RMenuItem? {
         set {
             privateMenuItem = newValue
             reloadFromMenuItem()

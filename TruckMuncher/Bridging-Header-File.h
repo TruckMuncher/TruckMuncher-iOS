@@ -10,6 +10,8 @@
 #define TruckMuncher_Bridging_Header_File_h
 
 #import <FacebookSDK/FacebookSDK.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "STTwitter.h"
 #import "KeychainItemWrapper.h"
 #import "CCHMapClusterController.h"
