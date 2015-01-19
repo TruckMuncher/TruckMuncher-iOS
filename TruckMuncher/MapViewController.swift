@@ -17,7 +17,8 @@ class MapViewController: UIViewController,
     iCarouselDelegate,
     UIViewControllerTransitioningDelegate,
     UIGestureRecognizerDelegate,
-    SearchCompletionProtocol {
+    SearchCompletionProtocol,
+    UISearchBarDelegate {
 
     @IBOutlet var mapView: MKMapView!
     
@@ -72,6 +73,26 @@ class MapViewController: UIViewController,
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
         
         searchDelegate = SearchDelegate(completionDelegate: self)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
+        searchDelegate?.searchBar.delegate = self
+    }
+    
+    func showSearchBar() {
+        searchDelegate?.showSearchBar()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.searchDelegate?.searchBarSearchButtonClicked(searchBar)
+            return
+        })
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.searchDelegate?.searchBarCancelButtonClicked(searchBar)
+            return
+        })
     }
     
     override func viewDidAppear(animated: Bool) {

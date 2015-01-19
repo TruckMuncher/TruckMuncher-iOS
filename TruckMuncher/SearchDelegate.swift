@@ -23,30 +23,38 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     let completionDelegate: T
     let searchBar: UISearchBar
     var titleView: UIView?
+    var leftButton: UIBarButtonItem?
+    var rightButton: UIBarButtonItem?
     
     init(completionDelegate: T) {
         self.completionDelegate = completionDelegate
         searchBar = UISearchBar()
         searchBar.showsCancelButton = true
         searchBar.placeholder = "What are you hungry for?"
-        super.init()
-        self.completionDelegate.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
     }
     
     func showSearchBar() {
+        println("showing search bar")
 //        displaysSearchBarInNavigationBar = true
 //        setActive(true, animated: true)
         searchBar.becomeFirstResponder()
         titleView = self.completionDelegate.navigationItem.titleView
+        leftButton = self.completionDelegate.navigationItem.leftBarButtonItem
+        rightButton = self.completionDelegate.navigationItem.rightBarButtonItem
         self.completionDelegate.navigationItem.titleView = searchBar
+        self.completionDelegate.navigationItem.leftBarButtonItem = nil
+        self.completionDelegate.navigationItem.rightBarButtonItem = nil
 //        searchContentsController.setNeedsStatusBarAppearanceUpdate()
 //        searchContentsController.view.setNeedsDisplay()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        println("search btn clicked")
         self.searchBar.resignFirstResponder()
         let newTerm = searchBar.text
-        if newTerm != previousSearchTerm {
+        if newTerm == "" {
+            return
+        } else if newTerm != previousSearchTerm {
             previousSearchTerm = newTerm
             offset = 0
         }
@@ -75,12 +83,19 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        offset = 0
+        previousSearchTerm = ""
+        println("cancelling search bar")
         self.searchBar.text = ""
 //        displaysSearchBarInNavigationBar = false
 //        setActive(false, animated: true)
         searchBar.resignFirstResponder()
         self.completionDelegate.navigationItem.titleView = titleView
+        self.completionDelegate.navigationItem.leftBarButtonItem = leftButton
+        self.completionDelegate.navigationItem.rightBarButtonItem = rightButton
         titleView = nil
+        leftButton = nil
+        rightButton = nil
 //        searchContentsController.setNeedsStatusBarAppearanceUpdate()
     }
 }
