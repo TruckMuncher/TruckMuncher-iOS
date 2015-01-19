@@ -41,8 +41,6 @@ class MapViewController: UIViewController,
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
         
-        
-        
         var muncherImage = UIImage(named: "truckmuncher")
         var muncherImageView = UIImageView(image: muncherImage)
         var navFrame = navigationController?.navigationBar.frame
@@ -138,15 +136,17 @@ class MapViewController: UIViewController,
     }
     
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        
         var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
         var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
         
-        let tappedTruckIndex = truckLocationAnnotation!.index
         
-        truckCarousel.currentItemIndex = tappedTruckIndex
-        truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
-        
-        centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
+        if let tappedTruckIndex = truckLocationAnnotation?.index {
+            truckCarousel.currentItemIndex = tappedTruckIndex
+            truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
+            
+            centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
+        }
     }
     
     // MARK: - CCHMapClusterControllerDelegate Methods
