@@ -19,7 +19,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var truck: RTruck
     let menuManager = MenuManager()
     var textColor = UIColor.whiteColor()
-    var headerTextColor = UIColor.whiteColor()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
         self.truck = truck
@@ -43,9 +42,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // http://stackoverflow.com/questions/19456288/text-color-based-on-background-image
         let primary = UIColor(rgba: truck.primaryColor)
-        let secondary = UIColor(rgba: truck.secondaryColor)
         textColor = primary.suggestedTextColor()
-        headerTextColor = secondary.suggestedTextColor()
         self.view.backgroundColor = primary
         
         self.view.frame = UIScreen.mainScreen().bounds
@@ -141,8 +138,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         var label = UILabel(frame: CGRectMake(0, 0, tblMenu.frame.size.width, 66))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        label.backgroundColor = UIColor(rgba: truck.secondaryColor)
-        label.textColor = headerTextColor
+        label.backgroundColor = UIColor(rgba: truck.primaryColor)
+        label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)
         return container
