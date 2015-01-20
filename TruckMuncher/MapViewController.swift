@@ -335,9 +335,7 @@ class MapViewController: UIViewController,
         
         if (annotations.count > 0) {
             let curIndex = truckCarousel.currentItemIndex
-            if curIndex < annotations.count {
-                centerMapOverCoordinate(annotations[curIndex].coordinate)
-            }
+            centerMapOverCoordinate(annotations[curIndex].coordinate)
         }
     }
     
