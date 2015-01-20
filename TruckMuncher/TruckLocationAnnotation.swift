@@ -15,10 +15,12 @@ class TruckLocationAnnotation: NSObject, MKAnnotation {
     var index : Int
     var title : String!
     var subtitle : String!
+    var truckId: String!
     
-    init(location coord:CLLocationCoordinate2D, index:Int) {
+    init(location coord:CLLocationCoordinate2D, index:Int, truckId: String!) {
         self.coordinate = coord
         self.index = index
+        self.truckId = truckId
         super.init()
     }
 }

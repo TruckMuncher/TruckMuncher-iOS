@@ -36,8 +36,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckNameLabel.text = truck.name
         var keywords = [String]()
         for keyword in truck.keywords {
-            let v = (keyword as RString).value
-            print("keyword \(keyword) and \(v)")
             keywords.append((keyword as RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)

@@ -17,20 +17,22 @@ class MapViewController: UIViewController,
     iCarouselDataSource,
     iCarouselDelegate,
     UIViewControllerTransitioningDelegate,
-    UIGestureRecognizerDelegate{
+    UIGestureRecognizerDelegate,
+    SearchCompletionProtocol,
+    UISearchBarDelegate {
 
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var loginButton: UIButton!
     
-    @IBAction func loginAction(sender: AnyObject) { login() }
+    var searchDelegate: SearchDelegate<MapViewController>?
     
-    let deltaDegrees = 0.05
+    let deltaDegrees = 0.02
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
     var truckCarousel: iCarousel!
     var count: Int = 0
     var showingMenu = false
+    var originalTrucks = [RTruck]()
     var activeTrucks = [RTruck]()
     
     let trucksManager = TrucksManager()
@@ -42,13 +44,18 @@ class MapViewController: UIViewController,
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
         
-        var muncherImage = UIImage(named: "truckmuncher")
+        var muncherImage = UIImage(named: "muncherTM")
         var muncherImageView = UIImageView(image: muncherImage)
-        var navFrame = navigationController?.navigationBar.frame
-        muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
-        navigationController?.navigationBar.addSubview(muncherImageView)
+        muncherImageView.frame = CGRectMake(0, 0, 40, 40)
+        muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        navigationItem.titleView = muncherImageView
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+        // TODO use an icon for this, using the words Sign In makes the titleView not centered
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign In", style: .Plain, target: self, action: "login")
+        
+        searchDelegate = SearchDelegate(completionDelegate: self)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
+        searchDelegate?.searchBar.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -68,7 +75,10 @@ class MapViewController: UIViewController,
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
-        setClusterSettings()
+        mapClusterController.cellSize = 60
+        mapClusterController.marginFactor = 0.5
+        mapClusterController.maxZoomLevelForClustering = 25
+        mapClusterController.minUniqueLocationsForClustering = 2
     }
     
     func truckCarouselSetup() {
@@ -82,10 +92,29 @@ class MapViewController: UIViewController,
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
-        truckCarousel.bounces = false
+        truckCarousel.bounces = true
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
+    }
+    
+    func showSearchBar() {
+        originalTrucks = [RTruck](activeTrucks)
+        searchDelegate?.showSearchBar()
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.searchDelegate?.searchBarSearchButtonClicked(searchBar)
+            return
+        })
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.searchDelegate?.searchBarCancelButtonClicked(searchBar)
+            return
+        })
     }
     
     func updateCarouselWithTruckMenus() {
@@ -102,13 +131,6 @@ class MapViewController: UIViewController,
                     println("error fetching full menus \(error)")
             }
         }
-    }
-    
-    func setClusterSettings() {
-        mapClusterController.cellSize = 60
-        mapClusterController.marginFactor = 0.5
-        mapClusterController.maxZoomLevelForClustering = 25
-        mapClusterController.minUniqueLocationsForClustering = 2
     }
     
     func initLocationManager() {
@@ -145,12 +167,10 @@ class MapViewController: UIViewController,
         var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
         var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
         
-        
         if let tappedTruckIndex = truckLocationAnnotation?.index {
             truckCarousel.currentItemIndex = tappedTruckIndex
             truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
             
-            centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
         }
     }
     
@@ -260,15 +280,17 @@ class MapViewController: UIViewController,
     }
     
     func updateMapWithActiveTrucks() {
+        mapView.removeAnnotations(mapView.annotations)
+
         var annotations = [TruckLocationAnnotation]()
         
         for i in 0..<activeTrucks.count {
             var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
-            var a = TruckLocationAnnotation(location: location, index: i)
+            var a = TruckLocationAnnotation(location: location, index: i, truckId: activeTrucks[i].id)
             annotations.append(a)
         }
         
-        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+        mapClusterControllerSetup()
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
     
@@ -322,11 +344,13 @@ class MapViewController: UIViewController,
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
-        var annotations = mapClusterController.annotations.allObjects
-        
-        if (annotations.count > 0) {
-            let curIndex = truckCarousel.currentItemIndex
-            centerMapOverCoordinate(annotations[curIndex].coordinate)
+        for i in 0..<activeTrucks.count {
+            let currentCarouselTruckId = (activeTrucks[carousel.currentItemIndex] as RTruck).id
+            let someTruck = activeTrucks[i] as RTruck
+            if someTruck.id == currentCarouselTruckId {
+                let coord = CLLocationCoordinate2D(latitude: someTruck.latitude, longitude: someTruck.longitude)
+                centerMapOverCoordinate(coord)
+            }
         }
     }
     
@@ -359,6 +383,23 @@ class MapViewController: UIViewController,
             return true;
     }
     
+    // MARK: - SearchCompletionProtocol
+    
+    func searchSuccessful(results: [RTruck]) {
+        activeTrucks = [RTruck](results)
+        updateMapWithActiveTrucks()
+        truckCarousel.reloadData()
+        truckCarousel.scrollToItemAtIndex(0, animated: false)
+    }
+    
+    func searchCancelled() {
+        activeTrucks = [RTruck](originalTrucks)
+        originalTrucks = [RTruck]()
+        updateMapWithActiveTrucks()
+        truckCarousel.reloadData()
+        truckCarousel.scrollToItemAtIndex(0, animated: false)
+    }
+
     override func prefersStatusBarHidden() -> Bool {
         return showingMenu
     }
