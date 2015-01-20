@@ -74,7 +74,10 @@ class MapViewController: UIViewController,
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterController.delegate = self
-        setClusterSettings()
+        mapClusterController.cellSize = 60
+        mapClusterController.marginFactor = 0.5
+        mapClusterController.maxZoomLevelForClustering = 25
+        mapClusterController.minUniqueLocationsForClustering = 2
     }
     
     func truckCarouselSetup () {
@@ -123,13 +126,6 @@ class MapViewController: UIViewController,
                     println("error fetching full menus \(error)")
             }
         }
-    }
-    
-    func setClusterSettings() {
-        mapClusterController.cellSize = 60
-        mapClusterController.marginFactor = 0.5
-        mapClusterController.maxZoomLevelForClustering = 25
-        mapClusterController.minUniqueLocationsForClustering = 2
     }
     
     func initLocationManager() {
@@ -269,6 +265,8 @@ class MapViewController: UIViewController,
     }
     
     func updateMapWithActiveTrucks() {
+        mapView.removeAnnotations(mapView.annotations)
+
         var annotations = [TruckLocationAnnotation]()
         
         for i in 0..<activeTrucks.count {
@@ -277,7 +275,8 @@ class MapViewController: UIViewController,
             annotations.append(a)
         }
         
-        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+//        mapClusterController = CCHMapClusterController(mapView: self.mapView)
+        mapClusterControllerSetup()
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
     
