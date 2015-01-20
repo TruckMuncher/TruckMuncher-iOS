@@ -24,7 +24,7 @@ class MapViewController: UIViewController,
     
     var searchDelegate: SearchDelegate<MapViewController>?
     
-    let deltaDegrees = 0.05
+    let deltaDegrees = 0.02
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
@@ -43,7 +43,7 @@ class MapViewController: UIViewController,
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
         
-        var muncherImage = UIImage(named: "truckmuncher")
+        var muncherImage = UIImage(named: "muncherTM")
         var muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
@@ -87,7 +87,7 @@ class MapViewController: UIViewController,
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
-        truckCarousel.bounces = false
+        truckCarousel.bounces = true
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
@@ -162,12 +162,10 @@ class MapViewController: UIViewController,
         var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
         var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
         
-        
         if let tappedTruckIndex = truckLocationAnnotation?.index {
             truckCarousel.currentItemIndex = tappedTruckIndex
             truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
             
-            centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
         }
     }
     
@@ -271,7 +269,7 @@ class MapViewController: UIViewController,
         
         for i in 0..<activeTrucks.count {
             var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
-            var a = TruckLocationAnnotation(location: location, index: i)
+            var a = TruckLocationAnnotation(location: location, index: i, truckId: activeTrucks[i].id)
             annotations.append(a)
         }
         
@@ -329,11 +327,13 @@ class MapViewController: UIViewController,
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
-        var annotations = mapClusterController.annotations.allObjects
-        
-        if (annotations.count > 0) {
-            let curIndex = truckCarousel.currentItemIndex
-            centerMapOverCoordinate(annotations[curIndex].coordinate)
+        for i in 0..<activeTrucks.count {
+            let currentCarouselTruckId = (activeTrucks[carousel.currentItemIndex] as RTruck).id
+            let someTruck = activeTrucks[i] as RTruck
+            if someTruck.id == currentCarouselTruckId {
+                let coord = CLLocationCoordinate2D(latitude: someTruck.latitude, longitude: someTruck.longitude)
+                centerMapOverCoordinate(coord)
+            }
         }
     }
     
