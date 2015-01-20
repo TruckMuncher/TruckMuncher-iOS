@@ -17,10 +17,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckNameLabel: UILabel!
     @IBOutlet var truckLogoImage: UIImageView!
     
-    var colorPicker = LEColorPicker()
-    var colorScheme = LEColorScheme()
-    
     var menu: RMenu?
+    var textColor = UIColor.blackColor()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -46,15 +44,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             keywords.append((keyword as RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)
-        updateColorScheme()
-    }
-    
-    func updateColorScheme() {
-        colorScheme = colorPicker.colorSchemeFromImage(truckLogoImage.image)
-        menuTableView.backgroundColor = colorScheme.backgroundColor
-        backgroundColor = colorScheme.backgroundColor
-        truckNameLabel.textColor = colorScheme.primaryTextColor
-        truckTagsLabel.textColor = colorScheme.secondaryTextColor
+        
+        let primary = UIColor(rgba: truck.primaryColor)
+        backgroundColor = primary
+        textColor = primary.suggestedTextColor()
+        truckNameLabel.textColor = textColor
+        truckTagsLabel.textColor = textColor
     }
     
     func getImageForTruck(truck:RTruck) {
@@ -62,10 +57,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: UIImage(named: "noImageAvailable"), completed: { (image, error, type, url) -> Void in
             if error == nil {
-                self.updateColorScheme()
                 self.menuTableView.reloadData()
-            }
-            else {
+            } else {
                 println("Error: \(error.localizedDescription)")
             }
         })
@@ -80,12 +73,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
         var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
-        cell.backgroundColor = colorScheme.backgroundColor
-        cell.lblName.textColor = colorScheme.primaryTextColor
-        cell.lblPrice.textColor = colorScheme.primaryTextColor
-        cell.lblDescription.textColor = colorScheme.secondaryTextColor
-        var bgView = UIView()
-        cell.selectedBackgroundView = bgView
+        //cell.backgroundColor = colorScheme.backgroundColor
+        cell.lblName.textColor = textColor
+        cell.lblPrice.textColor = textColor
+        cell.lblDescription.textColor = textColor
+        //var bgView = UIView()
+        //cell.selectedBackgroundView = bgView
         return cell
     }
     
@@ -106,8 +99,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, 66))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        label.backgroundColor = colorScheme.backgroundColor
-        label.textColor = colorScheme.primaryTextColor
+        //label.backgroundColor = colorScheme.backgroundColor
+        label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)
         return container

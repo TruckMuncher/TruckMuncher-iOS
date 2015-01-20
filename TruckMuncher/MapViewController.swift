@@ -63,7 +63,7 @@ class MapViewController: UIViewController,
         }
     }
     
-    func mapClusterControllerSetup () {
+    func mapClusterControllerSetup() {
         self.mapView.delegate = self
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
@@ -71,7 +71,11 @@ class MapViewController: UIViewController,
         setClusterSettings()
     }
     
-    func truckCarouselSetup () {
+    func truckCarouselSetup() {
+        if truckCarousel != nil {
+            truckCarousel.removeFromSuperview()
+            truckCarousel = nil
+        }
         truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
@@ -91,10 +95,10 @@ class MapViewController: UIViewController,
                     if self.locationManager != nil {
                         self.updateData()
                     }
-                    }, error: { (error) -> () in
+                }, error: { (error) -> () in
                         println("error fetching truck profiles \(error)")
                 })
-                }) { (error) -> () in
+            }) { (error) -> () in
                     println("error fetching full menus \(error)")
             }
         }
