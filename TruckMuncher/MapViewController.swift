@@ -40,10 +40,8 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.translucent = false
-        
-        
-        
-        var muncherImage = UIImage(named: "truckmuncher")
+
+        var muncherImage = UIImage(named: "muncherTM")
         var muncherImageView = UIImageView(image: muncherImage)
         var navFrame = navigationController?.navigationBar.frame
         muncherImageView.frame = CGRectMake(navFrame!.midX - 20.0, 0.0, 40.0, 40.0)
@@ -79,7 +77,7 @@ class MapViewController: UIViewController,
         truckCarousel.dataSource = self
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
-        truckCarousel.bounces = false
+        truckCarousel.bounces = true
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
@@ -247,7 +245,7 @@ class MapViewController: UIViewController,
         
         for i in 0..<activeTrucks.count {
             var location = CLLocationCoordinate2D(latitude: activeTrucks[i].latitude, longitude: activeTrucks[i].longitude)
-            var a = TruckLocationAnnotation(location: location, index: i)
+            var a = TruckLocationAnnotation(location: location, index: i, truckId: activeTrucks[i].id)
             annotations.append(a)
         }
         
@@ -306,11 +304,21 @@ class MapViewController: UIViewController,
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
         var annotations = mapClusterController.annotations.allObjects
-        
-        if (annotations.count > 0) {
-            let curIndex = truckCarousel.currentItemIndex
-            centerMapOverCoordinate(annotations[curIndex].coordinate)
+        var theOne: TruckLocationAnnotation
+        for i in 0..<annotations.count {
+            let annotationTruckId = (annotations[i] as TruckLocationAnnotation).truckId
+            let carouselTruckId = (activeTrucks[carousel.currentItemIndex] as RTruck).id
+            if carouselTruckId == annotationTruckId {
+                theOne = annotations[i] as TruckLocationAnnotation
+                centerMapOverCoordinate(theOne.coordinate)
+            }
         }
+        
+//        if (annotations.count > 0) {
+//            let curIndex = truckCarousel.currentItemIndex
+//            centerMapOverCoordinate(annotations[curIndex].coordinate)
+//            mapClusterController.selectAnnotation(annotations[curIndex] as TruckLocationAnnotation, andZoomToRegionWithLatitudinalMeters: 100, longitudinalMeters: 100)
+//        }
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
