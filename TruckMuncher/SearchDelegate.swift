@@ -44,7 +44,6 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        println("search btn clicked")
         self.searchBar.resignFirstResponder()
         let newTerm = searchBar.text
         if newTerm == "" {
@@ -64,6 +63,13 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
                 }
                 truckIds.addObject($0.id)
                 return true
+            }
+            // we don't get back location info in search, so we have to preserve what we have in our cache
+            for truck in trucks {
+                if let rtruck = RTruck.objectsWhere("id = %@", truck.id).firstObject() as? RTruck {
+                    truck.latitude = rtruck.latitude
+                    truck.longitude = rtruck.longitude
+                }
             }
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()

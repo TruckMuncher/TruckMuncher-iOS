@@ -91,6 +91,7 @@ class MapViewController: UIViewController,
     }
     
     func showSearchBar() {
+        originalTrucks = [RTruck](activeTrucks)
         searchDelegate?.showSearchBar()
     }
     
@@ -334,7 +335,9 @@ class MapViewController: UIViewController,
         
         if (annotations.count > 0) {
             let curIndex = truckCarousel.currentItemIndex
-            centerMapOverCoordinate(annotations[curIndex].coordinate)
+            if curIndex < annotations.count {
+                centerMapOverCoordinate(annotations[curIndex].coordinate)
+            }
         }
     }
     
@@ -370,10 +373,10 @@ class MapViewController: UIViewController,
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
-        originalTrucks = [RTruck](activeTrucks)
         activeTrucks = [RTruck](results)
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
+        truckCarousel.scrollToItemAtIndex(0, animated: false)
     }
     
     func searchCancelled() {
@@ -381,6 +384,7 @@ class MapViewController: UIViewController,
         originalTrucks = [RTruck]()
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
+        truckCarousel.scrollToItemAtIndex(0, animated: false)
     }
 
     override func prefersStatusBarHidden() -> Bool {
