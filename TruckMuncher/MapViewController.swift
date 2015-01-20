@@ -275,7 +275,6 @@ class MapViewController: UIViewController,
             annotations.append(a)
         }
         
-//        mapClusterController = CCHMapClusterController(mapView: self.mapView)
         mapClusterControllerSetup()
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
     }
