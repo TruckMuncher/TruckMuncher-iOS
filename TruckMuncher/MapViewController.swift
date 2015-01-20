@@ -23,7 +23,7 @@ class MapViewController: UIViewController,
     
     @IBAction func loginAction(sender: AnyObject) { login() }
     
-    let deltaDegrees = 0.05
+    let deltaDegrees = 0.02
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
@@ -143,8 +143,6 @@ class MapViewController: UIViewController,
         
         truckCarousel.currentItemIndex = tappedTruckIndex
         truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
-        
-        centerMapOverCoordinate(truckLocationAnnotation!.coordinate)
     }
     
     // MARK: - CCHMapClusterControllerDelegate Methods
@@ -303,22 +301,14 @@ class MapViewController: UIViewController,
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
-        var annotations = mapClusterController.annotations.allObjects
-        var theOne: TruckLocationAnnotation
-        for i in 0..<annotations.count {
-            let annotationTruckId = (annotations[i] as TruckLocationAnnotation).truckId
-            let carouselTruckId = (activeTrucks[carousel.currentItemIndex] as RTruck).id
-            if carouselTruckId == annotationTruckId {
-                theOne = annotations[i] as TruckLocationAnnotation
-                centerMapOverCoordinate(theOne.coordinate)
+        for i in 0..<activeTrucks.count {
+            let currentCarouselTruckId = (activeTrucks[carousel.currentItemIndex] as RTruck).id
+            let someTruck = activeTrucks[i] as RTruck
+            if someTruck.id == currentCarouselTruckId {
+                let coord = CLLocationCoordinate2D(latitude: someTruck.latitude, longitude: someTruck.longitude)
+                centerMapOverCoordinate(coord)
             }
         }
-        
-//        if (annotations.count > 0) {
-//            let curIndex = truckCarousel.currentItemIndex
-//            centerMapOverCoordinate(annotations[curIndex].coordinate)
-//            mapClusterController.selectAnnotation(annotations[curIndex] as TruckLocationAnnotation, andZoomToRegionWithLatitudinalMeters: 100, longitudinalMeters: 100)
-//        }
     }
     
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
