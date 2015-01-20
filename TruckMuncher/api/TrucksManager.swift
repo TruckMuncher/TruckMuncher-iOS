@@ -67,14 +67,19 @@ class TrucksManager {
             var truckResponse = TrucksForVendorResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             
+            let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
+            
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
             for truck in truckResponse.trucks {
                 let rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
+                ruser.truckIds.addObject(RString.initFromString(rtruck.id))
                 RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
                 trucks.append(rtruck)
             }
+            
+            RUser.createOrUpdateInRealm(realm, withObject: ruser)
             realm.commitWriteTransaction()
             
             successBlock(response: trucks)

@@ -26,7 +26,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     var twitterAPI: STTwitterAPI?
     let authManager = AuthManager()
-    let mgr = MenuManager()
+    let truckManager = TrucksManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,23 +36,15 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
         
-        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as String?
-        let oauthSecret = secretItem.objectForKey(kSecValueData) as String?
-        println("twitter oauth token from keychain \(oauthToken)")
-        println("twitter oauth secret from keychain \(oauthSecret)")
-        
         twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey)
-        if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
-            // TODO show some sort of progress dialog signifying a sign in occuring
-            twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
-            twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
-                println("send tokens to API")
-                self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
-            }, errorBlock: { (error) -> Void in
-                // our cached credentials are no longer valid, perhaps show a message asking to relogin
-                println("cached credentials invalid.")
-                self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
+        // TODO show some sort of progress dialog signifying a sign in occuring
+        if let _ = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") {
+            attemptSessionTokenRefresh({ (error) -> () in
+                // we dont have a valid session token from the api, fall back to trying to use twitter from keychain
+                self.attemptTwitterLogin()
             })
+        } else {
+            attemptTwitterLogin()
         }
     }
     
@@ -87,6 +79,28 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         })
     }
     
+    /**
+     * Attempts to reuse tokens stored in the keychain to automatically login to twitter without user interaction.
+     */
+    func attemptTwitterLogin() {
+        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as String?
+        let oauthSecret = secretItem.objectForKey(kSecValueData) as String?
+        println("twitter oauth token from keychain \(oauthToken)")
+        println("twitter oauth secret from keychain \(oauthSecret)")
+        
+        if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
+            twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
+            twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
+                println("send tokens to API")
+                self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
+            }, errorBlock: { (error) -> Void in
+                // our cached credentials are no longer valid, perhaps show a message asking to relogin
+                println("cached credentials invalid.")
+                self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
+            })
+        }
+    }
+    
     func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
         twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
             
@@ -108,6 +122,12 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         })
     }
     
+    func attemptSessionTokenRefresh(error: (Error?) -> ()) {
+        truckManager.getTrucksForVendor(success: { (response) -> () in
+            self.successfullyLoggedInAsTruck()
+        }, error: error)
+    }
+    
     func loginToAPI(authorizationHeader: String) {
         authManager.signIn(authorization: authorizationHeader, success: { (response) -> () in
             println("id \(response.id)")
@@ -115,7 +135,10 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             println("sessionToken \(response.sessionToken)")
             NSUserDefaults.standardUserDefaults().setValue(response.sessionToken, forKey: "sessionToken")
             NSUserDefaults.standardUserDefaults().synchronize()
-            self.successfullyLoggedInAsTruck()
+            self.attemptSessionTokenRefresh({ (error) -> () in
+                println("error \(error)")
+                println("error message \(error?.userMessage)")
+            })
         }) { (error) -> () in
             println("error \(error)")
             println("error message \(error?.userMessage)")

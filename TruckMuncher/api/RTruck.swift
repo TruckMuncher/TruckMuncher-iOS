@@ -19,6 +19,8 @@ class RTruck: RLMObject {
     dynamic var longitude = 0.0
     dynamic var isNew = false
     dynamic var isInServingMode = false
+    dynamic var primaryColor = "#FFFFFF"
+    dynamic var secondaryColor = "#000000"
     
     override init() {
         super.init()
@@ -42,6 +44,8 @@ class RTruck: RLMObject {
             rtruck.keywords.addObject(RString.initFromString(keyword))
         }
         rtruck.isNew = isNew
+        rtruck.primaryColor = truck.primaryColor
+        rtruck.secondaryColor = truck.secondaryColor
         return rtruck
     }
     

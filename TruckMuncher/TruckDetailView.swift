@@ -17,19 +17,14 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckNameLabel: UILabel!
     @IBOutlet var truckLogoImage: UIImageView!
     
-    var colorPicker = LEColorPicker()
-    var colorScheme = LEColorScheme()
-    
     var menu: RMenu?
+    var textColor = UIColor.blackColor()
     
     override func layoutSubviews() {
         super.layoutSubviews()
         menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
         menuTableView.estimatedRowHeight = 44.0
         menuTableView.rowHeight = UITableViewAutomaticDimension
-        menuTableView.delegate = self
-        menuTableView.dataSource = self
-        menuTableView.separatorStyle = .None
     }
     
     func updateViewWithTruck(truck:RTruck!) {
@@ -44,15 +39,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             keywords.append((keyword as RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)
-        updateColorScheme()
-    }
-    
-    func updateColorScheme() {
-        colorScheme = colorPicker.colorSchemeFromImage(truckLogoImage.image)
-        menuTableView.backgroundColor = colorScheme.backgroundColor
-        backgroundColor = colorScheme.backgroundColor
-        truckNameLabel.textColor = colorScheme.primaryTextColor
-        truckTagsLabel.textColor = colorScheme.secondaryTextColor
+        
+        let primary = UIColor(rgba: truck.primaryColor)
+        backgroundColor = primary
+        textColor = primary.suggestedTextColor()
+        truckNameLabel.textColor = textColor
+        truckTagsLabel.textColor = textColor
     }
     
     func getImageForTruck(truck:RTruck) {
@@ -60,10 +52,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: UIImage(named: "noImageAvailable"), completed: { (image, error, type, url) -> Void in
             if error == nil {
-                self.updateColorScheme()
                 self.menuTableView.reloadData()
-            }
-            else {
+            } else {
                 println("Error: \(error.localizedDescription)")
             }
         })
@@ -76,14 +66,9 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
+        cell.givenTextColor = textColor
         var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
-        cell.backgroundColor = colorScheme.backgroundColor
-        cell.lblName.textColor = colorScheme.primaryTextColor
-        cell.lblPrice.textColor = colorScheme.primaryTextColor
-        cell.lblDescription.textColor = colorScheme.secondaryTextColor
-        var bgView = UIView()
-        cell.selectedBackgroundView = bgView
         return cell
     }
     
@@ -100,12 +85,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var container = UIView(frame: CGRectMake(0, 0, menuTableView.frame.size.width, 66))
-        var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, 66))
+        var container = UIView(frame: CGRectMake(0, 0, menuTableView.frame.size.width, MENU_CATEGORY_HEIGHT))
+        var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, MENU_CATEGORY_HEIGHT))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        label.backgroundColor = colorScheme.backgroundColor
-        label.textColor = colorScheme.primaryTextColor
+        label.backgroundColor = backgroundColor
+        label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)
         return container

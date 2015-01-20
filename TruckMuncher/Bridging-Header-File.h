@@ -18,6 +18,5 @@
 #import "CCHMapClusterControllerDelegate.h"
 #import "CCHMapClusterAnnotation.h"
 #import "iCarousel.h"
-#import "LEColorPicker.h"
 
 #endif

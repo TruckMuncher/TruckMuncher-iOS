@@ -13,6 +13,7 @@ class RUser: RLMObject {
     dynamic var id = ""
     dynamic var username = ""
     dynamic var sessionToken = ""
+    dynamic var truckIds = RLMArray(objectClassName: RString.className())
     
     class func initFromProto(auth: AuthResponse) -> RUser {
         let ruser = RUser()

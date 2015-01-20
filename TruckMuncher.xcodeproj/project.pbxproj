@@ -30,8 +30,6 @@
 		0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDE19F456B9003F3962 /* Menu.pb.swift */; };
 		0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDF19F456B9003F3962 /* Trucks.pb.swift */; };
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
-		063AB58F1A63905F003828F7 /* LEColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AB5881A63905F003828F7 /* LEColorPicker.m */; };
-		063AB5901A63905F003828F7 /* UIColor+YUVSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 063AB58A1A63905F003828F7 /* UIColor+YUVSpace.m */; };
 		063AB59A1A649002003828F7 /* colorfulTruck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5991A649001003828F7 /* colorfulTruck.jpg */; };
 		063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB59F1A6727C1003828F7 /* noImageAvailable.png */; };
 		063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5A41A684FBE003828F7 /* truckmuncher.png */; };
@@ -198,10 +196,6 @@
 		0636EDDE19F456B9003F3962 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
 		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
-		063AB5871A63905F003828F7 /* LEColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEColorPicker.h; sourceTree = "<group>"; };
-		063AB5881A63905F003828F7 /* LEColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEColorPicker.m; sourceTree = "<group>"; };
-		063AB5891A63905F003828F7 /* UIColor+YUVSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+YUVSpace.h"; sourceTree = "<group>"; };
-		063AB58A1A63905F003828F7 /* UIColor+YUVSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YUVSpace.m"; sourceTree = "<group>"; };
 		063AB5991A649001003828F7 /* colorfulTruck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colorfulTruck.jpg; sourceTree = "<group>"; };
 		063AB59F1A6727C1003828F7 /* noImageAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageAvailable.png; sourceTree = "<group>"; };
 		063AB5A41A684FBE003828F7 /* truckmuncher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = truckmuncher.png; sourceTree = "<group>"; };
@@ -306,17 +300,6 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
-		063AB5861A63905F003828F7 /* LEColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				063AB5871A63905F003828F7 /* LEColorPicker.h */,
-				063AB5881A63905F003828F7 /* LEColorPicker.m */,
-				063AB5891A63905F003828F7 /* UIColor+YUVSpace.h */,
-				063AB58A1A63905F003828F7 /* UIColor+YUVSpace.m */,
-			);
-			path = LEColorPicker;
-			sourceTree = "<group>";
-		};
 		0643B69F1A436BBA00E205C9 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,7 +357,6 @@
 		278BFBB619D0A36A00510C6E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				063AB5861A63905F003828F7 /* LEColorPicker */,
 				278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */,
 				278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */,
 				278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */,
@@ -826,7 +808,6 @@
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
-				063AB58F1A63905F003828F7 /* LEColorPicker.m in Sources */,
 				0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */,
 				27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
@@ -835,7 +816,6 @@
 				27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */,
 				0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
-				063AB5901A63905F003828F7 /* UIColor+YUVSpace.m in Sources */,
 				2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */,
 				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
 				0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */,

@@ -18,6 +18,23 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     @IBOutlet var vendorMapView: MKMapView!
     @IBOutlet var servingModeSwitch: UISwitch!
     var pulsingLayer : ServingModePulse!
+    let deltaDegrees = 0.005
+    var locationManager: CLLocationManager!
+    var truck: RTruck
+    
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
+        self.truck = truck
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.truck = aDecoder.decodeObjectForKey("vmvcTruck") as RTruck
+        super.init(coder: aDecoder)
+    }
+    
+    override func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(truck, forKey: "vmvcTruck")
+    }
     
     @IBAction func onServingModeSwitchTapped(sender: UISwitch) {
         changeComponentsColors()
@@ -27,11 +44,8 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func openMenu() {
-        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil, truckID: "2d1dada3-80f1-4c0e-b878-a02626aafea7"), animated: true)
+        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil, truck: truck), animated: true)
     }
-    
-    let deltaDegrees = 0.005
-    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,11 +114,12 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func requestServingMode (isServing: Bool) {
-        //TODO un-hard-code this value
-        truckManager.modifyServingMode(truckId: "2d1dada3-80f1-4c0e-b878-a02626aafea7", isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
+        truckManager.modifyServingMode(truckId: truck.id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
         }) { (error) -> () in
-            println("error \(error)")
+            var alert = UIAlertController(title: "Oops!", message: "We weren't able to update serving mode, please try again", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
 }

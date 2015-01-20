@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Realm
 
 class MapViewController: UIViewController,
     MKMapViewDelegate,
@@ -69,7 +70,7 @@ class MapViewController: UIViewController,
         }
     }
     
-    func mapClusterControllerSetup () {
+    func mapClusterControllerSetup() {
         self.mapView.delegate = self
         
         mapClusterController = CCHMapClusterController(mapView: self.mapView)
@@ -80,7 +81,11 @@ class MapViewController: UIViewController,
         mapClusterController.minUniqueLocationsForClustering = 2
     }
     
-    func truckCarouselSetup () {
+    func truckCarouselSetup() {
+        if truckCarousel != nil {
+            truckCarousel.removeFromSuperview()
+            truckCarousel = nil
+        }
         truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
@@ -119,10 +124,10 @@ class MapViewController: UIViewController,
                     if self.locationManager != nil {
                         self.updateData()
                     }
-                    }, error: { (error) -> () in
+                }, error: { (error) -> () in
                         println("error fetching truck profiles \(error)")
                 })
-                }) { (error) -> () in
+            }) { (error) -> () in
                     println("error fetching full menus \(error)")
             }
         }
@@ -242,7 +247,19 @@ class MapViewController: UIViewController,
     
     func pushVendorMap() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
+        let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // TODO remove all of this once the realm issue is fixed
+        // TODO be sure to remove the `import Realm` statement as well once this is removed
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        ruser.truckIds.addObject(RString.initFromString("4405c266-5093-4c82-9edc-a23c322b6e2e"))
+        realm.commitWriteTransaction()
+        ///////////////////////////////////////////////////////////////////////////
+        let truck = RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(0) as RString).value).firstObject() as RTruck
+        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, truck: truck)
+        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {
