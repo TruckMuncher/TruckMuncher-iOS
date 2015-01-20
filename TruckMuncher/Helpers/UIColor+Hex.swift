@@ -43,4 +43,12 @@ extension UIColor {
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
+    
+    func suggestedTextColor() -> UIColor {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        let threshold: CGFloat = 105
+        var bgDelta = ((red*0.299) + (green*0.587) + (blue*0.114))
+        return (255.0-bgDelta < threshold) ? UIColor.blackColor() : UIColor.whiteColor()
+    }
 }

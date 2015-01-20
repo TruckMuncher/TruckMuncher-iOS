@@ -131,7 +131,7 @@ struct MenuManager {
             for (id, available) in items {
                 let rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as RMenuItem
                 rmenuItem.isAvailable = available
-                RMenu.createOrUpdateInRealm(realm, withObject: rmenuItem)
+                RMenuItem.createOrUpdateInRealm(realm, withObject: rmenuItem)
             }
             realm.commitWriteTransaction()
             

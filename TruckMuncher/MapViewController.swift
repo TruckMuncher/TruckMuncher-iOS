@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Realm
 
 class MapViewController: UIViewController,
     MKMapViewDelegate,
@@ -222,7 +223,19 @@ class MapViewController: UIViewController,
     
     func pushVendorMap() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        navigationController?.pushViewController(VendorMapViewController(nibName: "VendorMapViewController", bundle: nil), animated: true)
+        let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
+        
+        ///////////////////////////////////////////////////////////////////////////
+        // TODO remove all of this once the realm issue is fixed
+        // TODO be sure to remove the `import Realm` statement as well once this is removed
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
+        ruser.truckIds.addObject(RString.initFromString("4405c266-5093-4c82-9edc-a23c322b6e2e"))
+        realm.commitWriteTransaction()
+        ///////////////////////////////////////////////////////////////////////////
+        let truck = RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(0) as RString).value).firstObject() as RTruck
+        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, truck: truck)
+        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {

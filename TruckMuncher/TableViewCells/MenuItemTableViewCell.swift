@@ -14,9 +14,7 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     
-    var truckBackgroundColor: UIColor!
-    var truckPrimaryTextColor: UIColor!
-    var truckSecondaryTextColor: UIColor!
+    var givenTextColor = UIColor.blackColor()
     
     private var privateMenuItem: RMenuItem?
     
@@ -36,13 +34,16 @@ class MenuItemTableViewCell: UITableViewCell {
             if !item.isAvailable {
                 attributes = [
                     NSStrikethroughStyleAttributeName: NSNumber(integer: NSUnderlineStyle.StyleSingle.rawValue),
-                    NSStrikethroughColorAttributeName: UIColor.lightGrayColor(),
-                    NSForegroundColorAttributeName: UIColor.lightGrayColor()
+                    NSStrikethroughColorAttributeName: givenTextColor,
+                    NSForegroundColorAttributeName: givenTextColor
                 ]
             }
             lblName.attributedText = NSAttributedString(string: item.name, attributes: attributes)
+            lblName.textColor = givenTextColor
             lblPrice.attributedText = NSAttributedString(string: String(format: "$%.2f", item.price), attributes: attributes)
+            lblPrice.textColor = givenTextColor
             lblDescription.attributedText = NSAttributedString(string: item.notes, attributes: attributes)
+            lblDescription.textColor = givenTextColor
         }
     }
 }
