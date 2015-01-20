@@ -18,7 +18,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var menu: RMenu
     var truck: RTruck
     let menuManager = MenuManager()
-    var textColor = UIColor.whiteColor()
+    var textColor = UIColor.blackColor()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
         self.truck = truck
@@ -43,9 +43,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         // http://stackoverflow.com/questions/19456288/text-color-based-on-background-image
         let primary = UIColor(rgba: truck.primaryColor)
         textColor = primary.suggestedTextColor()
-        self.view.backgroundColor = primary
+        view.backgroundColor = primary
         
-        self.view.frame = UIScreen.mainScreen().bounds
+        view.frame = UIScreen.mainScreen().bounds
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTable")
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
@@ -56,10 +56,10 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tblMenu.reloadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tblMenu.reloadData()
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tblMenu.reloadData()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -116,7 +116,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
         var bgView = UIView()
-        bgView.backgroundColor = UIColor(rgba: truck.primaryColor)
+        bgView.backgroundColor = view.backgroundColor
         cell.selectedBackgroundView = bgView
         return cell
     }
@@ -134,11 +134,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var container = UIView(frame: CGRectMake(0, 0, tblMenu.frame.size.width, 66))
-        var label = UILabel(frame: CGRectMake(0, 0, tblMenu.frame.size.width, 66))
+        var container = UIView(frame: CGRectMake(0, 0, tblMenu.frame.size.width, MENU_CATEGORY_HEIGHT))
+        var label = UILabel(frame: CGRectMake(0, 0, tblMenu.frame.size.width, MENU_CATEGORY_HEIGHT))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        label.backgroundColor = UIColor(rgba: truck.primaryColor)
+        label.backgroundColor = view.backgroundColor
         label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)

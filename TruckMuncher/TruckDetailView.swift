@@ -25,9 +25,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
         menuTableView.estimatedRowHeight = 44.0
         menuTableView.rowHeight = UITableViewAutomaticDimension
-        menuTableView.delegate = self
-        menuTableView.dataSource = self
-        menuTableView.separatorStyle = .None
     }
     
     func updateViewWithTruck(truck:RTruck!) {
@@ -71,14 +68,9 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
+        cell.givenTextColor = textColor
         var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
-        //cell.backgroundColor = colorScheme.backgroundColor
-        cell.lblName.textColor = textColor
-        cell.lblPrice.textColor = textColor
-        cell.lblDescription.textColor = textColor
-        //var bgView = UIView()
-        //cell.selectedBackgroundView = bgView
         return cell
     }
     
@@ -95,11 +87,11 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var container = UIView(frame: CGRectMake(0, 0, menuTableView.frame.size.width, 66))
-        var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, 66))
+        var container = UIView(frame: CGRectMake(0, 0, menuTableView.frame.size.width, MENU_CATEGORY_HEIGHT))
+        var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, MENU_CATEGORY_HEIGHT))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        //label.backgroundColor = colorScheme.backgroundColor
+        label.backgroundColor = backgroundColor
         label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)

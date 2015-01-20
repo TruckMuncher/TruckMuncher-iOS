@@ -19,8 +19,8 @@ class RTruck: RLMObject {
     dynamic var longitude = 0.0
     dynamic var isNew = false
     dynamic var isInServingMode = false
-    dynamic var primaryColor = ""
-    dynamic var secondaryColor = ""
+    dynamic var primaryColor = "#FFFFFF"
+    dynamic var secondaryColor = "#000000"
     
     override init() {
         super.init()
