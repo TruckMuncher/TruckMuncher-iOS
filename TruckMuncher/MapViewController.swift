@@ -349,16 +349,15 @@ class MapViewController: UIViewController,
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
-        println("SEARCH SUCCESS!")
-        //originalTrucks = [RTruck](activeTrucks)
-        activeTrucks = results as [RTruck] //[RTruck](results as [RTruck])
+        originalTrucks = [RTruck](activeTrucks)
+        activeTrucks = [RTruck](results)
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
     }
     
     func searchCancelled() {
-        println("SEARCH CANCELLED")
         activeTrucks = [RTruck](originalTrucks)
+        originalTrucks = [RTruck]()
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
     }

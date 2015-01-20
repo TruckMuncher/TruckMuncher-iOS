@@ -34,9 +34,6 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     }
     
     func showSearchBar() {
-        println("showing search bar")
-//        displaysSearchBarInNavigationBar = true
-//        setActive(true, animated: true)
         searchBar.becomeFirstResponder()
         titleView = self.completionDelegate.navigationItem.titleView
         leftButton = self.completionDelegate.navigationItem.leftBarButtonItem
@@ -44,8 +41,6 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
         self.completionDelegate.navigationItem.titleView = searchBar
         self.completionDelegate.navigationItem.leftBarButtonItem = nil
         self.completionDelegate.navigationItem.rightBarButtonItem = nil
-//        searchContentsController.setNeedsStatusBarAppearanceUpdate()
-//        searchContentsController.view.setNeedsDisplay()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -61,21 +56,25 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
         searchManager.simpleSearch(query: newTerm, withLimit: limit, andOffset: offset, success: { (response) -> () in
             self.offset += self.limit
             let results = response as [RSearch]
-            println("found results \(results)")
             let menus = results.map { $0.menu }
-            let truckIds = results.map { $0.truck.id }
-            let trucks = results.map { $0.truck }.filter { find(truckIds, $0.id) == nil }
+            var truckIds = NSMutableSet()
+            let trucks = results.map { $0.truck }.filter {
+                if truckIds.containsObject($0.id) {
+                    return false
+                }
+                truckIds.addObject($0.id)
+                return true
+            }
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             for menu in menus {
                 RMenu.createOrUpdateInRealm(realm, withObject: menu as RMenu)
             }
             for truck in trucks {
-                println("found truck \(truck.description)")
                 RTruck.createOrUpdateInRealm(realm, withObject: truck as RTruck)
             }
             realm.commitWriteTransaction()
-            // TODO the trucks need to be reduced and blurbs combined
+            // TODO the blurbs need to be combined and probably used at some point
             self.completionDelegate.searchSuccessful(trucks)
         }) { (error) -> () in
             println("error performing search \(error)")
@@ -85,17 +84,14 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         offset = 0
         previousSearchTerm = ""
-        println("cancelling search bar")
-        self.searchBar.text = ""
-//        displaysSearchBarInNavigationBar = false
-//        setActive(false, animated: true)
+        searchBar.text = ""
         searchBar.resignFirstResponder()
-        self.completionDelegate.navigationItem.titleView = titleView
-        self.completionDelegate.navigationItem.leftBarButtonItem = leftButton
-        self.completionDelegate.navigationItem.rightBarButtonItem = rightButton
+        completionDelegate.navigationItem.titleView = titleView
+        completionDelegate.navigationItem.leftBarButtonItem = leftButton
+        completionDelegate.navigationItem.rightBarButtonItem = rightButton
         titleView = nil
         leftButton = nil
         rightButton = nil
-//        searchContentsController.setNeedsStatusBarAppearanceUpdate()
+        completionDelegate.searchCancelled()
     }
 }
