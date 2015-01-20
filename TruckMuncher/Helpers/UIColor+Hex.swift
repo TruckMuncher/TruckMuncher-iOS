@@ -40,6 +40,7 @@ extension UIColor {
             }
         } else {
             print("invalid rgb string, missing '#' as prefix")
+            red = 170.0/255.0; green = 0; blue = 102.0/255.0; alpha = 1
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }
@@ -47,8 +48,8 @@ extension UIColor {
     func suggestedTextColor() -> UIColor {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        let threshold: CGFloat = 105
-        var bgDelta = ((red*0.299) + (green*0.587) + (blue*0.114))
+        let threshold: CGFloat = 105.0
+        var bgDelta = ((red*255.0*0.299) + (green*255.0*0.587) + (blue*255.0*0.114))
         return (255.0-bgDelta < threshold) ? UIColor.blackColor() : UIColor.whiteColor()
     }
 }
