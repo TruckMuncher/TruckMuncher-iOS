@@ -35,7 +35,6 @@
 		063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5A41A684FBE003828F7 /* truckmuncher.png */; };
 		0643B6951A424DD800E205C9 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0643B6941A424DD800E205C9 /* Properties.plist */; };
 		0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */; };
-		0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0643B6A01A436BE000E205C9 /* TransitionManager.swift */; };
 		0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699B38B1A63278800B8E0AE /* TruckDetailView.swift */; };
 		06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF119F558DB00F44F02 /* closeWhite.png */; };
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
@@ -201,7 +200,6 @@
 		063AB5A41A684FBE003828F7 /* truckmuncher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = truckmuncher.png; sourceTree = "<group>"; };
 		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
 		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
-		0643B6A01A436BE000E205C9 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		0699B38B1A63278800B8E0AE /* TruckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckDetailView.swift; sourceTree = "<group>"; };
 		06A36AF119F558DB00F44F02 /* closeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeWhite.png; sourceTree = "<group>"; };
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
@@ -298,14 +296,6 @@
 				060935FE19F3370E0033F3D4 /* ServingModePulse.swift */,
 			);
 			name = Map;
-			sourceTree = "<group>";
-		};
-		0643B69F1A436BBA00E205C9 /* Transition */ = {
-			isa = PBXGroup;
-			children = (
-				0643B6A01A436BE000E205C9 /* TransitionManager.swift */,
-			);
-			name = Transition;
 			sourceTree = "<group>";
 		};
 		2736B1EA19F5AE7400CBACC2 /* TableViewCells */ = {
@@ -413,7 +403,6 @@
 		27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */ = {
 			isa = PBXGroup;
 			children = (
-				0643B69F1A436BBA00E205C9 /* Transition */,
 				27F536B619FF4A30009A8575 /* api */,
 				2736B1EA19F5AE7400CBACC2 /* TableViewCells */,
 				060935F119F3086F0033F3D4 /* Map */,
@@ -581,11 +570,9 @@
 				TargetAttributes = {
 					27AC00AD19CB4B4F00F1F3B7 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = NHVSQN8Z3B;
 					};
 					27AC00C219CB4B4F00F1F3B7 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = NHVSQN8Z3B;
 						TestTargetID = 27AC00AD19CB4B4F00F1F3B7;
 					};
 				};
@@ -808,7 +795,6 @@
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
 				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
-				0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */,
 				27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
 				2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */,
@@ -945,6 +931,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -985,6 +972,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

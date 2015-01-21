@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = pinkColor
         
+        UINavigationBar.appearance().translucent = true
+        
         //white button text and title
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
