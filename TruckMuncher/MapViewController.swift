@@ -86,7 +86,7 @@ class MapViewController: UIViewController,
             truckCarousel.removeFromSuperview()
             truckCarousel = nil
         }
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, mapView.frame.size.width, mapView.frame.size.height))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self

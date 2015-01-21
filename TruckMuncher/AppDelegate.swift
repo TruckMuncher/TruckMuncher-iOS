@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .Black
         
         let types: UIUserNotificationType = .Badge | .Alert | .Sound
-        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
