@@ -373,10 +373,10 @@ class MapViewController: UIViewController,
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
             }, completion: { (Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
                 }, completion: nil)
             })
         }
