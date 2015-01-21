@@ -324,6 +324,11 @@ class MapViewController: UIViewController,
         navbarFrame.origin.y = min(max(top - percentage*navbarFrame.size.height, top - navbarFrame.size.height), top)
         navigationController?.navigationBar.frame = navbarFrame
         
+        let primaryColor = UIColor(rgba: (activeTrucks[truckCarousel.currentItemIndex] as RTruck).primaryColor)
+        let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as TruckDetailView
+        currentView.updateViewWithColor(clouds.transformToColor(primaryColor, withPercentage: percentage))
+        //currentView.backgroundColor = clouds.transformToColor(primaryColor, withPercentage: percentage)
+        
         if recognizer.state == .Ended {
             // if we ended the pan, based on the velocity, we need to snap the menu and nav bar to their final positions as well as fading nav bar items
             let velocity = recognizer.velocityInView(view)
@@ -337,6 +342,8 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+            }, completion: { (completed) -> Void in
+                currentView.updateViewWithColor(self.showingMenu ? primaryColor : clouds)
             })
             initialTouchY = 0
         }
@@ -354,7 +361,7 @@ class MapViewController: UIViewController,
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
         }
-        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
+        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
 
         return view
     }

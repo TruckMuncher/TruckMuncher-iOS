@@ -27,7 +27,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menuTableView.rowHeight = UITableViewAutomaticDimension
     }
     
-    func updateViewWithTruck(truck:RTruck!) {
+    func updateViewWithTruck(truck:RTruck!, showingMenu: Bool) {
         menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as? RMenu
         menuTableView.reloadData()
         
@@ -40,11 +40,19 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         }
         truckTagsLabel.text = join(", ", keywords)
         
-        let primary = UIColor(rgba: truck.primaryColor)
+        let primary = showingMenu ? UIColor(rgba: truck.primaryColor) : clouds
         backgroundColor = primary
         textColor = primary.suggestedTextColor()
         truckNameLabel.textColor = textColor
         truckTagsLabel.textColor = textColor
+    }
+    
+    func updateViewWithColor(color: UIColor) {
+        backgroundColor = color
+        textColor = color.suggestedTextColor()
+        truckNameLabel.textColor = textColor
+        truckTagsLabel.textColor = textColor
+        menuTableView.reloadData()
     }
     
     func getImageForTruck(truck:RTruck) {

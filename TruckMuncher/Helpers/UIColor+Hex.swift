@@ -52,4 +52,18 @@ extension UIColor {
         var bgDelta = ((red*255.0*0.299) + (green*255.0*0.587) + (blue*255.0*0.114))
         return (255.0-bgDelta < threshold) ? UIColor.blackColor() : UIColor.whiteColor()
     }
+    
+    func transformToColor(destinationColor: UIColor, withPercentage percentage: CGFloat) -> UIColor {
+        var baseRed: CGFloat = 0, baseGreen: CGFloat = 0, baseBlue: CGFloat = 0, baseAlpha: CGFloat = 0
+        getRed(&baseRed, green: &baseGreen, blue: &baseBlue, alpha: &baseAlpha)
+        
+        var destinationRed: CGFloat = 0, destinationGreen: CGFloat = 0, destinationBlue: CGFloat = 0, destinationAlpha: CGFloat = 0
+        destinationColor.getRed(&destinationRed, green: &destinationGreen, blue: &destinationBlue, alpha: &destinationAlpha)
+        
+        let red = baseRed + (destinationRed - baseRed)*percentage
+        let blue = baseBlue + (destinationBlue - baseBlue)*percentage
+        let green = baseGreen + (destinationGreen - baseGreen)*percentage
+        let alpha = baseAlpha + (destinationAlpha - baseAlpha)*percentage
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
 }
