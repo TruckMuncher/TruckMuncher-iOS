@@ -16,7 +16,6 @@ class MapViewController: UIViewController,
     CCHMapClusterControllerDelegate,
     iCarouselDataSource,
     iCarouselDelegate,
-    UIGestureRecognizerDelegate,
     SearchCompletionProtocol,
     UISearchBarDelegate {
 
@@ -50,8 +49,6 @@ class MapViewController: UIViewController,
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
-
-        
         
         searchDelegate = SearchDelegate(completionDelegate: self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
@@ -86,7 +83,7 @@ class MapViewController: UIViewController,
             truckCarousel.removeFromSuperview()
             truckCarousel = nil
         }
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, mapView.frame.size.width, mapView.frame.size.height))
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, mapView.frame.size.width, mapView.frame.size.height - 20.0))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
@@ -355,7 +352,7 @@ class MapViewController: UIViewController,
         if view == nil {
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
-            view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
         }
         (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
 
@@ -385,23 +382,6 @@ class MapViewController: UIViewController,
         }
     }
     
-    // MARK: - UIVieControllerTransitioningDelegate Methods
-    /*func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        //self.transitionManager.transitionTo = .MODAL;
-        return self.transitionManager;
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        //self.transitionManager.transitionTo = .INITIAL;
-        return self.transitionManager;
-    }*/
-    
-    // Mark: - UIGestureRecognizerDelegate Methods
-    func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
-            return true;
-    }
-    
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
@@ -417,9 +397,5 @@ class MapViewController: UIViewController,
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
-        return showingMenu
     }
 }
