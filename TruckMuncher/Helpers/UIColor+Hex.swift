@@ -40,7 +40,7 @@ extension UIColor {
             }
         } else {
             print("invalid rgb string, missing '#' as prefix")
-            red = 170.0/255.0; green = 0; blue = 102.0/255.0; alpha = 1
+            red = 233.0/255.0; green = 30.0/255.0; blue = 99.0/255.0; alpha = 1
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
     }

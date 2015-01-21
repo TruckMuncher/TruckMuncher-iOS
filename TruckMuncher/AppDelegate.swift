@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = pinkColor
         
+        UINavigationBar.appearance().translucent = true
+        
         //white button text and title
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
@@ -40,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .Black
         
         let types: UIUserNotificationType = .Badge | .Alert | .Sound
-        let settings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
         mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)

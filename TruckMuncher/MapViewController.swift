@@ -16,8 +16,6 @@ class MapViewController: UIViewController,
     CCHMapClusterControllerDelegate,
     iCarouselDataSource,
     iCarouselDelegate,
-    UIViewControllerTransitioningDelegate,
-    UIGestureRecognizerDelegate,
     SearchCompletionProtocol,
     UISearchBarDelegate {
 
@@ -38,11 +36,10 @@ class MapViewController: UIViewController,
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
     
-    var transitionManager = TransitionManager()
+    var initialTouchY: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.translucent = false
         
         var muncherImage = UIImage(named: "muncherTM")
         var muncherImageView = UIImageView(image: muncherImage)
@@ -52,8 +49,6 @@ class MapViewController: UIViewController,
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
-
-        
         
         searchDelegate = SearchDelegate(completionDelegate: self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
@@ -88,7 +83,7 @@ class MapViewController: UIViewController,
             truckCarousel.removeFromSuperview()
             truckCarousel = nil
         }
-        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height))
+        truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, mapView.frame.size.width, mapView.frame.size.height - 20.0))
         truckCarousel.type = .Linear
         truckCarousel.delegate = self
         truckCarousel.dataSource = self
@@ -299,33 +294,52 @@ class MapViewController: UIViewController,
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
-
-        let swipeSelector: Selector = "handleSwipe:"
-        var swipeUpRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
-        swipeUpRecognizer.direction = .Up
-        truckCarousel.addGestureRecognizer(swipeUpRecognizer);
-        
-        var swipeDownRecognizer = UISwipeGestureRecognizer(target: self, action: swipeSelector)
-        swipeDownRecognizer.direction = .Down
-        truckCarousel.addGestureRecognizer(swipeDownRecognizer);
+        truckCarousel.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "handlePan:"))
     }
     
-    @IBAction func handleSwipe(recognizer: UISwipeGestureRecognizer) {
-        var newRect: CGRect = CGRect.nullRect
-        showingMenu = recognizer.direction == .Up
+    func handlePan(recognizer: UIPanGestureRecognizer) {
+        let bottom = mapView.frame.maxY - 100.0
+        let top: CGFloat = 20.0
+        let touchLocationOnScreen = recognizer.locationInView(view)
         
-        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: nil, animations: {
-            self.setNeedsStatusBarAppearanceUpdate()
-            self.navigationController?.navigationBarHidden = self.showingMenu
-            
-            if recognizer.direction == .Up {
-                newRect = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            } else if recognizer.direction == .Down {
-                newRect = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
-            }
-            
-            self.truckCarousel.frame = newRect
-            }, completion: nil)
+        if recognizer.state == .Began {
+            initialTouchY = recognizer.locationInView(truckCarousel).y
+        }
+        
+        let y = min(max(touchLocationOnScreen.y - initialTouchY, top), bottom)
+        var frame = truckCarousel.frame
+        frame.origin.y = y
+        truckCarousel.frame = frame
+        
+        let percentage = (bottom-y)/(bottom-top)
+        
+        // fade out the nav bar items as we pull up the menu
+        navigationItem.titleView?.alpha = 1-percentage
+        let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as UIColor).colorWithAlphaComponent(1-percentage)
+        navigationItem.leftBarButtonItem?.tintColor = color
+        navigationItem.rightBarButtonItem?.tintColor = color
+        
+        // proportionally move the navbar out of sight/back down, but keep the status bar
+        var navbarFrame = navigationController!.navigationBar.frame
+        navbarFrame.origin.y = min(max(top - percentage*navbarFrame.size.height, top - navbarFrame.size.height), top)
+        navigationController?.navigationBar.frame = navbarFrame
+        
+        if recognizer.state == .Ended {
+            // if we ended the pan, based on the velocity, we need to snap the menu and nav bar to their final positions as well as fading nav bar items
+            let velocity = recognizer.velocityInView(view)
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                frame.origin.y = velocity.y > 0 ? bottom : top
+                self.truckCarousel.frame = frame
+                navbarFrame.origin.y = velocity.y > 0 ? top : top-navbarFrame.size.height
+                self.navigationController?.navigationBar.frame = navbarFrame
+                self.showingMenu = frame.origin.y == top
+                
+                self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
+                self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+                self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+            })
+            initialTouchY = 0
+        }
     }
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
@@ -338,7 +352,7 @@ class MapViewController: UIViewController,
         if view == nil {
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             view = viewArray[0] as TruckDetailView
-            view.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+            view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
         }
         (view as TruckDetailView).updateViewWithTruck(activeTrucks[index])
 
@@ -359,30 +373,13 @@ class MapViewController: UIViewController,
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
             }, completion: { (Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height)
+                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
                 }, completion: nil)
             })
         }
-    }
-    
-    // MARK: - UIVieControllerTransitioningDelegate Methods
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        self.transitionManager.transitionTo = .MODAL;
-        return self.transitionManager;
-    }
-    
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        self.transitionManager.transitionTo = .INITIAL;
-        return self.transitionManager;
-    }
-    
-    // Mark: - UIGestureRecognizerDelegate Methods
-    func gestureRecognizer(gestureRecognizer: UISwipeGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UITapGestureRecognizer) -> Bool{
-            return true;
     }
     
     // MARK: - SearchCompletionProtocol
@@ -400,9 +397,5 @@ class MapViewController: UIViewController,
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
-        return showingMenu
     }
 }
