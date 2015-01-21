@@ -60,6 +60,10 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: UIImage(named: "noImageAvailable"), completed: { (image, error, type, url) -> Void in
             if error == nil {
+                self.truckLogoImage.layer.cornerRadius = self.truckLogoImage.frame.size.height / 2
+                self.truckLogoImage.layer.masksToBounds = true
+                self.truckLogoImage.layer.borderWidth = 0
+                
                 self.menuTableView.reloadData()
             } else {
                 println("Error: \(error.localizedDescription)")
