@@ -55,11 +55,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tblMenu.reloadData()
     }
-    
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        tblMenu.reloadData()
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
