@@ -18,33 +18,25 @@
 		060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 060935FB19F334E30033F3D4 /* LocationSetterPinPink@2x.png */; };
 		060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060935FE19F3370E0033F3D4 /* ServingModePulse.swift */; };
 		0609360119F33EB40033F3D4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609360019F33EB40033F3D4 /* Colors.swift */; };
-		0609360419F3662B0033F3D4 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360219F3662B0033F3D4 /* Menu.png */; };
-		0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0609360319F3662B0033F3D4 /* Menu@2x.png */; };
+		060EC19E1A6F1AA300A27C35 /* muncherTM.png in Resources */ = {isa = PBXBuildFile; fileRef = 060EC19D1A6F1AA300A27C35 /* muncherTM.png */; };
 		0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0613ABC71A5F2EC10080202B /* TruckDetailView.xib */; };
 		061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */; };
 		061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */; };
-		062C13E81A6DD34E00E8807D /* muncherTM.png in Resources */ = {isa = PBXBuildFile; fileRef = 062C13E71A6DD34E00E8807D /* muncherTM.png */; };
 		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
 		0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */; };
 		0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */; };
 		0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDE19F456B9003F3962 /* Menu.pb.swift */; };
 		0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDF19F456B9003F3962 /* Trucks.pb.swift */; };
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
-		063AB59A1A649002003828F7 /* colorfulTruck.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5991A649001003828F7 /* colorfulTruck.jpg */; };
 		063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB59F1A6727C1003828F7 /* noImageAvailable.png */; };
 		063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5A41A684FBE003828F7 /* truckmuncher.png */; };
 		0643B6951A424DD800E205C9 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0643B6941A424DD800E205C9 /* Properties.plist */; };
-		0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */; };
 		0643B6A11A436BE000E205C9 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0643B6A01A436BE000E205C9 /* TransitionManager.swift */; };
 		0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699B38B1A63278800B8E0AE /* TruckDetailView.swift */; };
 		06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF119F558DB00F44F02 /* closeWhite.png */; };
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
-		06A36AF719F558DB00F44F02 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF319F558DB00F44F02 /* login.png */; };
-		06A36AF819F558DB00F44F02 /* login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF419F558DB00F44F02 /* login@2x.png */; };
 		06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5519FF59C30086FA57 /* TruckPin@2x.png */; };
 		06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5619FF59C30086FA57 /* TruckPin.png */; };
-		06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */; };
-		06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
 		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
 		2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */; };
@@ -184,33 +176,25 @@
 		060935FB19F334E30033F3D4 /* LocationSetterPinPink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LocationSetterPinPink@2x.png"; sourceTree = "<group>"; };
 		060935FE19F3370E0033F3D4 /* ServingModePulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServingModePulse.swift; sourceTree = "<group>"; };
 		0609360019F33EB40033F3D4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		0609360219F3662B0033F3D4 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
-		0609360319F3662B0033F3D4 /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
+		060EC19D1A6F1AA300A27C35 /* muncherTM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muncherTM.png; sourceTree = "<group>"; };
 		0613ABC71A5F2EC10080202B /* TruckDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckDetailView.xib; sourceTree = "<group>"; };
 		061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SingleTruckAnnotationIcon@2x.png"; sourceTree = "<group>"; };
 		061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingleTruckAnnotationIcon.png; sourceTree = "<group>"; };
-		062C13E71A6DD34E00E8807D /* muncherTM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muncherTM.png; sourceTree = "<group>"; };
 		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
 		0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
 		0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu_admin.pb.swift; sourceTree = "<group>"; };
 		0636EDDE19F456B9003F3962 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
 		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
-		063AB5991A649001003828F7 /* colorfulTruck.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colorfulTruck.jpg; sourceTree = "<group>"; };
 		063AB59F1A6727C1003828F7 /* noImageAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageAvailable.png; sourceTree = "<group>"; };
 		063AB5A41A684FBE003828F7 /* truckmuncher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = truckmuncher.png; sourceTree = "<group>"; };
 		0643B6941A424DD800E205C9 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
-		0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wickedUrbainGrill.jpg; sourceTree = "<group>"; };
 		0643B6A01A436BE000E205C9 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		0699B38B1A63278800B8E0AE /* TruckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckDetailView.swift; sourceTree = "<group>"; };
 		06A36AF119F558DB00F44F02 /* closeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeWhite.png; sourceTree = "<group>"; };
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
-		06A36AF319F558DB00F44F02 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
-		06A36AF419F558DB00F44F02 /* login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login@2x.png"; sourceTree = "<group>"; };
 		06D90F5519FF59C30086FA57 /* TruckPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TruckPin@2x.png"; sourceTree = "<group>"; };
 		06D90F5619FF59C30086FA57 /* TruckPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TruckPin.png; sourceTree = "<group>"; };
-		06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MuncherLogo.png; sourceTree = "<group>"; };
-		06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MuncherLogo@2x.png"; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
@@ -328,23 +312,15 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				062C13E71A6DD34E00E8807D /* muncherTM.png */,
+				060EC19D1A6F1AA300A27C35 /* muncherTM.png */,
 				063AB5A41A684FBE003828F7 /* truckmuncher.png */,
 				063AB59F1A6727C1003828F7 /* noImageAvailable.png */,
-				063AB5991A649001003828F7 /* colorfulTruck.jpg */,
-				0643B69A1A433B9100E205C9 /* wickedUrbainGrill.jpg */,
 				061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */,
 				061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */,
 				06D90F5519FF59C30086FA57 /* TruckPin@2x.png */,
 				06D90F5619FF59C30086FA57 /* TruckPin.png */,
-				06EBFACE19F831E5009BFEA6 /* MuncherLogo.png */,
-				06EBFACF19F831E5009BFEA6 /* MuncherLogo@2x.png */,
 				06A36AF119F558DB00F44F02 /* closeWhite.png */,
 				06A36AF219F558DB00F44F02 /* closeWhite@2x.png */,
-				06A36AF319F558DB00F44F02 /* login.png */,
-				06A36AF419F558DB00F44F02 /* login@2x.png */,
-				0609360219F3662B0033F3D4 /* Menu.png */,
-				0609360319F3662B0033F3D4 /* Menu@2x.png */,
 				060935FA19F334E30033F3D4 /* LocationSetterPinPink.png */,
 				060935FB19F334E30033F3D4 /* LocationSetterPinPink@2x.png */,
 				060935EB19F303F40033F3D4 /* LocationSetterPin@2x.png */,
@@ -672,37 +648,29 @@
 			files = (
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
-				06EBFAD119F831E5009BFEA6 /* MuncherLogo@2x.png in Resources */,
 				061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */,
 				27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */,
-				0609360419F3662B0033F3D4 /* Menu.png in Resources */,
 				278BFBB219D08D0900510C6E /* sign-in-with-twitter-gray.png in Resources */,
 				060935FC19F334E30033F3D4 /* LocationSetterPinPink.png in Resources */,
 				063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */,
-				062C13E81A6DD34E00E8807D /* muncherTM.png in Resources */,
 				06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */,
 				2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */,
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
+				060EC19E1A6F1AA300A27C35 /* muncherTM.png in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
 				0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */,
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
-				0609360519F3662B0033F3D4 /* Menu@2x.png in Resources */,
-				06A36AF819F558DB00F44F02 /* login@2x.png in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */,
-				06EBFAD019F831E5009BFEA6 /* MuncherLogo.png in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
-				063AB59A1A649002003828F7 /* colorfulTruck.jpg in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
-				06A36AF719F558DB00F44F02 /* login.png in Resources */,
 				2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
-				0643B69B1A433B9100E205C9 /* wickedUrbainGrill.jpg in Resources */,
 				060935EE19F303F40033F3D4 /* LocationSetterPin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
