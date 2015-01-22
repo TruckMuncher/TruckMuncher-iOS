@@ -25,6 +25,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
         menuTableView.estimatedRowHeight = 44.0
         menuTableView.rowHeight = UITableViewAutomaticDimension
+        menuTableView.backgroundView = nil
+        menuTableView.backgroundColor = UIColor.clearColor()
     }
     
     func updateViewWithTruck(truck:RTruck!, showingMenu: Bool) {
@@ -101,7 +103,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         var label = UILabel(frame: CGRectMake(0, 0, menuTableView.frame.size.width, MENU_CATEGORY_HEIGHT))
         label.textAlignment = .Center
         label.font = UIFont.italicSystemFontOfSize(18.0)
-        label.backgroundColor = backgroundColor
+        label.backgroundColor = UIColor.clearColor()
         label.textColor = textColor
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         container.addSubview(label)

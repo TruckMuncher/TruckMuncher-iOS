@@ -350,8 +350,10 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
-            }, completion: { (completed) -> Void in
+                
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
+
+            }, completion: { (completed) -> Void in
                 self.truckCarousel.reloadData()
             })
             initialTouchY = 0
