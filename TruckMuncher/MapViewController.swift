@@ -31,7 +31,11 @@ class MapViewController: UIViewController,
     var count: Int = 0
     var showingMenu = false
     var originalTrucks = [RTruck]()
-    var activeTrucks = [RTruck]()
+    var activeTrucks: [RTruck] = [RTruck]() {
+        didSet {
+            self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
+        }
+    }
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
@@ -90,6 +94,11 @@ class MapViewController: UIViewController,
         truckCarousel.pagingEnabled = true
         truckCarousel.currentItemIndex = 0
         truckCarousel.bounces = true
+        truckCarousel.layer.masksToBounds = false
+        truckCarousel.layer.shadowColor = UIColor.blackColor().CGColor
+        truckCarousel.layer.shadowOffset = CGSizeMake(0.0, -3.0)
+        truckCarousel.layer.shadowOpacity = 0.0
+        truckCarousel.layer.shadowPath = UIBezierPath(rect: truckCarousel.bounds).CGPath
         
         view.addSubview(truckCarousel)
         attachGestureRecognizerToCarousel()
@@ -327,7 +336,6 @@ class MapViewController: UIViewController,
         let primaryColor = UIColor(rgba: (activeTrucks[truckCarousel.currentItemIndex] as RTruck).primaryColor)
         let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as TruckDetailView
         currentView.updateViewWithColor(clouds.transformToColor(primaryColor, withPercentage: percentage))
-        //currentView.backgroundColor = clouds.transformToColor(primaryColor, withPercentage: percentage)
         
         if recognizer.state == .Ended {
             // if we ended the pan, based on the velocity, we need to snap the menu and nav bar to their final positions as well as fading nav bar items
@@ -344,6 +352,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
             }, completion: { (completed) -> Void in
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : clouds)
+                self.truckCarousel.reloadData()
             })
             initialTouchY = 0
         }
