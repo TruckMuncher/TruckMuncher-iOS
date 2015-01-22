@@ -335,7 +335,7 @@ class MapViewController: UIViewController,
         
         let primaryColor = UIColor(rgba: (activeTrucks[truckCarousel.currentItemIndex] as RTruck).primaryColor)
         let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as TruckDetailView
-        currentView.updateViewWithColor(clouds.transformToColor(primaryColor, withPercentage: percentage))
+        currentView.updateViewWithColor(carouselBackground.transformToColor(primaryColor, withPercentage: percentage))
         
         if recognizer.state == .Ended {
             // if we ended the pan, based on the velocity, we need to snap the menu and nav bar to their final positions as well as fading nav bar items
@@ -351,7 +351,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
             }, completion: { (completed) -> Void in
-                currentView.updateViewWithColor(self.showingMenu ? primaryColor : clouds)
+                currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
                 self.truckCarousel.reloadData()
             })
             initialTouchY = 0

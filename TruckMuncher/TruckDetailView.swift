@@ -40,7 +40,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         }
         truckTagsLabel.text = join(", ", keywords)
         
-        let primary = showingMenu ? UIColor(rgba: truck.primaryColor) : clouds
+        let primary = showingMenu ? UIColor(rgba: truck.primaryColor) : carouselBackground
         backgroundColor = primary
         textColor = primary.suggestedTextColor()
         truckNameLabel.textColor = textColor
