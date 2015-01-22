@@ -11,3 +11,4 @@ import UIKit
 
 let pinkColor = UIColor(rgba: "#E91E63")
 let wetAsphaltColor = UIColor(rgba: "#34495E")
+let carouselBackground = UIColor.whiteColor()
