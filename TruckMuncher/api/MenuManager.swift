@@ -38,7 +38,7 @@ struct MenuManager {
                     rmenuItem!.id = id
                 }
                 rmenuItem!.isAvailable = (item as MenuItemAvailability).isAvailable
-                RMenuItem.createOrUpdateInRealm(realm, withObject: rmenuItem!)
+                realm.addOrUpdateObject(rmenuItem!)
                 items.append(rmenuItem!)
             }
             realm.commitWriteTransaction()
@@ -71,7 +71,7 @@ struct MenuManager {
             for menu in menuResponse.menus {
                 let rmenu = RMenu.initFromProto(menu)
                 menus.append(rmenu)
-                RMenu.createOrUpdateInRealm(realm, withObject: rmenu)
+                realm.addOrUpdateObject(rmenu)
             }
             realm.commitWriteTransaction()
             
@@ -98,7 +98,7 @@ struct MenuManager {
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
-            RMenu.createOrUpdateInRealm(realm, withObject: rmenu)
+            realm.addOrUpdateObject(rmenu)
             realm.commitWriteTransaction()
             
             successBlock(response: rmenu)
@@ -131,7 +131,7 @@ struct MenuManager {
             for (id, available) in items {
                 let rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as RMenuItem
                 rmenuItem.isAvailable = available
-                RMenuItem.createOrUpdateInRealm(realm, withObject: rmenuItem)
+                realm.addOrUpdateObject(rmenuItem)
             }
             realm.commitWriteTransaction()
             

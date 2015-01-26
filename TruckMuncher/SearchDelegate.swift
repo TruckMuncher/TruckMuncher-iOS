@@ -74,10 +74,10 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             for menu in menus {
-                RMenu.createOrUpdateInRealm(realm, withObject: menu as RMenu)
+                realm.addOrUpdateObject(menu as RMenu)
             }
             for truck in trucks {
-                RTruck.createOrUpdateInRealm(realm, withObject: truck as RTruck)
+                realm.addOrUpdateObject(truck as RTruck)
             }
             realm.commitWriteTransaction()
             // TODO the blurbs need to be combined and probably used at some point
