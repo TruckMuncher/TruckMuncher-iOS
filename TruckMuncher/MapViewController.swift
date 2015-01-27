@@ -256,9 +256,6 @@ class MapViewController: UIViewController,
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
 
         let truck = RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(0) as RString).value).firstObject() as RTruck
-        for truck in activeTrucks {
-            println(truck.description)
-        }
         let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, truck: truck)
         navigationController?.pushViewController(vendorMapVC, animated: true)
     }

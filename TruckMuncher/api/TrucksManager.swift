@@ -74,10 +74,25 @@ class TrucksManager {
             realm.beginWriteTransaction()
             
             for truck in truckResponse.trucks {
-                let rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
-                ruser.truckIds.addObject(RString.initFromString(rtruck.id))
-                realm.addOrUpdateObject(rtruck)
-                trucks.append(rtruck)
+                let rresponse = RTruck.objectsWhere("id = %@", truck.id)
+                var rtruck: RTruck? = nil
+                if rresponse.count == 0 {
+                    rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
+                } else {
+                    rtruck = rresponse[0] as? RTruck
+                    rtruck!.name = truck.name
+                    rtruck!.imageUrl = truck.imageUrl
+                    rtruck!.keywords.removeAllObjects()
+                    for keyword in truck.keywords {
+                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    }
+                    rtruck!.isNew = false
+                    rtruck!.primaryColor = truck.primaryColor
+                    rtruck!.secondaryColor = truck.secondaryColor
+                }
+                ruser.truckIds.addObject(RString.initFromString(rtruck!.id))
+                realm.addOrUpdateObject(rtruck!)
+                trucks.append(rtruck!)
             }
             
             realm.addOrUpdateObject(ruser)
@@ -108,9 +123,24 @@ class TrucksManager {
             realm.beginWriteTransaction()
             
             for truck in truckResponse.trucks {
-                let rtruck = RTruck.initFromProto(truck, isNew: false)
-                realm.addOrUpdateObject(rtruck)
-                trucks.append(rtruck)
+                let rresponse = RTruck.objectsWhere("id = %@", truck.id)
+                var rtruck: RTruck? = nil
+                if rresponse.count == 0 {
+                    rtruck = RTruck.initFromProto(truck, isNew: false)
+                } else {
+                    rtruck = rresponse[0] as? RTruck
+                    rtruck!.name = truck.name
+                    rtruck!.imageUrl = truck.imageUrl
+                    rtruck!.keywords.removeAllObjects()
+                    for keyword in truck.keywords {
+                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    }
+                    rtruck!.isNew = false
+                    rtruck!.primaryColor = truck.primaryColor
+                    rtruck!.secondaryColor = truck.secondaryColor
+                }
+                realm.addOrUpdateObject(rtruck!)
+                trucks.append(rtruck!)
             }
             realm.commitWriteTransaction()
             
