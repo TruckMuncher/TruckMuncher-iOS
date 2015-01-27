@@ -58,24 +58,32 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         changeComponentsColors()
         setMapInteractability()
         setPulse()
+        
+        if truck.isInServingMode {
+            centerMapOverCoordinate(CLLocationCoordinate2D(latitude: truck.latitude, longitude: truck.longitude))
+        }
     }
     
     func zoomToCurrentLocation() {
-        if CLLocationManager.locationServicesEnabled() &&
+        if (CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
-            locationManager.location != nil{
+            locationManager.location != nil){
                 
-                var latitude = locationManager.location.coordinate.latitude
-                var longitude = locationManager.location.coordinate.longitude
-                var latDelta = deltaDegrees
-                var longDelta = deltaDegrees
-                
-                var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
-                var center = CLLocationCoordinate2DMake(latitude, longitude)
-                var region = MKCoordinateRegionMake(center, span)
-                
-                vendorMapView.setRegion(region, animated: true)
+                centerMapOverCoordinate(locationManager.location.coordinate)
         }
+    }
+    
+    func centerMapOverCoordinate(coordinate: CLLocationCoordinate2D) {
+        var latitude = coordinate.latitude
+        var longitude = coordinate.longitude
+        var latDelta = deltaDegrees
+        var longDelta = deltaDegrees
+        
+        var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
+        var center = CLLocationCoordinate2DMake(latitude, longitude)
+        var region = MKCoordinateRegionMake(center, span)
+        
+        vendorMapView.setRegion(region, animated: true)
     }
     
     func initLocationManager() {
@@ -97,7 +105,9 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        zoomToCurrentLocation()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && !truck.isInServingMode){
+            zoomToCurrentLocation()
+        }
     }
     
     func changeComponentsColors() {
