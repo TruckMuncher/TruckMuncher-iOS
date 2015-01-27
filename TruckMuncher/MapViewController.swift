@@ -274,7 +274,7 @@ class MapViewController: UIViewController,
             let lat =  locationManager.location.coordinate.latitude
             let long = locationManager.location.coordinate.longitude
             trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
-                self.activeTrucks = response as [RTruck]
+                self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
                 }) { (error) -> () in
@@ -283,6 +283,15 @@ class MapViewController: UIViewController,
                     self.presentViewController(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func orderTrucksByDistanceFromCurrentLocation(trucks: [RTruck]) -> [RTruck] {
+        for truck in trucks {
+            let distance = locationManager.location.distanceFromLocation(CLLocation(latitude: truck.latitude, longitude: truck.longitude))
+            truck.distanceFromMe = (Double)(distance/1609.344)
+        }
+        
+        return trucks.sorted({ $0.distanceFromMe < $1.distanceFromMe })
     }
     
     func updateMapWithActiveTrucks() {

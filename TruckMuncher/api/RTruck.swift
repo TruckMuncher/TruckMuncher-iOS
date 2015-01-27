@@ -21,6 +21,7 @@ class RTruck: RLMObject {
     dynamic var isInServingMode = false
     dynamic var primaryColor = "#FFFFFF"
     dynamic var secondaryColor = "#000000"
+    dynamic var distanceFromMe = 0.0
     
     override init() {
         super.init()
@@ -51,5 +52,9 @@ class RTruck: RLMObject {
     
     override class func primaryKey() -> String! {
         return "id"
+    }
+    
+    override class func ignoredProperties() -> [AnyObject]! {
+        return ["distanceFromMe"]
     }
 }

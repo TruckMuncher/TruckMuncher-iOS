@@ -16,6 +16,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckTagsLabel: UILabel!
     @IBOutlet var truckNameLabel: UILabel!
     @IBOutlet var truckLogoImage: UIImageView!
+    @IBOutlet var distanceLabel: UILabel!
     
     var menu: RMenu?
     var textColor = UIColor.blackColor()
@@ -47,6 +48,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         textColor = primary.suggestedTextColor()
         truckNameLabel.textColor = textColor
         truckTagsLabel.textColor = textColor
+        
+        distanceLabel.text = String(format: "%.02f mi", truck.distanceFromMe)
     }
     
     func updateViewWithColor(color: UIColor) {
