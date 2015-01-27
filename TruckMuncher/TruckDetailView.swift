@@ -50,6 +50,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckTagsLabel.textColor = textColor
         
         distanceLabel.text = String(format: "%.02f mi", truck.distanceFromMe)
+        distanceLabel.textColor = textColor
     }
     
     func updateViewWithColor(color: UIColor) {
