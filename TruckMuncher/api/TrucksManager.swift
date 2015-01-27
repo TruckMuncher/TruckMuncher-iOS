@@ -43,6 +43,7 @@ class TrucksManager {
                 }
                 rtruck!.latitude = activeTrucksResponseTruck.latitude
                 rtruck!.longitude = activeTrucksResponseTruck.longitude
+                rtruck!.isInServingMode = true
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
             }
