@@ -11,9 +11,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American Gyros" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIT-x6-f8U">
-                    <rect key="frame" x="125" y="13" width="261" height="21"/>
+                    <rect key="frame" x="125" y="13" width="237" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="gga-oH-UUt"/>
+                        <constraint firstAttribute="height" constant="21" id="XNI-Yp-Ubc"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -30,7 +30,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greek" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yim-gN-GRW">
                     <rect key="frame" x="125" y="49" width="261" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="TIg-tH-10N"/>
+                        <constraint firstAttribute="height" constant="21" id="SWw-Ct-OhA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -39,25 +39,37 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImageAvailable.png" translatesAutoresizingMaskIntoConstraints="NO" id="38h-US-Khm">
                     <rect key="frame" x="15" y="10" width="80" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="80" id="rXM-Vf-U5q"/>
+                        <constraint firstAttribute="width" constant="80" id="mhv-UP-uy2"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25.5 mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gX5-YW-f9R">
+                    <rect key="frame" x="358" y="13" width="57" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="57" id="LqY-Mt-nzl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="yim-gN-GRW" firstAttribute="leading" secondItem="eIT-x6-f8U" secondAttribute="leading" id="4h0-fc-jqT"/>
-                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="yim-gN-GRW" secondAttribute="bottom" constant="32" id="7LS-98-spP"/>
-                <constraint firstAttribute="bottom" secondItem="Os3-Sb-VHj" secondAttribute="bottom" id="8D7-S2-9g6"/>
-                <constraint firstItem="38h-US-Khm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Fb0-Eq-qP2"/>
-                <constraint firstAttribute="trailing" secondItem="Os3-Sb-VHj" secondAttribute="trailing" id="RJM-ac-sgo"/>
-                <constraint firstItem="38h-US-Khm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="bRi-JT-Qey"/>
-                <constraint firstAttribute="trailing" secondItem="eIT-x6-f8U" secondAttribute="trailing" constant="28" id="dtv-7S-SzU"/>
-                <constraint firstItem="yim-gN-GRW" firstAttribute="top" secondItem="eIT-x6-f8U" secondAttribute="bottom" constant="15" id="dvj-YJ-ACS"/>
-                <constraint firstItem="eIT-x6-f8U" firstAttribute="leading" secondItem="38h-US-Khm" secondAttribute="trailing" constant="30" id="egE-pC-jSw"/>
-                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="38h-US-Khm" secondAttribute="bottom" constant="12" id="f5K-rw-t5v"/>
-                <constraint firstItem="yim-gN-GRW" firstAttribute="trailing" secondItem="eIT-x6-f8U" secondAttribute="trailing" id="iHG-ef-reT"/>
-                <constraint firstItem="eIT-x6-f8U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="koM-tF-rUm"/>
-                <constraint firstItem="Os3-Sb-VHj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rYm-5u-VTf"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="38h-US-Khm" secondAttribute="bottom" constant="12" id="4g2-Sf-AAk"/>
+                <constraint firstItem="yim-gN-GRW" firstAttribute="top" secondItem="eIT-x6-f8U" secondAttribute="bottom" constant="15" id="COi-2q-r8O"/>
+                <constraint firstAttribute="trailing" secondItem="Os3-Sb-VHj" secondAttribute="trailing" id="Fkg-Qk-nui"/>
+                <constraint firstAttribute="trailing" secondItem="yim-gN-GRW" secondAttribute="trailing" constant="28" id="HHE-1z-GBB"/>
+                <constraint firstItem="eIT-x6-f8U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="13" id="JEk-GH-Y8d"/>
+                <constraint firstItem="38h-US-Khm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="NPB-e8-ahI"/>
+                <constraint firstAttribute="trailing" secondItem="eIT-x6-f8U" secondAttribute="trailing" constant="52" id="Nus-25-0hi"/>
+                <constraint firstItem="38h-US-Khm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="RBO-qq-dAi"/>
+                <constraint firstAttribute="trailing" secondItem="gX5-YW-f9R" secondAttribute="trailing" constant="-1" id="Wha-3Y-oar"/>
+                <constraint firstItem="gX5-YW-f9R" firstAttribute="bottom" secondItem="eIT-x6-f8U" secondAttribute="bottom" id="bOm-W7-JUH"/>
+                <constraint firstItem="eIT-x6-f8U" firstAttribute="leading" secondItem="38h-US-Khm" secondAttribute="trailing" constant="30" id="fZA-Rs-qBc"/>
+                <constraint firstItem="yim-gN-GRW" firstAttribute="leading" secondItem="eIT-x6-f8U" secondAttribute="leading" id="n6C-L7-QNd"/>
+                <constraint firstItem="eIT-x6-f8U" firstAttribute="top" secondItem="gX5-YW-f9R" secondAttribute="top" id="n9t-5U-byX"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="top" secondItem="yim-gN-GRW" secondAttribute="bottom" constant="32" id="w85-cJ-HFR"/>
+                <constraint firstItem="Os3-Sb-VHj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y9Q-Al-guG"/>
+                <constraint firstAttribute="bottom" secondItem="Os3-Sb-VHj" secondAttribute="bottom" id="zJz-Xp-qIW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -65,6 +77,7 @@
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="distanceLabel" destination="gX5-YW-f9R" id="MCg-Ab-0ig"/>
                 <outlet property="menuTableView" destination="Os3-Sb-VHj" id="dQV-ag-4yR"/>
                 <outlet property="truckLogoImage" destination="38h-US-Khm" id="BRC-Ec-iro"/>
                 <outlet property="truckNameLabel" destination="eIT-x6-f8U" id="PJR-g2-wQe"/>
