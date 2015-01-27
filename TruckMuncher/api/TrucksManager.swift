@@ -43,7 +43,7 @@ class TrucksManager {
                 }
                 rtruck!.latitude = activeTrucksResponseTruck.latitude
                 rtruck!.longitude = activeTrucksResponseTruck.longitude
-                RTruck.createOrUpdateInRealm(realm, withObject: rtruck!)
+                realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
             }
             realm.commitWriteTransaction()
@@ -75,11 +75,11 @@ class TrucksManager {
             for truck in truckResponse.trucks {
                 let rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
                 ruser.truckIds.addObject(RString.initFromString(rtruck.id))
-                RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+                realm.addOrUpdateObject(rtruck)
                 trucks.append(rtruck)
             }
             
-            RUser.createOrUpdateInRealm(realm, withObject: ruser)
+            realm.addOrUpdateObject(ruser)
             realm.commitWriteTransaction()
             
             successBlock(response: trucks)
@@ -108,7 +108,7 @@ class TrucksManager {
             
             for truck in truckResponse.trucks {
                 let rtruck = RTruck.initFromProto(truck, isNew: false)
-                RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+                realm.addOrUpdateObject(rtruck)
                 trucks.append(rtruck)
             }
             realm.commitWriteTransaction()
@@ -140,7 +140,7 @@ class TrucksManager {
             rtruck.isInServingMode = servingMode
             rtruck.latitude = lat
             rtruck.longitude = lon
-            RTruck.createOrUpdateInRealm(realm, withObject: rtruck)
+            realm.addOrUpdateObject(rtruck)
             
             realm.commitWriteTransaction()
             

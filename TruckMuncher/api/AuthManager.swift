@@ -30,7 +30,7 @@ struct AuthManager {
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
-            RUser.createOrUpdateInRealm(realm, withObject: ruser)
+            realm.addOrUpdateObject(ruser)
             realm.commitWriteTransaction()
             
             successBlock(response: ruser)
