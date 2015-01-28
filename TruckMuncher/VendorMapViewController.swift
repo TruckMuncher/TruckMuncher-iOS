@@ -37,9 +37,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     @IBAction func onServingModeSwitchTapped(sender: UISwitch) {
-        changeComponentsColors()
-        setMapInteractability()
-        setPulse()
         requestServingMode(servingModeSwitch.on)
     }
     
@@ -51,24 +48,42 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
         initLocationManager()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "openMenu")
+        title = truck.name
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        servingModeSwitch.setOn(truck.isInServingMode, animated: false)
+        
+        changeComponentsColors()
+        setMapInteractability()
+        setPulse()
+        
+        if truck.isInServingMode {
+            centerMapOverCoordinate(CLLocationCoordinate2D(latitude: truck.latitude, longitude: truck.longitude))
+        }
     }
     
     func zoomToCurrentLocation() {
-        if CLLocationManager.locationServicesEnabled() &&
+        if (CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
-            locationManager.location != nil{
+            locationManager.location != nil){
                 
-                var latitude = locationManager.location.coordinate.latitude
-                var longitude = locationManager.location.coordinate.longitude
-                var latDelta = deltaDegrees
-                var longDelta = deltaDegrees
-                
-                var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
-                var center = CLLocationCoordinate2DMake(latitude, longitude)
-                var region = MKCoordinateRegionMake(center, span)
-                
-                vendorMapView.setRegion(region, animated: true)
+                centerMapOverCoordinate(locationManager.location.coordinate)
         }
+    }
+    
+    func centerMapOverCoordinate(coordinate: CLLocationCoordinate2D) {
+        var latitude = coordinate.latitude
+        var longitude = coordinate.longitude
+        var latDelta = deltaDegrees
+        var longDelta = deltaDegrees
+        
+        var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
+        var center = CLLocationCoordinate2DMake(latitude, longitude)
+        var region = MKCoordinateRegionMake(center, span)
+        
+        vendorMapView.setRegion(region, animated: true)
     }
     
     func initLocationManager() {
@@ -90,32 +105,37 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        zoomToCurrentLocation()
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && !truck.isInServingMode){
+            zoomToCurrentLocation()
+        }
     }
     
     func changeComponentsColors() {
-        servingModeLabel.textColor = servingModeSwitch.on ? pinkColor : UIColor.blackColor()
-        locationSetterImage.image = servingModeSwitch.on ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
+        servingModeLabel.textColor = truck.isInServingMode ? pinkColor : UIColor.blackColor()
+        locationSetterImage.image = truck.isInServingMode ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
     }
     
     func setMapInteractability () {
-        vendorMapView.userInteractionEnabled = !servingModeSwitch.on
+        vendorMapView.userInteractionEnabled = !truck.isInServingMode
     }
     
     func setPulse () {
-        if servingModeSwitch.on {
+        if truck.isInServingMode {
             pulsingLayer = ServingModePulse()
             pulsingLayer.position = CGPoint(x: locationSetterImage.center.x, y: locationSetterImage.center.y - 10.0)
 
             view.layer.insertSublayer(pulsingLayer, below: locationSetterImage.layer)
         } else {
-            pulsingLayer.removeFromSuperlayer()
+            pulsingLayer?.removeFromSuperlayer()
         }
     }
     
     func requestServingMode (isServing: Bool) {
         truckManager.modifyServingMode(truckId: truck.id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
+            self.changeComponentsColors()
+            self.setMapInteractability()
+            self.setPulse()
         }) { (error) -> () in
             var alert = UIAlertController(title: "Oops!", message: "We weren't able to update serving mode, please try again", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))

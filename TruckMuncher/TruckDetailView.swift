@@ -58,6 +58,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         textColor = color.suggestedTextColor()
         truckNameLabel.textColor = textColor
         truckTagsLabel.textColor = textColor
+        distanceLabel.textColor = textColor
+
         menuTableView.reloadData()
     }
     

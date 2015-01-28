@@ -59,6 +59,16 @@ class MapViewController: UIViewController,
         searchDelegate?.searchBar.delegate = self
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         updateCarouselWithTruckMenus()
@@ -68,6 +78,22 @@ class MapViewController: UIViewController,
             locationManager.startUpdatingLocation()
             mapClusterControllerSetup()
             truckCarouselSetup()
+        }
+    }
+    
+    func didBecomeActive() {
+        if showingMenu {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                let top: CGFloat = 20.0
+                var navbarFrame = self.navigationController!.navigationBar.frame
+                navbarFrame.origin.y = top-navbarFrame.size.height
+                self.navigationController?.navigationBar.frame = navbarFrame
+                
+                self.navigationItem.titleView?.alpha = 0.0
+                let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as UIColor).colorWithAlphaComponent(0.0)
+                self.navigationItem.leftBarButtonItem?.tintColor = color
+                self.navigationItem.rightBarButtonItem?.tintColor = color
+            })
         }
     }
     
@@ -254,15 +280,7 @@ class MapViewController: UIViewController,
     func pushVendorMap() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
-        
-        ///////////////////////////////////////////////////////////////////////////
-        // TODO remove all of this once the realm issue is fixed
-        // TODO be sure to remove the `import Realm` statement as well once this is removed
-        let realm = RLMRealm.defaultRealm()
-        realm.beginWriteTransaction()
-        ruser.truckIds.addObject(RString.initFromString("4405c266-5093-4c82-9edc-a23c322b6e2e"))
-        realm.commitWriteTransaction()
-        ///////////////////////////////////////////////////////////////////////////
+
         let truck = RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(0) as RString).value).firstObject() as RTruck
         let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, truck: truck)
         navigationController?.pushViewController(vendorMapVC, animated: true)
@@ -288,6 +306,7 @@ class MapViewController: UIViewController,
     func orderTrucksByDistanceFromCurrentLocation(trucks: [RTruck]) -> [RTruck] {
         for truck in trucks {
             let distance = locationManager.location.distanceFromLocation(CLLocation(latitude: truck.latitude, longitude: truck.longitude))
+            //distanceFromLocation() returns the distance in meters so we need to divide by 1609.344 to convert to miles
             truck.distanceFromMe = (Double)(distance/1609.344)
         }
         
