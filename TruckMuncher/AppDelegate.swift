@@ -52,7 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         
-        //Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+#if RELEASE
+        println("release build")
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+#elseif DEBUG
+        println("debug build")
+#endif
         
         return true
     }

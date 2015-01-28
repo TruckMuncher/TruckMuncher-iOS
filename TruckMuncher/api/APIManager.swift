@@ -23,15 +23,10 @@ class APIManager {
         manager.request(request)
             .validate()
             .response { (request, response, data, error) -> Void in
-                println("request \(request)")
-                println("response \(response)")
-                
                 let nsdata = data as? NSData
                 if error == nil {
-                    println("successful request")
                     successBlock(response: response, data: nsdata)
                 } else {
-                    println("failed request")
                     errorBlock(response: response, data: nsdata, error: error)
                 }
         }
