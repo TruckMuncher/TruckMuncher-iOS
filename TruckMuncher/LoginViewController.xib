@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -28,11 +28,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="truckmuncher.png" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-4e-DXJ">
-                                            <rect key="frame" x="190" y="78" width="220" height="200"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muncherTM.png" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-4e-DXJ">
+                                            <rect key="frame" x="200" y="78" width="200" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="Kct-1k-BaF"/>
-                                                <constraint firstAttribute="width" constant="220" id="llf-ok-wQS"/>
+                                                <constraint firstAttribute="width" constant="200" id="llf-ok-wQS"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
@@ -95,7 +95,7 @@
     </objects>
     <resources>
         <image name="closeWhite.png" width="64" height="64"/>
+        <image name="muncherTM.png" width="192" height="192"/>
         <image name="sign-in-with-twitter-gray.png" width="158" height="28"/>
-        <image name="truckmuncher.png" width="1140" height="1048"/>
     </resources>
 </document>

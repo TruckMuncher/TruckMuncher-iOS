@@ -27,7 +27,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "tm_icon_60@2x-2.png",
+      "filename" : "tm_icon_60@2x-1.png",
       "scale" : "3x"
     },
     {
@@ -115,9 +115,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "120x120",
       "idiom" : "car",
-      "filename" : "tm_icon_60@2x-1.png",
+      "size" : "120x120",
       "scale" : "1x"
     }
   ],

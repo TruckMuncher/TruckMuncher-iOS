@@ -45,7 +45,7 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var muncherImage = UIImage(named: "muncherTM")
+        var muncherImage = UIImage(named: "transparentTM")
         var muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit

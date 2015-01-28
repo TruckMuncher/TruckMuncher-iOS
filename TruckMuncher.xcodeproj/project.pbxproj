@@ -61,6 +61,7 @@
 		27AC00CA19CB4B4F00F1F3B7 /* TruckMuncherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00C919CB4B4F00F1F3B7 /* TruckMuncherTests.swift */; };
 		27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */; };
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
+		27BC44A91A78988700C0D07F /* transparentTM.png in Resources */ = {isa = PBXBuildFile; fileRef = 27BC44A81A78988700C0D07F /* transparentTM.png */; };
 		27CA57581A5DFDF9000D09E3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CA57571A5DFDF9000D09E3 /* Reveal.framework */; };
 		27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27E680861A420FC8008173D3 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27E680931A421086008173D3 /* Search.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680921A421086008173D3 /* Search.pb.swift */; };
@@ -223,6 +224,7 @@
 		27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
+		27BC44A81A78988700C0D07F /* transparentTM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparentTM.png; sourceTree = "<group>"; };
 		27CA57571A5DFDF9000D09E3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
 		27E680921A421086008173D3 /* Search.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.pb.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				27BC44A81A78988700C0D07F /* transparentTM.png */,
 				060EC19D1A6F1AA300A27C35 /* muncherTM.png */,
 				063AB5A41A684FBE003828F7 /* truckmuncher.png */,
 				063AB59F1A6727C1003828F7 /* noImageAvailable.png */,
@@ -648,6 +651,7 @@
 				06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */,
 				2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */,
 				06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */,
+				27BC44A91A78988700C0D07F /* transparentTM.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
 				060EC19E1A6F1AA300A27C35 /* muncherTM.png in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
