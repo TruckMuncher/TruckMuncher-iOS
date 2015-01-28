@@ -59,6 +59,16 @@ class MapViewController: UIViewController,
         searchDelegate?.searchBar.delegate = self
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         updateCarouselWithTruckMenus()
@@ -68,6 +78,22 @@ class MapViewController: UIViewController,
             locationManager.startUpdatingLocation()
             mapClusterControllerSetup()
             truckCarouselSetup()
+        }
+    }
+    
+    func didBecomeActive() {
+        if showingMenu {
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                let top: CGFloat = 20.0
+                var navbarFrame = self.navigationController!.navigationBar.frame
+                navbarFrame.origin.y = top-navbarFrame.size.height
+                self.navigationController?.navigationBar.frame = navbarFrame
+                
+                self.navigationItem.titleView?.alpha = 0.0
+                let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as UIColor).colorWithAlphaComponent(0.0)
+                self.navigationItem.leftBarButtonItem?.tintColor = color
+                self.navigationItem.rightBarButtonItem?.tintColor = color
+            })
         }
     }
     
