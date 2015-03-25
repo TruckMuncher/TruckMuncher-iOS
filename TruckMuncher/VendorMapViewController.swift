@@ -19,21 +19,25 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     @IBOutlet var servingModeSwitch: UISwitch!
     var pulsingLayer : ServingModePulse!
     let deltaDegrees = 0.005
+    let selectionViewHeight = CGFloat(45.0)
     var locationManager: CLLocationManager!
-    var truck: RTruck
+    var trucks = [RTruck]()
+    var selectedTruckIndex = 0
+    var truckSelectionView = UIView()
+    var lines = UIView()
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
-        self.truck = truck
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, trucks: [RTruck]) {
+        self.trucks = trucks
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.truck = aDecoder.decodeObjectForKey("vmvcTruck") as RTruck
+        self.trucks = aDecoder.decodeObjectForKey("vmvcTrucks") as [RTruck]
         super.init(coder: aDecoder)
     }
     
     override func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(truck, forKey: "vmvcTruck")
+        aCoder.encodeObject(trucks, forKey: "vmvcTrucks")
     }
     
     @IBAction func onServingModeSwitchTapped(sender: UISwitch) {
@@ -41,27 +45,86 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func openMenu() {
-        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil, truck: truck), animated: true)
+        navigationController?.pushViewController(MenuViewController(nibName: "MenuViewController", bundle: nil, truck: trucks[selectedTruckIndex]), animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "openMenu")
-        title = truck.name
+        initializeTruckTitleLabel()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        servingModeSwitch.setOn(truck.isInServingMode, animated: false)
+        servingModeSwitch.setOn(trucks[selectedTruckIndex].isInServingMode, animated: false)
         
         changeComponentsColors()
         setMapInteractability()
         setPulse()
         
-        if truck.isInServingMode {
-            centerMapOverCoordinate(CLLocationCoordinate2D(latitude: truck.latitude, longitude: truck.longitude))
+        if trucks[selectedTruckIndex].isInServingMode {
+            centerMapOverCoordinate(CLLocationCoordinate2D(latitude: trucks[selectedTruckIndex].latitude, longitude: trucks[selectedTruckIndex].longitude))
         }
+    }
+    
+    func initializeTruckTitleLabel() {
+        
+        var navLabel = UILabel()
+        navLabel.backgroundColor = UIColor.clearColor()
+        navLabel.textColor = UIColor.whiteColor()
+        navLabel.text = trucks[selectedTruckIndex].name
+        navLabel.textAlignment = .Center
+        navLabel.sizeToFit()
+        navLabel.userInteractionEnabled = true
+        
+        var lines = UIView(frame: CGRectMake((navLabel.bounds.width/2)-10, 23, 20, 5))
+        var line1 = UIView(frame: CGRectMake(0, 0, 20, 1))
+        var line2 = UIView(frame: CGRectMake(0, 3, 20, 1))
+        line1.backgroundColor = UIColor.whiteColor()
+        line2.backgroundColor = UIColor.whiteColor()
+        lines.addSubview(line1)
+        lines.addSubview(line2)
+        
+        if trucks.count > 1 {
+            var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
+            navLabel.addGestureRecognizer(pan)
+            createTruckSelectionView()
+            
+            var tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+            navLabel.addGestureRecognizer(tap)
+        }
+        
+        navLabel.addSubview(lines)
+        self.navigationItem.titleView = navLabel
+//        self.navigationController?.navigationBar.addSubview(lines)
+    }
+    
+    func createTruckSelectionView() {
+        
+        let count = CGFloat(trucks.count)
+        let totalViewHeight = count * selectionViewHeight
+        
+        truckSelectionView = UIView(frame: CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight, UIScreen.mainScreen().bounds.width, totalViewHeight))
+        truckSelectionView.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
+        
+        var previousY = CGFloat(0.0)
+        
+        for (index, truck) in enumerate(trucks) {
+            let frame = CGRectMake(0.0, previousY, UIScreen.mainScreen().bounds.width, selectionViewHeight)
+            var thisTrucksView = UIView(frame: frame)
+            var truckNameLabel = UILabel(frame: CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, selectionViewHeight))
+            truckNameLabel.textAlignment = .Center
+            truckNameLabel.text = truck.name
+            truckNameLabel.textColor = UIColor.whiteColor()
+            
+            thisTrucksView.addSubview(truckNameLabel)
+            
+            truckSelectionView.addSubview(thisTrucksView)
+            previousY += selectionViewHeight
+        }
+        
+        view.addSubview(truckSelectionView)
     }
     
     func zoomToCurrentLocation() {
@@ -105,33 +168,35 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && !truck.isInServingMode){
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse && !trucks[selectedTruckIndex].isInServingMode){
             zoomToCurrentLocation()
         }
     }
     
     func changeComponentsColors() {
-        servingModeLabel.textColor = truck.isInServingMode ? pinkColor : UIColor.blackColor()
-        locationSetterImage.image = truck.isInServingMode ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
+        let isServing = trucks[selectedTruckIndex].isInServingMode
+        servingModeLabel.textColor = isServing ? pinkColor : UIColor.blackColor()
+        locationSetterImage.image = isServing ? UIImage(named:"LocationSetterPinPink") : UIImage(named:"LocationSetterPin")
+        servingModeSwitch.setOn(isServing, animated: true)
     }
     
     func setMapInteractability () {
-        vendorMapView.userInteractionEnabled = !truck.isInServingMode
+        vendorMapView.userInteractionEnabled = !trucks[selectedTruckIndex].isInServingMode
     }
     
     func setPulse () {
-        if truck.isInServingMode {
+        pulsingLayer?.removeFromSuperlayer()
+
+        if trucks[selectedTruckIndex].isInServingMode {
             pulsingLayer = ServingModePulse()
             pulsingLayer.position = CGPoint(x: locationSetterImage.center.x, y: locationSetterImage.center.y - 10.0)
 
             view.layer.insertSublayer(pulsingLayer, below: locationSetterImage.layer)
-        } else {
-            pulsingLayer?.removeFromSuperlayer()
         }
     }
     
     func requestServingMode (isServing: Bool) {
-        truckManager.modifyServingMode(truckId: truck.id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
+        truckManager.modifyServingMode(truckId: trucks[selectedTruckIndex].id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
             self.changeComponentsColors()
             self.setMapInteractability()
@@ -141,5 +206,57 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func handlePan(pan: UIPanGestureRecognizer) {
+        let count = CGFloat(trucks.count)
+        let totalViewHeight = count * selectionViewHeight
+        var point = pan.locationInView(self.view)
+        var frame = truckSelectionView.frame
+        let bottomOfNav = CGRectGetMaxY(self.navigationController!.navigationBar.frame)
+        frame.origin.y = min(point.y-totalViewHeight, bottomOfNav)
+        truckSelectionView.frame = frame
+        
+        let highestTruckIndex = trucks.count-1
+        var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav)/Int(selectionViewHeight), trucks.count-1)
+        
+        for (index, view) in enumerate(truckSelectionView.subviews) {
+            (truckSelectionView.subviews[index] as UIView).backgroundColor = UIColor.clearColor()
+            if index == truckSelected {
+                (truckSelectionView.subviews[index] as UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
+            }
+        }
+        
+        if pan.state == .Ended {
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                var frame = self.truckSelectionView.frame
+                frame.origin.y = -totalViewHeight
+                self.truckSelectionView.frame = frame
+                self.selectedTruckIndex = truckSelected
+                self.initializeTruckTitleLabel()
+                self.changeComponentsColors()
+                self.setMapInteractability()
+                self.setPulse()
+                
+                if self.trucks[self.selectedTruckIndex].isInServingMode {
+                    self.centerMapOverCoordinate(CLLocationCoordinate2D(latitude: self.trucks[self.selectedTruckIndex].latitude, longitude: self.trucks[self.selectedTruckIndex].longitude))
+                }
+            }, completion: { (Bool) -> Void in
+                
+            })
+        }
+    }
+    
+    func handleTap(tap: UITapGestureRecognizer) {
+        let count = CGFloat(trucks.count)
+        let totalViewHeight = count * selectionViewHeight
+
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+            self.truckSelectionView.frame = CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight + 20, UIScreen.mainScreen().bounds.width, totalViewHeight)
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.truckSelectionView.frame = CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight, UIScreen.mainScreen().bounds.width, totalViewHeight)
+                    }, completion: nil)
+        })
     }
 }

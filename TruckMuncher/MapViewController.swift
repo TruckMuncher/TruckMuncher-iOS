@@ -82,6 +82,11 @@ class MapViewController: UIViewController,
     }
     
     func didBecomeActive() {
+        /* 
+         * In order to mitigate an issue where the navigation bar is shown overlapping
+         * the menu when the app returns to the foreground after being minimized, animate it
+         * back to its proper location
+         */
         if showingMenu {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 let top: CGFloat = 20.0
@@ -281,8 +286,11 @@ class MapViewController: UIViewController,
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
 
-        let truck = RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(0) as RString).value).firstObject() as RTruck
-        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, truck: truck)
+        var trucks = [RTruck]()
+        for i in 0..<ruser.truckIds.count {
+            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as RString).value).firstObject() as RTruck)
+        }
+        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
         navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
