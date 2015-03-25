@@ -24,6 +24,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var trucks = [RTruck]()
     var selectedTruckIndex = 0
     var truckSelectionView = UIView()
+    var lines = UIView()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, trucks: [RTruck]) {
         self.trucks = trucks
@@ -77,10 +78,13 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         navLabel.sizeToFit()
         navLabel.userInteractionEnabled = true
         
-        var line1 = UIView(frame: CGRectMake((UIScreen.mainScreen().bounds.width/2)-10, 35, 20, 1))
-        var line2 = UIView(frame: CGRectMake((UIScreen.mainScreen().bounds.width/2)-10, 38, 20, 1))
+        var lines = UIView(frame: CGRectMake((navLabel.bounds.width/2)-10, 23, 20, 5))
+        var line1 = UIView(frame: CGRectMake(0, 0, 20, 1))
+        var line2 = UIView(frame: CGRectMake(0, 3, 20, 1))
         line1.backgroundColor = UIColor.whiteColor()
         line2.backgroundColor = UIColor.whiteColor()
+        lines.addSubview(line1)
+        lines.addSubview(line2)
         
         if trucks.count > 1 {
             var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
@@ -91,9 +95,9 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             navLabel.addGestureRecognizer(tap)
         }
         
+        navLabel.addSubview(lines)
         self.navigationItem.titleView = navLabel
-        self.navigationController?.navigationBar.addSubview(line1)
-        self.navigationController?.navigationBar.addSubview(line2)
+//        self.navigationController?.navigationBar.addSubview(lines)
     }
     
     func createTruckSelectionView() {
