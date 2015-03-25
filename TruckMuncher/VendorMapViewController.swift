@@ -25,6 +25,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var selectedTruckIndex = 0
     var truckSelectionView = UIView()
     var lines = UIView()
+    var menu: RMenu = RMenu()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, trucks: [RTruck]) {
         self.trucks = trucks
@@ -66,6 +67,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if trucks[selectedTruckIndex].isInServingMode {
             centerMapOverCoordinate(CLLocationCoordinate2D(latitude: trucks[selectedTruckIndex].latitude, longitude: trucks[selectedTruckIndex].longitude))
         }
+        menu = RMenu.objectsWhere("truckId = %@", trucks[selectedTruckIndex].id).firstObject() as RMenu
     }
     
     func initializeTruckTitleLabel() {
@@ -97,7 +99,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
         navLabel.addSubview(lines)
         self.navigationItem.titleView = navLabel
-//        self.navigationController?.navigationBar.addSubview(lines)
     }
     
     func createTruckSelectionView() {
@@ -131,7 +132,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if (CLLocationManager.locationServicesEnabled() &&
             CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
             locationManager.location != nil){
-                
+
                 centerMapOverCoordinate(locationManager.location.coordinate)
         }
     }
@@ -196,16 +197,45 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func requestServingMode (isServing: Bool) {
+        var itemsOutOfStock = getOutOfStockItems()
+        if itemsOutOfStock.count > 0 && isServing == true {
+            var message = String()
+            for item in itemsOutOfStock {
+                message += "- " + (item as RMenuItem).name + "\n"
+            }
+            var alert = UIAlertController(title: "Continue with these items out of stock?", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: { (alert: UIAlertAction!) in self.servingModeSwitch.setOn(false, animated: true)}))
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (alert: UIAlertAction!) in self.setServingMode(isServing) }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
+            setServingMode(isServing)
+        }
+    }
+    
+    func setServingMode (isServing:Bool) {
         truckManager.modifyServingMode(truckId: trucks[selectedTruckIndex].id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
             self.changeComponentsColors()
             self.setMapInteractability()
             self.setPulse()
-        }) { (error) -> () in
-            var alert = UIAlertController(title: "Oops!", message: "We weren't able to update serving mode, please try again", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            }) { (error) -> () in
+                var alert = UIAlertController(title: "Oops!", message: "We weren't able to update serving mode, please try again", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+
+    func getOutOfStockItems () -> [RMenuItem] {
+        var itemsOutOfStock = [RMenuItem]()
+        for category in menu.categories {
+            for menuItem in (category as RCategory).menuItems {
+                let item = menuItem as RMenuItem
+                if !item.isAvailable {
+                    itemsOutOfStock.append(item)
+                }
+            }
+        }
+        return itemsOutOfStock
     }
     
     func handlePan(pan: UIPanGestureRecognizer) {
@@ -237,6 +267,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 self.changeComponentsColors()
                 self.setMapInteractability()
                 self.setPulse()
+                self.menu = RMenu.objectsWhere("truckId = %@", self.trucks[self.selectedTruckIndex].id).firstObject() as RMenu
                 
                 if self.trucks[self.selectedTruckIndex].isInServingMode {
                     self.centerMapOverCoordinate(CLLocationCoordinate2D(latitude: self.trucks[self.selectedTruckIndex].latitude, longitude: self.trucks[self.selectedTruckIndex].longitude))
