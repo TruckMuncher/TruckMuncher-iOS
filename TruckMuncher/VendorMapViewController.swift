@@ -77,13 +77,23 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         navLabel.sizeToFit()
         navLabel.userInteractionEnabled = true
         
+        var line1 = UIView(frame: CGRectMake((UIScreen.mainScreen().bounds.width/2)-10, 35, 20, 1))
+        var line2 = UIView(frame: CGRectMake((UIScreen.mainScreen().bounds.width/2)-10, 38, 20, 1))
+        line1.backgroundColor = UIColor.whiteColor()
+        line2.backgroundColor = UIColor.whiteColor()
+        
         if trucks.count > 1 {
             var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
             navLabel.addGestureRecognizer(pan)
             createTruckSelectionView()
+            
+            var tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+            navLabel.addGestureRecognizer(tap)
         }
         
         self.navigationItem.titleView = navLabel
+        self.navigationController?.navigationBar.addSubview(line1)
+        self.navigationController?.navigationBar.addSubview(line2)
     }
     
     func createTruckSelectionView() {
@@ -91,10 +101,12 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         let count = CGFloat(trucks.count)
         let totalViewHeight = count * selectionViewHeight
         
-        truckSelectionView = UIView(frame: CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame)-totalViewHeight, UIScreen.mainScreen().bounds.width, totalViewHeight))
-        truckSelectionView.backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
+        truckSelectionView = UIView(frame: CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight, UIScreen.mainScreen().bounds.width, totalViewHeight))
+        truckSelectionView.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
+        
         var previousY = CGFloat(0.0)
-        for truck in trucks {
+        
+        for (index, truck) in enumerate(trucks) {
             let frame = CGRectMake(0.0, previousY, UIScreen.mainScreen().bounds.width, selectionViewHeight)
             var thisTrucksView = UIView(frame: frame)
             var truckNameLabel = UILabel(frame: CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, selectionViewHeight))
@@ -109,7 +121,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }
         
         view.addSubview(truckSelectionView)
-        
     }
     
     func zoomToCurrentLocation() {
@@ -204,50 +215,14 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
         let highestTruckIndex = trucks.count-1
         var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav)/Int(selectionViewHeight), trucks.count-1)
-        println(String(format: "%d", truckSelected))
         
-//        var i = 0
-//        for option in truckSelectionView.subviews as [UIView] {
-//            if i == truckSelected {
-//                option.backgroundColor = UIColor.lightGrayColor()
-//            } else {
-//                option.backgroundColor = pinkColor
-//            }
-//            i += 1
-//        }
-//
-//        if (frame.origin.y > -30) {
-//            //highlight logout
-//            _lblMenuOptionProfile.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionLogout.layer.shadowOpacity = 1.0;
-//            _lblMenuOptionSearch.layer.shadowOpacity = 0.0;
-//            for (UIView *v in _logoutIndicators) [v setHidden:NO];
-//            for (UIView *v in _profileIndicators) [v setHidden:YES];
-//            for (UIView *v in _searchIndicators) [v setHidden:YES];
-//        } else if (frame.origin.y > -80) {
-//            //highlight profile
-//            _lblMenuOptionProfile.layer.shadowOpacity = 1.0;
-//            _lblMenuOptionLogout.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionSearch.layer.shadowOpacity = 0.0;
-//            for (UIView *v in _logoutIndicators) [v setHidden:YES];
-//            for (UIView *v in _profileIndicators) [v setHidden:NO];
-//            for (UIView *v in _searchIndicators) [v setHidden:YES];
-//        } else if (frame.origin.y > -130) {
-//            //highlight search
-//            _lblMenuOptionProfile.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionLogout.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionSearch.layer.shadowOpacity = 1.0;
-//            for (UIView *v in _logoutIndicators) [v setHidden:YES];
-//            for (UIView *v in _profileIndicators) [v setHidden:YES];
-//            for (UIView *v in _searchIndicators) [v setHidden:NO];
-//        } else {
-//            _lblMenuOptionProfile.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionLogout.layer.shadowOpacity = 0.0;
-//            _lblMenuOptionSearch.layer.shadowOpacity = 0.0;
-//            for (UIView *v in _logoutIndicators) [v setHidden:YES];
-//            for (UIView *v in _profileIndicators) [v setHidden:YES];
-//            for (UIView *v in _searchIndicators) [v setHidden:YES];
-//        }
+        for (index, view) in enumerate(truckSelectionView.subviews) {
+            (truckSelectionView.subviews[index] as UIView).backgroundColor = UIColor.clearColor()
+            if index == truckSelected {
+                (truckSelectionView.subviews[index] as UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
+            }
+        }
+        
         if pan.state == .Ended {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 var frame = self.truckSelectionView.frame
@@ -265,22 +240,19 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             }, completion: { (Bool) -> Void in
                 
             })
-//            [UIView animateWithDuration:0.3 animations:^{
-//                CGRect frame = _menuView.frame;
-//                frame.origin.y = -180;
-//                [_menuView setFrame:frame];
-//                } completion:^(BOOL finished) {
-//                if (_lblMenuOptionLogout.layer.shadowOpacity == 1.0) {
-//                [_delegate shouldDismissMedicationsViewController];
-//                } else if (_lblMenuOptionProfile.layer.shadowOpacity == 1.0) {
-//                [self showProfileViewController];
-//                } else if (_lblMenuOptionSearch.layer.shadowOpacity == 1.0) {
-//                [self searchMedications:self];
-//                }
-//                _lblMenuOptionProfile.layer.shadowOpacity = 0.0;
-//                _lblMenuOptionLogout.layer.shadowOpacity = 0.0;
-//                _lblMenuOptionSearch.layer.shadowOpacity = 0.0;
-//                }];
         }
+    }
+    
+    func handleTap(tap: UITapGestureRecognizer) {
+        let count = CGFloat(trucks.count)
+        let totalViewHeight = count * selectionViewHeight
+
+        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
+            self.truckSelectionView.frame = CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight + 20, UIScreen.mainScreen().bounds.width, totalViewHeight)
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.truckSelectionView.frame = CGRectMake(0.0, CGRectGetMaxY(self.navigationController!.navigationBar.frame) - totalViewHeight, UIScreen.mainScreen().bounds.width, totalViewHeight)
+                    }, completion: nil)
+        })
     }
 }
