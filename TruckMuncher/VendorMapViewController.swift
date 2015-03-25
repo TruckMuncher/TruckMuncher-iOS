@@ -111,7 +111,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         
         var previousY = CGFloat(0.0)
         
-        for (index, truck) in enumerate(trucks) {
+        for truck in trucks {
             let frame = CGRectMake(0.0, previousY, UIScreen.mainScreen().bounds.width, selectionViewHeight)
             var thisTrucksView = UIView(frame: frame)
             var truckNameLabel = UILabel(frame: CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.width, selectionViewHeight))
@@ -251,9 +251,9 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav)/Int(selectionViewHeight), trucks.count-1)
         
         for (index, view) in enumerate(truckSelectionView.subviews) {
-            (truckSelectionView.subviews[index] as UIView).backgroundColor = UIColor.clearColor()
+            (view as UIView).backgroundColor = UIColor.clearColor()
             if index == truckSelected {
-                (truckSelectionView.subviews[index] as UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
+                (view as UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
             }
         }
         
