@@ -26,6 +26,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var truckSelectionView = UIView()
     var lines = UIView()
     var menu: RMenu = RMenu()
+    var menuManager = MenuManager()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, trucks: [RTruck]) {
         self.trucks = trucks
@@ -67,7 +68,11 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         if trucks[selectedTruckIndex].isInServingMode {
             centerMapOverCoordinate(CLLocationCoordinate2D(latitude: trucks[selectedTruckIndex].latitude, longitude: trucks[selectedTruckIndex].longitude))
         }
-        menu = RMenu.objectsWhere("truckId = %@", trucks[selectedTruckIndex].id).firstObject() as RMenu
+        menuManager.getMenu(truckId: trucks[selectedTruckIndex].id, success: { (response) -> () in
+            self.menu = response as RMenu
+        }) { (error) -> () in
+            println("error \(error)")
+        }
     }
     
     func initializeTruckTitleLabel() {
@@ -267,7 +272,11 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 self.changeComponentsColors()
                 self.setMapInteractability()
                 self.setPulse()
-                self.menu = RMenu.objectsWhere("truckId = %@", self.trucks[self.selectedTruckIndex].id).firstObject() as RMenu
+                self.menuManager.getMenu(truckId: self.trucks[self.selectedTruckIndex].id, success: { (response) -> () in
+                    self.menu = response as RMenu
+                }) { (error) -> () in
+                    println("error \(error)")
+                }
                 
                 if self.trucks[self.selectedTruckIndex].isInServingMode {
                     self.centerMapOverCoordinate(CLLocationCoordinate2D(latitude: self.trucks[self.selectedTruckIndex].latitude, longitude: self.trucks[self.selectedTruckIndex].longitude))
