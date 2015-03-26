@@ -90,7 +90,11 @@ class TrucksManager {
                     rtruck!.primaryColor = truck.primaryColor
                     rtruck!.secondaryColor = truck.secondaryColor
                 }
-                ruser.truckIds.addObject(RString.initFromString(rtruck!.id))
+                let rstring = RString.initFromString(rtruck!.id)
+                if !contains(ruser.truckIds, rstring) {
+                    println("doesnt contain")
+                    ruser.truckIds.addObject(rstring)
+                }
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
             }
