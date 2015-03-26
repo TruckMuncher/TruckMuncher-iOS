@@ -287,7 +287,6 @@ class MapViewController: UIViewController,
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
 
         var trucks = [RTruck]()
-        println("count \(ruser.truckIds.count)")
         for i in 0..<ruser.truckIds.count {
             trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as RString).value).firstObject() as RTruck)
         }

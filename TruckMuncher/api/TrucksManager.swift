@@ -92,7 +92,6 @@ class TrucksManager {
                 }
                 let rstring = RString.initFromString(rtruck!.id)
                 if !contains(ruser.truckIds, rstring) {
-                    println("doesnt contain")
                     ruser.truckIds.addObject(rstring)
                 }
                 realm.addOrUpdateObject(rtruck!)
