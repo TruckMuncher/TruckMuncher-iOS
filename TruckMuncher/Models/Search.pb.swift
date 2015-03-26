@@ -30,6 +30,9 @@ internal func == (lhs: SimpleSearchRequest, rhs: SimpleSearchRequest) -> Bool {
   fieldCheck = fieldCheck && (lhs.hasQuery == rhs.hasQuery) && (!lhs.hasQuery || lhs.query == rhs.query)
   fieldCheck = fieldCheck && (lhs.hasLimit == rhs.hasLimit) && (!lhs.hasLimit || lhs.limit == rhs.limit)
   fieldCheck = fieldCheck && (lhs.hasOffset == rhs.hasOffset) && (!lhs.hasOffset || lhs.offset == rhs.offset)
+  fieldCheck = fieldCheck && (lhs.hasSkipCorrection == rhs.hasSkipCorrection) && (!lhs.hasSkipCorrection || lhs.skipCorrection == rhs.skipCorrection)
+  fieldCheck = fieldCheck && (lhs.hasGlutenFree == rhs.hasGlutenFree) && (!lhs.hasGlutenFree || lhs.glutenFree == rhs.glutenFree)
+  fieldCheck = fieldCheck && (lhs.hasPeanutFree == rhs.hasPeanutFree) && (!lhs.hasPeanutFree || lhs.peanutFree == rhs.peanutFree)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -39,6 +42,8 @@ internal func == (lhs: SimpleSearchResponse, rhs: SimpleSearchResponse) -> Bool 
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
   fieldCheck = fieldCheck && (lhs.searchResponse == rhs.searchResponse)
+  fieldCheck = fieldCheck && (lhs.hasCorrectedQuery == rhs.hasCorrectedQuery) && (!lhs.hasCorrectedQuery || lhs.correctedQuery == rhs.correctedQuery)
+  fieldCheck = fieldCheck && (lhs.suggestions == rhs.suggestions)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -63,6 +68,15 @@ final internal class SimpleSearchRequest : GeneratedMessage {
   private(set) var hasOffset:Bool = false
   private(set) var offset:Int32 = Int32(0)
 
+  private(set) var hasSkipCorrection:Bool = false
+  private(set) var skipCorrection:Bool = false
+
+  private(set) var hasGlutenFree:Bool = false
+  private(set) var glutenFree:Bool = false
+
+  private(set) var hasPeanutFree:Bool = false
+  private(set) var peanutFree:Bool = false
+
   required internal init() {
        super.init()
   }
@@ -82,6 +96,15 @@ final internal class SimpleSearchRequest : GeneratedMessage {
     if hasOffset {
       output.writeInt32(3, value:offset)
     }
+    if hasSkipCorrection {
+      output.writeBool(4, value:skipCorrection)
+    }
+    if hasGlutenFree {
+      output.writeBool(5, value:glutenFree)
+    }
+    if hasPeanutFree {
+      output.writeBool(6, value:peanutFree)
+    }
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
@@ -99,6 +122,15 @@ final internal class SimpleSearchRequest : GeneratedMessage {
     }
     if hasOffset {
       size += WireFormat.computeInt32Size(3, value:offset)
+    }
+    if hasSkipCorrection {
+      size += WireFormat.computeBoolSize(4, value:skipCorrection)
+    }
+    if hasGlutenFree {
+      size += WireFormat.computeBoolSize(5, value:glutenFree)
+    }
+    if hasPeanutFree {
+      size += WireFormat.computeBoolSize(6, value:peanutFree)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -150,6 +182,15 @@ final internal class SimpleSearchRequest : GeneratedMessage {
     if hasOffset {
       output += "\(indent) offset: \(offset) \n"
     }
+    if hasSkipCorrection {
+      output += "\(indent) skipCorrection: \(skipCorrection) \n"
+    }
+    if hasGlutenFree {
+      output += "\(indent) glutenFree: \(glutenFree) \n"
+    }
+    if hasPeanutFree {
+      output += "\(indent) peanutFree: \(peanutFree) \n"
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override internal var hashValue:Int {
@@ -163,6 +204,15 @@ final internal class SimpleSearchRequest : GeneratedMessage {
           }
           if hasOffset {
              hashCode = (hashCode &* 31) &+ offset.hashValue
+          }
+          if hasSkipCorrection {
+             hashCode = (hashCode &* 31) &+ skipCorrection.hashValue
+          }
+          if hasGlutenFree {
+             hashCode = (hashCode &* 31) &+ glutenFree.hashValue
+          }
+          if hasPeanutFree {
+             hashCode = (hashCode &* 31) &+ peanutFree.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -251,6 +301,63 @@ final internal class SimpleSearchRequestBuilder : GeneratedMessageBuilder {
        builderResult.offset = Int32(0)
        return self
   }
+  var hasSkipCorrection:Bool {
+       get {
+            return builderResult.hasSkipCorrection
+       }
+  }
+  var skipCorrection:Bool {
+       get {
+            return builderResult.skipCorrection
+       }
+       set (value) {
+           builderResult.hasSkipCorrection = true
+           builderResult.skipCorrection = value
+       }
+  }
+  internal func clearSkipCorrection() -> SimpleSearchRequestBuilder{
+       builderResult.hasSkipCorrection = false
+       builderResult.skipCorrection = false
+       return self
+  }
+  var hasGlutenFree:Bool {
+       get {
+            return builderResult.hasGlutenFree
+       }
+  }
+  var glutenFree:Bool {
+       get {
+            return builderResult.glutenFree
+       }
+       set (value) {
+           builderResult.hasGlutenFree = true
+           builderResult.glutenFree = value
+       }
+  }
+  internal func clearGlutenFree() -> SimpleSearchRequestBuilder{
+       builderResult.hasGlutenFree = false
+       builderResult.glutenFree = false
+       return self
+  }
+  var hasPeanutFree:Bool {
+       get {
+            return builderResult.hasPeanutFree
+       }
+  }
+  var peanutFree:Bool {
+       get {
+            return builderResult.peanutFree
+       }
+       set (value) {
+           builderResult.hasPeanutFree = true
+           builderResult.peanutFree = value
+       }
+  }
+  internal func clearPeanutFree() -> SimpleSearchRequestBuilder{
+       builderResult.hasPeanutFree = false
+       builderResult.peanutFree = false
+       return self
+  }
   override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
@@ -284,6 +391,15 @@ final internal class SimpleSearchRequestBuilder : GeneratedMessageBuilder {
     if other.hasOffset {
          offset = other.offset
     }
+    if other.hasSkipCorrection {
+         skipCorrection = other.skipCorrection
+    }
+    if other.hasGlutenFree {
+         glutenFree = other.glutenFree
+    }
+    if other.hasPeanutFree {
+         peanutFree = other.peanutFree
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
@@ -308,6 +424,15 @@ final internal class SimpleSearchRequestBuilder : GeneratedMessageBuilder {
       case 24 :
         offset = input.readInt32()
 
+      case 32 :
+        skipCorrection = input.readBool()
+
+      case 40 :
+        glutenFree = input.readBool()
+
+      case 48 :
+        peanutFree = input.readBool()
+
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
            unknownFields = unknownFieldsBuilder.build()
@@ -319,11 +444,18 @@ final internal class SimpleSearchRequestBuilder : GeneratedMessageBuilder {
 }
 
 final internal class SimpleSearchResponse : GeneratedMessage {
+  private(set) var hasCorrectedQuery:Bool = false
+  private(set) var correctedQuery:String = ""
+
   private(set) var searchResponse:Array<SearchResponse>  = Array<SearchResponse>()
+  private(set) var suggestions:Array<String> = Array<String>()
   required internal init() {
        super.init()
   }
   override internal func isInitialized() -> Bool {
+    if !hasCorrectedQuery {
+      return false
+    }
     var isInitsearchResponse:Bool = true
     for oneElementsearchResponse in searchResponse {
         if (!oneElementsearchResponse.isInitialized()) {
@@ -340,6 +472,14 @@ final internal class SimpleSearchResponse : GeneratedMessage {
     for oneElementsearchResponse in searchResponse {
         output.writeMessage(1, value:oneElementsearchResponse)
     }
+    if hasCorrectedQuery {
+      output.writeString(2, value:correctedQuery)
+    }
+    if !suggestions.isEmpty {
+      for oneValuesuggestions in suggestions {
+        output.writeString(3, value:oneValuesuggestions)
+      }
+    }
     unknownFields.writeToCodedOutputStream(output)
   }
   override internal func serializedSize() -> Int32 {
@@ -352,6 +492,15 @@ final internal class SimpleSearchResponse : GeneratedMessage {
     for oneElementsearchResponse in searchResponse {
         size += WireFormat.computeMessageSize(1, value:oneElementsearchResponse)
     }
+    if hasCorrectedQuery {
+      size += WireFormat.computeStringSize(2, value:correctedQuery)
+    }
+    var dataSizeSuggestions:Int32 = 0
+    for oneValuesuggestions in suggestions {
+        dataSizeSuggestions += WireFormat.computeStringSizeNoTag(oneValuesuggestions)
+    }
+    size += dataSizeSuggestions
+    size += 1 * Int32(suggestions.count)
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
     return size
@@ -400,6 +549,14 @@ final internal class SimpleSearchResponse : GeneratedMessage {
         output += "\(indent)}\n"
         searchResponseElementIndex++
     }
+    if hasCorrectedQuery {
+      output += "\(indent) correctedQuery: \(correctedQuery) \n"
+    }
+    var suggestionsElementIndex:Int = 0
+    for oneValuesuggestions in suggestions  {
+        output += "\(indent) suggestions[\(suggestionsElementIndex)]: \(oneValuesuggestions)\n"
+        suggestionsElementIndex++
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override internal var hashValue:Int {
@@ -407,6 +564,12 @@ final internal class SimpleSearchResponse : GeneratedMessage {
           var hashCode:Int = 7
           for oneElementsearchResponse in searchResponse {
               hashCode = (hashCode &* 31) &+ oneElementsearchResponse.hashValue
+          }
+          if hasCorrectedQuery {
+             hashCode = (hashCode &* 31) &+ correctedQuery.hashValue
+          }
+          for oneValuesuggestions in suggestions {
+              hashCode = (hashCode &* 31) &+ oneValuesuggestions.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -450,6 +613,37 @@ final internal class SimpleSearchResponseBuilder : GeneratedMessageBuilder {
     builderResult.searchResponse.removeAll(keepCapacity: false)
     return self
   }
+  var hasCorrectedQuery:Bool {
+       get {
+            return builderResult.hasCorrectedQuery
+       }
+  }
+  var correctedQuery:String {
+       get {
+            return builderResult.correctedQuery
+       }
+       set (value) {
+           builderResult.hasCorrectedQuery = true
+           builderResult.correctedQuery = value
+       }
+  }
+  internal func clearCorrectedQuery() -> SimpleSearchResponseBuilder{
+       builderResult.hasCorrectedQuery = false
+       builderResult.correctedQuery = ""
+       return self
+  }
+  var suggestions:Array<String> {
+       get {
+           return builderResult.suggestions
+       }
+       set (array) {
+           builderResult.suggestions = array
+       }
+  }
+  internal func clearSuggestions() -> SimpleSearchResponseBuilder {
+     builderResult.suggestions.removeAll(keepCapacity: false)
+     return self
+  }
   override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
@@ -477,6 +671,12 @@ final internal class SimpleSearchResponseBuilder : GeneratedMessageBuilder {
     if !other.searchResponse.isEmpty  {
        builderResult.searchResponse += other.searchResponse
     }
+    if other.hasCorrectedQuery {
+         correctedQuery = other.correctedQuery
+    }
+    if !other.suggestions.isEmpty {
+        builderResult.suggestions += other.suggestions
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
@@ -496,6 +696,12 @@ final internal class SimpleSearchResponseBuilder : GeneratedMessageBuilder {
         var subBuilder = SearchResponse.builder()
         input.readMessage(subBuilder,extensionRegistry:extensionRegistry)
         searchResponse += [subBuilder.buildPartial()]
+
+      case 18 :
+        correctedQuery = input.readString()
+
+      case 26 :
+        suggestions += [input.readString()]
 
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {

@@ -98,6 +98,8 @@ internal func == (lhs: ModifyTruckRequest, rhs: ModifyTruckRequest) -> Bool {
   fieldCheck = fieldCheck && (lhs.keywords == rhs.keywords)
   fieldCheck = fieldCheck && (lhs.hasPrimaryColor == rhs.hasPrimaryColor) && (!lhs.hasPrimaryColor || lhs.primaryColor == rhs.primaryColor)
   fieldCheck = fieldCheck && (lhs.hasSecondaryColor == rhs.hasSecondaryColor) && (!lhs.hasSecondaryColor || lhs.secondaryColor == rhs.secondaryColor)
+  fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
+  fieldCheck = fieldCheck && (lhs.hasPhoneNumber == rhs.hasPhoneNumber) && (!lhs.hasPhoneNumber || lhs.phoneNumber == rhs.phoneNumber)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -112,6 +114,10 @@ internal func == (lhs: Truck, rhs: Truck) -> Bool {
   fieldCheck = fieldCheck && (lhs.keywords == rhs.keywords)
   fieldCheck = fieldCheck && (lhs.hasPrimaryColor == rhs.hasPrimaryColor) && (!lhs.hasPrimaryColor || lhs.primaryColor == rhs.primaryColor)
   fieldCheck = fieldCheck && (lhs.hasSecondaryColor == rhs.hasSecondaryColor) && (!lhs.hasSecondaryColor || lhs.secondaryColor == rhs.secondaryColor)
+  fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
+  fieldCheck = fieldCheck && (lhs.hasPhoneNumber == rhs.hasPhoneNumber) && (!lhs.hasPhoneNumber || lhs.phoneNumber == rhs.phoneNumber)
+  fieldCheck = fieldCheck && (lhs.hasApproved == rhs.hasApproved) && (!lhs.hasApproved || lhs.approved == rhs.approved)
+  fieldCheck = fieldCheck && (lhs.hasApprovalPending == rhs.hasApprovalPending) && (!lhs.hasApprovalPending || lhs.approvalPending == rhs.approvalPending)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -132,6 +138,42 @@ internal func == (lhs: ServingModeResponse, rhs: ServingModeResponse) -> Bool {
     return true
   }
   var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ApprovalRequest, rhs: ApprovalRequest) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasTruckId == rhs.hasTruckId) && (!lhs.hasTruckId || lhs.truckId == rhs.truckId)
+  fieldCheck = fieldCheck && (lhs.hasEmail == rhs.hasEmail) && (!lhs.hasEmail || lhs.email == rhs.email)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ApprovalResponse, rhs: ApprovalResponse) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ApprovalStatusRequest, rhs: ApprovalStatusRequest) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasTruckId == rhs.hasTruckId) && (!lhs.hasTruckId || lhs.truckId == rhs.truckId)
+  return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+}
+
+internal func == (lhs: ApprovalStatusResponse, rhs: ApprovalStatusResponse) -> Bool {
+  if (lhs === rhs) {
+    return true
+  }
+  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+  fieldCheck = fieldCheck && (lhs.hasStatus == rhs.hasStatus) && (!lhs.hasStatus || lhs.status == rhs.status)
   return (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
 }
 
@@ -1655,6 +1697,12 @@ final internal class ModifyTruckRequest : GeneratedMessage {
   private(set) var hasSecondaryColor:Bool = false
   private(set) var secondaryColor:String = ""
 
+  private(set) var hasDescription:Bool = false
+  private(set) var description_:String = ""
+
+  private(set) var hasPhoneNumber:Bool = false
+  private(set) var phoneNumber:String = ""
+
   private(set) var keywords:Array<String> = Array<String>()
   required internal init() {
        super.init()
@@ -1679,6 +1727,12 @@ final internal class ModifyTruckRequest : GeneratedMessage {
     }
     if hasSecondaryColor {
       output.writeString(5, value:secondaryColor)
+    }
+    if hasDescription {
+      output.writeString(6, value:description_)
+    }
+    if hasPhoneNumber {
+      output.writeString(7, value:phoneNumber)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -1706,6 +1760,12 @@ final internal class ModifyTruckRequest : GeneratedMessage {
     }
     if hasSecondaryColor {
       size += WireFormat.computeStringSize(5, value:secondaryColor)
+    }
+    if hasDescription {
+      size += WireFormat.computeStringSize(6, value:description_)
+    }
+    if hasPhoneNumber {
+      size += WireFormat.computeStringSize(7, value:phoneNumber)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -1765,6 +1825,12 @@ final internal class ModifyTruckRequest : GeneratedMessage {
     if hasSecondaryColor {
       output += "\(indent) secondaryColor: \(secondaryColor) \n"
     }
+    if hasDescription {
+      output += "\(indent) description_: \(description_) \n"
+    }
+    if hasPhoneNumber {
+      output += "\(indent) phoneNumber: \(phoneNumber) \n"
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override internal var hashValue:Int {
@@ -1784,6 +1850,12 @@ final internal class ModifyTruckRequest : GeneratedMessage {
           }
           if hasSecondaryColor {
              hashCode = (hashCode &* 31) &+ secondaryColor.hashValue
+          }
+          if hasDescription {
+             hashCode = (hashCode &* 31) &+ description_.hashValue
+          }
+          if hasPhoneNumber {
+             hashCode = (hashCode &* 31) &+ phoneNumber.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -1903,6 +1975,44 @@ final internal class ModifyTruckRequestBuilder : GeneratedMessageBuilder {
        builderResult.secondaryColor = ""
        return self
   }
+  var hasDescription:Bool {
+       get {
+            return builderResult.hasDescription
+       }
+  }
+  var description_:String {
+       get {
+            return builderResult.description_
+       }
+       set (value) {
+           builderResult.hasDescription = true
+           builderResult.description_ = value
+       }
+  }
+  internal func clearDescription() -> ModifyTruckRequestBuilder{
+       builderResult.hasDescription = false
+       builderResult.description_ = ""
+       return self
+  }
+  var hasPhoneNumber:Bool {
+       get {
+            return builderResult.hasPhoneNumber
+       }
+  }
+  var phoneNumber:String {
+       get {
+            return builderResult.phoneNumber
+       }
+       set (value) {
+           builderResult.hasPhoneNumber = true
+           builderResult.phoneNumber = value
+       }
+  }
+  internal func clearPhoneNumber() -> ModifyTruckRequestBuilder{
+       builderResult.hasPhoneNumber = false
+       builderResult.phoneNumber = ""
+       return self
+  }
   override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
@@ -1942,6 +2052,12 @@ final internal class ModifyTruckRequestBuilder : GeneratedMessageBuilder {
     if other.hasSecondaryColor {
          secondaryColor = other.secondaryColor
     }
+    if other.hasDescription {
+         description_ = other.description_
+    }
+    if other.hasPhoneNumber {
+         phoneNumber = other.phoneNumber
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
@@ -1972,6 +2088,12 @@ final internal class ModifyTruckRequestBuilder : GeneratedMessageBuilder {
       case 42 :
         secondaryColor = input.readString()
 
+      case 50 :
+        description_ = input.readString()
+
+      case 58 :
+        phoneNumber = input.readString()
+
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
            unknownFields = unknownFieldsBuilder.build()
@@ -1997,6 +2119,18 @@ final internal class Truck : GeneratedMessage {
 
   private(set) var hasSecondaryColor:Bool = false
   private(set) var secondaryColor:String = ""
+
+  private(set) var hasDescription:Bool = false
+  private(set) var description_:String = ""
+
+  private(set) var hasPhoneNumber:Bool = false
+  private(set) var phoneNumber:String = ""
+
+  private(set) var hasApproved:Bool = false
+  private(set) var approved:Bool = false
+
+  private(set) var hasApprovalPending:Bool = false
+  private(set) var approvalPending:Bool = false
 
   private(set) var keywords:Array<String> = Array<String>()
   required internal init() {
@@ -2025,6 +2159,18 @@ final internal class Truck : GeneratedMessage {
     }
     if hasSecondaryColor {
       output.writeString(6, value:secondaryColor)
+    }
+    if hasDescription {
+      output.writeString(7, value:description_)
+    }
+    if hasPhoneNumber {
+      output.writeString(8, value:phoneNumber)
+    }
+    if hasApproved {
+      output.writeBool(9, value:approved)
+    }
+    if hasApprovalPending {
+      output.writeBool(10, value:approvalPending)
     }
     unknownFields.writeToCodedOutputStream(output)
   }
@@ -2055,6 +2201,18 @@ final internal class Truck : GeneratedMessage {
     }
     if hasSecondaryColor {
       size += WireFormat.computeStringSize(6, value:secondaryColor)
+    }
+    if hasDescription {
+      size += WireFormat.computeStringSize(7, value:description_)
+    }
+    if hasPhoneNumber {
+      size += WireFormat.computeStringSize(8, value:phoneNumber)
+    }
+    if hasApproved {
+      size += WireFormat.computeBoolSize(9, value:approved)
+    }
+    if hasApprovalPending {
+      size += WireFormat.computeBoolSize(10, value:approvalPending)
     }
     size += unknownFields.serializedSize()
     memoizedSerializedSize = size
@@ -2117,6 +2275,18 @@ final internal class Truck : GeneratedMessage {
     if hasSecondaryColor {
       output += "\(indent) secondaryColor: \(secondaryColor) \n"
     }
+    if hasDescription {
+      output += "\(indent) description_: \(description_) \n"
+    }
+    if hasPhoneNumber {
+      output += "\(indent) phoneNumber: \(phoneNumber) \n"
+    }
+    if hasApproved {
+      output += "\(indent) approved: \(approved) \n"
+    }
+    if hasApprovalPending {
+      output += "\(indent) approvalPending: \(approvalPending) \n"
+    }
     unknownFields.writeDescriptionTo(&output, indent:indent)
   }
   override internal var hashValue:Int {
@@ -2139,6 +2309,18 @@ final internal class Truck : GeneratedMessage {
           }
           if hasSecondaryColor {
              hashCode = (hashCode &* 31) &+ secondaryColor.hashValue
+          }
+          if hasDescription {
+             hashCode = (hashCode &* 31) &+ description_.hashValue
+          }
+          if hasPhoneNumber {
+             hashCode = (hashCode &* 31) &+ phoneNumber.hashValue
+          }
+          if hasApproved {
+             hashCode = (hashCode &* 31) &+ approved.hashValue
+          }
+          if hasApprovalPending {
+             hashCode = (hashCode &* 31) &+ approvalPending.hashValue
           }
           hashCode = (hashCode &* 31) &+  unknownFields.hashValue
           return hashCode
@@ -2277,6 +2459,82 @@ final internal class TruckBuilder : GeneratedMessageBuilder {
        builderResult.secondaryColor = ""
        return self
   }
+  var hasDescription:Bool {
+       get {
+            return builderResult.hasDescription
+       }
+  }
+  var description_:String {
+       get {
+            return builderResult.description_
+       }
+       set (value) {
+           builderResult.hasDescription = true
+           builderResult.description_ = value
+       }
+  }
+  internal func clearDescription() -> TruckBuilder{
+       builderResult.hasDescription = false
+       builderResult.description_ = ""
+       return self
+  }
+  var hasPhoneNumber:Bool {
+       get {
+            return builderResult.hasPhoneNumber
+       }
+  }
+  var phoneNumber:String {
+       get {
+            return builderResult.phoneNumber
+       }
+       set (value) {
+           builderResult.hasPhoneNumber = true
+           builderResult.phoneNumber = value
+       }
+  }
+  internal func clearPhoneNumber() -> TruckBuilder{
+       builderResult.hasPhoneNumber = false
+       builderResult.phoneNumber = ""
+       return self
+  }
+  var hasApproved:Bool {
+       get {
+            return builderResult.hasApproved
+       }
+  }
+  var approved:Bool {
+       get {
+            return builderResult.approved
+       }
+       set (value) {
+           builderResult.hasApproved = true
+           builderResult.approved = value
+       }
+  }
+  internal func clearApproved() -> TruckBuilder{
+       builderResult.hasApproved = false
+       builderResult.approved = false
+       return self
+  }
+  var hasApprovalPending:Bool {
+       get {
+            return builderResult.hasApprovalPending
+       }
+  }
+  var approvalPending:Bool {
+       get {
+            return builderResult.approvalPending
+       }
+       set (value) {
+           builderResult.hasApprovalPending = true
+           builderResult.approvalPending = value
+       }
+  }
+  internal func clearApprovalPending() -> TruckBuilder{
+       builderResult.hasApprovalPending = false
+       builderResult.approvalPending = false
+       return self
+  }
   override internal var internalGetResult:GeneratedMessage {
        get {
           return builderResult
@@ -2319,6 +2577,18 @@ final internal class TruckBuilder : GeneratedMessageBuilder {
     if other.hasSecondaryColor {
          secondaryColor = other.secondaryColor
     }
+    if other.hasDescription {
+         description_ = other.description_
+    }
+    if other.hasPhoneNumber {
+         phoneNumber = other.phoneNumber
+    }
+    if other.hasApproved {
+         approved = other.approved
+    }
+    if other.hasApprovalPending {
+         approvalPending = other.approvalPending
+    }
     mergeUnknownFields(other.unknownFields)
     return self
   }
@@ -2351,6 +2621,18 @@ final internal class TruckBuilder : GeneratedMessageBuilder {
 
       case 50 :
         secondaryColor = input.readString()
+
+      case 58 :
+        description_ = input.readString()
+
+      case 66 :
+        phoneNumber = input.readString()
+
+      case 72 :
+        approved = input.readBool()
+
+      case 80 :
+        approvalPending = input.readBool()
 
       default:
         if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
@@ -2812,6 +3094,746 @@ final internal class ServingModeResponseBuilder : GeneratedMessageBuilder {
   }
 }
 
+final internal class ApprovalRequest : GeneratedMessage {
+  private(set) var hasTruckId:Bool = false
+  private(set) var truckId:String = ""
+
+  private(set) var hasEmail:Bool = false
+  private(set) var email:String = ""
+
+  required internal init() {
+       super.init()
+  }
+  override internal func isInitialized() -> Bool {
+    if !hasTruckId {
+      return false
+    }
+    if !hasEmail {
+      return false
+    }
+   return true
+  }
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasTruckId {
+      output.writeString(1, value:truckId)
+    }
+    if hasEmail {
+      output.writeString(2, value:email)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override internal func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    if hasTruckId {
+      size += WireFormat.computeStringSize(1, value:truckId)
+    }
+    if hasEmail {
+      size += WireFormat.computeStringSize(2, value:email)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  internal class func parseFromData(data:[Byte]) -> ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromData(data).build()
+  }
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream) -> ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromInputStream(input).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromCodedInputStream(input).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalRequest {
+    return ApprovalRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func builder() -> ApprovalRequestBuilder {
+    return ApprovalRequest.classBuilder() as ApprovalRequestBuilder
+  }
+  internal func builder() -> ApprovalRequestBuilder {
+    return classBuilder() as ApprovalRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
+    return ApprovalRequestBuilder()
+  }
+  internal override func classBuilder() -> MessageBuilder {
+    return ApprovalRequest.builder()
+  }
+  internal func toBuilder() -> ApprovalRequestBuilder {
+    return ApprovalRequest.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:ApprovalRequest) -> ApprovalRequestBuilder {
+    return ApprovalRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
+    if hasTruckId {
+      output += "\(indent) truckId: \(truckId) \n"
+    }
+    if hasEmail {
+      output += "\(indent) email: \(email) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override internal var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasTruckId {
+             hashCode = (hashCode &* 31) &+ truckId.hashValue
+          }
+          if hasEmail {
+             hashCode = (hashCode &* 31) &+ email.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override internal class func className() -> String {
+      return "ApprovalRequest"
+  }
+  override internal func className() -> String {
+      return "ApprovalRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return ApprovalRequest.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final internal class ApprovalRequestBuilder : GeneratedMessageBuilder {
+  private var builderResult:ApprovalRequest
+
+  required override internal init () {
+     builderResult = ApprovalRequest()
+     super.init()
+  }
+  var hasTruckId:Bool {
+       get {
+            return builderResult.hasTruckId
+       }
+  }
+  var truckId:String {
+       get {
+            return builderResult.truckId
+       }
+       set (value) {
+           builderResult.hasTruckId = true
+           builderResult.truckId = value
+       }
+  }
+  internal func clearTruckId() -> ApprovalRequestBuilder{
+       builderResult.hasTruckId = false
+       builderResult.truckId = ""
+       return self
+  }
+  var hasEmail:Bool {
+       get {
+            return builderResult.hasEmail
+       }
+  }
+  var email:String {
+       get {
+            return builderResult.email
+       }
+       set (value) {
+           builderResult.hasEmail = true
+           builderResult.email = value
+       }
+  }
+  internal func clearEmail() -> ApprovalRequestBuilder{
+       builderResult.hasEmail = false
+       builderResult.email = ""
+       return self
+  }
+  override internal var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  internal override func clear() -> ApprovalRequestBuilder {
+    builderResult = ApprovalRequest()
+    return self
+  }
+  internal override func clone() -> ApprovalRequestBuilder {
+    return ApprovalRequest.builderWithPrototype(builderResult)
+  }
+  internal override func build() -> ApprovalRequest {
+       checkInitialized()
+       return buildPartial()
+  }
+  internal func buildPartial() -> ApprovalRequest {
+    var returnMe:ApprovalRequest = builderResult
+    return returnMe
+  }
+  internal func mergeFrom(other:ApprovalRequest) -> ApprovalRequestBuilder {
+    if (other == ApprovalRequest()) {
+     return self
+    }
+    if other.hasTruckId {
+         truckId = other.truckId
+    }
+    if other.hasEmail {
+         email = other.email
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ApprovalRequestBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalRequestBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        truckId = input.readString()
+
+      case 18 :
+        email = input.readString()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final internal class ApprovalResponse : GeneratedMessage {
+  required internal init() {
+       super.init()
+  }
+  override internal func isInitialized() -> Bool {
+   return true
+  }
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override internal func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  internal class func parseFromData(data:[Byte]) -> ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromData(data).build()
+  }
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream) -> ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromInputStream(input).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromCodedInputStream(input).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalResponse {
+    return ApprovalResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func builder() -> ApprovalResponseBuilder {
+    return ApprovalResponse.classBuilder() as ApprovalResponseBuilder
+  }
+  internal func builder() -> ApprovalResponseBuilder {
+    return classBuilder() as ApprovalResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
+    return ApprovalResponseBuilder()
+  }
+  internal override func classBuilder() -> MessageBuilder {
+    return ApprovalResponse.builder()
+  }
+  internal func toBuilder() -> ApprovalResponseBuilder {
+    return ApprovalResponse.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:ApprovalResponse) -> ApprovalResponseBuilder {
+    return ApprovalResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override internal var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override internal class func className() -> String {
+      return "ApprovalResponse"
+  }
+  override internal func className() -> String {
+      return "ApprovalResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return ApprovalResponse.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final internal class ApprovalResponseBuilder : GeneratedMessageBuilder {
+  private var builderResult:ApprovalResponse
+
+  required override internal init () {
+     builderResult = ApprovalResponse()
+     super.init()
+  }
+  override internal var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  internal override func clear() -> ApprovalResponseBuilder {
+    builderResult = ApprovalResponse()
+    return self
+  }
+  internal override func clone() -> ApprovalResponseBuilder {
+    return ApprovalResponse.builderWithPrototype(builderResult)
+  }
+  internal override func build() -> ApprovalResponse {
+       checkInitialized()
+       return buildPartial()
+  }
+  internal func buildPartial() -> ApprovalResponse {
+    var returnMe:ApprovalResponse = builderResult
+    return returnMe
+  }
+  internal func mergeFrom(other:ApprovalResponse) -> ApprovalResponseBuilder {
+    if (other == ApprovalResponse()) {
+     return self
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ApprovalResponseBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalResponseBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final internal class ApprovalStatusRequest : GeneratedMessage {
+  private(set) var hasTruckId:Bool = false
+  private(set) var truckId:String = ""
+
+  required internal init() {
+       super.init()
+  }
+  override internal func isInitialized() -> Bool {
+    if !hasTruckId {
+      return false
+    }
+   return true
+  }
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasTruckId {
+      output.writeString(1, value:truckId)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override internal func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    if hasTruckId {
+      size += WireFormat.computeStringSize(1, value:truckId)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  internal class func parseFromData(data:[Byte]) -> ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromData(data).build()
+  }
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream) -> ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromInputStream(input).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromCodedInputStream(input).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalStatusRequest {
+    return ApprovalStatusRequest.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func builder() -> ApprovalStatusRequestBuilder {
+    return ApprovalStatusRequest.classBuilder() as ApprovalStatusRequestBuilder
+  }
+  internal func builder() -> ApprovalStatusRequestBuilder {
+    return classBuilder() as ApprovalStatusRequestBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
+    return ApprovalStatusRequestBuilder()
+  }
+  internal override func classBuilder() -> MessageBuilder {
+    return ApprovalStatusRequest.builder()
+  }
+  internal func toBuilder() -> ApprovalStatusRequestBuilder {
+    return ApprovalStatusRequest.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:ApprovalStatusRequest) -> ApprovalStatusRequestBuilder {
+    return ApprovalStatusRequest.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
+    if hasTruckId {
+      output += "\(indent) truckId: \(truckId) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override internal var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasTruckId {
+             hashCode = (hashCode &* 31) &+ truckId.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override internal class func className() -> String {
+      return "ApprovalStatusRequest"
+  }
+  override internal func className() -> String {
+      return "ApprovalStatusRequest"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return ApprovalStatusRequest.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final internal class ApprovalStatusRequestBuilder : GeneratedMessageBuilder {
+  private var builderResult:ApprovalStatusRequest
+
+  required override internal init () {
+     builderResult = ApprovalStatusRequest()
+     super.init()
+  }
+  var hasTruckId:Bool {
+       get {
+            return builderResult.hasTruckId
+       }
+  }
+  var truckId:String {
+       get {
+            return builderResult.truckId
+       }
+       set (value) {
+           builderResult.hasTruckId = true
+           builderResult.truckId = value
+       }
+  }
+  internal func clearTruckId() -> ApprovalStatusRequestBuilder{
+       builderResult.hasTruckId = false
+       builderResult.truckId = ""
+       return self
+  }
+  override internal var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  internal override func clear() -> ApprovalStatusRequestBuilder {
+    builderResult = ApprovalStatusRequest()
+    return self
+  }
+  internal override func clone() -> ApprovalStatusRequestBuilder {
+    return ApprovalStatusRequest.builderWithPrototype(builderResult)
+  }
+  internal override func build() -> ApprovalStatusRequest {
+       checkInitialized()
+       return buildPartial()
+  }
+  internal func buildPartial() -> ApprovalStatusRequest {
+    var returnMe:ApprovalStatusRequest = builderResult
+    return returnMe
+  }
+  internal func mergeFrom(other:ApprovalStatusRequest) -> ApprovalStatusRequestBuilder {
+    if (other == ApprovalStatusRequest()) {
+     return self
+    }
+    if other.hasTruckId {
+         truckId = other.truckId
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ApprovalStatusRequestBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalStatusRequestBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        truckId = input.readString()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
+final internal class ApprovalStatusResponse : GeneratedMessage {
+  private(set) var hasStatus:Bool = false
+  private(set) var status:String = ""
+
+  required internal init() {
+       super.init()
+  }
+  override internal func isInitialized() -> Bool {
+    if !hasStatus {
+      return false
+    }
+   return true
+  }
+  override internal func writeToCodedOutputStream(output:CodedOutputStream) {
+    if hasStatus {
+      output.writeString(1, value:status)
+    }
+    unknownFields.writeToCodedOutputStream(output)
+  }
+  override internal func serializedSize() -> Int32 {
+    var size:Int32 = memoizedSerializedSize
+    if size != -1 {
+     return size
+    }
+
+    size = 0
+    if hasStatus {
+      size += WireFormat.computeStringSize(1, value:status)
+    }
+    size += unknownFields.serializedSize()
+    memoizedSerializedSize = size
+    return size
+  }
+  internal class func parseFromData(data:[Byte]) -> ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromData(data).build()
+  }
+  internal class func parseFromData(data:[Byte], extensionRegistry:ExtensionRegistry) -> ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromData(data, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream) -> ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromInputStream(input).build()
+  }
+  internal class func parseFromInputStream(input:NSInputStream, extensionRegistry:ExtensionRegistry) ->ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream) -> ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromCodedInputStream(input).build()
+  }
+  internal class func parseFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalStatusResponse {
+    return ApprovalStatusResponse.builder().mergeFromCodedInputStream(input, extensionRegistry:extensionRegistry).build()
+  }
+  internal class func builder() -> ApprovalStatusResponseBuilder {
+    return ApprovalStatusResponse.classBuilder() as ApprovalStatusResponseBuilder
+  }
+  internal func builder() -> ApprovalStatusResponseBuilder {
+    return classBuilder() as ApprovalStatusResponseBuilder
+  }
+  internal override class func classBuilder() -> MessageBuilder {
+    return ApprovalStatusResponseBuilder()
+  }
+  internal override func classBuilder() -> MessageBuilder {
+    return ApprovalStatusResponse.builder()
+  }
+  internal func toBuilder() -> ApprovalStatusResponseBuilder {
+    return ApprovalStatusResponse.builderWithPrototype(self)
+  }
+  internal class func builderWithPrototype(prototype:ApprovalStatusResponse) -> ApprovalStatusResponseBuilder {
+    return ApprovalStatusResponse.builder().mergeFrom(prototype)
+  }
+  override internal func writeDescriptionTo(inout output:String, indent:String) {
+    if hasStatus {
+      output += "\(indent) status: \(status) \n"
+    }
+    unknownFields.writeDescriptionTo(&output, indent:indent)
+  }
+  override internal var hashValue:Int {
+      get {
+          var hashCode:Int = 7
+          if hasStatus {
+             hashCode = (hashCode &* 31) &+ status.hashValue
+          }
+          hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+          return hashCode
+      }
+  }
+
+
+  //Meta information declaration start
+
+  override internal class func className() -> String {
+      return "ApprovalStatusResponse"
+  }
+  override internal func className() -> String {
+      return "ApprovalStatusResponse"
+  }
+  override internal func classMetaType() -> GeneratedMessage.Type {
+      return ApprovalStatusResponse.self
+  }
+
+
+  //Meta information declaration end
+
+}
+
+final internal class ApprovalStatusResponseBuilder : GeneratedMessageBuilder {
+  private var builderResult:ApprovalStatusResponse
+
+  required override internal init () {
+     builderResult = ApprovalStatusResponse()
+     super.init()
+  }
+  var hasStatus:Bool {
+       get {
+            return builderResult.hasStatus
+       }
+  }
+  var status:String {
+       get {
+            return builderResult.status
+       }
+       set (value) {
+           builderResult.hasStatus = true
+           builderResult.status = value
+       }
+  }
+  internal func clearStatus() -> ApprovalStatusResponseBuilder{
+       builderResult.hasStatus = false
+       builderResult.status = ""
+       return self
+  }
+  override internal var internalGetResult:GeneratedMessage {
+       get {
+          return builderResult
+       }
+  }
+  internal override func clear() -> ApprovalStatusResponseBuilder {
+    builderResult = ApprovalStatusResponse()
+    return self
+  }
+  internal override func clone() -> ApprovalStatusResponseBuilder {
+    return ApprovalStatusResponse.builderWithPrototype(builderResult)
+  }
+  internal override func build() -> ApprovalStatusResponse {
+       checkInitialized()
+       return buildPartial()
+  }
+  internal func buildPartial() -> ApprovalStatusResponse {
+    var returnMe:ApprovalStatusResponse = builderResult
+    return returnMe
+  }
+  internal func mergeFrom(other:ApprovalStatusResponse) -> ApprovalStatusResponseBuilder {
+    if (other == ApprovalStatusResponse()) {
+     return self
+    }
+    if other.hasStatus {
+         status = other.status
+    }
+    mergeUnknownFields(other.unknownFields)
+    return self
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream) ->ApprovalStatusResponseBuilder {
+       return mergeFromCodedInputStream(input, extensionRegistry:ExtensionRegistry())
+  }
+  internal override func mergeFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) -> ApprovalStatusResponseBuilder {
+    var unknownFieldsBuilder:UnknownFieldSetBuilder = UnknownFieldSet.builderWithUnknownFields(self.unknownFields)
+    while (true) {
+      var tag = input.readTag()
+      switch tag {
+      case 0: 
+        self.unknownFields = unknownFieldsBuilder.build()
+        return self
+
+      case 10 :
+        status = input.readString()
+
+      default:
+        if (!parseUnknownField(input,unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:tag)) {
+           unknownFields = unknownFieldsBuilder.build()
+           return self
+        }
+      }
+    }
+  }
+}
+
 //Class extensions: NSData
 
 
@@ -2945,6 +3967,54 @@ internal extension ServingModeResponse {
         var bytes = [Byte](count: data.length, repeatedValue: 0)
         data.getBytes(&bytes)
         return ServingModeResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+internal extension ApprovalRequest {
+    class func parseFromNSData(data:NSData) -> ApprovalRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalRequest.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ApprovalRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+internal extension ApprovalResponse {
+    class func parseFromNSData(data:NSData) -> ApprovalResponse {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalResponse.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ApprovalResponse {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+internal extension ApprovalStatusRequest {
+    class func parseFromNSData(data:NSData) -> ApprovalStatusRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalStatusRequest.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ApprovalStatusRequest {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalStatusRequest.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
+    }
+}
+internal extension ApprovalStatusResponse {
+    class func parseFromNSData(data:NSData) -> ApprovalStatusResponse {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalStatusResponse.builder().mergeFromData(bytes).build()
+    }
+    class func parseFromNSData(data:NSData, extensionRegistry:ExtensionRegistry) -> ApprovalStatusResponse {
+        var bytes = [Byte](count: data.length, repeatedValue: 0)
+        data.getBytes(&bytes)
+        return ApprovalStatusResponse.builder().mergeFromData(bytes, extensionRegistry:extensionRegistry).build()
     }
 }
 

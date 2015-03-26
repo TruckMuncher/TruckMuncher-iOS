@@ -33,13 +33,13 @@ extension UIColor {
                     blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
                     alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
                 } else {
-                    print("invalid rgb string, length should be 7 or 9")
+                    println("invalid rgb string, length should be 7 or 9")
                 }
             } else {
                 println("scan hex error")
             }
         } else {
-            print("invalid rgb string, missing '#' as prefix")
+            println("invalid rgb string, missing '#' as prefix")
             red = 233.0/255.0; green = 30.0/255.0; blue = 99.0/255.0; alpha = 1
         }
         self.init(red:red, green:green, blue:blue, alpha:alpha)
