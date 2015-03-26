@@ -253,7 +253,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         truckSelectionView.frame = frame
         
         let highestTruckIndex = trucks.count-1
-        var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav)/Int(selectionViewHeight), trucks.count-1)
+        var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1)
         
         for (index, view) in enumerate(truckSelectionView.subviews) {
             (view as UIView).backgroundColor = UIColor.clearColor()
