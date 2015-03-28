@@ -31,8 +31,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelTapped")
         
-        //fbLoginView = FBLoginView()
-        
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
         
