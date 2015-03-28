@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Alamofire
+import Realm
 
 class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     let truckManager = TrucksManager()
@@ -27,6 +28,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     var lines = UIView()
     var menu: RMenu = RMenu()
     var menuManager = MenuManager()
+    var authManager = AuthManager()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, trucks: [RTruck]) {
         self.trucks = trucks
@@ -53,7 +55,22 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     override func viewDidLoad() {
         super.viewDidLoad()
         initLocationManager()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "openMenu")
+        
+        let btnLogout = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnLogout.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnLogout.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnLogout.addTarget(self, action: "logout", forControlEvents: .TouchUpInside)
+        btnLogout.setTitle("\u{f08b}", forState: .Normal)
+        btnLogout.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+        
+        let btnMenu = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnMenu.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnMenu.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnMenu.addTarget(self, action: "openMenu", forControlEvents: .TouchUpInside)
+        btnMenu.setTitle("\u{f02d}", forState: .Normal)
+        btnMenu.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: btnLogout), UIBarButtonItem(customView: btnMenu)]
+        
         initializeTruckTitleLabel()
     }
     
@@ -73,6 +90,36 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         }) { (error) -> () in
             println("error \(error)")
         }
+    }
+    
+    func logout() {
+        authManager.signOut(success: { () -> () in
+            // clear some tokens, logout of twitter & facebook
+            self.logoutSuccess()
+        }) { (error) -> () in
+            // clear some tokens, logout of twitter & facebook, and pretend we logged out
+            let realm = RLMRealm.defaultRealm()
+            realm.beginWriteTransaction()
+            realm.deleteObjects(RUser.allObjectsInRealm(realm))
+            realm.commitWriteTransaction()
+            
+            self.logoutSuccess()
+        }
+    }
+    
+    func logoutSuccess() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("sessionToken")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        tokenItem.resetKeychainItem()
+        secretItem.resetKeychainItem()
+        
+        FBSession.activeSession().closeAndClearTokenInformation()
+        FBSession.activeSession().close()
+        FBSession.setActiveSession(nil)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func initializeTruckTitleLabel() {

@@ -1,101 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
-                <outlet property="btnTwitterLogin" destination="mla-si-cff" id="eCz-9O-YTb"/>
-                <outlet property="fbLoginView" destination="apa-se-YMc" id="k1L-di-arJ"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="btnTwitterLogin" destination="YRN-Wt-Kok" id="pwq-az-Y8J"/>
+                <outlet property="fbLoginView" destination="NmY-ia-VDg" id="Mfm-Lj-Dr5"/>
+                <outlet property="view" destination="iN0-l3-epB" id="kfA-sI-hZt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxX-Nt-YCZ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ARx-Ir-8fA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raY-32-cCc">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NFM-c7-Js7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muncherTM.png" translatesAutoresizingMaskIntoConstraints="NO" id="hkz-4e-DXJ">
-                                            <rect key="frame" x="200" y="78" width="200" height="200"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="Kct-1k-BaF"/>
-                                                <constraint firstAttribute="width" constant="200" id="llf-ok-wQS"/>
-                                            </constraints>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mla-si-cff">
-                                            <rect key="frame" x="221" y="312" width="158" height="28"/>
-                                            <state key="normal" image="sign-in-with-twitter-gray.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="clickedLoginWithTwitter:" destination="-1" eventType="touchUpInside" id="yJO-dt-BVU"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vy0-yD-zwM">
-                                            <rect key="frame" x="268" y="485" width="64" height="64"/>
-                                            <state key="normal" image="closeWhite.png">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="O3v-6Q-jd1"/>
-                                            </connections>
-                                        </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apa-se-YMc" customClass="FBLoginView">
-                                            <rect key="frame" x="221" y="357" width="158" height="50"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Vy0-yD-zwM" secondAttribute="bottom" constant="51" id="0fw-z9-XZI"/>
-                                        <constraint firstItem="apa-se-YMc" firstAttribute="leading" secondItem="mla-si-cff" secondAttribute="leading" id="1aa-2k-SjM"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="NFM-c7-Js7" secondAttribute="centerX" id="2dp-uX-8qE"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="top" secondItem="hkz-4e-DXJ" secondAttribute="bottom" constant="34" id="GIh-sc-ykw"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="trailing" secondItem="apa-se-YMc" secondAttribute="trailing" id="WCu-Qp-z8H"/>
-                                        <constraint firstItem="apa-se-YMc" firstAttribute="centerX" secondItem="Vy0-yD-zwM" secondAttribute="centerX" id="Y5y-J4-Wep"/>
-                                        <constraint firstItem="hkz-4e-DXJ" firstAttribute="top" secondItem="NFM-c7-Js7" secondAttribute="top" constant="78" id="fbe-ei-SKn"/>
-                                        <constraint firstItem="mla-si-cff" firstAttribute="centerX" secondItem="hkz-4e-DXJ" secondAttribute="centerX" id="fzd-UJ-kl6"/>
-                                        <constraint firstItem="apa-se-YMc" firstAttribute="top" secondItem="mla-si-cff" secondAttribute="bottom" constant="17" id="m0S-x8-hvH"/>
-                                        <constraint firstItem="Vy0-yD-zwM" firstAttribute="top" secondItem="apa-se-YMc" secondAttribute="bottom" constant="78" id="tlE-Vp-POQ"/>
-                                    </constraints>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="raY-32-cCc" firstAttribute="leading" secondItem="ARx-Ir-8fA" secondAttribute="leading" id="1Eg-sx-h99"/>
-                            <constraint firstAttribute="bottom" secondItem="raY-32-cCc" secondAttribute="bottom" id="L3v-66-sSN"/>
-                            <constraint firstItem="raY-32-cCc" firstAttribute="top" secondItem="ARx-Ir-8fA" secondAttribute="top" id="bEb-Fp-gQW"/>
-                            <constraint firstAttribute="trailing" secondItem="raY-32-cCc" secondAttribute="trailing" id="n99-zR-fNe"/>
-                        </constraints>
-                    </view>
-                    <blurEffect style="light"/>
-                </visualEffectView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muncherTM.png" translatesAutoresizingMaskIntoConstraints="NO" id="pzb-ra-1CG">
+                    <rect key="frame" x="200" y="114" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="IA7-pj-o3x"/>
+                        <constraint firstAttribute="height" constant="200" id="OeS-MO-7UN"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmY-ia-VDg" customClass="FBLoginView">
+                    <rect key="frame" x="175" y="406" width="250" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="DMb-Pu-QhE"/>
+                        <constraint firstAttribute="width" constant="250" id="Uoz-GI-Z4f"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WC-9i-GUb">
+                    <rect key="frame" x="175" y="352" width="250" height="46"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRN-Wt-Kok">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="46"/>
+                            <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                            <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Log in with Twitter">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickedLoginWithTwitter:" destination="-1" eventType="touchUpInside" id="iu2-TQ-Jxg"/>
+                                <action selector="touchDownTwitterButton:" destination="-1" eventType="touchDown" id="gwA-lj-t4G"/>
+                                <action selector="touchUpTwitterButton:" destination="-1" eventType="touchUpOutside" id="fgW-M5-MaK"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_logo" translatesAutoresizingMaskIntoConstraints="NO" id="9yW-n1-8uE">
+                            <rect key="frame" x="10" y="10" width="25" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="mTc-ZU-9QE"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="YRN-Wt-Kok" secondAttribute="bottom" id="8hT-Mx-rAa"/>
+                        <constraint firstAttribute="width" constant="250" id="FS9-rn-KGT"/>
+                        <constraint firstItem="YRN-Wt-Kok" firstAttribute="top" secondItem="6WC-9i-GUb" secondAttribute="top" id="KY0-q7-tuz"/>
+                        <constraint firstAttribute="trailing" secondItem="YRN-Wt-Kok" secondAttribute="trailing" id="XgC-um-5uh"/>
+                        <constraint firstItem="YRN-Wt-Kok" firstAttribute="leading" secondItem="6WC-9i-GUb" secondAttribute="leading" id="aQm-z6-Mmc"/>
+                        <constraint firstAttribute="height" constant="46" id="d2Q-PK-vQx"/>
+                        <constraint firstItem="YRN-Wt-Kok" firstAttribute="centerY" secondItem="9yW-n1-8uE" secondAttribute="centerY" id="djm-yh-SnG"/>
+                        <constraint firstItem="9yW-n1-8uE" firstAttribute="leading" secondItem="6WC-9i-GUb" secondAttribute="leading" constant="10" id="eju-cp-U5Q"/>
+                        <constraint firstItem="9yW-n1-8uE" firstAttribute="top" secondItem="6WC-9i-GUb" secondAttribute="top" constant="10" id="gju-Lb-VfV"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0aY-3Q-vgp"/>
-                <constraint firstItem="YxX-Nt-YCZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4zK-ib-KL2"/>
-                <constraint firstAttribute="trailing" secondItem="YxX-Nt-YCZ" secondAttribute="trailing" id="f8V-ji-mTw"/>
-                <constraint firstAttribute="bottom" secondItem="YxX-Nt-YCZ" secondAttribute="bottom" id="lSQ-M1-g3F"/>
+                <constraint firstItem="NmY-ia-VDg" firstAttribute="leading" secondItem="6WC-9i-GUb" secondAttribute="leading" id="836-TU-zB2"/>
+                <constraint firstItem="pzb-ra-1CG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hj1-Fu-ZIz"/>
+                <constraint firstItem="pzb-ra-1CG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="114" id="Kj0-vA-S5V"/>
+                <constraint firstItem="6WC-9i-GUb" firstAttribute="centerX" secondItem="pzb-ra-1CG" secondAttribute="centerX" id="Xur-ZQ-twa"/>
+                <constraint firstItem="NmY-ia-VDg" firstAttribute="top" secondItem="6WC-9i-GUb" secondAttribute="bottom" constant="8" symbolic="YES" id="cwN-tA-2Bs"/>
+                <constraint firstItem="6WC-9i-GUb" firstAttribute="trailing" secondItem="NmY-ia-VDg" secondAttribute="trailing" id="vRP-U6-yrH"/>
+                <constraint firstItem="6WC-9i-GUb" firstAttribute="top" secondItem="pzb-ra-1CG" secondAttribute="bottom" constant="38" id="zxe-d9-8LZ"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="closeWhite.png" width="64" height="64"/>
         <image name="muncherTM.png" width="192" height="192"/>
-        <image name="sign-in-with-twitter-gray.png" width="158" height="28"/>
+        <image name="twitter_logo" width="60" height="49"/>
     </resources>
 </document>
