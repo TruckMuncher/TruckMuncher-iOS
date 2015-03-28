@@ -13,9 +13,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView: FBLoginView!
     @IBOutlet weak var btnTwitterLogin: UIButton!
-    @IBAction func cancelTapped(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     var twitterKey: String = ""
     var twitterSecretKey: String = ""
@@ -30,8 +27,11 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnTwitterLogin.layer.cornerRadius = 5
         
-        fbLoginView = FBLoginView()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelTapped")
+        
+        //fbLoginView = FBLoginView()
         
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
@@ -40,11 +40,9 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         // TODO show some sort of progress dialog signifying a sign in occuring
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") {
             attemptSessionTokenRefresh({ (error) -> () in
-                // we dont have a valid session token from the api, fall back to trying to use twitter from keychain
-                self.attemptTwitterLogin()
+                // we dont have a valid session token from the api
+                // let the user decide what they want to do
             })
-        } else {
-            attemptTwitterLogin()
         }
     }
     
@@ -53,8 +51,11 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func cancelTapped() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        println("User Logged In")
         loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
     }
     
@@ -70,42 +71,51 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         println("Error: \(handleError.localizedDescription)")
     }
     
+    @IBAction func touchDownTwitterButton(sender: AnyObject) {
+        btnTwitterLogin.backgroundColor = UIColor(rgba: "#3B89C3")
+    }
+    
+    @IBAction func touchUpTwitterButton(sender: AnyObject) {
+        // https://about.twitter.com/press/brand-assets
+        btnTwitterLogin.backgroundColor = UIColor(rgba: "#55ACEE")
+    }
+    
     @IBAction func clickedLoginWithTwitter(sender: AnyObject) {
-        twitterAPI?.postTokenRequest({ (url, token) -> Void in
-            UIApplication.sharedApplication().openURL(url)
+        touchUpTwitterButton(sender)
+        // try to use the saved tokens
+        attemptTwitterLogin { () -> Void in
+            // if that failed, open up a browser to ask them to login to twitter
+            self.twitterAPI?.postTokenRequest({ (url, token) -> Void in
+                UIApplication.sharedApplication().openURL(url)
+                return
+            }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: self.twitterCallback, errorBlock: { (error) -> Void in
+                UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
+            })
             return
-        }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: twitterCallback, errorBlock: { (error) -> Void in
-            UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-        })
+        }
     }
     
     /**
      * Attempts to reuse tokens stored in the keychain to automatically login to twitter without user interaction.
      */
-    func attemptTwitterLogin() {
+    func attemptTwitterLogin(errorBlock: () -> Void) {
         let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as String?
         let oauthSecret = secretItem.objectForKey(kSecValueData) as String?
-        println("twitter oauth token from keychain \(oauthToken)")
-        println("twitter oauth secret from keychain \(oauthSecret)")
         
         if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
             twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
             twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
-                println("send tokens to API")
                 self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
             }, errorBlock: { (error) -> Void in
                 // our cached credentials are no longer valid, perhaps show a message asking to relogin
-                println("cached credentials invalid.")
                 self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
+                errorBlock()
             })
         }
     }
     
     func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
         twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
-            
-            println("logged in twitter \(token) and \(secret)")
-            println("logged in twitter \(self.twitterAPI?.oauthAccessToken) and \(self.twitterAPI?.oauthAccessTokenSecret)")
             
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
@@ -130,9 +140,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginToAPI(authorizationHeader: String) {
         authManager.signIn(authorization: authorizationHeader, success: { (response) -> () in
-            println("id \(response.id)")
-            println("username \(response.username)")
-            println("sessionToken \(response.sessionToken)")
             NSUserDefaults.standardUserDefaults().setValue(response.sessionToken, forKey: "sessionToken")
             NSUserDefaults.standardUserDefaults().synchronize()
             self.attemptSessionTokenRefresh({ (error) -> () in

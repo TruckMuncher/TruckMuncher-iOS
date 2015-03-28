@@ -279,7 +279,7 @@ class MapViewController: UIViewController,
         
         loginViewController!.modalPresentationStyle = .OverCurrentContext
         navigationController?.modalTransitionStyle = .CoverVertical
-        navigationController?.presentViewController(loginViewController!, animated: true, completion:  nil)
+        navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
     }
     
     func pushVendorMap() {
