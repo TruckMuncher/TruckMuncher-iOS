@@ -107,10 +107,12 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
                 self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
             }, errorBlock: { (error) -> Void in
-                // our cached credentials are no longer valid, perhaps show a message asking to relogin
+                // our cached credentials are no longer valid
                 self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
                 errorBlock()
             })
+        } else {
+            errorBlock()
         }
     }
     
@@ -127,7 +129,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func successfullyLoggedInAsTruck() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        navigationController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
         })
     }
