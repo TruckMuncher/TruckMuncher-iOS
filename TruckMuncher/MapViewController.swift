@@ -275,14 +275,14 @@ class MapViewController: UIViewController,
         loginViewController!.twitterName = config[kTwitterName] as String
         loginViewController!.twitterCallback = config[kTwitterCallback] as String
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pushVendorMap", name: "loggedInNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
         
         loginViewController!.modalPresentationStyle = .OverCurrentContext
         navigationController?.modalTransitionStyle = .CoverVertical
         navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
     }
     
-    func pushVendorMap() {
+    func handleLogin() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
 
@@ -290,8 +290,15 @@ class MapViewController: UIViewController,
         for i in 0..<ruser.truckIds.count {
             trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as RString).value).firstObject() as RTruck)
         }
-        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
-        navigationController?.pushViewController(vendorMapVC, animated: true)
+        
+        if trucks.count > 0 {
+            // Show the VendorMap
+            let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
+            navigationController?.pushViewController(vendorMapVC, animated: true)
+        } else {
+            // Remove the login button and stay at the regular map
+            navigationItem.leftBarButtonItem = nil
+        }
     }
     
     func updateData() {
