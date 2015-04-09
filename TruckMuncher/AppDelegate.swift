@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var config: NSDictionary = NSDictionary()
         
-        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
+        if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
             config = NSDictionary(contentsOfFile: path)!
             twitterCallback = config[kTwitterCallback] as? String
         }

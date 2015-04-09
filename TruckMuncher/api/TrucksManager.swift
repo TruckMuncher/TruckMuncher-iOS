@@ -89,6 +89,8 @@ class TrucksManager {
                     rtruck!.isNew = false
                     rtruck!.primaryColor = truck.primaryColor
                     rtruck!.secondaryColor = truck.secondaryColor
+                    rtruck!.approved = truck.approved
+                    rtruck!.approvalPending = truck.approvalPending
                 }
                 let rstring = RString.initFromString(rtruck!.id)
                 if !contains(ruser.truckIds, rstring) {
@@ -141,6 +143,8 @@ class TrucksManager {
                     rtruck!.isNew = false
                     rtruck!.primaryColor = truck.primaryColor
                     rtruck!.secondaryColor = truck.secondaryColor
+                    rtruck!.approved = truck.approved
+                    rtruck!.approvalPending = truck.approvalPending
                 }
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)

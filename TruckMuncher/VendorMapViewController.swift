@@ -54,7 +54,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initLocationManager()
         
         let btnLogout = UIButton(frame: CGRectMake(0, 0, 30, 30))
         btnLogout.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -71,24 +70,40 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         btnMenu.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: btnLogout), UIBarButtonItem(customView: btnMenu)]
         
-        initializeTruckTitleLabel()
+        if trucks.count == 0 {
+            navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: btnLogout)]
+            btnMenu.enabled = false
+            servingModeSwitch.enabled = false
+            var alert = UIAlertController(title: "Uh-oh", message: "You don't have any trucks! You'll need to visit our website and create one.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Go to truckmuncher.com", style: .Default, handler: { (action) -> Void in
+                UIApplication.sharedApplication().openURL(NSURL(string: "https://www.truckmuncher.com/#/login")!)
+                return
+            }))
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        } else {
+            initLocationManager()
+            initializeTruckTitleLabel()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        servingModeSwitch.setOn(trucks[selectedTruckIndex].isInServingMode, animated: false)
-        
-        changeComponentsColors()
-        setMapInteractability()
-        setPulse()
-        
-        if trucks[selectedTruckIndex].isInServingMode {
-            centerMapOverCoordinate(CLLocationCoordinate2D(latitude: trucks[selectedTruckIndex].latitude, longitude: trucks[selectedTruckIndex].longitude))
-        }
-        menuManager.getMenu(truckId: trucks[selectedTruckIndex].id, success: { (response) -> () in
-            self.menu = response as RMenu
-        }) { (error) -> () in
-            println("error \(error)")
+        if trucks.count > 0 {
+            servingModeSwitch.setOn(trucks[selectedTruckIndex].isInServingMode, animated: false)
+            
+            changeComponentsColors()
+            setMapInteractability()
+            setPulse()
+            
+            if trucks[selectedTruckIndex].isInServingMode {
+                centerMapOverCoordinate(CLLocationCoordinate2D(latitude: trucks[selectedTruckIndex].latitude, longitude: trucks[selectedTruckIndex].longitude))
+            }
+            menuManager.getMenu(truckId: trucks[selectedTruckIndex].id, success: { (response) -> () in
+                self.menu = response as RMenu
+            }) { (error) -> () in
+                println("error \(error)")
+            }
         }
     }
     
@@ -265,6 +280,17 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     func setServingMode (isServing:Bool) {
+        if !trucks[selectedTruckIndex].approved {
+            let alert = UIAlertController(title: "Unapproved Truck", message: "You need to request that your truck be approved by the TruckMuncher team before you can put it into serving mode. Visit our website to request approval!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Visit our website", style: .Default, handler: { (alert: UIAlertAction!) in
+                self.servingModeSwitch.setOn(false, animated: true)
+                UIApplication.sharedApplication().openURL(NSURL(string: "https://www.truckmuncher.com/#/login")!)
+            }))
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+            self.servingModeSwitch.on = !isServing
+            return
+        }
         truckManager.modifyServingMode(truckId: trucks[selectedTruckIndex].id, isInServingMode: isServing, atLatitude: vendorMapView.centerCoordinate.latitude, longitude: vendorMapView.centerCoordinate.longitude, success: { () -> () in
             println("success setting serving mode!")
             self.changeComponentsColors()
@@ -274,6 +300,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
                 var alert = UIAlertController(title: "Oops!", message: "We weren't able to update serving mode, please try again", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
+                self.servingModeSwitch.on = !isServing
         }
     }
 

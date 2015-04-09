@@ -36,6 +36,7 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
+    var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
@@ -44,6 +45,8 @@ class MapViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        carouselPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
         
         var muncherImage = UIImage(named: "transparentTM")
         var muncherImageView = UIImageView(image: muncherImage)
@@ -266,7 +269,7 @@ class MapViewController: UIViewController,
     func login () {
         var config: NSDictionary = NSDictionary()
         
-        if let path = NSBundle.mainBundle().pathForResource("Properties", ofType: "plist") {
+        if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
             config = NSDictionary(contentsOfFile: path)!
         }
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
@@ -291,14 +294,9 @@ class MapViewController: UIViewController,
             trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as RString).value).firstObject() as RTruck)
         }
         
-        if trucks.count > 0 {
-            // Show the VendorMap
-            let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
-            navigationController?.pushViewController(vendorMapVC, animated: true)
-        } else {
-            // Remove the login button and stay at the regular map
-            navigationItem.leftBarButtonItem = nil
-        }
+        // Show the VendorMap
+        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
+        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {
@@ -310,6 +308,10 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
+                if self.activeTrucks.count == 0 {
+                    self.truckCarousel.userInteractionEnabled = false
+                    self.carouselPanGestureRecognizer?.enabled = false
+                }
                 }) { (error) -> () in
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -346,7 +348,7 @@ class MapViewController: UIViewController,
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
-        truckCarousel.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "handlePan:"))
+        truckCarousel.addGestureRecognizer(carouselPanGestureRecognizer!)
     }
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
@@ -405,7 +407,7 @@ class MapViewController: UIViewController,
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
     {
-        return activeTrucks.count
+        return max(activeTrucks.count, 1)
     }
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
@@ -415,7 +417,11 @@ class MapViewController: UIViewController,
             view = viewArray[0] as TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
         }
-        (view as TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
+        if activeTrucks.count > 0 {
+            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
+        } else {
+            (view as TruckDetailView).updateViewForNoTruck()
+        }
 
         return view
     }

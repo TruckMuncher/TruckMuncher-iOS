@@ -26,3 +26,9 @@ let kCrashlyticsKey = "crashlytics_key"
  * Constants holding real values used directly should take on the typical syntax that #define used in obj-c
  */
 let MENU_CATEGORY_HEIGHT:CGFloat = 66.0
+
+#if RELEASE
+let PROPERTIES_FILE = "Properties"
+#elseif DEBUG
+let PROPERTIES_FILE = "Properties-dev"
+#endif

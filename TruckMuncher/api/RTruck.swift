@@ -22,6 +22,8 @@ class RTruck: RLMObject {
     dynamic var primaryColor = "#FFFFFF"
     dynamic var secondaryColor = "#000000"
     dynamic var distanceFromMe = 0.0
+    dynamic var approved = false
+    dynamic var approvalPending = false
     
     override init() {
         super.init()
@@ -47,6 +49,8 @@ class RTruck: RLMObject {
         rtruck.isNew = isNew
         rtruck.primaryColor = truck.primaryColor
         rtruck.secondaryColor = truck.secondaryColor
+        rtruck.approved = truck.approved
+        rtruck.approvalPending = truck.approvalPending
         return rtruck
     }
     

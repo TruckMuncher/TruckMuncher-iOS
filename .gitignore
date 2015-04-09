@@ -26,3 +26,4 @@ Podfile.lock
 __pycache__/
 
 Properties.plist
+Properties-dev.plist

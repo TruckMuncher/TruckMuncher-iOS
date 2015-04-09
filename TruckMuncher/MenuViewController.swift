@@ -13,6 +13,7 @@ import Realm
 class MenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tblMenu: UITableView!
+    @IBOutlet weak var lblNoItems: UILabel!
     
     var selectedCells = [NSIndexPath]()
     var menu: RMenu
@@ -40,10 +41,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if menu.categories.count > 0 {
+            lblNoItems.removeFromSuperview()
+        }
+        
         // http://stackoverflow.com/questions/19456288/text-color-based-on-background-image
         let primary = UIColor(rgba: truck.primaryColor)
         textColor = primary.suggestedTextColor()
         view.backgroundColor = primary
+        
+        lblNoItems.textColor = textColor
         
         view.frame = UIScreen.mainScreen().bounds
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editTable")

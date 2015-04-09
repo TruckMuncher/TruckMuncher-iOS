@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
+                <outlet property="lblNoItems" destination="a3K-Pt-1Oh" id="A1n-fU-lVx"/>
                 <outlet property="tblMenu" destination="hVO-ek-hnR" id="eOe-Su-FMf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,13 +25,25 @@
                         <outlet property="delegate" destination="-1" id="BDA-pc-Yd2"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no menu items. Visit truckmuncher.com to create some!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3K-Pt-1Oh">
+                    <rect key="frame" x="8" y="72" width="584" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="XsW-sI-cl1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="hVO-ek-hnR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5wJ-sR-pUm"/>
                 <constraint firstAttribute="bottom" secondItem="hVO-ek-hnR" secondAttribute="bottom" id="EMc-oo-dSq"/>
                 <constraint firstItem="hVO-ek-hnR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IMu-5J-5i6"/>
+                <constraint firstItem="a3K-Pt-1Oh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="64" id="Yz7-hB-QBw"/>
                 <constraint firstAttribute="trailing" secondItem="hVO-ek-hnR" secondAttribute="trailing" id="aUg-EC-idE"/>
+                <constraint firstItem="a3K-Pt-1Oh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="lLv-9T-gHw"/>
+                <constraint firstItem="a3K-Pt-1Oh" firstAttribute="centerX" secondItem="hVO-ek-hnR" secondAttribute="centerX" id="rTg-dW-pnX"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
         </view>

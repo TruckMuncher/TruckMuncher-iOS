@@ -17,6 +17,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckNameLabel: UILabel!
     @IBOutlet var truckLogoImage: UIImageView!
     @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     var menu: RMenu?
     var textColor = UIColor.blackColor()
@@ -28,6 +29,21 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menuTableView.rowHeight = UITableViewAutomaticDimension
         menuTableView.backgroundView = nil
         menuTableView.backgroundColor = UIColor.clearColor()
+    }
+    
+    func updateViewForNoTruck() {
+        menu = RMenu()
+        truckNameLabel.text = "There are currently no active trucks"
+        truckLogoImage.image = nil
+        imageWidthConstraint.constant = 0.01
+        
+        let primary = carouselBackground
+        backgroundColor = primary
+        textColor = primary.suggestedTextColor()
+        truckNameLabel.textColor = textColor
+        truckTagsLabel.textColor = textColor
+        
+        distanceLabel.textColor = textColor
     }
     
     func updateViewWithTruck(truck:RTruck!, showingMenu: Bool) {
