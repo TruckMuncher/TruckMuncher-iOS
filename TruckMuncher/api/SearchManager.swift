@@ -16,23 +16,22 @@ class SearchManager {
     }
     
     func simpleSearch(#query: String, withLimit limit: Int, andOffset offset: Int, success successBlock: (response: [RSearch]) -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = SimpleSearchRequest.builder()
-        builder.query = query
-        builder.limit = Int32(limit)
-        builder.offset = Int32(offset)
-        apiManager.post(APIRouter.simpleSearch(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["query"] = query
+        dict["limit"] = limit
+        dict["offset"] = offset
+        apiManager.post(APIRouter.simpleSearch(dict), success: { (response, dict) -> () in
             // success
-            var searchResponse = SimpleSearchResponse.parseFromNSData(data!)
             var responses = [RSearch]()
-            for response in searchResponse.searchResponse {
+            for response in dict!["searchResponse"] as! [[String: AnyObject]] {
                 responses.append(RSearch.initFromProto(response))
             }
             successBlock(response: responses)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }

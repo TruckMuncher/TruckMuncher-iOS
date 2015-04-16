@@ -18,15 +18,13 @@ struct AuthManager {
     }
     
     func signIn(authorization auth: String, success successBlock: (response: RUser) -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = AuthRequest.builder()
         
-        let request = APIRouter.getAuth(builder.build().getNSData()).URLRequest as NSMutableURLRequest
+        let request = APIRouter.getAuth([String: AnyObject]()).URLRequest as! NSMutableURLRequest
         request.setValue(auth, forHTTPHeaderField: "Authorization")
         
-        apiManager.post(request as NSURLRequest, success: { (response, data) -> () in
+        apiManager.post(request as NSURLRequest, success: { (response, dict) -> () in
             // success
-            var authResponse = AuthResponse.parseFromNSData(data!)
-            let ruser = RUser.initFromProto(authResponse)
+            let ruser = RUser.initFromProto(dict!)
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
@@ -34,19 +32,18 @@ struct AuthManager {
             realm.commitWriteTransaction()
             
             successBlock(response: ruser)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
     }
     
     func signOut(success successBlock: () -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = AuthRequest.builder()
-        apiManager.post(APIRouter.deleteAuth(builder.build().getNSData()), success: { (response, data) -> () in
+        apiManager.post(APIRouter.deleteAuth([String: AnyObject]()), success: { (response, dict) -> () in
             // success
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
@@ -54,11 +51,11 @@ struct AuthManager {
             realm.commitWriteTransaction()
             
             successBlock()
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }

@@ -22,11 +22,6 @@
 		0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0613ABC71A5F2EC10080202B /* TruckDetailView.xib */; };
 		061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */; };
 		061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */; };
-		0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDB19F456B9003F3962 /* Error.pb.swift */; };
-		0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */; };
-		0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */; };
-		0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDE19F456B9003F3962 /* Menu.pb.swift */; };
-		0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0636EDDF19F456B9003F3962 /* Trucks.pb.swift */; };
 		063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 063945AB19E56DB900B76100 /* Milwaukee.gpx */; };
 		063AB5A01A6727C1003828F7 /* noImageAvailable.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB59F1A6727C1003828F7 /* noImageAvailable.png */; };
 		063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */ = {isa = PBXBuildFile; fileRef = 063AB5A41A684FBE003828F7 /* truckmuncher.png */; };
@@ -64,8 +59,6 @@
 		27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */; };
 		27BC44A91A78988700C0D07F /* transparentTM.png in Resources */ = {isa = PBXBuildFile; fileRef = 27BC44A81A78988700C0D07F /* transparentTM.png */; };
 		27BFCC721AD33E9000B6B7C1 /* Properties-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27BFCC711AD33E9000B6B7C1 /* Properties-dev.plist */; };
-		27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27E680861A420FC8008173D3 /* ProtocolBuffers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		27E680931A421086008173D3 /* Search.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680921A421086008173D3 /* Search.pb.swift */; };
 		27E680951A4210E3008173D3 /* RSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680941A4210E3008173D3 /* RSearch.swift */; };
 		27E680971A42125A008173D3 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E680961A42125A008173D3 /* SearchManager.swift */; };
 		27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536BB19FF4A6C009A8575 /* APIManager.swift */; };
@@ -75,11 +68,11 @@
 		27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536C919FF4FE1009A8575 /* TrucksManager.swift */; };
 		27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536CB19FF4FEE009A8575 /* MenuManager.swift */; };
 		27F536CE19FF5215009A8575 /* RTruck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F536CD19FF5215009A8575 /* RTruck.swift */; };
+		27F9A2251AE0579500896348 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9A2241AE0579500896348 /* Error.swift */; };
 		27FE9D3019FF5D0600060F79 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D2F19FF5D0600060F79 /* Realm.framework */; };
 		27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FE9D3519FF5D2100060F79 /* libc++.dylib */; };
 		27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D3719FF5D6200060F79 /* RLMSupport.swift */; };
 		27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D391A0042AE00060F79 /* AuthManager.swift */; };
-		27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D451A00799200060F79 /* Auth.pb.swift */; };
 		27FE9D481A0079EF00060F79 /* RUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FE9D471A0079EF00060F79 /* RUser.swift */; };
 		702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67065F4FABC149C7A197923C /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -106,47 +99,26 @@
 			remoteGlobalIDString = 27AC00AD19CB4B4F00F1F3B7;
 			remoteInfo = TruckMuncher;
 		};
-		27E680851A420FC8008173D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F85569919C71BCF003802F2;
-			remoteInfo = ProtocolBuffers;
-		};
-		27E680871A420FC8008173D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F8556A419C71BCF003802F2;
-			remoteInfo = UnitTesting;
-		};
-		27E680891A420FC8008173D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F41061C1A1A667700742090;
-			remoteInfo = "ProtocolBuffers(OSX)";
-		};
-		27E6808B1A420FC8008173D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3F4106261A1A667800742090;
-			remoteInfo = "UnitTesting(OSX)";
-		};
-		27E6808D1A421014008173D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F85569819C71BCF003802F2;
-			remoteInfo = ProtocolBuffers;
-		};
 		27E6808F1A421014008173D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = Alamofire;
+		};
+		27F9A1FE1AE0324D00896348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		27F9A2001AE0324D00896348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -157,7 +129,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				27E680911A421027008173D3 /* ProtocolBuffers.framework in Copy Frameworks */,
 				2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
@@ -181,11 +152,6 @@
 		0613ABC71A5F2EC10080202B /* TruckDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckDetailView.xib; sourceTree = "<group>"; };
 		061A1F6E1A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SingleTruckAnnotationIcon@2x.png"; sourceTree = "<group>"; };
 		061A1F6F1A004E61000A0523 /* SingleTruckAnnotationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SingleTruckAnnotationIcon.png; sourceTree = "<group>"; };
-		0636EDDB19F456B9003F3962 /* Error.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.pb.swift; sourceTree = "<group>"; };
-		0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Healthcheck.pb.swift; sourceTree = "<group>"; };
-		0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu_admin.pb.swift; sourceTree = "<group>"; };
-		0636EDDE19F456B9003F3962 /* Menu.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.pb.swift; sourceTree = "<group>"; };
-		0636EDDF19F456B9003F3962 /* Trucks.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trucks.pb.swift; sourceTree = "<group>"; };
 		063945AB19E56DB900B76100 /* Milwaukee.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Milwaukee.gpx; sourceTree = "<group>"; };
 		063AB59F1A6727C1003828F7 /* noImageAvailable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImageAvailable.png; sourceTree = "<group>"; };
 		063AB5A41A684FBE003828F7 /* truckmuncher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = truckmuncher.png; sourceTree = "<group>"; };
@@ -228,8 +194,6 @@
 		27AC00D719CD17E700F1F3B7 /* Bridging-Header-File.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header-File.h"; sourceTree = "<group>"; };
 		27BC44A81A78988700C0D07F /* transparentTM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparentTM.png; sourceTree = "<group>"; };
 		27BFCC711AD33E9000B6B7C1 /* Properties-dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Properties-dev.plist"; sourceTree = "<group>"; };
-		27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ProtocolBuffers.xcodeproj; path = ProtocolBuffers/ProtocolBuffers.xcodeproj; sourceTree = "<group>"; };
-		27E680921A421086008173D3 /* Search.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.pb.swift; sourceTree = "<group>"; };
 		27E680941A4210E3008173D3 /* RSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSearch.swift; sourceTree = "<group>"; };
 		27E680961A42125A008173D3 /* SearchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		27F536BB19FF4A6C009A8575 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -239,11 +203,11 @@
 		27F536C919FF4FE1009A8575 /* TrucksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrucksManager.swift; sourceTree = "<group>"; };
 		27F536CB19FF4FEE009A8575 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		27F536CD19FF5215009A8575 /* RTruck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTruck.swift; sourceTree = "<group>"; };
+		27F9A2241AE0579500896348 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		27FE9D2F19FF5D0600060F79 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		27FE9D3519FF5D2100060F79 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		27FE9D3719FF5D6200060F79 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		27FE9D391A0042AE00060F79 /* AuthManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		27FE9D451A00799200060F79 /* Auth.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.pb.swift; sourceTree = "<group>"; };
 		27FE9D471A0079EF00060F79 /* RUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUser.swift; sourceTree = "<group>"; };
 		67065F4FABC149C7A197923C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		94233DFE783DA964791402DF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -340,29 +304,16 @@
 			isa = PBXGroup;
 			children = (
 				2791283B19DF414D00D15932 /* Alamofire.framework */,
+				27F9A1FF1AE0324D00896348 /* Alamofire.framework */,
 				2791283D19DF414D00D15932 /* AlamofireTests.xctest */,
+				27F9A2011AE0324D00896348 /* Alamofire OSX Tests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2791284719DF43EA00D15932 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				27E680921A421086008173D3 /* Search.pb.swift */,
-				27FE9D451A00799200060F79 /* Auth.pb.swift */,
-				0636EDDB19F456B9003F3962 /* Error.pb.swift */,
-				0636EDDC19F456B9003F3962 /* Healthcheck.pb.swift */,
-				0636EDDD19F456B9003F3962 /* Menu_admin.pb.swift */,
-				0636EDDE19F456B9003F3962 /* Menu.pb.swift */,
-				0636EDDF19F456B9003F3962 /* Trucks.pb.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		27AC00A519CB4B4F00F1F3B7 = {
 			isa = PBXGroup;
 			children = (
-				27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */,
 				2791283519DF414D00D15932 /* Alamofire.xcodeproj */,
 				27AC00B019CB4B4F00F1F3B7 /* TruckMuncher */,
 				27AC00C619CB4B4F00F1F3B7 /* TruckMuncherTests */,
@@ -387,7 +338,6 @@
 				27F536B619FF4A30009A8575 /* api */,
 				2736B1EA19F5AE7400CBACC2 /* TableViewCells */,
 				060935F119F3086F0033F3D4 /* Map */,
-				2791284719DF43EA00D15932 /* Models */,
 				278BFBB619D0A36A00510C6E /* Helpers */,
 				278BFBAF19D08D0900510C6E /* Media */,
 				27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */,
@@ -442,17 +392,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		27E6807F1A420FC8008173D3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				27E680861A420FC8008173D3 /* ProtocolBuffers.framework */,
-				27E680881A420FC8008173D3 /* ProtocolBuffersTests.xctest */,
-				27E6808A1A420FC8008173D3 /* ProtocolBuffers.framework */,
-				27E6808C1A420FC8008173D3 /* UnitTesting(OSX).xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		27F536B619FF4A30009A8575 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +408,7 @@
 				27E680961A42125A008173D3 /* SearchManager.swift */,
 				27F536CB19FF4FEE009A8575 /* MenuManager.swift */,
 				27FE9D391A0042AE00060F79 /* AuthManager.swift */,
+				27F9A2241AE0579500896348 /* Error.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -515,7 +455,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				27E6808E1A421014008173D3 /* PBXTargetDependency */,
 				27E680901A421014008173D3 /* PBXTargetDependency */,
 			);
 			name = TruckMuncher;
@@ -581,10 +520,6 @@
 					ProductGroup = 2791283619DF414D00D15932 /* Products */;
 					ProjectRef = 2791283519DF414D00D15932 /* Alamofire.xcodeproj */;
 				},
-				{
-					ProductGroup = 27E6807F1A420FC8008173D3 /* Products */;
-					ProjectRef = 27E6807E1A420FC8008173D3 /* ProtocolBuffers.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -609,32 +544,18 @@
 			remoteRef = 2791283C19DF414D00D15932 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		27E680861A420FC8008173D3 /* ProtocolBuffers.framework */ = {
+		27F9A1FF1AE0324D00896348 /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = ProtocolBuffers.framework;
-			remoteRef = 27E680851A420FC8008173D3 /* PBXContainerItemProxy */;
+			path = Alamofire.framework;
+			remoteRef = 27F9A1FE1AE0324D00896348 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		27E680881A420FC8008173D3 /* ProtocolBuffersTests.xctest */ = {
+		27F9A2011AE0324D00896348 /* Alamofire OSX Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = ProtocolBuffersTests.xctest;
-			remoteRef = 27E680871A420FC8008173D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		27E6808A1A420FC8008173D3 /* ProtocolBuffers.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = ProtocolBuffers.framework;
-			remoteRef = 27E680891A420FC8008173D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		27E6808C1A420FC8008173D3 /* UnitTesting(OSX).xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "UnitTesting(OSX).xctest";
-			remoteRef = 27E6808B1A420FC8008173D3 /* PBXContainerItemProxy */;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 27F9A2001AE0324D00896348 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -754,11 +675,8 @@
 				2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */,
 				27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */,
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
-				0636EDE419F456B9003F3962 /* Trucks.pb.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
-				27E680931A421086008173D3 /* Search.pb.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
-				0636EDE119F456B9003F3962 /* Healthcheck.pb.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
@@ -770,12 +688,10 @@
 				27E680951A4210E3008173D3 /* RSearch.swift in Sources */,
 				27FE9D481A0079EF00060F79 /* RUser.swift in Sources */,
 				27E680971A42125A008173D3 /* SearchManager.swift in Sources */,
-				27FE9D461A00799200060F79 /* Auth.pb.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				279E89A01A639CF300002446 /* RString.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
-				0636EDE219F456B9003F3962 /* Menu_admin.pb.swift in Sources */,
 				27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,
 				2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */,
@@ -783,9 +699,8 @@
 				27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */,
 				0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
+				27F9A2251AE0579500896348 /* Error.swift in Sources */,
 				2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */,
-				0636EDE319F456B9003F3962 /* Menu.pb.swift in Sources */,
-				0636EDE019F456B9003F3962 /* Error.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,11 +719,6 @@
 			isa = PBXTargetDependency;
 			target = 27AC00AD19CB4B4F00F1F3B7 /* TruckMuncher */;
 			targetProxy = 27AC00C419CB4B4F00F1F3B7 /* PBXContainerItemProxy */;
-		};
-		27E6808E1A421014008173D3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ProtocolBuffers;
-			targetProxy = 27E6808D1A421014008173D3 /* PBXContainerItemProxy */;
 		};
 		27E680901A421014008173D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -17,10 +17,10 @@ class RMenu: RLMObject {
         super.init()
     }
     
-    class func initFromProto(menu: Menu) -> RMenu {
+    class func initFromProto(menu: [String: AnyObject]) -> RMenu {
         let rmenu = RMenu()
-        rmenu.truckId = menu.truckId
-        for category in menu.categories {
+        rmenu.truckId = menu["truckId"] as! String
+        for category in menu["categories"] as! [[String: AnyObject]] {
             rmenu.categories.addObject(RCategory.initFromProto(category))
         }
         return rmenu

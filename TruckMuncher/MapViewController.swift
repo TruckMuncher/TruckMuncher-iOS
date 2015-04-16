@@ -98,7 +98,7 @@ class MapViewController: UIViewController,
                 self.navigationController?.navigationBar.frame = navbarFrame
                 
                 self.navigationItem.titleView?.alpha = 0.0
-                let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as UIColor).colorWithAlphaComponent(0.0)
+                let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(0.0)
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
             })
@@ -194,7 +194,7 @@ class MapViewController: UIViewController,
                 clusterAnnotationView = TruckLocationAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
                 clusterAnnotationView!.canShowCallout = false
             }
-            var clusterAnnotation = annotation as CCHMapClusterAnnotation
+            var clusterAnnotation = annotation as! CCHMapClusterAnnotation
             clusterAnnotationView!.setCount(clusterAnnotation.annotations.count)
             clusterAnnotationView!.isUniqueLocation = clusterAnnotation.isUniqueLocation()
             annotationView = clusterAnnotationView!
@@ -273,10 +273,10 @@ class MapViewController: UIViewController,
             config = NSDictionary(contentsOfFile: path)!
         }
         loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController!.twitterKey = config[kTwitterKey] as String
-        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as String
-        loginViewController!.twitterName = config[kTwitterName] as String
-        loginViewController!.twitterCallback = config[kTwitterCallback] as String
+        loginViewController!.twitterKey = config[kTwitterKey] as! String
+        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as! String
+        loginViewController!.twitterName = config[kTwitterName] as! String
+        loginViewController!.twitterCallback = config[kTwitterCallback] as! String
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
         
@@ -287,11 +287,11 @@ class MapViewController: UIViewController,
     
     func handleLogin() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
-        let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
+        let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as! String).firstObject() as! RUser
 
         var trucks = [RTruck]()
         for i in 0..<ruser.truckIds.count {
-            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as RString).value).firstObject() as RTruck)
+            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
         }
         
         // Show the VendorMap
@@ -369,7 +369,7 @@ class MapViewController: UIViewController,
         
         // fade out the nav bar items as we pull up the menu
         navigationItem.titleView?.alpha = 1-percentage
-        let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as UIColor).colorWithAlphaComponent(1-percentage)
+        let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
         
@@ -378,8 +378,8 @@ class MapViewController: UIViewController,
         navbarFrame.origin.y = min(max(top - percentage*navbarFrame.size.height, top - navbarFrame.size.height), top)
         navigationController?.navigationBar.frame = navbarFrame
         
-        let primaryColor = UIColor(rgba: (activeTrucks[truckCarousel.currentItemIndex] as RTruck).primaryColor)
-        let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as TruckDetailView
+        let primaryColor = UIColor(rgba: activeTrucks[truckCarousel.currentItemIndex].primaryColor)
+        let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as! TruckDetailView
         currentView.updateViewWithColor(carouselBackground.transformToColor(primaryColor, withPercentage: percentage))
         
         if recognizer.state == .Ended {
@@ -410,19 +410,18 @@ class MapViewController: UIViewController,
         return max(activeTrucks.count, 1)
     }
     
-    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, var reusingView view: UIView!) -> UIView!
-    {
+    @objc func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
         if view == nil {
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
-            view = viewArray[0] as TruckDetailView
+            view = viewArray[0] as! TruckDetailView
             view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
         }
         if activeTrucks.count > 0 {
-            (view as TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
+            (view as! TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
         } else {
-            (view as TruckDetailView).updateViewForNoTruck()
+            (view as! TruckDetailView).updateViewForNoTruck()
         }
-
+        
         return view
     }
     

@@ -97,8 +97,8 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
      * Attempts to reuse tokens stored in the keychain to automatically login to twitter without user interaction.
      */
     func attemptTwitterLogin(errorBlock: () -> Void) {
-        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as String?
-        let oauthSecret = secretItem.objectForKey(kSecValueData) as String?
+        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as! String?
+        let oauthSecret = secretItem.objectForKey(kSecValueData) as! String?
         
         if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
             twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
@@ -116,6 +116,14 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
         twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
+            self.tokenItem.setObject(token, forKey: kSecAttrAccount)
+            self.secretItem.setObject(secret, forKey: kSecValueData)
+            
+            self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
+        }, errorBlock: { (error: NSError!) -> Void in
+            UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
+        })
+        /*twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
             
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
@@ -123,7 +131,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
         }) { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-        }
+        }*/
     }
     
     func successfullyLoggedInAsTruck() {

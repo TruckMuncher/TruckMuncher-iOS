@@ -14,7 +14,6 @@ class RMenuItem: RLMObject {
     dynamic var name = ""
     dynamic var price = 0.0
     dynamic var notes = ""
-    //dynamic var tags = [String]()
     dynamic var tags = RLMArray(objectClassName: RString.className())
     dynamic var orderInCategory = 0
     dynamic var isAvailable = true
@@ -23,25 +22,24 @@ class RMenuItem: RLMObject {
         super.init()
     }
     
-    class func initFromProto(menuItem: MenuItemAvailability) -> RMenuItem {
+    class func initFromSmallProto(menuItem: [String: AnyObject]) -> RMenuItem {
         let rmenuitem = RMenuItem()
-        rmenuitem.id = menuItem.menuItemId
-        rmenuitem.isAvailable = menuItem.isAvailable
+        rmenuitem.id = menuItem["menuItemId"] as! String
+        rmenuitem.isAvailable = menuItem["isAvailable"] as! Bool
         return rmenuitem
     }
     
-    class func initFromProto(menuItem: MenuItem) -> RMenuItem {
+    class func initFromFullProto(menuItem: [String: AnyObject]) -> RMenuItem {
         let rmenuitem = RMenuItem()
-        rmenuitem.id = menuItem.id
-        rmenuitem.name = menuItem.name
-        rmenuitem.price = Double(menuItem.price)
-        rmenuitem.notes = menuItem.notes
-        //rmenuitem.tags = menuItem.tags
-        for tag in menuItem.tags {
+        rmenuitem.id = menuItem["id"] as! String
+        rmenuitem.name = menuItem["name"] as! String
+        rmenuitem.price = menuItem["price"] as! Double
+        rmenuitem.notes = menuItem["notes"] as! String
+        for tag in menuItem["tags"] as! [String] {
             rmenuitem.tags.addObject(RString.initFromString(tag))
         }
-        rmenuitem.orderInCategory = Int(menuItem.orderInCategory)
-        rmenuitem.isAvailable = menuItem.isAvailable
+        rmenuitem.orderInCategory = menuItem["orderInCategory"] as! Int
+        rmenuitem.isAvailable = menuItem["isAvailable"] as! Bool
         return rmenuitem
     }
     

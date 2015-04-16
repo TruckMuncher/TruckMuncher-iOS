@@ -17,12 +17,11 @@ struct MenuManager {
     }
     
     func getMenuItemAvailability(atLatitude lat: Double, longitude lon: Double, success successBlock: (response: [RMenuItem]) -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = MenuItemAvailabilityRequest.builder()
-        builder.latitude = lat
-        builder.longitude = lon
-        apiManager.post(APIRouter.getMenuItemAvailability(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["latitude"] = lat
+        dict["longitude"] = lon
+        apiManager.post(APIRouter.getMenuItemAvailability(dict), success: { (response, dict) -> () in
             // success
-            var menuItemResponse = MenuItemAvailabilityResponse.parseFromNSData(data!)
             var items = [RMenuItem]()
             
             let realm = RLMRealm.defaultRealm()
@@ -30,25 +29,25 @@ struct MenuManager {
             
             // TODO this process could use some optimization
             // currently queries one menu item, updates properties, writes to DB, repeat
-            for item in menuItemResponse.availabilities {
-                let id = (item as MenuItemAvailability).menuItemId
+            for item in dict!["availabilities"] as! [[String: AnyObject]] {
+                let id = item["menuItemId"] as! String
                 var rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as? RMenuItem
                 if rmenuItem == nil {
                     rmenuItem = RMenuItem()
                     rmenuItem!.id = id
                 }
-                rmenuItem!.isAvailable = (item as MenuItemAvailability).isAvailable
+                rmenuItem!.isAvailable = item["isAvailable"] as! Bool
                 realm.addOrUpdateObject(rmenuItem!)
                 items.append(rmenuItem!)
             }
             realm.commitWriteTransaction()
             
             successBlock(response: items)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
@@ -56,19 +55,18 @@ struct MenuManager {
     
     func getFullMenus(atLatitude lat: Double, longitude lon: Double, includeAvailability avail: Bool, success successBlock: (response: [RMenu]) -> (), error errorBlock: (error: Error?) -> ()) {
         // TODO this should only be run once per time period (TBD). this is our update cache route
-        let builder = FullMenusRequest.builder()
-        builder.latitude = lat
-        builder.longitude = lon
-        builder.includeAvailability = avail
-        apiManager.post(APIRouter.getFullMenus(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["latitude"] = lat
+        dict["longitude"] = lon
+        dict["includeAvailability"] = avail
+        apiManager.post(APIRouter.getFullMenus(dict), success: { (response, dict) -> () in
             // success
-            var menuResponse = FullMenusResponse.parseFromNSData(data!)
             var menus = [RMenu]()
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
-            for menu in menuResponse.menus {
+            for menu in dict!["menus"] as! [[String: AnyObject]] {
                 let rmenu = RMenu.initFromProto(menu)
                 menus.append(rmenu)
                 realm.addOrUpdateObject(rmenu)
@@ -76,25 +74,22 @@ struct MenuManager {
             realm.commitWriteTransaction()
             
             successBlock(response: menus)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
     }
     
     func getMenu(#truckId: String, success successBlock: (response: RMenu) -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = MenuRequest.builder()
-        builder.truckId = truckId
-        apiManager.post(APIRouter.getMenu(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["truckId"] = truckId
+        apiManager.post(APIRouter.getMenu(dict), success: { (response, dict) -> () in
             // success
-            // TODO persist results in realm and return
-            var menuResponse = MenuResponse.parseFromNSData(data!)
-            
-            let rmenu = RMenu.initFromProto(menuResponse.menu)
+            let rmenu = RMenu.initFromProto(dict!["menu"] as! [String: AnyObject])
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
@@ -102,45 +97,45 @@ struct MenuManager {
             realm.commitWriteTransaction()
             
             successBlock(response: rmenu)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
     }
     
     func modifyMenuItemAvailability(#items: [String: Bool], success successBlock: () -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = ModifyMenuItemAvailabilityRequest.builder()
-        var diffs = [MenuItemAvailability]()
+        var dict = [String: AnyObject]()
+        var diffs = [[String: AnyObject]]()
         for (id, avail) in items {
-            let itemBuilder = MenuItemAvailability.builder()
-            itemBuilder.menuItemId = id
-            itemBuilder.isAvailable = avail
-            diffs.append(itemBuilder.build())
+            var item = [String: AnyObject]()
+            item["menuItemId"] = id
+            item["isAvailable"] = avail
+            diffs.append(item)
         }
-        builder.diff = diffs
-        apiManager.post(APIRouter.modifyMenuItemAvailability(builder.build().getNSData()), success: { (response, data) -> () in
+        dict["diff"] = diffs
+        apiManager.post(APIRouter.modifyMenuItemAvailability(dict), success: { (response, dict) -> () in
             // success
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
             for (id, available) in items {
-                let rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as RMenuItem
+                let rmenuItem = RMenuItem.objectsWhere("id = %@", id)[0] as! RMenuItem
                 rmenuItem.isAvailable = available
                 realm.addOrUpdateObject(rmenuItem)
             }
             realm.commitWriteTransaction()
             
             successBlock()
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }

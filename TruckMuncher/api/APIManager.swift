@@ -18,16 +18,16 @@ class APIManager {
         manager = Alamofire.Manager(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
 
-    func post(request: URLRequestConvertible, success successBlock: (response: NSHTTPURLResponse?, data: NSData?) -> (), error errorBlock: (response: NSHTTPURLResponse?, data: NSData?, error: NSError?) -> ()) {
+    func post(request: URLRequestConvertible, success successBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?) -> (), error errorBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?, error: NSError?) -> ()) {
         
         manager.request(request)
             .validate()
-            .response { (request, response, data, error) -> Void in
-                let nsdata = data as? NSData
+            .responseJSON(options: .allZeros) { (request: NSURLRequest, response: NSHTTPURLResponse?, data: AnyObject?, error: NSError?) -> Void in
+                let dict = data as? [String: AnyObject]
                 if error == nil {
-                    successBlock(response: response, data: nsdata)
+                    successBlock(response: response, dict: dict)
                 } else {
-                    errorBlock(response: response, data: nsdata, error: error)
+                    errorBlock(response: response, dict: dict, error: error)
                 }
         }
     }
@@ -36,45 +36,45 @@ class APIManager {
 enum APIRouter: URLRequestConvertible {
     static let baseUrl = "https://api.truckmuncher.com:8443"
     
-    case getActiveTrucks(NSData)
-    case getTrucksForVendor(NSData)
-    case getTruckProfiles(NSData)
-    case modifyServingMode(NSData)
+    case getActiveTrucks([String: AnyObject])
+    case getTrucksForVendor([String: AnyObject])
+    case getTruckProfiles([String: AnyObject])
+    case modifyServingMode([String: AnyObject])
     
-    case getMenuItemAvailability(NSData)
-    case getFullMenus(NSData)
-    case getMenu(NSData)
-    case modifyMenuItemAvailability(NSData)
+    case getMenuItemAvailability([String: AnyObject])
+    case getFullMenus([String: AnyObject])
+    case getMenu([String: AnyObject])
+    case modifyMenuItemAvailability([String: AnyObject])
     
-    case getAuth(NSData)
-    case deleteAuth(NSData)
+    case getAuth([String: AnyObject])
+    case deleteAuth([String: AnyObject])
     
-    case simpleSearch(NSData)
+    case simpleSearch([String: AnyObject])
     
-    var properties: (path: String, parameters: NSData) {
+    var properties: (path: String, parameters: [String: AnyObject]) {
         switch self {
-        case .getActiveTrucks(let data):
-            return ("/com.truckmuncher.api.trucks.TruckService/getActiveTrucks", data)
-        case .getTrucksForVendor(let data):
-            return ("/com.truckmuncher.api.trucks.TruckService/getTrucksForVendor", data)
-        case .getTruckProfiles(let data):
-            return ("/com.truckmuncher.api.trucks.TruckService/getTruckProfiles", data)
-        case .modifyServingMode(let data):
-            return ("/com.truckmuncher.api.trucks.TruckService/modifyServingMode", data)
-        case .getMenuItemAvailability(let data):
-            return ("/com.truckmuncher.api.menu.MenuService/getMenuItemAvailability", data)
-        case .getFullMenus(let data):
-            return ("/com.truckmuncher.api.menu.MenuService/getFullMenus", data)
-        case .getMenu(let data):
-            return ("/com.truckmuncher.api.menu.MenuService/getMenu", data)
-        case .modifyMenuItemAvailability(let data):
-            return ("/com.truckmuncher.api.menu.MenuService/modifyMenuItemAvailability", data)
-        case .getAuth(let data):
-            return ("/com.truckmuncher.api.auth.AuthService/getAuth", data)
-        case .deleteAuth(let data):
-            return ("/com.truckmuncher.api.auth.AuthService/deleteAuth", data)
-        case .simpleSearch(let data):
-            return ("/com.truckmuncher.api.search.SearchService/simpleSearch", data)
+        case .getActiveTrucks(let dict):
+            return ("/com.truckmuncher.api.trucks.TruckService/getActiveTrucks", dict)
+        case .getTrucksForVendor(let dict):
+            return ("/com.truckmuncher.api.trucks.TruckService/getTrucksForVendor", dict)
+        case .getTruckProfiles(let dict):
+            return ("/com.truckmuncher.api.trucks.TruckService/getTruckProfiles", dict)
+        case .modifyServingMode(let dict):
+            return ("/com.truckmuncher.api.trucks.TruckService/modifyServingMode", dict)
+        case .getMenuItemAvailability(let dict):
+            return ("/com.truckmuncher.api.menu.MenuService/getMenuItemAvailability", dict)
+        case .getFullMenus(let dict):
+            return ("/com.truckmuncher.api.menu.MenuService/getFullMenus", dict)
+        case .getMenu(let dict):
+            return ("/com.truckmuncher.api.menu.MenuService/getMenu", dict)
+        case .modifyMenuItemAvailability(let dict):
+            return ("/com.truckmuncher.api.menu.MenuService/modifyMenuItemAvailability", dict)
+        case .getAuth(let dict):
+            return ("/com.truckmuncher.api.auth.AuthService/getAuth", dict)
+        case .deleteAuth(let dict):
+            return ("/com.truckmuncher.api.auth.AuthService/deleteAuth", dict)
+        case .simpleSearch(let dict):
+            return ("/com.truckmuncher.api.search.SearchService/simpleSearch", dict)
         }
     }
     
@@ -89,11 +89,11 @@ enum APIRouter: URLRequestConvertible {
             mutableURLRequest.setValue("session_token=\(st)", forHTTPHeaderField: "Authorization")
             let val = mutableURLRequest.valueForHTTPHeaderField("Authorization")
         }
-        mutableURLRequest.setValue("application/x-protobuf", forHTTPHeaderField: "Content-Type")
-        mutableURLRequest.setValue("application/x-protobuf", forHTTPHeaderField: "Accept")
+        mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         mutableURLRequest.setValue("\(NonceUtils.generateNonce())", forHTTPHeaderField: "X-Nonce")
         mutableURLRequest.setValue("\(TimestampUtils.generateTimestamp())", forHTTPHeaderField: "X-Timestamp")
-        mutableURLRequest.HTTPBody = properties.parameters
+        mutableURLRequest.HTTPBody = NSJSONSerialization.dataWithJSONObject(properties.parameters, options: nil, error: nil)
         return mutableURLRequest
     }
 }

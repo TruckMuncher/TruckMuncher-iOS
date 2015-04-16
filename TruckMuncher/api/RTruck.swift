@@ -13,7 +13,6 @@ class RTruck: RLMObject {
     dynamic var id = ""
     dynamic var name = ""
     dynamic var imageUrl = ""
-    //dynamic var keywords = [String]()
     dynamic var keywords = RLMArray(objectClassName: RString.className())
     dynamic var latitude = 0.0
     dynamic var longitude = 0.0
@@ -29,28 +28,27 @@ class RTruck: RLMObject {
         super.init()
     }
     
-    class func initFromProto(truck: ActiveTrucksResponse.Truck) -> RTruck {
+    class func initFromProto(truck: [String: AnyObject]) -> RTruck {
         let rtruck = RTruck()
-        rtruck.id = truck.id
-        rtruck.latitude = truck.latitude
-        rtruck.longitude = truck.longitude
+        rtruck.id = truck["id"] as! String
+        rtruck.latitude = truck["latitude"] as! Double
+        rtruck.longitude = truck["longitude"] as! Double
         return rtruck
     }
     
-    class func initFromProto(truck: Truck, isNew: Bool) -> RTruck {
+    class func initFromProto(truck: [String: AnyObject], isNew: Bool) -> RTruck {
         let rtruck = RTruck()
-        rtruck.id = truck.id
-        rtruck.name = truck.name
-        rtruck.imageUrl = truck.imageUrl
-        //rtruck.keywords = truck.keywords
-        for keyword in truck.keywords {
+        rtruck.id = truck["id"] as! String
+        rtruck.name = truck["name"] as! String
+        rtruck.imageUrl = truck["imageUrl"] as! String
+        for keyword in truck["keywords"] as! [String] {
             rtruck.keywords.addObject(RString.initFromString(keyword))
         }
         rtruck.isNew = isNew
-        rtruck.primaryColor = truck.primaryColor
-        rtruck.secondaryColor = truck.secondaryColor
-        rtruck.approved = truck.approved
-        rtruck.approvalPending = truck.approvalPending
+        rtruck.primaryColor = truck["primaryColor"] as! String
+        rtruck.secondaryColor = truck["secondaryColor"] as! String
+        rtruck.approved = truck["approved"] as! Bool
+        rtruck.approvalPending = truck["approvalPending"] as! Bool
         return rtruck
     }
     
