@@ -205,7 +205,7 @@ class MapViewController: UIViewController,
     func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
         
         var clusterAnnotation = view.annotation as? CCHMapClusterAnnotation
-        var truckLocationAnnotation = clusterAnnotation?.annotations.allObjects[0] as? TruckLocationAnnotation
+        var truckLocationAnnotation = clusterAnnotation?.annotations.first as? TruckLocationAnnotation
         
         if let tappedTruckIndex = truckLocationAnnotation?.index {
             truckCarousel.currentItemIndex = tappedTruckIndex
