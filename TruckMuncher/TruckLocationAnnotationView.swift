@@ -13,7 +13,12 @@ class TruckLocationAnnotationView: MKAnnotationView {
     
     var annotationImage : UIImage!
     var countLabel: UILabel!
-    var count: Int = 0
+    var count: Int = 0 {
+        didSet{
+            countLabel.text = count > 1 ? String(count) : String()
+            setNeedsLayout()
+        }
+    }
     var isUniqueLocation: Bool = false
     
     override init(frame: CGRect) { super.init(frame: frame) }
@@ -26,7 +31,7 @@ class TruckLocationAnnotationView: MKAnnotationView {
 
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.setupLabel()
-        self.setCount(1)
+        count = 1
 
         self.backgroundColor = UIColor.clearColor()
         
@@ -43,12 +48,6 @@ class TruckLocationAnnotationView: MKAnnotationView {
         countLabel.font = UIFont.boldSystemFontOfSize(12.0)
         countLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
         self.addSubview(countLabel)
-    }
-    
-    func setCount(count: Int) {
-        self.count = count
-        countLabel.text = count > 1 ? String(count) : String()
-        setNeedsLayout()
     }
     
     func setUniqueLocation(isUnique: Bool) {

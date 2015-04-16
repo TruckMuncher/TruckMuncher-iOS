@@ -55,7 +55,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckNameLabel.text = truck.name
         var keywords = [String]()
         for keyword in truck.keywords {
-            keywords.append((keyword as RString).value)
+            keywords.append((keyword as! RString).value)
         }
         truckTagsLabel.text = join(", ", keywords)
         
@@ -101,19 +101,19 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as! MenuItemTableViewCell
         cell.givenTextColor = textColor
-        var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
+        var category = menu!.categories.objectAtIndex(UInt(indexPath.section)) as! RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int((menu?.categories.objectAtIndex(UInt(section)) as RCategory).menuItems.count)
+        return Int((menu?.categories.objectAtIndex(UInt(section)) as! RCategory).menuItems.count)
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (menu?.categories.objectAtIndex(UInt(section)) as RCategory).name
+        return (menu?.categories.objectAtIndex(UInt(section)) as! RCategory).name
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

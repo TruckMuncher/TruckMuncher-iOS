@@ -36,7 +36,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     required init(coder aDecoder: NSCoder) {
-        self.trucks = aDecoder.decodeObjectForKey("vmvcTrucks") as [RTruck]
+        self.trucks = aDecoder.decodeObjectForKey("vmvcTrucks") as! [RTruck]
         super.init(coder: aDecoder)
     }
     
@@ -307,8 +307,8 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     func getOutOfStockItems () -> [RMenuItem] {
         var itemsOutOfStock = [RMenuItem]()
         for category in menu.categories {
-            for menuItem in (category as RCategory).menuItems {
-                let item = menuItem as RMenuItem
+            for menuItem in (category as! RCategory).menuItems {
+                let item = menuItem as! RMenuItem
                 if !item.isAvailable {
                     itemsOutOfStock.append(item)
                 }
@@ -330,9 +330,9 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1)
         
         for (index, view) in enumerate(truckSelectionView.subviews) {
-            (view as UIView).backgroundColor = UIColor.clearColor()
+            (view as! UIView).backgroundColor = UIColor.clearColor()
             if index == truckSelected {
-                (view as UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
+                (view as! UIView).backgroundColor = pinkColor.colorWithAlphaComponent(0.75)
             }
         }
         
