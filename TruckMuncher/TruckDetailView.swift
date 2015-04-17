@@ -19,16 +19,28 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
+    let menuManager = MenuManager()
+    
     var menu: RMenu?
     var textColor = UIColor.blackColor()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
-        menuTableView.estimatedRowHeight = 44.0
-        menuTableView.rowHeight = UITableViewAutomaticDimension
-        menuTableView.backgroundView = nil
-        menuTableView.backgroundColor = UIColor.clearColor()
+        if menuTableView != nil {
+            menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
+            menuTableView.estimatedRowHeight = 44.0
+            menuTableView.rowHeight = UITableViewAutomaticDimension
+            menuTableView.backgroundView = nil
+            menuTableView.backgroundColor = UIColor.clearColor()
+        }
     }
     
     func updateViewForNoTruck() {
@@ -48,25 +60,33 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func updateViewWithTruck(truck:RTruck!, showingMenu: Bool) {
         menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as? RMenu
-        menuTableView.reloadData()
+        if menu == nil {
+            menuManager.getMenu(truckId: truck.id, success: { (response) -> () in
+                self.menu = response as RMenu
+                self.menuTableView.reloadData()
+                }) { (error) -> () in
+                    println("error \(error)")
+            }
+        } else {
+            self.menuTableView.reloadData()
+        }
+        self.getImageForTruck(truck)
         
-        getImageForTruck(truck)
-        
-        truckNameLabel.text = truck.name
+        self.truckNameLabel.text = truck.name
         var keywords = [String]()
         for keyword in truck.keywords {
             keywords.append((keyword as! RString).value)
         }
-        truckTagsLabel.text = join(", ", keywords)
+        self.truckTagsLabel.text = join(", ", keywords)
         
         let primary = showingMenu ? UIColor(rgba: truck.primaryColor) : carouselBackground
-        backgroundColor = primary
-        textColor = primary.suggestedTextColor()
-        truckNameLabel.textColor = textColor
-        truckTagsLabel.textColor = textColor
+        self.backgroundColor = primary
+        self.textColor = primary.suggestedTextColor()
+        self.truckNameLabel.textColor = self.textColor
+        self.truckTagsLabel.textColor = self.textColor
         
-        distanceLabel.text = String(format: "%.02f mi", truck.distanceFromMe)
-        distanceLabel.textColor = textColor
+        self.distanceLabel.text = String(format: "%.02f mi", truck.distanceFromMe)
+        self.distanceLabel.textColor = self.textColor
     }
     
     func updateViewWithColor(color: UIColor) {
@@ -97,7 +117,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     // MARK - UITableViewDelegate and UITableViewDataSource Methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return Int(menu!.categories.count)
+        return menu != nil ? Int(menu!.categories.count) : 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

@@ -14,6 +14,7 @@ class AllTrucksCollectionViewController: UICollectionViewController {
     
     var allTrucks: [RTruck] = [RTruck]()
     let trucksManager = TrucksManager()
+    var menuManager = MenuManager()
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck]) {
         self.allTrucks = allTrucks
@@ -78,6 +79,11 @@ class AllTrucksCollectionViewController: UICollectionViewController {
         return true
     }
     */
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let detailVC = TruckDetailViewController(nibName: "TruckDetailViewController", bundle: nil, truck: self.allTrucks[indexPath.row])
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
