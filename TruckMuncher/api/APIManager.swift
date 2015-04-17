@@ -34,7 +34,7 @@ class APIManager {
 }
 
 enum APIRouter: URLRequestConvertible {
-    static let baseUrl = "https://api.truckmuncher.com:8443"
+    static let baseUrl = BASE_URL
     
     case getActiveTrucks([String: AnyObject])
     case getTrucksForVendor([String: AnyObject])

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
     let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
-    var twitterAPI: STTwitterAPI?
+    lazy var twitterAPI = STTwitterAPI()
     let authManager = AuthManager()
     let truckManager = TrucksManager()
     
@@ -80,10 +80,13 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBAction func clickedLoginWithTwitter(sender: AnyObject) {
         touchUpTwitterButton(sender)
+#if DEBUG
+        loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+#elseif RELEASE
         // try to use the saved tokens
         attemptTwitterLogin { () -> Void in
             // if that failed, open up a browser to ask them to login to twitter
-            self.twitterAPI?.postTokenRequest({ (url, token) -> Void in
+            self.twitterAPI.postTokenRequest({ (url, token) -> Void in
                 UIApplication.sharedApplication().openURL(url)
                 return
             }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: self.twitterCallback, errorBlock: { (error) -> Void in
@@ -91,6 +94,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
             })
             return
         }
+#endif
     }
     
     /**
@@ -102,7 +106,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         
         if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
             twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
-            twitterAPI?.verifyCredentialsWithSuccessBlock({ (username) -> Void in
+            twitterAPI.verifyCredentialsWithSuccessBlock({ (username) -> Void in
                 self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
             }, errorBlock: { (error) -> Void in
                 // our cached credentials are no longer valid
@@ -115,7 +119,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
-        twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
+        twitterAPI.postAccessTokenRequestWithPIN(verifier as String, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
             self.tokenItem.setObject(token, forKey: kSecAttrAccount)
             self.secretItem.setObject(secret, forKey: kSecValueData)
             

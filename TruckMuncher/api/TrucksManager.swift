@@ -39,8 +39,8 @@ class TrucksManager {
                 } else {
                     rtruck = rresponse[0] as? RTruck
                 }
-                rtruck!.latitude = truck["latitude"] as! Double
-                rtruck!.longitude = truck["longitude"] as! Double
+                rtruck!.latitude = truck["latitude"] as? Double ?? 0.0
+                rtruck!.longitude = truck["longitude"] as? Double ?? 0.0
                 rtruck!.isInServingMode = true
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
@@ -76,17 +76,19 @@ class TrucksManager {
                     rtruck = RTruck.initFromProto(truck, isNew: false)
                 } else {
                     rtruck = rresponse[0] as? RTruck
-                    rtruck!.name = truck["name"] as! String
-                    rtruck!.imageUrl = truck["imageUrl"] as! String
+                    rtruck!.name = truck["name"] as? String ?? ""
+                    rtruck!.imageUrl = truck["imageUrl"] as? String ?? ""
                     rtruck!.keywords.removeAllObjects()
-                    for keyword in truck["keywords"] as! [String] {
-                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    if let keywords = truck["keywords"] as? [String] {
+                        for keyword in keywords {
+                            rtruck!.keywords.addObject(RString.initFromString(keyword))
+                        }
                     }
                     rtruck!.isNew = false
-                    rtruck!.primaryColor = truck["primaryColor"] as! String
-                    rtruck!.secondaryColor = truck["secondaryColor"] as! String
-                    rtruck!.approved = truck["approved"] as! Bool
-                    rtruck!.approvalPending = truck["approvalPending"] as! Bool
+                    rtruck!.primaryColor = truck["primaryColor"] as? String ?? ""
+                    rtruck!.secondaryColor = truck["secondaryColor"] as? String ?? ""
+                    rtruck!.approved = truck["approved"] as? Bool ?? false
+                    rtruck!.approvalPending = truck["approvalPending"] as? Bool ?? false
                 }
                 let rstring = RString.initFromString(rtruck!.id)
                 if !contains(ruser.truckIds, rstring) {
@@ -129,17 +131,19 @@ class TrucksManager {
                     rtruck = RTruck.initFromProto(truck, isNew: false)
                 } else {
                     rtruck = rresponse[0] as? RTruck
-                    rtruck!.name = truck["name"] as! String
-                    rtruck!.imageUrl = truck["imageUrl"] as! String
+                    rtruck!.name = truck["name"] as? String ?? ""
+                    rtruck!.imageUrl = truck["imageUrl"] as? String ?? ""
                     rtruck!.keywords.removeAllObjects()
-                    for keyword in truck["keywords"] as! [String] {
-                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    if let keywords = truck["keywords"] as? [String] {
+                        for keyword in keywords {
+                            rtruck!.keywords.addObject(RString.initFromString(keyword))
+                        }
                     }
                     rtruck!.isNew = false
-                    rtruck!.primaryColor = truck["primaryColor"] as! String
-                    rtruck!.secondaryColor = truck["secondaryColor"] as! String
-                    rtruck!.approved = truck["approved"] as! Bool
-                    rtruck!.approvalPending = truck["approvalPending"] as! Bool
+                    rtruck!.primaryColor = truck["primaryColor"] as? String ?? ""
+                    rtruck!.secondaryColor = truck["secondaryColor"] as? String ?? ""
+                    rtruck!.approved = truck["approved"] as? Bool ?? false
+                    rtruck!.approvalPending = truck["approvalPending"] as? Bool ?? false
                 }
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)

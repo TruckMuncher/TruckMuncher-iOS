@@ -31,24 +31,26 @@ class RTruck: RLMObject {
     class func initFromProto(truck: [String: AnyObject]) -> RTruck {
         let rtruck = RTruck()
         rtruck.id = truck["id"] as! String
-        rtruck.latitude = truck["latitude"] as! Double
-        rtruck.longitude = truck["longitude"] as! Double
+        rtruck.latitude = truck["latitude"] as? Double ?? 0.0
+        rtruck.longitude = truck["longitude"] as? Double ?? 0.0
         return rtruck
     }
     
     class func initFromProto(truck: [String: AnyObject], isNew: Bool) -> RTruck {
         let rtruck = RTruck()
         rtruck.id = truck["id"] as! String
-        rtruck.name = truck["name"] as! String
-        rtruck.imageUrl = truck["imageUrl"] as! String
-        for keyword in truck["keywords"] as! [String] {
-            rtruck.keywords.addObject(RString.initFromString(keyword))
+        rtruck.name = truck["name"] as? String ?? ""
+        rtruck.imageUrl = truck["imageUrl"] as? String ?? ""
+        if let keywords = truck["keywords"] as? [String] {
+            for keyword in keywords {
+                rtruck.keywords.addObject(RString.initFromString(keyword))
+            }
         }
         rtruck.isNew = isNew
-        rtruck.primaryColor = truck["primaryColor"] as! String
-        rtruck.secondaryColor = truck["secondaryColor"] as! String
-        rtruck.approved = truck["approved"] as! Bool
-        rtruck.approvalPending = truck["approvalPending"] as! Bool
+        rtruck.primaryColor = truck["primaryColor"] as? String ?? ""
+        rtruck.secondaryColor = truck["secondaryColor"] as? String ?? ""
+        rtruck.approved = truck["approved"] as? Bool ?? false
+        rtruck.approvalPending = truck["approvalPending"] as? Bool ?? false
         return rtruck
     }
     

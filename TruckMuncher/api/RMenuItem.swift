@@ -25,21 +25,23 @@ class RMenuItem: RLMObject {
     class func initFromSmallProto(menuItem: [String: AnyObject]) -> RMenuItem {
         let rmenuitem = RMenuItem()
         rmenuitem.id = menuItem["menuItemId"] as! String
-        rmenuitem.isAvailable = menuItem["isAvailable"] as! Bool
+        rmenuitem.isAvailable = menuItem["isAvailable"] as? Bool ?? false
         return rmenuitem
     }
     
     class func initFromFullProto(menuItem: [String: AnyObject]) -> RMenuItem {
         let rmenuitem = RMenuItem()
         rmenuitem.id = menuItem["id"] as! String
-        rmenuitem.name = menuItem["name"] as! String
-        rmenuitem.price = menuItem["price"] as! Double
-        rmenuitem.notes = menuItem["notes"] as! String
-        for tag in menuItem["tags"] as! [String] {
-            rmenuitem.tags.addObject(RString.initFromString(tag))
+        rmenuitem.name = menuItem["name"] as? String ?? ""
+        rmenuitem.price = menuItem["price"] as? Double ?? 0.0
+        rmenuitem.notes = menuItem["notes"] as? String ?? ""
+        if let tags = menuItem["tags"] as? [String] {
+            for tag in tags {
+                rmenuitem.tags.addObject(RString.initFromString(tag))
+            }
         }
-        rmenuitem.orderInCategory = menuItem["orderInCategory"] as! Int
-        rmenuitem.isAvailable = menuItem["isAvailable"] as! Bool
+        rmenuitem.orderInCategory = menuItem["orderInCategory"] as? Int ?? 0
+        rmenuitem.isAvailable = menuItem["isAvailable"] as? Bool ?? false
         return rmenuitem
     }
     

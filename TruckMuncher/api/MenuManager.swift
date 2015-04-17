@@ -36,7 +36,7 @@ struct MenuManager {
                     rmenuItem = RMenuItem()
                     rmenuItem!.id = id
                 }
-                rmenuItem!.isAvailable = item["isAvailable"] as! Bool
+                rmenuItem!.isAvailable = item["isAvailable"] as? Bool ?? false
                 realm.addOrUpdateObject(rmenuItem!)
                 items.append(rmenuItem!)
             }
