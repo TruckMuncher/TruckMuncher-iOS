@@ -13,37 +13,32 @@ import TwitterKit
 class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBOutlet var fbLoginView: FBLoginView!
-    @IBOutlet weak var btnTwitterLogin: UIButton!
+    @IBOutlet weak var btnTwitterLogin: TWTRLogInButton!
     
     var twitterKey: String = ""
     var twitterSecretKey: String = ""
     var twitterName: String = ""
     var twitterCallback: String = ""
     
-    let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
-    let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
-    lazy var twitterAPI = STTwitterAPI()
     let authManager = AuthManager()
     let truckManager = TrucksManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let logInButton = TWTRLogInButton(logInCompletion: {
-            (session: TWTRSession!, error: NSError!) in
-            // play with Twitter session
-        })
-        logInButton.center = self.view.center
-        self.view.addSubview(logInButton)
-
         
-        btnTwitterLogin.layer.cornerRadius = 5
+        btnTwitterLogin.logInCompletion = { (session: TWTRSession!, error: NSError!) in
+            #if DEBUG
+                self.loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+            #elseif RELEASE
+                self.loginToAPI("oauth_token=\(session.authToken), oauth_secret=\(session.authTokenSecret)")
+            #endif
+        }
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelTapped")
         
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
         
-        twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey)
         // TODO show some sort of progress dialog signifying a sign in occuring
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") {
             attemptSessionTokenRefresh({ (error) -> () in
@@ -63,7 +58,11 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
+        #if DEBUG
+            loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+        #elseif RELEASE
+            loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
+        #endif
     }
     
     func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
@@ -76,66 +75,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     func loginView(loginView : FBLoginView!, handleError:NSError) {
         println("Error: \(handleError.localizedDescription)")
-    }
-    
-    @IBAction func touchDownTwitterButton(sender: AnyObject) {
-        btnTwitterLogin.backgroundColor = UIColor(rgba: "#3B89C3")
-    }
-    
-    @IBAction func touchUpTwitterButton(sender: AnyObject) {
-        // https://about.twitter.com/press/brand-assets
-        btnTwitterLogin.backgroundColor = UIColor(rgba: "#55ACEE")
-    }
-    
-    @IBAction func clickedLoginWithTwitter(sender: AnyObject) {
-        touchUpTwitterButton(sender)
-#if DEBUG
-        loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
-#elseif RELEASE
-        // try to use the saved tokens
-        attemptTwitterLogin { () -> Void in
-            // if that failed, open up a browser to ask them to login to twitter
-            self.twitterAPI.postTokenRequest({ (url, token) -> Void in
-                UIApplication.sharedApplication().openURL(url)
-                return
-            }, authenticateInsteadOfAuthorize: false, forceLogin: NSNumber(bool: true), screenName: nil, oauthCallback: self.twitterCallback, errorBlock: { (error) -> Void in
-                UIAlertView(title: "Login Failed", message: "Could not login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-            })
-            return
-        }
-#endif
-    }
-    
-    /**
-     * Attempts to reuse tokens stored in the keychain to automatically login to twitter without user interaction.
-     */
-    func attemptTwitterLogin(errorBlock: () -> Void) {
-        let oauthToken = tokenItem.objectForKey(kSecAttrAccount) as! String?
-        let oauthSecret = secretItem.objectForKey(kSecValueData) as! String?
-        
-        if oauthToken != nil && !oauthToken!.isEmpty && oauthSecret != nil && !oauthSecret!.isEmpty {
-            twitterAPI = STTwitterAPI(OAuthConsumerName: twitterName, consumerKey: twitterKey, consumerSecret: twitterSecretKey, oauthToken: oauthToken!, oauthTokenSecret: oauthSecret!)
-            twitterAPI.verifyCredentialsWithSuccessBlock({ (username) -> Void in
-                self.loginToAPI("oauth_token=\(oauthToken!), oauth_secret=\(oauthSecret!)")
-            }, errorBlock: { (error) -> Void in
-                // our cached credentials are no longer valid
-                self.twitterAPI = STTwitterAPI(OAuthConsumerName: self.twitterName, consumerKey: self.twitterKey, consumerSecret: self.twitterSecretKey)
-                errorBlock()
-            })
-        } else {
-            errorBlock()
-        }
-    }
-    
-    func verifyTwitterLogin(oauthToken: NSString!, verifier: NSString!) {
-        twitterAPI.postAccessTokenRequestWithPIN(verifier as String, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
-            self.tokenItem.setObject(token, forKey: kSecAttrAccount)
-            self.secretItem.setObject(secret, forKey: kSecValueData)
-            
-            self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
-        }, errorBlock: { (error: NSError!) -> Void in
-            UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-        })
     }
     
     func successfullyLoggedInAsTruck() {
