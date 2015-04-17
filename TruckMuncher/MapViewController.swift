@@ -36,12 +36,24 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
+    var allTrucksRegardlessOfServingMode = [RTruck]()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
     
     var initialTouchY: CGFloat = 0
+    
+    @IBAction func viewAllTrucks(sender: AnyObject) {
+        if (allTrucksRegardlessOfServingMode.count > 0){
+            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode)
+            navigationController?.pushViewController(allTrucksVC, animated: true)
+        } else {
+            var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -316,7 +328,15 @@ class MapViewController: UIViewController,
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
-            }
+                }
+            
+            trucksManager.getTruckProfiles(atLatitude: lat, longitude: long, success: { (response) -> () in
+                self.allTrucksRegardlessOfServingMode = response as [RTruck]
+                }, error: { (error) -> () in
+                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck information", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
         }
     }
     
