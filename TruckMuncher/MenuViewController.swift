@@ -23,13 +23,13 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
         self.truck = truck
-        menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as RMenu
+        menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as! RMenu
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
     required init(coder aDecoder: NSCoder) {
-        self.truck = aDecoder.decodeObjectForKey("mvcTruck") as RTruck
-        self.menu = aDecoder.decodeObjectForKey("mvcMenu") as RMenu
+        self.truck = aDecoder.decodeObjectForKey("mvcTruck") as! RTruck
+        self.menu = aDecoder.decodeObjectForKey("mvcMenu") as! RMenu
         super.init(coder: aDecoder)
     }
     
@@ -70,7 +70,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func sendDiffs(diffs: [String: Bool]) {
         menuManager.modifyMenuItemAvailability(items: diffs, success: { () -> () in
             println("successfully updated diffs")
-            self.menu = RMenu.objectsWhere("truckId = %@", self.truck.id).firstObject() as RMenu
+            self.menu = RMenu.objectsWhere("truckId = %@", self.truck.id).firstObject() as! RMenu
         }) { (error) -> () in
             println("error updating diffs")
         }
@@ -81,8 +81,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let realm = RLMRealm.defaultRealm()
         realm.beginWriteTransaction()
         for indexPath in selectedCells {
-            var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
-            var currentItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as RMenuItem
+            var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as! RCategory
+            var currentItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as! RMenuItem
             currentItem.isAvailable = !currentItem.isAvailable
             diffs[currentItem.id] = currentItem.isAvailable
         }
@@ -113,9 +113,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as MenuItemTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("MenuItemTableViewCellIdentifier") as! MenuItemTableViewCell
         cell.givenTextColor = textColor
-        var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
+        var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as! RCategory
         cell.menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as? RMenuItem
         var bgView = UIView()
         bgView.backgroundColor = view.backgroundColor
@@ -124,11 +124,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int((menu.categories.objectAtIndex(UInt(section)) as RCategory).menuItems.count)
+        return Int((menu.categories.objectAtIndex(UInt(section)) as! RCategory).menuItems.count)
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (menu.categories.objectAtIndex(UInt(section)) as RCategory).name
+        return (menu.categories.objectAtIndex(UInt(section)) as! RCategory).name
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -177,8 +177,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
-        var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as RCategory
-        var menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as RMenuItem
+        var category = menu.categories.objectAtIndex(UInt(indexPath.section)) as! RCategory
+        var menuItem = category.menuItems.objectAtIndex(UInt(indexPath.row)) as! RMenuItem
         return menuItem.isAvailable ? "Out of Stock" : "In Stock"
     }
 }

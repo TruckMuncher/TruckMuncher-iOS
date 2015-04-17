@@ -15,11 +15,11 @@ class RUser: RLMObject {
     dynamic var sessionToken = ""
     dynamic var truckIds = RLMArray(objectClassName: RString.className())
     
-    class func initFromProto(auth: AuthResponse) -> RUser {
+    class func initFromProto(auth: [String: AnyObject]) -> RUser {
         let ruser = RUser()
-        ruser.id = auth.userId
-        ruser.username = auth.username
-        ruser.sessionToken = auth.sessionToken
+        ruser.id = auth["userId"] as! String
+        ruser.username = auth["username"] as! String
+        ruser.sessionToken = auth["sessionToken"] as! String
         return ruser
     }
     

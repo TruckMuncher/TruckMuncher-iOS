@@ -17,13 +17,12 @@ class TrucksManager {
     }
     
     func getActiveTrucks(atLatitude lat: Double, longitude lon: Double, withSearchQuery search: String, success successBlock: (response: [RTruck]) -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = ActiveTrucksRequest.builder()
-        builder.latitude = lat
-        builder.longitude = lon
-        builder.searchQuery = search
-        apiManager.post(APIRouter.getActiveTrucks(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["latitude"] = lat
+        dict["longitude"] = lon
+        dict["searchQuery"] = search
+        apiManager.post(APIRouter.getActiveTrucks(dict), success: { (response, dict) -> () in
             // success
-            var truckResponse = ActiveTrucksResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             
             let realm = RLMRealm.defaultRealm()
@@ -31,18 +30,17 @@ class TrucksManager {
             
             // TODO this process could use some optimization
             // currently queries one truck, updates properties, writes to DB, repeat
-            for truck in truckResponse.trucks {
-                let activeTrucksResponseTruck = truck as ActiveTrucksResponse.Truck
-                let rresponse = RTruck.objectsWhere("id = %@", activeTrucksResponseTruck.id)
+            for truck in dict!["trucks"] as! [[String: AnyObject]] {
+                let rresponse = RTruck.objectsWhere("id = %@", truck["id"] as! String)
                 var rtruck: RTruck? = nil
                 if rresponse.count == 0 {
                     rtruck = RTruck()
-                    rtruck!.id = activeTrucksResponseTruck.id
+                    rtruck!.id = truck["id"] as! String
                 } else {
                     rtruck = rresponse[0] as? RTruck
                 }
-                rtruck!.latitude = activeTrucksResponseTruck.latitude
-                rtruck!.longitude = activeTrucksResponseTruck.longitude
+                rtruck!.latitude = truck["latitude"] as? Double ?? 0.0
+                rtruck!.longitude = truck["longitude"] as? Double ?? 0.0
                 rtruck!.isInServingMode = true
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
@@ -50,11 +48,11 @@ class TrucksManager {
             realm.commitWriteTransaction()
             
             successBlock(response: trucks)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
@@ -62,35 +60,35 @@ class TrucksManager {
     
     func getTrucksForVendor(success successBlock: (response: [RTruck]) -> (), error errorBlock: (error: Error?) -> ()) {
         // TODO if not logged in as vendor, don't even make this request
-        let builder = TrucksForVendorRequest.builder()
-        apiManager.post(APIRouter.getTrucksForVendor(builder.build().getNSData()), success: { (response, data) -> () in
+        apiManager.post(APIRouter.getTrucksForVendor([String: AnyObject]()), success: { (response, dict) -> () in
             // success
-            var truckResponse = TrucksForVendorResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             
-            let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as String).firstObject() as RUser
+            let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as! String).firstObject() as! RUser
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
-            for truck in truckResponse.trucks {
-                let rresponse = RTruck.objectsWhere("id = %@", truck.id)
+            for truck in dict!["trucks"] as! [[String: AnyObject]] {
+                let rresponse = RTruck.objectsWhere("id = %@", truck["id"] as! String)
                 var rtruck: RTruck? = nil
                 if rresponse.count == 0 {
-                    rtruck = RTruck.initFromProto(truck, isNew: truckResponse.isNew)
+                    rtruck = RTruck.initFromProto(truck, isNew: false)
                 } else {
                     rtruck = rresponse[0] as? RTruck
-                    rtruck!.name = truck.name
-                    rtruck!.imageUrl = truck.imageUrl
+                    rtruck!.name = truck["name"] as? String ?? ""
+                    rtruck!.imageUrl = truck["imageUrl"] as? String ?? ""
                     rtruck!.keywords.removeAllObjects()
-                    for keyword in truck.keywords {
-                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    if let keywords = truck["keywords"] as? [String] {
+                        for keyword in keywords {
+                            rtruck!.keywords.addObject(RString.initFromString(keyword))
+                        }
                     }
                     rtruck!.isNew = false
-                    rtruck!.primaryColor = truck.primaryColor
-                    rtruck!.secondaryColor = truck.secondaryColor
-                    rtruck!.approved = truck.approved
-                    rtruck!.approvalPending = truck.approvalPending
+                    rtruck!.primaryColor = truck["primaryColor"] as? String ?? ""
+                    rtruck!.secondaryColor = truck["secondaryColor"] as? String ?? ""
+                    rtruck!.approved = truck["approved"] as? Bool ?? false
+                    rtruck!.approvalPending = truck["approvalPending"] as? Bool ?? false
                 }
                 let rstring = RString.initFromString(rtruck!.id)
                 if !contains(ruser.truckIds, rstring) {
@@ -104,11 +102,11 @@ class TrucksManager {
             realm.commitWriteTransaction()
             
             successBlock(response: trucks)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
@@ -116,35 +114,36 @@ class TrucksManager {
     
     func getTruckProfiles(atLatitude lat: Double, longitude lon: Double, success successBlock: (response: [RTruck]) -> (), error errorBlock: (error: Error?) -> ()) {
         // TODO returned cached copy instead of network request
-        let builder = TruckProfilesRequest.builder()
-        builder.latitude = lat
-        builder.longitude = lon
-        apiManager.post(APIRouter.getTruckProfiles(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["latitude"] = lat
+        dict["longitude"] = lon
+        apiManager.post(APIRouter.getTruckProfiles(dict), success: { (response, dict) -> () in
             // success
-            var truckResponse = TruckProfilesResponse.parseFromNSData(data!)
             var trucks = [RTruck]()
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
-            for truck in truckResponse.trucks {
-                let rresponse = RTruck.objectsWhere("id = %@", truck.id)
+            for truck in dict!["trucks"] as! [[String: AnyObject]] {
+                let rresponse = RTruck.objectsWhere("id = %@", truck["id"] as! String)
                 var rtruck: RTruck? = nil
                 if rresponse.count == 0 {
                     rtruck = RTruck.initFromProto(truck, isNew: false)
                 } else {
                     rtruck = rresponse[0] as? RTruck
-                    rtruck!.name = truck.name
-                    rtruck!.imageUrl = truck.imageUrl
+                    rtruck!.name = truck["name"] as? String ?? ""
+                    rtruck!.imageUrl = truck["imageUrl"] as? String ?? ""
                     rtruck!.keywords.removeAllObjects()
-                    for keyword in truck.keywords {
-                        rtruck!.keywords.addObject(RString.initFromString(keyword))
+                    if let keywords = truck["keywords"] as? [String] {
+                        for keyword in keywords {
+                            rtruck!.keywords.addObject(RString.initFromString(keyword))
+                        }
                     }
                     rtruck!.isNew = false
-                    rtruck!.primaryColor = truck.primaryColor
-                    rtruck!.secondaryColor = truck.secondaryColor
-                    rtruck!.approved = truck.approved
-                    rtruck!.approvalPending = truck.approvalPending
+                    rtruck!.primaryColor = truck["primaryColor"] as? String ?? ""
+                    rtruck!.secondaryColor = truck["secondaryColor"] as? String ?? ""
+                    rtruck!.approved = truck["approved"] as? Bool ?? false
+                    rtruck!.approvalPending = truck["approvalPending"] as? Bool ?? false
                 }
                 realm.addOrUpdateObject(rtruck!)
                 trucks.append(rtruck!)
@@ -152,29 +151,29 @@ class TrucksManager {
             realm.commitWriteTransaction()
             
             successBlock(response: trucks)
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }
     }
     
     func modifyServingMode(#truckId: String, isInServingMode servingMode: Bool, atLatitude lat: Double, longitude lon: Double, success successBlock: () -> (), error errorBlock: (error: Error?) -> ()) {
-        let builder = ServingModeRequest.builder()
-        builder.truckId = truckId
-        builder.isInServingMode = servingMode
-        builder.truckLatitude = lat
-        builder.truckLongitude = lon
-        apiManager.post(APIRouter.modifyServingMode(builder.build().getNSData()), success: { (response, data) -> () in
+        var dict = [String: AnyObject]()
+        dict["truckId"] = truckId
+        dict["isInServingMode"] = servingMode
+        dict["truckLatitude"] = lat
+        dict["truckLongitude"] = lon
+        apiManager.post(APIRouter.modifyServingMode(dict), success: { (response, dict) -> () in
             // success
             
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()
             
-            let rtruck = RTruck.objectsWhere("id = %@", truckId)[0] as RTruck
+            let rtruck = RTruck.objectsWhere("id = %@", truckId)[0] as! RTruck
             rtruck.isInServingMode = servingMode
             rtruck.latitude = lat
             rtruck.longitude = lon
@@ -183,11 +182,11 @@ class TrucksManager {
             realm.commitWriteTransaction()
             
             successBlock()
-        }) { (response, data, error) -> () in
+        }) { (response, dict, error) -> () in
             // error
             var errorResponse: Error? = nil
-            if let nsdata = data {
-                errorResponse = Error.parseFromNSData(nsdata)
+            if let json = dict {
+                errorResponse = Error.parseFromDict(json)
             }
             errorBlock(error: errorResponse)
         }

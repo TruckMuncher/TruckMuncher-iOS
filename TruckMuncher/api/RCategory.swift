@@ -20,14 +20,16 @@ class RCategory: RLMObject {
         super.init()
     }
     
-    class func initFromProto(category: Category) -> RCategory {
+    class func initFromProto(category: [String: AnyObject]) -> RCategory {
         let rcategory = RCategory()
-        rcategory.id = category.id
-        rcategory.name = category.name
-        rcategory.notes = category.notes
-        rcategory.orderInMenu = Int(category.orderInMenu)
-        for menuItem in category.menuItems {
-            rcategory.menuItems.addObject(RMenuItem.initFromProto(menuItem))
+        rcategory.id = category["id"] as! String
+        rcategory.name = category["name"] as? String ?? ""
+        rcategory.notes = category["notes"] as? String ?? ""
+        rcategory.orderInMenu = category["orderInMenu"] as? Int ?? 0
+        if let menuItems = category["menuItems"] as? [[String: AnyObject]] {
+            for menuItem in menuItems {
+                rcategory.menuItems.addObject(RMenuItem.initFromFullProto(menuItem))
+            }
         }
         return rcategory
     }

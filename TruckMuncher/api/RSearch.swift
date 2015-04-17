@@ -18,11 +18,11 @@ class RSearch: RLMObject {
         super.init()
     }
     
-    class func initFromProto(searchResponse: SearchResponse) -> RSearch {
+    class func initFromProto(searchResponse: [String: AnyObject]) -> RSearch {
         let rsearch = RSearch()
-        rsearch.blurb = searchResponse.blurb
-        rsearch.truck = RTruck.initFromProto(searchResponse.truck, isNew: false)
-        rsearch.menu = RMenu.initFromProto(searchResponse.menu)
+        rsearch.blurb = searchResponse["blurb"] as? String ?? ""
+        rsearch.truck = RTruck.initFromProto(searchResponse["truck"] as! [String: AnyObject], isNew: false)
+        rsearch.menu = RMenu.initFromProto(searchResponse["menu"] as! [String: AnyObject])
         return rsearch
     }
 }
