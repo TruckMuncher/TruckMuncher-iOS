@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Fabric
 import Crashlytics
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,23 +56,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 #if RELEASE
         println("release build")
-        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
 #elseif DEBUG
         println("debug build")
+        Twitter.sharedInstance().startWithConsumerKey(config[kTwitterKey] as! String, consumerSecret: config[kTwitterSecretKey] as! String)
+        Fabric.with([Crashlytics(), Twitter.sharedInstance()])
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
 #endif
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        if isTwitterCallbackUrl(url) {
-            // pull out the oauth token and verifier and give it back to the login VC
-            let queryParams = url.query?.queryParams() as [String: String]! //wtf. the method returns [String: String]! yet i still have to cast it as a forced unwrapped optional
-            mapViewController?.loginViewController?.verifyTwitterLogin(queryParams[kTwitterOauthToken], verifier: queryParams[kTwitterOauthVerifier])
-            return true
-        } else {
-            return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
-        }
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
     }
 
     func applicationWillResignActive(application: UIApplication) {
