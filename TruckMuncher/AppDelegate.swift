@@ -56,19 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 #if RELEASE
         println("release build")
-        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
+        Twitter.sharedInstance().startWithConsumerKey(config[kTwitterKey] as! String, consumerSecret: config[kTwitterSecretKey] as! String)
+        Fabric.with([Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String), Twitter.sharedInstance()])
 #elseif DEBUG
         println("debug build")
         Twitter.sharedInstance().startWithConsumerKey(config[kTwitterKey] as! String, consumerSecret: config[kTwitterSecretKey] as! String)
-        Fabric.with([Crashlytics(), Twitter.sharedInstance()])
-        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
+        Fabric.with([Twitter.sharedInstance()])
 #endif
         
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "", fallbackHandler: nil)
+            //.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
     }
 
     func applicationWillResignActive(application: UIApplication) {
