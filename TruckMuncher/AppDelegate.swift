@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Fabric
 import Crashlytics
+import TwitterKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -54,9 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 #if RELEASE
         println("release build")
-        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as String)
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
 #elseif DEBUG
         println("debug build")
+        Fabric.with([Crashlytics(), Twitter()])
+        Crashlytics.startWithAPIKey(config[kCrashlyticsKey] as! String)
 #endif
         
         return true

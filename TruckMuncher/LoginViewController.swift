@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import TwitterKit
 
 class LoginViewController: UIViewController, FBLoginViewDelegate {
     
@@ -27,6 +28,14 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logInButton = TWTRLogInButton(logInCompletion: {
+            (session: TWTRSession!, error: NSError!) in
+            // play with Twitter session
+        })
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
+
+        
         btnTwitterLogin.layer.cornerRadius = 5
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: "cancelTapped")
