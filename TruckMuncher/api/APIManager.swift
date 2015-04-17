@@ -102,7 +102,7 @@ struct NonceUtils {
     static func generateNonce() -> String {
         let length = 32
         let data = NSMutableData(length: length)!
-        let result = SecRandomCopyBytes(kSecRandomDefault, UInt(length), UnsafeMutablePointer<UInt8>(data.mutableBytes))
+        let result = SecRandomCopyBytes(kSecRandomDefault, length, UnsafeMutablePointer<UInt8>(data.mutableBytes))
         return data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
     }
 }

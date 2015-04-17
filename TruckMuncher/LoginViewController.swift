@@ -123,15 +123,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         }, errorBlock: { (error: NSError!) -> Void in
             UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
         })
-        /*twitterAPI?.postAccessTokenRequestWithPIN(verifier, successBlock: { (token: String!, secret: String!, userId: String!, username: String!) -> Void in
-            
-            self.tokenItem.setObject(token, forKey: kSecAttrAccount)
-            self.secretItem.setObject(secret, forKey: kSecValueData)
-
-            self.loginToAPI("oauth_token=\(token), oauth_secret=\(secret)")
-        }) { (error: NSError!) -> Void in
-            UIAlertView(title: "Login Failed", message: "Could not verify your login with Twitter, please try again. \(error)", delegate: nil, cancelButtonTitle: "OK").show()
-        }*/
     }
     
     func successfullyLoggedInAsTruck() {

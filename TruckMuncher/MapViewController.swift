@@ -195,7 +195,7 @@ class MapViewController: UIViewController,
                 clusterAnnotationView!.canShowCallout = false
             }
             var clusterAnnotation = annotation as! CCHMapClusterAnnotation
-            clusterAnnotationView!.setCount(clusterAnnotation.annotations.count)
+            clusterAnnotationView!.count = clusterAnnotation.annotations.count
             clusterAnnotationView!.isUniqueLocation = clusterAnnotation.isUniqueLocation()
             annotationView = clusterAnnotationView!
         }
@@ -218,7 +218,7 @@ class MapViewController: UIViewController,
 
     func mapClusterController(mapClusterController: CCHMapClusterController!, willReuseMapClusterAnnotation mapClusterAnnotation: CCHMapClusterAnnotation!) {
         if var clusterAnnotationView = self.mapView.viewForAnnotation(mapClusterAnnotation!) as? TruckLocationAnnotationView {
-            clusterAnnotationView.setCount(mapClusterAnnotation.annotations.count)
+            clusterAnnotationView.count = mapClusterAnnotation.annotations.count
             clusterAnnotationView.isUniqueLocation = mapClusterAnnotation.isUniqueLocation()
         }
     }
@@ -411,18 +411,20 @@ class MapViewController: UIViewController,
     }
     
     @objc func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView! {
+        var detailView = view
         if view == nil {
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
-            view = viewArray[0] as! TruckDetailView
-            view.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
+            var newView = viewArray[0] as! TruckDetailView
+            newView.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
+            detailView = newView
         }
         if activeTrucks.count > 0 {
-            (view as! TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
+            (detailView as! TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
         } else {
-            (view as! TruckDetailView).updateViewForNoTruck()
+            (detailView as! TruckDetailView).updateViewForNoTruck()
         }
         
-        return view
+        return detailView
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
