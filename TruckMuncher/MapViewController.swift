@@ -44,7 +44,7 @@ class MapViewController: UIViewController,
     
     var initialTouchY: CGFloat = 0
     
-    @IBAction func viewAllTrucks(sender: AnyObject) {
+    func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
             let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode)
             navigationController?.pushViewController(allTrucksVC, animated: true)
@@ -70,8 +70,17 @@ class MapViewController: UIViewController,
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
         
         searchDelegate = SearchDelegate(completionDelegate: self)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
         searchDelegate?.searchBar.delegate = self
+        
+        let btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
+        btnAllTrucks.setTitle("\u{f06e}", forState: .Normal)
+        btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
+
     }
     
     override func viewWillDisappear(animated: Bool) {

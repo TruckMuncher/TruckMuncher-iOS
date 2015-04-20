@@ -18,24 +18,13 @@
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </mapView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGJ-Sx-3dR">
-                    <rect key="frame" x="221" y="153" width="159" height="30"/>
-                    <state key="normal" title="VIEW ALL DA TRUCKS">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="viewAllTrucks:" destination="-1" eventType="touchUpInside" id="hv3-R0-76P"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="centerX" secondItem="pGJ-Sx-3dR" secondAttribute="centerX" id="3zJ-HW-7i6"/>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6Vx-Uu-TFr"/>
-                <constraint firstAttribute="trailing" secondItem="0bU-Q8-5aJ" secondAttribute="trailing" id="Ccc-Dj-zs5"/>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hqf-tx-vul"/>
-                <constraint firstItem="pGJ-Sx-3dR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="153" id="j1e-MY-RWz"/>
-                <constraint firstAttribute="bottom" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="jlf-mU-Jgz"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YMQ-fP-yom"/>
+                <constraint firstAttribute="bottom" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="YiD-ij-NSR"/>
+                <constraint firstAttribute="trailing" secondItem="0bU-Q8-5aJ" secondAttribute="trailing" id="xO0-hc-BYC"/>
+                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zup-5b-ofZ"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

@@ -58,7 +58,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         distanceLabel.textColor = textColor
     }
     
-    func updateViewWithTruck(truck:RTruck!, showingMenu: Bool) {
+    func updateViewWithTruck(truck:RTruck!, showingMenu: Bool, showDistance: Bool = true) {
         menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as? RMenu
         if menu == nil {
             menuManager.getMenu(truckId: truck.id, success: { (response) -> () in
@@ -85,7 +85,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         self.truckNameLabel.textColor = self.textColor
         self.truckTagsLabel.textColor = self.textColor
         
-        self.distanceLabel.text = String(format: "%.02f mi", truck.distanceFromMe)
+        self.distanceLabel.text = showDistance ? String(format: "%.02f mi", truck.distanceFromMe) : ""
         self.distanceLabel.textColor = self.textColor
     }
     
