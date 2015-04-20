@@ -36,12 +36,24 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
+    var allTrucksRegardlessOfServingMode = [RTruck]()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
     
     var initialTouchY: CGFloat = 0
+    
+    func viewAllTrucks() {
+        if (allTrucksRegardlessOfServingMode.count > 0){
+            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode)
+            navigationController?.pushViewController(allTrucksVC, animated: true)
+        } else {
+            var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +70,17 @@ class MapViewController: UIViewController,
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
         
         searchDelegate = SearchDelegate(completionDelegate: self)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar")
         searchDelegate?.searchBar.delegate = self
+        
+        let btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
+        btnAllTrucks.setTitle("\u{f06e}", forState: .Normal)
+        btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -316,7 +337,15 @@ class MapViewController: UIViewController,
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
-            }
+                }
+            
+            trucksManager.getTruckProfiles(atLatitude: lat, longitude: long, success: { (response) -> () in
+                self.allTrucksRegardlessOfServingMode = response as [RTruck]
+                }, error: { (error) -> () in
+                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck information", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
         }
     }
     
