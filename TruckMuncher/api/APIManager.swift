@@ -27,6 +27,8 @@ class APIManager {
                 if error == nil {
                     successBlock(response: response, dict: dict)
                 } else {
+                    // TODO if 401, try and login then repeat request
+                    // if failed again, call errorBlock
                     errorBlock(response: response, dict: dict, error: error)
                 }
         }

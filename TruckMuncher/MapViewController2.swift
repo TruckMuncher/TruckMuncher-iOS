@@ -303,6 +303,7 @@ class MapViewController2: UIViewController,
         userManager.modifyAccount(switchPostToFb.on, postToTw: switchPostToTw.on, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            (sender as! UISwitch).on = !(sender as! UISwitch).on
             let alert = UIAlertController(title: "Oops!", message: "We couldn't update your account at this time, please try again", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)

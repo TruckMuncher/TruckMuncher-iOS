@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import TwitterKit
+import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
