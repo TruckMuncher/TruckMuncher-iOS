@@ -29,6 +29,12 @@
 		0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0699B38B1A63278800B8E0AE /* TruckDetailView.swift */; };
 		06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF119F558DB00F44F02 /* closeWhite.png */; };
 		06A36AF619F558DB00F44F02 /* closeWhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06A36AF219F558DB00F44F02 /* closeWhite@2x.png */; };
+		06B3E8B61AE1919100474DA8 /* AllTrucksCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B3E8B41AE1919100474DA8 /* AllTrucksCollectionViewController.swift */; };
+		06B3E8B71AE1919100474DA8 /* AllTrucksCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B3E8B51AE1919100474DA8 /* AllTrucksCollectionViewController.xib */; };
+		06B3E8BD1AE19FF600474DA8 /* TruckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B3E8BB1AE19FF600474DA8 /* TruckCollectionViewCell.swift */; };
+		06B3E8BE1AE19FF600474DA8 /* TruckCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B3E8BC1AE19FF600474DA8 /* TruckCollectionViewCell.xib */; };
+		06B3E8C11AE1AE0600474DA8 /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B3E8BF1AE1AE0600474DA8 /* TruckDetailViewController.swift */; };
+		06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */; };
 		06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5519FF59C30086FA57 /* TruckPin@2x.png */; };
 		06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5619FF59C30086FA57 /* TruckPin.png */; };
 		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
@@ -162,6 +168,12 @@
 		0699B38B1A63278800B8E0AE /* TruckDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckDetailView.swift; sourceTree = "<group>"; };
 		06A36AF119F558DB00F44F02 /* closeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeWhite.png; sourceTree = "<group>"; };
 		06A36AF219F558DB00F44F02 /* closeWhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeWhite@2x.png"; sourceTree = "<group>"; };
+		06B3E8B41AE1919100474DA8 /* AllTrucksCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllTrucksCollectionViewController.swift; sourceTree = "<group>"; };
+		06B3E8B51AE1919100474DA8 /* AllTrucksCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllTrucksCollectionViewController.xib; sourceTree = "<group>"; };
+		06B3E8BB1AE19FF600474DA8 /* TruckCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckCollectionViewCell.swift; sourceTree = "<group>"; };
+		06B3E8BC1AE19FF600474DA8 /* TruckCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckCollectionViewCell.xib; sourceTree = "<group>"; };
+		06B3E8BF1AE1AE0600474DA8 /* TruckDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckDetailViewController.swift; sourceTree = "<group>"; };
+		06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TruckDetailViewController.xib; sourceTree = "<group>"; };
 		06D90F5519FF59C30086FA57 /* TruckPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TruckPin@2x.png"; sourceTree = "<group>"; };
 		06D90F5619FF59C30086FA57 /* TruckPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TruckPin.png; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -258,12 +270,15 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
-		2736B1EA19F5AE7400CBACC2 /* TableViewCells */ = {
+		2736B1EA19F5AE7400CBACC2 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */,
 				2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */,
+				06B3E8BB1AE19FF600474DA8 /* TruckCollectionViewCell.swift */,
+				06B3E8BC1AE19FF600474DA8 /* TruckCollectionViewCell.xib */,
 			);
+			name = Cells;
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
@@ -344,7 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				27F536B619FF4A30009A8575 /* api */,
-				2736B1EA19F5AE7400CBACC2 /* TableViewCells */,
+				2736B1EA19F5AE7400CBACC2 /* Cells */,
 				060935F119F3086F0033F3D4 /* Map */,
 				278BFBB619D0A36A00510C6E /* Helpers */,
 				278BFBAF19D08D0900510C6E /* Media */,
@@ -366,6 +381,10 @@
 				0613ABC71A5F2EC10080202B /* TruckDetailView.xib */,
 				0699B38B1A63278800B8E0AE /* TruckDetailView.swift */,
 				2755C45F1A670857006452F7 /* SearchDelegate.swift */,
+				06B3E8B41AE1919100474DA8 /* AllTrucksCollectionViewController.swift */,
+				06B3E8B51AE1919100474DA8 /* AllTrucksCollectionViewController.xib */,
+				06B3E8BF1AE1AE0600474DA8 /* TruckDetailViewController.swift */,
+				06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -502,6 +521,7 @@
 				TargetAttributes = {
 					27AC00AD19CB4B4F00F1F3B7 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = UNSX34E88B;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -590,12 +610,15 @@
 				27BC44A91A78988700C0D07F /* transparentTM.png in Resources */,
 				2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */,
 				060EC19E1A6F1AA300A27C35 /* muncherTM.png in Resources */,
+				06B3E8B71AE1919100474DA8 /* AllTrucksCollectionViewController.xib in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
 				0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */,
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
+				06B3E8BE1AE19FF600474DA8 /* TruckCollectionViewCell.xib in Resources */,
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */,
+				06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */,
 				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
@@ -691,13 +714,16 @@
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
+				06B3E8BD1AE19FF600474DA8 /* TruckCollectionViewCell.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
+				06B3E8C11AE1AE0600474DA8 /* TruckDetailViewController.swift in Sources */,
 				27F536C119FF4C42009A8575 /* RMenu.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
 				27F536C519FF4C57009A8575 /* RCategory.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				27E680951A4210E3008173D3 /* RSearch.swift in Sources */,
+				06B3E8B61AE1919100474DA8 /* AllTrucksCollectionViewController.swift in Sources */,
 				27FE9D481A0079EF00060F79 /* RUser.swift in Sources */,
 				27E680971A42125A008173D3 /* SearchManager.swift in Sources */,
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
@@ -833,7 +859,8 @@
 			baseConfigurationReference = C55C42C1CDA48C09ADBED963 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: TruckMuncher, LLC (UNSX34E88B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -864,7 +891,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-DDEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7a531e29-bed1-4185-89e8-34666a5ed553";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};
 			name = Debug;
@@ -874,7 +901,8 @@
 			baseConfigurationReference = 94233DFE783DA964791402DF /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: TruckMuncher, LLC (UNSX34E88B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -905,7 +933,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-DRELEASE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7a531e29-bed1-4185-89e8-34666a5ed553";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
 			};
 			name = Release;
