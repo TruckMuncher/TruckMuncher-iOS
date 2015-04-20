@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var nav: UINavigationController?
-    var mapViewController: MapViewController?
+    var mapViewController: MapViewController2?
     var twitterCallback: String?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             twitterCallback = config[kTwitterCallback] as? String
         }
         
-        FBLoginView.self
+        application.statusBarStyle = .LightContent
+        
+        FBSDKLoginButton.self
         
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = pinkColor
@@ -47,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
+        mapViewController = MapViewController2(nibName: "MapViewController2", bundle: nil)
         nav = UINavigationController(rootViewController: mapViewController!)
         self.window!.rootViewController = self.nav!
         
@@ -64,12 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Twitter.sharedInstance()])
 #endif
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "", fallbackHandler: nil)
-            //.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

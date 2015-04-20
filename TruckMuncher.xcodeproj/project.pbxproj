@@ -48,6 +48,9 @@
 		278BFBB419D08F0C00510C6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB319D08F0C00510C6E /* Constants.swift */; };
 		278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */; };
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		278C0A9A1AE1B27400C65AD5 /* MapViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278C0A991AE1B27400C65AD5 /* MapViewController2.xib */; };
+		278C0A9F1AE1B91900C65AD5 /* MapViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */; };
+		278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0AA01AE4B42B00C65AD5 /* UserManager.swift */; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		279E89A01A639CF300002446 /* RString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E899F1A639CF300002446 /* RString.swift */; };
@@ -182,6 +185,9 @@
 		278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		278C0A991AE1B27400C65AD5 /* MapViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController2.xib; sourceTree = "<group>"; };
+		278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController2.swift; sourceTree = "<group>"; };
+		278C0AA01AE4B42B00C65AD5 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		279E899F1A639CF300002446 /* RString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RString.swift; sourceTree = "<group>"; };
 		27A8CE621AE1984C00C1DECA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -355,6 +361,8 @@
 				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
 				06F2D05219E4F3100030726D /* MapViewController.swift */,
 				06F2D05319E4F3100030726D /* MapViewController.xib */,
+				278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */,
+				278C0A991AE1B27400C65AD5 /* MapViewController2.xib */,
 				060935E319F300590033F3D4 /* VendorMapViewController.swift */,
 				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
 				2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */,
@@ -416,6 +424,7 @@
 				27E680961A42125A008173D3 /* SearchManager.swift */,
 				27F536CB19FF4FEE009A8575 /* MenuManager.swift */,
 				27FE9D391A0042AE00060F79 /* AuthManager.swift */,
+				278C0AA01AE4B42B00C65AD5 /* UserManager.swift */,
 				27F9A2241AE0579500896348 /* Error.swift */,
 			);
 			path = api;
@@ -576,6 +585,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278C0A9A1AE1B27400C65AD5 /* MapViewController2.xib in Resources */,
 				27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */,
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
@@ -689,9 +699,11 @@
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
 				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
+				278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
+				278C0A9F1AE1B91900C65AD5 /* MapViewController2.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
 				27F536C119FF4C42009A8575 /* RMenu.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,

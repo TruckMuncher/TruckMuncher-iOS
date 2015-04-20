@@ -131,9 +131,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         tokenItem.resetKeychainItem()
         secretItem.resetKeychainItem()
         
-        FBSession.activeSession().closeAndClearTokenInformation()
-        FBSession.activeSession().close()
-        FBSession.setActiveSession(nil)
+        FBSDKLoginManager() .logOut()
         navigationController?.popViewControllerAnimated(true)
     }
     

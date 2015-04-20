@@ -51,6 +51,14 @@ enum APIRouter: URLRequestConvertible {
     
     case simpleSearch([String: AnyObject])
     
+    case getAccount([String: AnyObject])
+    case modifyAccount([String: AnyObject])
+    case linkAccount([String: AnyObject])
+    case unlinkAccount([String: AnyObject])
+    case getFavorites([String: AnyObject])
+    case addFavorite([String: AnyObject])
+    case removeFavorite([String: AnyObject])
+    
     var properties: (path: String, parameters: [String: AnyObject]) {
         switch self {
         case .getActiveTrucks(let dict):
@@ -75,6 +83,20 @@ enum APIRouter: URLRequestConvertible {
             return ("/com.truckmuncher.api.auth.AuthService/deleteAuth", dict)
         case .simpleSearch(let dict):
             return ("/com.truckmuncher.api.search.SearchService/simpleSearch", dict)
+        case .getAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/getAccount", dict)
+        case .modifyAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/modifyAccount", dict)
+        case .linkAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/linkAccount", dict)
+        case .unlinkAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/unlinkAccounts", dict)
+        case .getFavorites(let dict):
+            return ("/com.truckmuncher.api.user.UserService/getFavorites", dict)
+        case .addFavorite(let dict):
+            return ("/com.truckmuncher.api.user.UserService/addFavorite", dict)
+        case .removeFavorite(let dict):
+            return ("/com.truckmuncher.api.user.UserService/removeFavorite", dict)
         }
     }
     

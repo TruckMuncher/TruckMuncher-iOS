@@ -23,7 +23,7 @@
                         <constraint firstAttribute="height" constant="200" id="OeS-MO-7UN"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmY-ia-VDg" customClass="FBLoginView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmY-ia-VDg" customClass="FBSDKLoginButton">
                     <rect key="frame" x="175" y="406" width="250" height="46"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>

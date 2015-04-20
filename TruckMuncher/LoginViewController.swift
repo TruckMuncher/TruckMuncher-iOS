@@ -10,9 +10,9 @@ import UIKit
 import Alamofire
 import TwitterKit
 
-class LoginViewController: UIViewController, FBLoginViewDelegate {
+class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    @IBOutlet var fbLoginView: FBLoginView!
+    @IBOutlet var fbLoginView: FBSDKLoginButton!
     @IBOutlet weak var btnTwitterLogin: TWTRLogInButton!
     
     var twitterKey: String = ""
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         
         btnTwitterLogin.logInCompletion = { (session: TWTRSession!, error: NSError!) in
             #if DEBUG
-                self.loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+                self.loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d42, oauth_secret=munch")
             #elseif RELEASE
                 self.loginToAPI("oauth_token=\(session.authToken), oauth_secret=\(session.authTokenSecret)")
             #endif
@@ -57,24 +57,18 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func loginViewShowingLoggedInUser(loginView : FBLoginView!) {
-        #if DEBUG
-            loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
-        #elseif RELEASE
-            loginToAPI("access_token=\(FBSession.activeSession().accessTokenData.accessToken)")
-        #endif
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if error == nil && !result.isCancelled {
+            #if DEBUG
+                loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+            #elseif RELEASE
+                loginToAPI("access_token=\(FBSDKAccessToken.currentAccessToken().tokenString)")
+            #endif
+        }
     }
     
-    func loginViewFetchedUserInfo(loginView : FBLoginView!, user: FBGraphUser) {
-        println("User Name: \(user.name)")
-    }
-    
-    func loginViewShowingLoggedOutUser(loginView : FBLoginView!) {
-        println("User Logged Out")
-    }
-    
-    func loginView(loginView : FBLoginView!, handleError:NSError) {
-        println("Error: \(handleError.localizedDescription)")
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        println("User logged out from Facebook")
     }
     
     func successfullyLoggedInAsTruck() {
@@ -100,6 +94,8 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
         }) { (error) -> () in
             println("error \(error)")
             println("error message \(error?.userMessage)")
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("sessionToken")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
 }
