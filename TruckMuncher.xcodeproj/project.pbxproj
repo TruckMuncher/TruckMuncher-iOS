@@ -37,8 +37,6 @@
 		06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */; };
 		06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5519FF59C30086FA57 /* TruckPin@2x.png */; };
 		06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5619FF59C30086FA57 /* TruckPin.png */; };
-		06F2D05419E4F3100030726D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F2D05219E4F3100030726D /* MapViewController.swift */; };
-		06F2D05519E4F3100030726D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06F2D05319E4F3100030726D /* MapViewController.xib */; };
 		2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */; };
 		2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */; };
 		2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */; };
@@ -54,8 +52,8 @@
 		278BFBB419D08F0C00510C6E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB319D08F0C00510C6E /* Constants.swift */; };
 		278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */; };
 		278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		278C0A9A1AE1B27400C65AD5 /* MapViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278C0A991AE1B27400C65AD5 /* MapViewController2.xib */; };
-		278C0A9F1AE1B91900C65AD5 /* MapViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */; };
+		278C0A9A1AE1B27400C65AD5 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278C0A991AE1B27400C65AD5 /* MapViewController.xib */; };
+		278C0A9F1AE1B91900C65AD5 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0A9E1AE1B91900C65AD5 /* MapViewController.swift */; };
 		278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0AA01AE4B42B00C65AD5 /* UserManager.swift */; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -180,8 +178,6 @@
 		06D90F5519FF59C30086FA57 /* TruckPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TruckPin@2x.png"; sourceTree = "<group>"; };
 		06D90F5619FF59C30086FA57 /* TruckPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TruckPin.png; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		06F2D05219E4F3100030726D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		06F2D05319E4F3100030726D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
 		2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = SOURCE_ROOT; };
@@ -197,8 +193,8 @@
 		278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		278BFBBE19D0AB7200510C6E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		278C0A991AE1B27400C65AD5 /* MapViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController2.xib; sourceTree = "<group>"; };
-		278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController2.swift; sourceTree = "<group>"; };
+		278C0A991AE1B27400C65AD5 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		278C0A9E1AE1B91900C65AD5 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		278C0AA01AE4B42B00C65AD5 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		279E899F1A639CF300002446 /* RString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RString.swift; sourceTree = "<group>"; };
@@ -374,10 +370,8 @@
 				0609360019F33EB40033F3D4 /* Colors.swift */,
 				27AC00D319CB4BE900F1F3B7 /* LoginViewController.swift */,
 				27AC00D419CB4BE900F1F3B7 /* LoginViewController.xib */,
-				06F2D05219E4F3100030726D /* MapViewController.swift */,
-				06F2D05319E4F3100030726D /* MapViewController.xib */,
-				278C0A9E1AE1B91900C65AD5 /* MapViewController2.swift */,
-				278C0A991AE1B27400C65AD5 /* MapViewController2.xib */,
+				278C0A9E1AE1B91900C65AD5 /* MapViewController.swift */,
+				278C0A991AE1B27400C65AD5 /* MapViewController.xib */,
 				060935E319F300590033F3D4 /* VendorMapViewController.swift */,
 				060935E419F300590033F3D4 /* VendorMapViewController.xib */,
 				2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */,
@@ -605,7 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278C0A9A1AE1B27400C65AD5 /* MapViewController2.xib in Resources */,
+				278C0A9A1AE1B27400C65AD5 /* MapViewController.xib in Resources */,
 				27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */,
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
@@ -629,7 +623,6 @@
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */,
 				06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */,
-				06F2D05519E4F3100030726D /* MapViewController.xib in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
@@ -720,14 +713,13 @@
 				2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */,
 				27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */,
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
-				06F2D05419E4F3100030726D /* MapViewController.swift in Sources */,
 				27AC00D519CB4BE900F1F3B7 /* LoginViewController.swift in Sources */,
 				278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
 				06B3E8BD1AE19FF600474DA8 /* TruckCollectionViewCell.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
-				278C0A9F1AE1B91900C65AD5 /* MapViewController2.swift in Sources */,
+				278C0A9F1AE1B91900C65AD5 /* MapViewController.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
 				06B3E8C11AE1AE0600474DA8 /* TruckDetailViewController.swift in Sources */,
 				27F536C119FF4C42009A8575 /* RMenu.swift in Sources */,

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var nav: UINavigationController?
-    var mapViewController: MapViewController2?
+    var mapViewController: MapViewController?
     var twitterCallback: String?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: types, categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
-        mapViewController = MapViewController2(nibName: "MapViewController2", bundle: nil)
+        mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
         nav = UINavigationController(rootViewController: mapViewController!)
         self.window!.rootViewController = self.nav!
         
