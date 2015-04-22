@@ -132,6 +132,8 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         introImage5.frame = CGRectMake(timeForPage(5), 40 + size.height, width, height - (40 + size.height))
         scrollView.addSubview(introImage5)
         
+        view.bringSubviewToFront(pageControl)
+        
         // put a unicorn in the middle of page two, hidden
         /*self.unicorn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Unicorn"]];
         self.unicorn.center = self.view.center;
