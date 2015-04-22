@@ -75,6 +75,7 @@ class MapViewController: UIViewController,
         setupProfile()
         
         carouselPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
         var muncherImageView = UIImageView(image: muncherImage)
@@ -555,10 +556,10 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
-                if self.activeTrucks.count == 0 {
-                    self.truckCarousel.userInteractionEnabled = false
-                    self.carouselPanGestureRecognizer?.enabled = false
-                }
+                
+                self.truckCarousel.userInteractionEnabled = self.activeTrucks.count > 0
+                self.carouselPanGestureRecognizer?.enabled = self.activeTrucks.count > 0
+                
                 }) { (error) -> () in
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
