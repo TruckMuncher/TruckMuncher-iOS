@@ -51,7 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
         nav = UINavigationController(rootViewController: mapViewController!)
-        self.window!.rootViewController = self.nav!
+        //self.window!.rootViewController = self.nav!
+        self.window!.rootViewController = IntroViewController(nibName: "IntroViewController", bundle: nil)
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()

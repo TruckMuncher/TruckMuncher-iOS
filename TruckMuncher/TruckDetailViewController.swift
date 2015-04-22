@@ -29,11 +29,10 @@ class TruckDetailViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Truck Details"
-        navigationController?.navigationBar.translucent = false
 
         var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
         detailView = viewArray[0] as! TruckDetailView
-        detailView.frame = self.view.frame
+        detailView.frame = CGRectMake(0, 64, view.frame.size.width, view.frame.size.height - 64)
         detailView.updateViewWithTruck(truck, showingMenu: true, showDistance: false)
 
         view.addSubview(detailView)

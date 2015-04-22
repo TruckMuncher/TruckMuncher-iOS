@@ -57,6 +57,8 @@
 		278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C0AA01AE4B42B00C65AD5 /* UserManager.swift */; };
 		2791284019DF417800D15932 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; };
 		2791284219DF41FA00D15932 /* Alamofire.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2791283B19DF414D00D15932 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		279319711AE728A3003A9DB5 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793196F1AE728A3003A9DB5 /* IntroViewController.swift */; };
+		279319721AE728A3003A9DB5 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279319701AE728A3003A9DB5 /* IntroViewController.xib */; };
 		279E89A01A639CF300002446 /* RString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E899F1A639CF300002446 /* RString.swift */; };
 		27A8CE631AE1984C00C1DECA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A8CE621AE1984C00C1DECA /* Fabric.framework */; };
 		27A8CE691AE19A7600C1DECA /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A8CE671AE19A7600C1DECA /* TwitterKit.framework */; };
@@ -197,6 +199,8 @@
 		278C0A9E1AE1B91900C65AD5 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		278C0AA01AE4B42B00C65AD5 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2791283519DF414D00D15932 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		2793196F1AE728A3003A9DB5 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		279319701AE728A3003A9DB5 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
 		279E899F1A639CF300002446 /* RString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RString.swift; sourceTree = "<group>"; };
 		27A8CE621AE1984C00C1DECA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		27A8CE671AE19A7600C1DECA /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
@@ -387,6 +391,8 @@
 				06B3E8B51AE1919100474DA8 /* AllTrucksCollectionViewController.xib */,
 				06B3E8BF1AE1AE0600474DA8 /* TruckDetailViewController.swift */,
 				06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */,
+				2793196F1AE728A3003A9DB5 /* IntroViewController.swift */,
+				279319701AE728A3003A9DB5 /* IntroViewController.xib */,
 			);
 			path = TruckMuncher;
 			sourceTree = "<group>";
@@ -628,6 +634,7 @@
 				060935E619F300590033F3D4 /* VendorMapViewController.xib in Resources */,
 				27BFCC721AD33E9000B6B7C1 /* Properties-dev.plist in Resources */,
 				2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */,
+				279319721AE728A3003A9DB5 /* IntroViewController.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
 				060935EE19F303F40033F3D4 /* LocationSetterPin.png in Resources */,
@@ -739,6 +746,7 @@
 				2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */,
 				278BFBB419D08F0C00510C6E /* Constants.swift in Sources */,
 				27F536CC19FF4FEE009A8575 /* MenuManager.swift in Sources */,
+				279319711AE728A3003A9DB5 /* IntroViewController.swift in Sources */,
 				0699B38C1A63278800B8E0AE /* TruckDetailView.swift in Sources */,
 				060935F719F309F10033F3D4 /* TruckLocationAnnotationView.swift in Sources */,
 				27F9A2251AE0579500896348 /* Error.swift in Sources */,
