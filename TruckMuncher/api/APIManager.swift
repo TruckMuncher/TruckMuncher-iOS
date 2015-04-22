@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import Security
+import Realm
+import TwitterKit
 
 class APIManager {
     
@@ -18,7 +20,7 @@ class APIManager {
         manager = Alamofire.Manager(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     }
 
-    func post(request: URLRequestConvertible, success successBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?) -> (), error errorBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?, error: NSError?) -> ()) {
+    func post(request: URLRequestConvertible, retry: Bool = true, success successBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?) -> (), error errorBlock: (response: NSHTTPURLResponse?, dict: [String: AnyObject]?, error: NSError?) -> ()) {
         
         manager.request(request)
             .validate()
@@ -27,7 +29,61 @@ class APIManager {
                 if error == nil {
                     successBlock(response: response, dict: dict)
                 } else {
-                    errorBlock(response: response, dict: dict, error: error)
+                    let ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
+                    if let user = ruser where response?.statusCode == 401 && retry {
+                        // auto retry any requests (after logging in) that failed because our session was expired
+                        var auth = ""
+                        if ruser!.hasTw && Twitter.sharedInstance().session() != nil {
+                            #if DEBUG
+                                auth = "oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch"
+                            #elseif RELEASE
+                                auth = "oauth_token=\(Twitter.sharedInstance().session().authToken), oauth_secret=\(Twitter.sharedInstance().session().authTokenSecret)"
+                            #endif
+                        } else if ruser!.hasFb && FBSDKAccessToken.currentAccessToken() != nil {
+                            #if DEBUG
+                                auth = "access_token=fb985c9758-e11b-4d02-9b39|FBUser"
+                            #elseif RELEASE
+                                auth = "access_token=\(FBSDKAccessToken.currentAccessToken().tokenString)"
+                            #endif
+                        }
+                        
+                        let authRequest = APIRouter.getAuth([String: AnyObject]()).URLRequest as! NSMutableURLRequest
+                        authRequest.setValue(auth, forHTTPHeaderField: "Authorization")
+                        
+                        self.post(authRequest as NSURLRequest, retry: false, success: { (authResponse, authDict) -> () in
+                            // success
+                            let realm = RLMRealm.defaultRealm()
+                            realm.beginWriteTransaction()
+                            
+                            let newruser = RUser.initFromProto(authDict!)
+                            ruser!.sessionToken = newruser.sessionToken
+                            ruser!.fbUsername = newruser.fbUsername
+                            ruser!.twUsername = newruser.twUsername
+                            ruser!.hasFb = newruser.hasFb
+                            ruser!.hasTw = newruser.hasTw
+                            ruser!.postToFb = newruser.postToFb
+                            ruser!.postToTw = newruser.postToTw
+                            ruser!.sessionToken = newruser.sessionToken
+                            
+                            realm.addOrUpdateObject(ruser!)
+                            realm.commitWriteTransaction()
+                            
+                            NSUserDefaults.standardUserDefaults().setValue(ruser!.sessionToken, forKey: "sessionToken")
+                            NSUserDefaults.standardUserDefaults().synchronize()
+                            
+                            // retry the original request but signal no more retries
+                            //update the request header and send it off
+                            (request as! NSMutableURLRequest).setValue("session_token=\(ruser!.sessionToken)", forHTTPHeaderField: "Authorization")
+                            
+                            self.post(request, retry: false, success: successBlock, error: errorBlock)
+                        }) { (authResponse, authDict, authError) -> () in
+                            // this auto login attempt should be transparent if it failed
+                            // use the original error we got and original errorBlock
+                            errorBlock(response: response, dict: dict, error: error)
+                        }
+                    } else {
+                        errorBlock(response: response, dict: dict, error: error)
+                    }
                 }
         }
     }
@@ -50,6 +106,14 @@ enum APIRouter: URLRequestConvertible {
     case deleteAuth([String: AnyObject])
     
     case simpleSearch([String: AnyObject])
+    
+    case getAccount([String: AnyObject])
+    case modifyAccount([String: AnyObject])
+    case linkAccount([String: AnyObject])
+    case unlinkAccount([String: AnyObject])
+    case getFavorites([String: AnyObject])
+    case addFavorite([String: AnyObject])
+    case removeFavorite([String: AnyObject])
     
     var properties: (path: String, parameters: [String: AnyObject]) {
         switch self {
@@ -75,6 +139,20 @@ enum APIRouter: URLRequestConvertible {
             return ("/com.truckmuncher.api.auth.AuthService/deleteAuth", dict)
         case .simpleSearch(let dict):
             return ("/com.truckmuncher.api.search.SearchService/simpleSearch", dict)
+        case .getAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/getAccount", dict)
+        case .modifyAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/modifyAccount", dict)
+        case .linkAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/linkAccount", dict)
+        case .unlinkAccount(let dict):
+            return ("/com.truckmuncher.api.user.UserService/unlinkAccounts", dict)
+        case .getFavorites(let dict):
+            return ("/com.truckmuncher.api.user.UserService/getFavorites", dict)
+        case .addFavorite(let dict):
+            return ("/com.truckmuncher.api.user.UserService/addFavorite", dict)
+        case .removeFavorite(let dict):
+            return ("/com.truckmuncher.api.user.UserService/removeFavorite", dict)
         }
     }
     
@@ -87,7 +165,6 @@ enum APIRouter: URLRequestConvertible {
         let sessionToken = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String
         if let st = sessionToken {
             mutableURLRequest.setValue("session_token=\(st)", forHTTPHeaderField: "Authorization")
-            let val = mutableURLRequest.valueForHTTPHeaderField("Authorization")
         }
         mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Accept")

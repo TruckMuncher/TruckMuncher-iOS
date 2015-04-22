@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             twitterCallback = config[kTwitterCallback] as? String
         }
         
-        FBLoginView.self
+        application.statusBarStyle = .LightContent
+        
+        FBSDKLoginButton.self
         
         //wet asphalt background
         UINavigationBar.appearance().barTintColor = pinkColor
@@ -64,12 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Twitter.sharedInstance()])
 #endif
         
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication ?? "", fallbackHandler: nil)
-            //.handleOpenURL(url, sourceApplication: sourceApplication ?? "")
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillResignActive(application: UIApplication) {

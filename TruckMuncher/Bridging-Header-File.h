@@ -9,7 +9,9 @@
 #ifndef TruckMuncher_Bridging_Header_File_h
 #define TruckMuncher_Bridging_Header_File_h
 
-#import <FacebookSDK/FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import "KeychainItemWrapper.h"

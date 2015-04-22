@@ -22,7 +22,7 @@ struct AuthManager {
         let request = APIRouter.getAuth([String: AnyObject]()).URLRequest as! NSMutableURLRequest
         request.setValue(auth, forHTTPHeaderField: "Authorization")
         
-        apiManager.post(request as NSURLRequest, success: { (response, dict) -> () in
+        apiManager.post(request as NSURLRequest, retry: false, success: { (response, dict) -> () in
             // success
             let ruser = RUser.initFromProto(dict!)
             
@@ -43,7 +43,7 @@ struct AuthManager {
     }
     
     func signOut(success successBlock: () -> (), error errorBlock: (error: Error?) -> ()) {
-        apiManager.post(APIRouter.deleteAuth([String: AnyObject]()), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.deleteAuth([String: AnyObject]()), retry: false, success: { (response, dict) -> () in
             // success
             let realm = RLMRealm.defaultRealm()
             realm.beginWriteTransaction()

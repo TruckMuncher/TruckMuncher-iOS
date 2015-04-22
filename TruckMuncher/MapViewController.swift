@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Realm
+import TwitterKit
 
 class MapViewController: UIViewController,
     MKMapViewDelegate,
@@ -20,6 +21,17 @@ class MapViewController: UIViewController,
     UISearchBarDelegate {
 
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var lblPostToFb: UILabel!
+    @IBOutlet weak var lblPostToTw: UILabel!
+    @IBOutlet weak var switchPostToFb: UISwitch!
+    @IBOutlet weak var switchPostToTw: UISwitch!
+    
+    @IBOutlet weak var btnLinkFb: UIButton!
+    @IBOutlet weak var btnLinkTw: UIButton!
+    
+    var ruser: RUser?
     
     var searchDelegate: SearchDelegate<MapViewController>?
     
@@ -37,10 +49,12 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
+    var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
+    let userManager = UserManager()
     
     var initialTouchY: CGFloat = 0
     
@@ -58,10 +72,15 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupProfile()
+        
         carouselPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
         var muncherImageView = UIImageView(image: muncherImage)
+        muncherImageView.userInteractionEnabled = true
+        muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
         navigationItem.titleView = muncherImageView
@@ -72,15 +91,14 @@ class MapViewController: UIViewController,
         searchDelegate = SearchDelegate(completionDelegate: self)
         searchDelegate?.searchBar.delegate = self
         
-        let btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
         btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
         btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
         btnAllTrucks.setTitle("\u{f06e}", forState: .Normal)
         btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
-
+        
         navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -102,6 +120,215 @@ class MapViewController: UIViewController,
             locationManager.startUpdatingLocation()
             mapClusterControllerSetup()
             truckCarouselSetup()
+        }
+        setupProfile()
+    }
+    
+    func setupProfile() {
+        ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
+        if let user = ruser {
+            switchPostToFb.on = user.postToFb
+            switchPostToTw.on = user.postToTw
+            if user.hasFb {
+                btnLinkFb.setTitle("Unlink Facebook - \(user.fbUsername)", forState: .Normal)
+                switchPostToFb.enabled = true
+                switchPostToFb.userInteractionEnabled = true
+                lblPostToFb.enabled = true
+            } else {
+                btnLinkFb.setTitle("Link Facebook", forState: .Normal)
+                switchPostToFb.enabled = false
+                switchPostToFb.userInteractionEnabled = false
+                lblPostToFb.enabled = false
+            }
+            if user.hasTw {
+                btnLinkTw.setTitle("Unlink Twitter - @\(user.twUsername)", forState: .Normal)
+                switchPostToTw.enabled = true
+                switchPostToTw.userInteractionEnabled = true
+                lblPostToTw.enabled = true
+            } else {
+                btnLinkTw.setTitle("Link Twitter", forState: .Normal)
+                switchPostToTw.enabled = false
+                switchPostToTw.userInteractionEnabled = false
+                lblPostToTw.enabled = false
+            }
+            let hasTrucks = user.truckIds.count > 0
+            switchPostToFb.hidden = !hasTrucks
+            switchPostToTw.hidden = !hasTrucks
+            switchPostToFb.enabled = hasTrucks
+            switchPostToTw.enabled = hasTrucks
+            lblPostToFb.hidden = !hasTrucks
+            lblPostToTw.hidden = !hasTrucks
+        }
+    }
+    
+    func showProfile() {
+        if ruser == nil {
+            return
+        }
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapView.userInteractionEnabled = false
+            self.truckCarousel.userInteractionEnabled = false
+            if self.lblPostToFb.hidden {
+                self.topMapConstraint.constant = 277
+            } else {
+                self.topMapConstraint.constant = 437
+            }
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func hideProfile(sender: AnyObject) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapView.userInteractionEnabled = true
+            self.truckCarousel.userInteractionEnabled = true
+            self.topMapConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func clickedLinkFb(sender: AnyObject) {
+        if ruser!.hasFb {
+            unlinkFacebook()
+            return
+        }
+        let fbManager = FBSDKLoginManager()
+        // TODO this will be used once the Facebook app itself is fixed to allow publish permissions
+        /*fbManager.logInWithPublishPermissions(["publish_actions"], handler: { (result: FBSDKLoginManagerLoginResult!, error) -> Void in
+            if error != nil {
+                let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else if !result.isCancelled {
+                if !result.grantedPermissions.contains("publish_actions") {
+                    let alert = UIAlertController(title: "Uh-oh", message: "We require that you allow us to post on your behalf. It looks like you denied that request, please try linking your Facebook account again", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else if self.ruser!.truckIds.count > 0 {
+                    let alert = UIAlertController(title: "Automatically Post?", message: "Would you like us to automatically post to Facebook when any of your trucks go into serving mode?", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
+                }
+            } else {
+                println("cancelled")
+            }
+        })*/
+        fbManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
+            if error != nil {
+                let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else if !result.isCancelled {
+                if self.ruser!.truckIds.count > 0 {
+                    let alert = UIAlertController(title: "Automatically Post?", message: "Would you like us to automatically post to Facebook when any of your trucks go into serving mode?", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
+                }
+            }
+        })
+    }
+    
+    @IBAction func clickedLinkTw(sender: AnyObject) {
+        if ruser!.hasTw {
+            unlinkTwitter()
+            return
+        }
+        Twitter.sharedInstance().logInWithCompletion {
+            (session, error) -> Void in
+            if (session != nil) {
+                let alert = UIAlertController(title: "Automatically Tweet?", message: "Would you like us to automatically tweet on your behalf when any of your trucks go into serving mode?", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                    self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: true)
+                }))
+                alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                    self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Twitter account at this time, please try again", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func linkFacebook(accessToken: String, postActivity: Bool) {
+        userManager.linkFacebookAccount(accessToken, postActivity: postActivity, success: { (response) -> () in
+            self.setupProfile()
+        }) { (error) -> () in
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func unlinkFacebook() {
+        if !ruser!.hasTw {
+            cantUnlinkLast()
+            return
+        }
+        userManager.unlinkAccount(unlinkFacebook: true, unlinkTwitter: nil, success: { (response) -> () in
+            self.setupProfile()
+        }) { (error) -> () in
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func linkTwitter(oauthToken: String, secretToken: String, postActivity: Bool) {
+        userManager.linkTwitterAccount(oauthToken, secretToken: secretToken, postActivity: postActivity, success: { (response) -> () in
+            self.setupProfile()
+        }) { (error) -> () in
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func unlinkTwitter() {
+        if !ruser!.hasFb {
+            cantUnlinkLast()
+            return
+        }
+        userManager.unlinkAccount(unlinkFacebook: nil, unlinkTwitter: true, success: { (response) -> () in
+            self.setupProfile()
+        }) { (error) -> () in
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func cantUnlinkLast() {
+        let alert = UIAlertController(title: "Oops!", message: "You can't unlink your last social media account, please link another before unlinking this one", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func postToSocialMedia(sender: AnyObject) {
+        userManager.modifyAccount(switchPostToFb.on, postToTw: switchPostToTw.on, success: { (response) -> () in
+            self.setupProfile()
+        }) { (error) -> () in
+            (sender as! UISwitch).on = !(sender as! UISwitch).on
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -329,10 +556,10 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
-                if self.activeTrucks.count == 0 {
-                    self.truckCarousel.userInteractionEnabled = false
-                    self.carouselPanGestureRecognizer?.enabled = false
-                }
+                
+                self.truckCarousel.userInteractionEnabled = self.activeTrucks.count > 0
+                self.carouselPanGestureRecognizer?.enabled = self.activeTrucks.count > 0
+                
                 }) { (error) -> () in
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -401,6 +628,7 @@ class MapViewController: UIViewController,
         let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
+        btnAllTrucks.setTitleColor(color, forState: .Normal)
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
@@ -424,6 +652,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+                self.btnAllTrucks.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 

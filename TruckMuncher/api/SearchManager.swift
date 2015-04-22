@@ -20,7 +20,7 @@ class SearchManager {
         dict["query"] = query
         dict["limit"] = limit
         dict["offset"] = offset
-        apiManager.post(APIRouter.simpleSearch(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.simpleSearch(dict), retry: false, success: { (response, dict) -> () in
             // success
             var responses = [RSearch]()
             for response in dict!["searchResponse"] as! [[String: AnyObject]] {

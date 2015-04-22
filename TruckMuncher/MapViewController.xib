@@ -6,30 +6,150 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="TruckMuncher" customModuleProvider="target">
             <connections>
-                <outlet property="mapView" destination="0bU-Q8-5aJ" id="fxP-8h-CFh"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="btnLinkFb" destination="jVw-CG-1cf" id="YDS-dS-7kl"/>
+                <outlet property="btnLinkTw" destination="Lzv-8e-Jfp" id="czS-sd-wWr"/>
+                <outlet property="lblPostToFb" destination="smL-Lj-Fqm" id="aqL-9U-gTw"/>
+                <outlet property="lblPostToTw" destination="7Zz-fg-vZy" id="l47-F3-zNn"/>
+                <outlet property="mapView" destination="R70-67-xFs" id="dY4-g2-PAw"/>
+                <outlet property="switchPostToFb" destination="Kst-pv-0Th" id="vYU-NH-zlj"/>
+                <outlet property="switchPostToTw" destination="9l6-mN-8mV" id="htx-do-RP9"/>
+                <outlet property="topMapConstraint" destination="gMe-WX-pNe" id="ENn-bP-upN"/>
+                <outlet property="view" destination="iN0-l3-epB" id="5RY-3t-i8j"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bU-Q8-5aJ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can link your social media accounts to like trucks Facebook pages or follow them on Twitter!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiN-w6-WUR">
+                    <rect key="frame" x="8" y="84" width="584" height="63"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="Rkw-av-I59"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kst-pv-0Th">
+                    <rect key="frame" x="543" y="291" width="51" height="31"/>
+                    <color key="onTintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="postToSocialMedia:" destination="-1" eventType="valueChanged" id="pgI-nA-rQ9"/>
+                    </connections>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9l6-mN-8mV">
+                    <rect key="frame" x="543" y="371" width="51" height="31"/>
+                    <color key="onTintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="postToSocialMedia:" destination="-1" eventType="valueChanged" id="zZR-TC-h1m"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post to Facebook when you go into serving mode?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="527" translatesAutoresizingMaskIntoConstraints="NO" id="smL-Lj-Fqm">
+                    <rect key="frame" x="8" y="277" width="527" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="hLk-9f-kJ6"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post to Twitter when you go into serving mode?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="527" translatesAutoresizingMaskIntoConstraints="NO" id="7Zz-fg-vZy">
+                    <rect key="frame" x="8" y="357" width="527" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Sfv-qK-FcQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVw-CG-1cf">
+                    <rect key="frame" x="8" y="167" width="584" height="35"/>
+                    <color key="backgroundColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="LAc-VS-hlQ"/>
+                    </constraints>
+                    <state key="normal" title="Link Facebook">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickedLinkFb:" destination="-1" eventType="touchUpInside" id="OJD-xm-ZNM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzv-8e-Jfp">
+                    <rect key="frame" x="8" y="222" width="584" height="35"/>
+                    <color key="backgroundColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="SfS-hC-tyN"/>
+                    </constraints>
+                    <state key="normal" title="Link Twitter">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="clickedLinkTw:" destination="-1" eventType="touchUpInside" id="Dt5-jA-v6Q"/>
+                    </connections>
+                </button>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="gFE-P3-WPR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <color key="backgroundColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="6U9-55-kKc"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.91372549020000005" green="0.1176470588" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Profile" id="ou4-tu-LqC">
+                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="MbL-CY-DWl">
+                                <connections>
+                                    <action selector="hideProfile:" destination="-1" id="eEe-OD-nyx"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="R70-67-xFs">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="0bo-Ph-5pe"/>
+                    </connections>
                 </mapView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="YMQ-fP-yom"/>
-                <constraint firstAttribute="bottom" secondItem="0bU-Q8-5aJ" secondAttribute="bottom" id="YiD-ij-NSR"/>
-                <constraint firstAttribute="trailing" secondItem="0bU-Q8-5aJ" secondAttribute="trailing" id="xO0-hc-BYC"/>
-                <constraint firstItem="0bU-Q8-5aJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zup-5b-ofZ"/>
+                <constraint firstItem="Lzv-8e-Jfp" firstAttribute="top" secondItem="jVw-CG-1cf" secondAttribute="bottom" constant="20" id="0Fl-WG-Mur"/>
+                <constraint firstAttribute="bottom" secondItem="R70-67-xFs" secondAttribute="bottom" id="1Q5-gE-2tb"/>
+                <constraint firstAttribute="trailing" secondItem="Kst-pv-0Th" secondAttribute="trailing" constant="8" id="1t4-UO-ceT"/>
+                <constraint firstItem="R70-67-xFs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3uL-Pj-ZUN"/>
+                <constraint firstItem="Lzv-8e-Jfp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="44g-5x-A8n"/>
+                <constraint firstItem="jVw-CG-1cf" firstAttribute="top" secondItem="DiN-w6-WUR" secondAttribute="bottom" constant="20" id="621-vV-wTW"/>
+                <constraint firstItem="jVw-CG-1cf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="78U-Z7-4j4"/>
+                <constraint firstAttribute="trailing" secondItem="DiN-w6-WUR" secondAttribute="trailing" constant="8" id="7D8-U1-QBA"/>
+                <constraint firstItem="Kst-pv-0Th" firstAttribute="centerY" secondItem="smL-Lj-Fqm" secondAttribute="centerY" id="Ap3-na-N2V"/>
+                <constraint firstItem="9l6-mN-8mV" firstAttribute="centerY" secondItem="7Zz-fg-vZy" secondAttribute="centerY" id="DX5-cZ-VIF"/>
+                <constraint firstItem="smL-Lj-Fqm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Dq6-tP-zX1"/>
+                <constraint firstItem="DiN-w6-WUR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="HIH-DR-FVM"/>
+                <constraint firstItem="7Zz-fg-vZy" firstAttribute="top" secondItem="smL-Lj-Fqm" secondAttribute="bottom" constant="20" id="N3R-NG-h7O"/>
+                <constraint firstItem="Kst-pv-0Th" firstAttribute="leading" secondItem="smL-Lj-Fqm" secondAttribute="trailing" constant="8" id="RUC-7X-24M"/>
+                <constraint firstItem="7Zz-fg-vZy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="UEb-bl-D1k"/>
+                <constraint firstItem="9l6-mN-8mV" firstAttribute="leading" secondItem="7Zz-fg-vZy" secondAttribute="trailing" constant="8" id="VYi-FC-uHH"/>
+                <constraint firstAttribute="centerX" secondItem="jVw-CG-1cf" secondAttribute="centerX" id="WFe-kA-mff"/>
+                <constraint firstAttribute="trailing" secondItem="R70-67-xFs" secondAttribute="trailing" id="XlE-zI-Tl0"/>
+                <constraint firstAttribute="trailing" secondItem="gFE-P3-WPR" secondAttribute="trailing" id="bK5-qb-Djc"/>
+                <constraint firstAttribute="centerX" secondItem="Lzv-8e-Jfp" secondAttribute="centerX" id="bXC-1z-w6G"/>
+                <constraint firstAttribute="trailing" secondItem="Lzv-8e-Jfp" secondAttribute="trailing" constant="8" id="fh6-z4-7QH"/>
+                <constraint firstItem="R70-67-xFs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gMe-WX-pNe"/>
+                <constraint firstItem="smL-Lj-Fqm" firstAttribute="top" secondItem="Lzv-8e-Jfp" secondAttribute="bottom" constant="20" id="hqb-c9-KOV"/>
+                <constraint firstItem="gFE-P3-WPR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ty9-H6-vI0"/>
+                <constraint firstItem="DiN-w6-WUR" firstAttribute="top" secondItem="gFE-P3-WPR" secondAttribute="bottom" constant="20" id="wnv-HJ-G4p"/>
+                <constraint firstAttribute="trailing" secondItem="9l6-mN-8mV" secondAttribute="trailing" constant="8" id="x4d-oF-7XM"/>
+                <constraint firstItem="gFE-P3-WPR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xts-5c-AQH"/>
+                <constraint firstAttribute="trailing" secondItem="jVw-CG-1cf" secondAttribute="trailing" constant="8" id="ygb-dL-bub"/>
             </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
         </view>
     </objects>
 </document>

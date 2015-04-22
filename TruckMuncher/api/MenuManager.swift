@@ -20,7 +20,7 @@ struct MenuManager {
         var dict = [String: AnyObject]()
         dict["latitude"] = lat
         dict["longitude"] = lon
-        apiManager.post(APIRouter.getMenuItemAvailability(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.getMenuItemAvailability(dict), retry: false, success: { (response, dict) -> () in
             // success
             var items = [RMenuItem]()
             
@@ -59,7 +59,7 @@ struct MenuManager {
         dict["latitude"] = lat
         dict["longitude"] = lon
         dict["includeAvailability"] = avail
-        apiManager.post(APIRouter.getFullMenus(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.getFullMenus(dict), retry: false, success: { (response, dict) -> () in
             // success
             var menus = [RMenu]()
             
@@ -87,7 +87,7 @@ struct MenuManager {
     func getMenu(#truckId: String, success successBlock: (response: RMenu) -> (), error errorBlock: (error: Error?) -> ()) {
         var dict = [String: AnyObject]()
         dict["truckId"] = truckId
-        apiManager.post(APIRouter.getMenu(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.getMenu(dict), retry: false, success: { (response, dict) -> () in
             // success
             let rmenu = RMenu.initFromProto(dict!["menu"] as! [String: AnyObject])
             
