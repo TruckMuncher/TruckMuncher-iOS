@@ -21,7 +21,7 @@ class TrucksManager {
         dict["latitude"] = lat
         dict["longitude"] = lon
         dict["searchQuery"] = search
-        apiManager.post(APIRouter.getActiveTrucks(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.getActiveTrucks(dict), retry: false, success: { (response, dict) -> () in
             // success
             var trucks = [RTruck]()
             
@@ -117,7 +117,7 @@ class TrucksManager {
         var dict = [String: AnyObject]()
         dict["latitude"] = lat
         dict["longitude"] = lon
-        apiManager.post(APIRouter.getTruckProfiles(dict), success: { (response, dict) -> () in
+        apiManager.post(APIRouter.getTruckProfiles(dict), retry: false, success: { (response, dict) -> () in
             // success
             var trucks = [RTruck]()
             

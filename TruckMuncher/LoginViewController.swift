@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         btnTwitterLogin.logInCompletion = { (session: TWTRSession!, error: NSError!) in
             #if DEBUG
-                self.loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d42, oauth_secret=munch")
+                self.loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
             #elseif RELEASE
                 self.loginToAPI("oauth_token=\(session.authToken), oauth_secret=\(session.authTokenSecret)")
             #endif
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         if error == nil && !result.isCancelled {
             #if DEBUG
-                loginToAPI("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch")
+                loginToAPI("access_token=fb985c9758-e11b-4d02-9b39|FBUser")
             #elseif RELEASE
                 loginToAPI("access_token=\(FBSDKAccessToken.currentAccessToken().tokenString)")
             #endif

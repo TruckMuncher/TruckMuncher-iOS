@@ -79,7 +79,7 @@ class UserManager {
     
     func linkFacebookAccount(accessToken: String, postActivity: Bool, success successBlock: (response: RUser) -> (), error errorBlock: (error: Error?) -> ()) {
         #if DEBUG
-            linkAccount("access_token=fb\(accessToken)|TestUserFb", postActivity: postActivity, success: successBlock, error: errorBlock)
+            linkAccount("access_token=fb985c9758-e11b-4d02-9b39|FBUser", postActivity: postActivity, success: successBlock, error: errorBlock)
         #elseif RELEASE
             linkAccount("access_token=\(accessToken)", postActivity: postActivity, success: successBlock, error: errorBlock)
         #endif
@@ -87,7 +87,7 @@ class UserManager {
     
     func linkTwitterAccount(authToken: String, secretToken: String, postActivity: Bool, success successBlock: (response: RUser) -> (), error errorBlock: (error: Error?) -> ()) {
         #if DEBUG
-            linkAccount("oauth_token=tw\(authToken), oauth_secret=TestUserTw", postActivity: postActivity, success: successBlock, error: errorBlock)
+            linkAccount("oauth_token=tw985c9758-e11b-4d02-9b39-98aa8d00d429, oauth_secret=munch", postActivity: postActivity, success: successBlock, error: errorBlock)
         #elseif RELEASE
             linkAccount("oauth_token=\(authToken), oauth_secret=\(secretToken)", postActivity: postActivity, success: successBlock, error: errorBlock)
         #endif

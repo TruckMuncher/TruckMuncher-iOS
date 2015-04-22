@@ -249,7 +249,7 @@ class MapViewController2: UIViewController,
         userManager.linkFacebookAccount(accessToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
-            let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -263,7 +263,7 @@ class MapViewController2: UIViewController,
         userManager.unlinkAccount(unlinkFacebook: true, unlinkTwitter: nil, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
-            let alert = UIAlertController(title: "Oops!", message: "We couldn't unlink your Facebook account at this time, please try again", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -273,7 +273,7 @@ class MapViewController2: UIViewController,
         userManager.linkTwitterAccount(oauthToken, secretToken: secretToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
-            let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Twitter account at this time, please try again", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -287,7 +287,7 @@ class MapViewController2: UIViewController,
         userManager.unlinkAccount(unlinkFacebook: nil, unlinkTwitter: true, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
-            let alert = UIAlertController(title: "Oops!", message: "We couldn't unlink your Twitter account at this time, please try again", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
@@ -304,7 +304,7 @@ class MapViewController2: UIViewController,
             self.setupProfile()
         }) { (error) -> () in
             (sender as! UISwitch).on = !(sender as! UISwitch).on
-            let alert = UIAlertController(title: "Oops!", message: "We couldn't update your account at this time, please try again", preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
