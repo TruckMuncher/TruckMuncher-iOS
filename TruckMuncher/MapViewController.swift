@@ -49,9 +49,8 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
+    lazy var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
-    
-    var btnAllTrucks: UIButton?
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
@@ -76,6 +75,7 @@ class MapViewController: UIViewController,
         setupProfile()
         
         carouselPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
         var muncherImageView = UIImageView(image: muncherImage)
@@ -92,13 +92,13 @@ class MapViewController: UIViewController,
         searchDelegate?.searchBar.delegate = self
         
         btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
-        btnAllTrucks!.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        btnAllTrucks!.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
-        btnAllTrucks!.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
-        btnAllTrucks!.setTitle("\u{f06e}", forState: .Normal)
-        btnAllTrucks!.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+        btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
+        btnAllTrucks.setTitle("\u{f06e}", forState: .Normal)
+        btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
         
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks!)]
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -349,7 +349,7 @@ class MapViewController: UIViewController,
                 let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(0.0)
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
-                self.btnAllTrucks?.setTitleColor(color, forState: .Normal)
+                self.btnAllTrucks.setTitleColor(color, forState: .Normal)
             })
         }
     }
@@ -557,10 +557,10 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
-                if self.activeTrucks.count == 0 {
-                    self.truckCarousel.userInteractionEnabled = false
-                    self.carouselPanGestureRecognizer?.enabled = false
-                }
+                
+                self.truckCarousel.userInteractionEnabled = self.activeTrucks.count > 0
+                self.carouselPanGestureRecognizer?.enabled = self.activeTrucks.count > 0
+                
                 }) { (error) -> () in
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -629,7 +629,7 @@ class MapViewController: UIViewController,
         let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
-        btnAllTrucks?.setTitleColor(color, forState: .Normal)
+        btnAllTrucks.setTitleColor(color, forState: .Normal)
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
@@ -653,7 +653,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
-                self.btnAllTrucks?.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
+                self.btnAllTrucks.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
