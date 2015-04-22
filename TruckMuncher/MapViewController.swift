@@ -49,6 +49,7 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
+    var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
@@ -89,7 +90,7 @@ class MapViewController: UIViewController,
         searchDelegate = SearchDelegate(completionDelegate: self)
         searchDelegate?.searchBar.delegate = self
         
-        let btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
+        btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
         btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
         btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
@@ -626,6 +627,7 @@ class MapViewController: UIViewController,
         let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
+        btnAllTrucks.setTitleColor(color, forState: .Normal)
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
@@ -649,6 +651,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+                self.btnAllTrucks.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
