@@ -51,8 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
         nav = UINavigationController(rootViewController: mapViewController!)
-        //self.window!.rootViewController = self.nav!
-        self.window!.rootViewController = IntroViewController(nibName: "IntroViewController", bundle: nil)
+        self.window!.rootViewController = nav!
+        if !NSUserDefaults.standardUserDefaults().boolForKey(kFinishedTutorial) {
+            let intro = IntroViewController(nibName: "IntroViewController", bundle: nil)
+            nav?.pushViewController(intro, animated: false)
+        }
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
@@ -95,12 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    func isTwitterCallbackUrl(url: NSURL) -> Bool {
-        // try and pull out the twitter callback url string, if successful, we are being redirected from twitter
-        let urlString = url.absoluteString!
-        return urlString.rangeOfString(twitterCallback!, options: .CaseInsensitiveSearch, range: nil, locale: nil) != nil
     }
 }
 

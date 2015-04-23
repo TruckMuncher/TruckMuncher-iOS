@@ -22,6 +22,8 @@ let kTwitterSecretKey = "twitter_secret_key"
 
 let kCrashlyticsKey = "crashlytics_key"
 
+let kFinishedTutorial = "finished_tutorial"
+
 /*
  * Constants holding real values used directly should take on the typical syntax that #define used in obj-c
  */

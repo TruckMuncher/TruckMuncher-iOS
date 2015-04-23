@@ -22,6 +22,8 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     lazy var lblSettings = UILabel()
     lazy var lblTruckDetails = UILabel()
     lazy var lblVendor = UILabel()
+    lazy var lblOutro = UILabel()
+    lazy var lblIndicator = UILabel()
     
     lazy var imgLogo = UIImageView()
     lazy var imgMapView = UIImageView()
@@ -44,17 +46,27 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         width = UIScreen.mainScreen().bounds.width
         height = UIScreen.mainScreen().bounds.height
         
+        pageControl.numberOfPages = Int(numberOfPages)
+        
         scrollView.delegate = self
         view.addSubview(scrollView)
         
         scrollView.contentSize = CGSizeMake(numberOfPages * width, height)
-        scrollView.pagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
         scrollView.accessibilityLabel = "TruckMuncher"
         scrollView.accessibilityIdentifier = "TruckMuncher"
         
         placeViews()
         configureAnimation()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBarHidden = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +80,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     func placeViews() {
         lblMarketing = UILabel()
+        lblMarketing.backgroundColor = UIColor.whiteColor()
         lblMarketing.numberOfLines = 0
         lblMarketing.textAlignment = .Center
         lblMarketing.text = "TruckMuncher is Milwaukee's ultimate food truck hub! Whether you're searching for somewhere new to grab a bite or just want to see where your favorite truck is serving today, TruckMuncher will help you make the most of your lunch hour."
@@ -83,14 +96,16 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(imgLogo)
         
         lblNearbyTrucks = UILabel()
+        lblNearbyTrucks.backgroundColor = UIColor.whiteColor()
         lblNearbyTrucks.numberOfLines = 0
         lblNearbyTrucks.textAlignment = .Center
-        lblNearbyTrucks.text = "You can see food trucks nearby that are currently serving on the map, search for a truck..."
+        lblNearbyTrucks.text = "You can see food trucks nearby on the map that are currently serving, search for a truck, ..."
         let nearbySize = lblNearbyTrucks.sizeThatFits(CGSizeMake(width, height))
         lblNearbyTrucks.frame = CGRectMake(timeForPage(2), 20, width, nearbySize.height)
         scrollView.addSubview(lblNearbyTrucks)
         
         lblAllTrucks = UILabel()
+        lblAllTrucks.backgroundColor = UIColor.whiteColor()
         lblAllTrucks.numberOfLines = 0
         lblAllTrucks.textAlignment = .Center
         lblAllTrucks.text = "...or view a list of all trucks."
@@ -105,7 +120,21 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgMapView.frame = CGRectMake(timeForPage(2) + (width-newWidth)/2, 40 + max(nearbySize.height, allSize.height), newWidth, newHeight)
         scrollView.addSubview(imgMapView)
         
+        lblIndicator = UILabel()
+        lblIndicator.numberOfLines = 1
+        lblIndicator.textAlignment = .Center
+        lblIndicator.text = "\u{f1db}"
+        lblIndicator.textColor = UIColor(rgba: "#009688")
+        lblIndicator.font = UIFont(name: "FontAwesome", size: 60.0)
+        lblIndicator.frame = CGRectMake(0, 0, 100, 100)
+        lblIndicator.center = CGPointMake(CGRectGetMaxX(imgMapView.frame) - (22 * scale), imgMapView.frame.origin.y + (44 * scale))
+        lblIndicator.layer.shadowColor = UIColor(rgba: "#009688").CGColor
+        lblIndicator.layer.shadowOpacity = 1.0
+        lblIndicator.layer.shadowRadius = 5.0
+        scrollView.addSubview(lblIndicator)
+        
         lblSettings = UILabel()
+        lblSettings.backgroundColor = UIColor.whiteColor()
         lblSettings.numberOfLines = 0
         lblSettings.textAlignment = .Center
         lblSettings.text = "Once you login to keep track of your favorite trucks, tap here to access your settings"
@@ -120,6 +149,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(imgSettings)
         
         lblTruckDetails = UILabel()
+        lblTruckDetails.backgroundColor = UIColor.whiteColor()
         lblTruckDetails.numberOfLines = 0
         lblTruckDetails.textAlignment = .Center
         lblTruckDetails.text = "Pulling up on the truck's information allows you to view a truck's location, its distance from you, and even its menu and prices!"
@@ -134,6 +164,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(imgMenuDetail)
         
         lblVendor = UILabel()
+        lblVendor.backgroundColor = UIColor.whiteColor()
         lblVendor.numberOfLines = 0
         lblVendor.textAlignment = .Center
         lblVendor.text = "Own a truck? Start reporting your location by going into serving mode! If you own more than one truck, pull down on your truck's name to choose which one you want to manage"
@@ -153,16 +184,27 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgPullDown.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2, -newHeight, newWidth, newHeight) // one page early
         scrollView.addSubview(imgPullDown)
         
-        btnDone = UIButton(frame: CGRectMake(0, 0, 150, 50))
+        lblOutro = UILabel()
+        lblOutro.backgroundColor = UIColor.whiteColor()
+        lblOutro.numberOfLines = 0
+        lblOutro.textAlignment = .Center
+        lblOutro.text = "You're ready to start using TruckMuncher!"
+        let outroSize = lblOutro.sizeThatFits(CGSizeMake(width, height))
+        lblOutro.frame = CGRectMake(timeForPage(10), (height-outroSize.height)/2 - 40, width, outroSize.height)
+        scrollView.addSubview(lblOutro)
+        
+        btnDone = UIButton(frame: CGRectMake(timeForPage(10) + (width - 250)/2, CGRectGetMaxY(lblOutro.frame) + 40, 250, 50))
         btnDone.setTitle("Take me to the app!", forState: .Normal)
-        btnDone.backgroundColor = UIColor(rgba: "#")
+        btnDone.backgroundColor = UIColor(rgba: "#009688")
         btnDone.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnDone.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
         btnDone.addTarget(self, action: "done", forControlEvents: .TouchUpInside)
         scrollView.addSubview(btnDone)
         
-        view.bringSubviewToFront(lblVendor)
-        view.bringSubviewToFront(lblSettings)
-        view.bringSubviewToFront(pageControl)
+        scrollView.bringSubviewToFront(lblVendor)
+        scrollView.bringSubviewToFront(lblSettings)
+        scrollView.bringSubviewToFront(pageControl)
+        scrollView.bringSubviewToFront(lblIndicator)
     }
     
     func configureAnimation() {
@@ -274,10 +316,25 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: imgPullDown.frame))
         imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(imgPullDown.frame.origin.x + width, imgVendorMapView.frame.origin.y + (64 * scale), imgPullDown.frame.size.width, imgPullDown.frame.size.height)))
         animator.addAnimation(imgPullDownFrameAnimation)
+        
+        let lblIndicatorFrameAnimation = IFTTTFrameAnimation(view: lblIndicator)
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblIndicator.frame))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: lblIndicator.frame))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: CGRectOffset(lblIndicator.frame, width - (44 * scale), 0)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: CGRectMake(CGRectGetMidX(imgMapView.frame) + width*2 - 50, imgMapView.frame.origin.y + (42 * scale) - 50, 100, 100)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectMake(CGRectGetMidX(imgMapView.frame) + width*3 - 50, imgMapView.frame.origin.y + (42 * scale) - 50, 100, 100)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectMake(CGRectGetMidX(imgMapView.frame) + width*4 - 50, CGRectGetMaxY(imgMapView.frame) - 100, 100, 100)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectMake(CGRectGetMidX(imgMapView.frame) + width*5 - 50, CGRectGetMinY(imgMapView.frame), 100, 100)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectMake(CGRectGetMidX(imgVendorMapView.frame) - 50, imgVendorMapView.frame.origin.y + (42 * scale) - 50, 100, 100)))
+        lblIndicatorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(CGRectGetMidX(imgVendorMapView.frame) + width - 50, imgVendorMapView.frame.origin.y + imgPullDown.frame.size.height, 100, 100)))
+        animator.addAnimation(lblIndicatorFrameAnimation)
     }
     
     func done() {
-        dismissViewControllerAnimated(true, completion: nil)
+        println("done")
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kFinishedTutorial)
+        NSUserDefaults.standardUserDefaults().synchronize()
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func IFTTTMaxContentOffsetXForScrollView(scrollView: UIScrollView) -> CGFloat {
