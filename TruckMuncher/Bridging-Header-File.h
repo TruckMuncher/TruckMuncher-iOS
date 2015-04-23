@@ -20,4 +20,6 @@
 #import "CCHMapClusterAnnotation.h"
 #import "iCarousel.h"
 
+#import <IFTTTJazzHands.h>
+
 #endif

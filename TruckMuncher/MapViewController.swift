@@ -49,7 +49,7 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
-    var btnAllTrucks = UIButton()
+    lazy var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     
     let trucksManager = TrucksManager()
@@ -71,6 +71,8 @@ class MapViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
         
         setupProfile()
         
@@ -349,6 +351,7 @@ class MapViewController: UIViewController,
                 let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(0.0)
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
+                self.btnAllTrucks.setTitleColor(color, forState: .Normal)
             })
         }
     }
