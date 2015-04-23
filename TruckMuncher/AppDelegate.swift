@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
         nav = UINavigationController(rootViewController: mapViewController!)
         self.window!.rootViewController = nav!
-        if NSUserDefaults.standardUserDefaults().boolForKey(kFinishedTutorial) {
+        if !NSUserDefaults.standardUserDefaults().boolForKey(kFinishedTutorial) {
             let intro = IntroViewController(nibName: "IntroViewController", bundle: nil)
             nav?.pushViewController(intro, animated: false)
         }
