@@ -72,6 +72,8 @@ class MapViewController: UIViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
+        
         setupProfile()
         
         carouselPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
