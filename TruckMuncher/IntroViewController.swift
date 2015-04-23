@@ -10,7 +10,7 @@ import UIKit
 
 class IntroViewController: UIViewController, UIScrollViewDelegate {
 
-    let numberOfPages: CGFloat = 9
+    let numberOfPages: CGFloat = 10
     var isAtEnd = false
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -30,10 +30,13 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     lazy var imgPullDown = UIImageView()
     lazy var imgMenuDetail = UIImageView()
     
+    lazy var btnDone = UIButton()
+    
     let animator = IFTTTAnimator()
     
     var width: CGFloat = 0
     var height: CGFloat = 0
+    var scale: CGFloat = 0.8
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +100,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         
         imgMapView = UIImageView(image: UIImage(named: "intro_map"))
         originalWidth = imgMapView.frame.size.width
-        let newWidth = width * 0.8
+        let newWidth = width * scale
         newHeight = newWidth/originalWidth*imgMapView.frame.size.height
         imgMapView.frame = CGRectMake(timeForPage(2) + (width-newWidth)/2, 40 + max(nearbySize.height, allSize.height), newWidth, newHeight)
         scrollView.addSubview(imgMapView)
@@ -113,7 +116,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgSettings = UIImageView(image: UIImage(named: "intro_settings"))
         originalWidth = imgSettings.frame.size.width
         newHeight = newWidth/originalWidth*imgSettings.frame.size.height
-        imgSettings.frame = CGRectMake(timeForPage(5) + (width-newWidth)/2, 40 + settingsSize.height, newWidth, newHeight)
+        imgSettings.frame = CGRectMake(timeForPage(4) + (width-newWidth)/2, -newHeight, newWidth, newHeight) // one page early
         scrollView.addSubview(imgSettings)
         
         lblTruckDetails = UILabel()
@@ -147,9 +150,18 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgPullDown = UIImageView(image: UIImage(named: "intro_pull_down"))
         originalWidth = imgPullDown.frame.size.width
         newHeight = newWidth/originalWidth*imgPullDown.frame.size.height
-        imgPullDown.frame = CGRectMake(timeForPage(9) + (width-newWidth)/2, 104 + vendorSize.height, newWidth, newHeight)
+        imgPullDown.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2, -newHeight, newWidth, newHeight) // one page early
         scrollView.addSubview(imgPullDown)
         
+        btnDone = UIButton(frame: CGRectMake(0, 0, 150, 50))
+        btnDone.setTitle("Take me to the app!", forState: .Normal)
+        btnDone.backgroundColor = UIColor(rgba: "#")
+        btnDone.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        btnDone.addTarget(self, action: "done", forControlEvents: .TouchUpInside)
+        scrollView.addSubview(btnDone)
+        
+        view.bringSubviewToFront(lblVendor)
+        view.bringSubviewToFront(lblSettings)
         view.bringSubviewToFront(pageControl)
     }
     
@@ -177,6 +189,18 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
         lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
         animator.addAnimation(lblSettingsFrameAnimation)
+        
+        let imgSettingsFrameAnimation = IFTTTFrameAnimation(view: imgSettings)
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgSettings.frame))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgSettings.frame))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgSettings.frame))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgSettings.frame))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        animator.addAnimation(imgSettingsFrameAnimation)
         
         let lblTruckDetailsFrameAnimation = IFTTTFrameAnimation(view: lblTruckDetails)
         lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblTruckDetails.frame))
@@ -209,9 +233,9 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgMenuDetail.frame))
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: imgMenuDetail.frame))
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: imgMenuDetail.frame))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
         animator.addAnimation(imgMenuFrameAnimation)
         
         let imgMenuAlphaAnimation = IFTTTAlphaAnimation(view: imgMenuDetail)
@@ -239,72 +263,21 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgVendorMapView.frame, width, 0)))
         animator.addAnimation(imgVendorFrameAnimation)
         
-        /*CGFloat dy = 240;
-        
-        // apply a 3D zoom animation to the first label
-        IFTTTTransform3DAnimation * labelTransform = [IFTTTTransform3DAnimation animationWithView:self.firstLabel];
-        IFTTTTransform3D *tt1 = [IFTTTTransform3D transformWithM34:0.03f];
-        IFTTTTransform3D *tt2 = [IFTTTTransform3D transformWithM34:0.3f];
-        tt2.rotate = (IFTTTTransform3DRotate){ -(CGFloat)(M_PI), 1, 0, 0 };
-        tt2.translate = (IFTTTTransform3DTranslate){ 0, 0, 50 };
-        tt2.scale = (IFTTTTransform3DScale){ 1.f, 2.f, 1.f };
-        [labelTransform addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(0)
-        andAlpha:1.0f]];
-        [labelTransform addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(1)
-        andTransform3D:tt1]];
-        [labelTransform addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(1.5)
-        andTransform3D:tt2]];
-        [labelTransform addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(1.5) + 1
-        andAlpha:0.0f]];
-        [self.animator addAnimation:labelTransform];
-        
-        // let's animate the wordmark
-        IFTTTFrameAnimation *wordmarkFrameAnimation = [IFTTTFrameAnimation animationWithView:self.wordmark];
-        [self.animator addAnimation:wordmarkFrameAnimation];
-        
-        [wordmarkFrameAnimation addKeyFrames:@[
-        ({
-        IFTTTAnimationKeyFrame *keyFrame = [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(1) andFrame:CGRectOffset(self.wordmark.frame, 200, 0)];
-        keyFrame.easingFunction = IFTTTEasingFunctionEaseInQuart;
-        keyFrame;
-        }),
-        [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(2) andFrame:self.wordmark.frame],
-        [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(3) andFrame:CGRectOffset(self.wordmark.frame, self.view.frame.size.width, dy)],
-        [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(4) andFrame:CGRectOffset(self.wordmark.frame, 0, dy)],
-        ]];
-        
-        // Rotate a full circle from page 2 to 3
-        IFTTTAngleAnimation *wordmarkRotationAnimation = [IFTTTAngleAnimation animationWithView:self.wordmark];
-        [self.animator addAnimation:wordmarkRotationAnimation];
-        [wordmarkRotationAnimation addKeyFrames:@[
-        [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(2) andAngle:0.0f],
-        [IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(3) andAngle:(CGFloat)(2 * M_PI)],
-        ]];
-        
-        // now, we animate the unicorn
-        IFTTTFrameAnimation *unicornFrameAnimation = [IFTTTFrameAnimation animationWithView:self.unicorn];
-        [self.animator addAnimation:unicornFrameAnimation];
-        
-        CGFloat ds = 50;
-        
-        // move down and to the right, and shrink between pages 2 and 3
-        [unicornFrameAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(2) andFrame:self.unicorn.frame]];
-        [unicornFrameAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(3)
-        andFrame:CGRectOffset(CGRectInset(self.unicorn.frame, ds, ds), timeForPage(2), dy)]];
-        // fade the unicorn in on page 2 and out on page 4
-        IFTTTAlphaAnimation *unicornAlphaAnimation = [IFTTTAlphaAnimation animationWithView:self.unicorn];
-        [self.animator addAnimation:unicornAlphaAnimation];
-        
-        [unicornAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(1) andAlpha:0.0f]];
-        [unicornAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(2) andAlpha:1.0f]];
-        [unicornAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(3) andAlpha:1.0f]];
-        [unicornAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(4) andAlpha:0.0f]];
-        
-        // Fade out the label by dragging on the last page
-        IFTTTAlphaAnimation *labelAlphaAnimation = [IFTTTAlphaAnimation animationWithView:self.lastLabel];
-        [labelAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(4) andAlpha:1.0f]];
-        [labelAlphaAnimation addKeyFrame:[IFTTTAnimationKeyFrame keyFrameWithTime:timeForPage(4.35f) andAlpha:0.0f]];
-        [self.animator addAnimation:labelAlphaAnimation];*/
+        let imgPullDownFrameAnimation = IFTTTFrameAnimation(view: imgPullDown)
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: imgPullDown.frame))
+        imgPullDownFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(imgPullDown.frame.origin.x + width, imgVendorMapView.frame.origin.y + (64 * scale), imgPullDown.frame.size.width, imgPullDown.frame.size.height)))
+        animator.addAnimation(imgPullDownFrameAnimation)
+    }
+    
+    func done() {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func IFTTTMaxContentOffsetXForScrollView(scrollView: UIScrollView) -> CGFloat {
