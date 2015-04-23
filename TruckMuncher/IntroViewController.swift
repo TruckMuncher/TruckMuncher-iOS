@@ -10,23 +10,25 @@ import UIKit
 
 class IntroViewController: UIViewController, UIScrollViewDelegate {
 
-    let numberOfPages: CGFloat = 5
+    let numberOfPages: CGFloat = 9
     var isAtEnd = false
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    lazy var introLabel1 = UILabel()
-    lazy var introLabel2 = UILabel()
-    lazy var introLabel3 = UILabel()
-    lazy var introLabel4 = UILabel()
-    lazy var introLabel5 = UILabel()
+    lazy var lblMarketing = UILabel()
+    lazy var lblNearbyTrucks = UILabel()
+    lazy var lblAllTrucks = UILabel()
+    lazy var lblSettings = UILabel()
+    lazy var lblTruckDetails = UILabel()
+    lazy var lblVendor = UILabel()
     
-    lazy var introImage1 = UIImageView()
-    lazy var introImage2 = UIImageView()
-    lazy var introImage3 = UIImageView()
-    lazy var introImage4 = UIImageView()
-    lazy var introImage5 = UIImageView()
+    lazy var imgLogo = UIImageView()
+    lazy var imgMapView = UIImageView()
+    lazy var imgSettings = UIImageView()
+    lazy var imgVendorMapView = UIImageView()
+    lazy var imgPullDown = UIImageView()
+    lazy var imgMenuDetail = UIImageView()
     
     let animator = IFTTTAnimator()
     
@@ -62,130 +64,181 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func placeViews() {
-        //TruckMuncher is Milwaukee's ultimate food truck hub! Whether you're searching for somewhere new to grab a bite or just want to see where your favorite truck is serving today, TruckMuncher will help you make the most of your lunch hour.
+        lblMarketing = UILabel()
+        lblMarketing.numberOfLines = 0
+        lblMarketing.textAlignment = .Center
+        lblMarketing.text = "TruckMuncher is Milwaukee's ultimate food truck hub! Whether you're searching for somewhere new to grab a bite or just want to see where your favorite truck is serving today, TruckMuncher will help you make the most of your lunch hour."
+        let marketingSize = lblMarketing.sizeThatFits(CGSizeMake(width, height))
+        lblMarketing.frame = CGRectMake(timeForPage(1), height-80-marketingSize.height, width, marketingSize.height)
+        scrollView.addSubview(lblMarketing)
         
-        //You can see food trucks nearby that are currently serving, search for a truck, or view a list of all trucks.
+        imgLogo = UIImageView(image: UIImage(named: "intro_logo"))
+        var originalWidth = imgLogo.frame.size.width
+        let logoWidth = width * 0.5
+        var newHeight = logoWidth/originalWidth*imgLogo.frame.size.height
+        imgLogo.frame = CGRectMake(timeForPage(1) + (width-logoWidth)/2, (lblMarketing.frame.origin.y-newHeight)/2, logoWidth, newHeight)
+        scrollView.addSubview(imgLogo)
         
-        //Once you login to keep track of your favorite trucks, tap here to access your settings
+        lblNearbyTrucks = UILabel()
+        lblNearbyTrucks.numberOfLines = 0
+        lblNearbyTrucks.textAlignment = .Center
+        lblNearbyTrucks.text = "You can see food trucks nearby that are currently serving on the map, search for a truck..."
+        let nearbySize = lblNearbyTrucks.sizeThatFits(CGSizeMake(width, height))
+        lblNearbyTrucks.frame = CGRectMake(timeForPage(2), 20, width, nearbySize.height)
+        scrollView.addSubview(lblNearbyTrucks)
         
-        //Pulling up on the truck's information allows you to view a truck's location, its distance from you, and even its menu and prices!
+        lblAllTrucks = UILabel()
+        lblAllTrucks.numberOfLines = 0
+        lblAllTrucks.textAlignment = .Center
+        lblAllTrucks.text = "...or view a list of all trucks."
+        let allSize = lblAllTrucks.sizeThatFits(CGSizeMake(width, height))
+        lblAllTrucks.frame = CGRectMake(timeForPage(3), 20, width, allSize.height)
+        scrollView.addSubview(lblAllTrucks)
         
-        //Own a truck? Start reporting your location by going into serving mode! Own multiple trucks? No problem. Pull down the top bar and choose which truck you want to manage
+        imgMapView = UIImageView(image: UIImage(named: "intro_map"))
+        originalWidth = imgMapView.frame.size.width
+        let newWidth = width * 0.8
+        newHeight = newWidth/originalWidth*imgMapView.frame.size.height
+        imgMapView.frame = CGRectMake(timeForPage(2) + (width-newWidth)/2, 40 + max(nearbySize.height, allSize.height), newWidth, newHeight)
+        scrollView.addSubview(imgMapView)
         
-        introLabel1 = UILabel()
-        introLabel1.numberOfLines = 0
-        introLabel1.textAlignment = .Center
-        introLabel1.text = "TruckMuncher is Milwaukee's ultimate food truck hub! Whether you're searching for somewhere new to grab a bite or just want to see where your favorite truck is serving today, TruckMuncher will help you make the most of your lunch hour."
-        var size = introLabel1.sizeThatFits(CGSizeMake(width, height))
-        introLabel1.frame = CGRectMake(timeForPage(1), 20, width, size.height)
-        scrollView.addSubview(introLabel1)
+        lblSettings = UILabel()
+        lblSettings.numberOfLines = 0
+        lblSettings.textAlignment = .Center
+        lblSettings.text = "Once you login to keep track of your favorite trucks, tap here to access your settings"
+        let settingsSize = lblSettings.sizeThatFits(CGSizeMake(width, height))
+        lblSettings.frame = CGRectMake(timeForPage(4), 20, width, settingsSize.height)
+        scrollView.addSubview(lblSettings)
         
-        introImage1 = UIImageView(image: UIImage(named: "intro1"))
-        introImage1.frame = CGRectMake(timeForPage(1), 40 + size.height, width, height - (40 + size.height))
-        scrollView.addSubview(introImage1)
+        imgSettings = UIImageView(image: UIImage(named: "intro_settings"))
+        originalWidth = imgSettings.frame.size.width
+        newHeight = newWidth/originalWidth*imgSettings.frame.size.height
+        imgSettings.frame = CGRectMake(timeForPage(5) + (width-newWidth)/2, 40 + settingsSize.height, newWidth, newHeight)
+        scrollView.addSubview(imgSettings)
         
-        introLabel2 = UILabel()
-        introLabel2.numberOfLines = 0
-        introLabel2.textAlignment = .Center
-        introLabel2.text = "You can see food trucks nearby that are currently serving, search for a truck, or view a list of all trucks."
-        size = introLabel2.sizeThatFits(CGSizeMake(width, height))
-        introLabel2.frame = CGRectMake(timeForPage(2), 20, width, size.height)
-        scrollView.addSubview(introLabel2)
+        lblTruckDetails = UILabel()
+        lblTruckDetails.numberOfLines = 0
+        lblTruckDetails.textAlignment = .Center
+        lblTruckDetails.text = "Pulling up on the truck's information allows you to view a truck's location, its distance from you, and even its menu and prices!"
+        let truckSize = lblTruckDetails.sizeThatFits(CGSizeMake(width, height))
+        lblTruckDetails.frame = CGRectMake(timeForPage(6), 20, width, truckSize.height)
+        scrollView.addSubview(lblTruckDetails)
         
-        introImage2 = UIImageView(image: UIImage(named: "intro2"))
-        introImage2.frame = CGRectMake(timeForPage(2), 40 + size.height, width, height - (40 + size.height))
-        scrollView.addSubview(introImage2)
+        imgMenuDetail = UIImageView(image: UIImage(named: "intro_menu"))
+        originalWidth = imgMenuDetail.frame.size.width
+        newHeight = newWidth/originalWidth*imgMenuDetail.frame.size.height
+        imgMenuDetail.frame = CGRectMake(timeForPage(6) + (width-newWidth)/2, CGRectGetMaxY(imgMapView.frame), newWidth, newHeight) // one page early
+        scrollView.addSubview(imgMenuDetail)
         
-        introLabel3 = UILabel()
-        introLabel3.numberOfLines = 0
-        introLabel3.textAlignment = .Center
-        introLabel3.text = "Once you login to keep track of your favorite trucks, tap here to access your settings"
-        size = introLabel3.sizeThatFits(CGSizeMake(width, height))
-        introLabel3.frame = CGRectMake(timeForPage(3), 20, width, size.height)
-        scrollView.addSubview(introLabel3)
+        lblVendor = UILabel()
+        lblVendor.numberOfLines = 0
+        lblVendor.textAlignment = .Center
+        lblVendor.text = "Own a truck? Start reporting your location by going into serving mode! If you own more than one truck, pull down on your truck's name to choose which one you want to manage"
+        let vendorSize = lblVendor.sizeThatFits(CGSizeMake(width, height))
+        lblVendor.frame = CGRectMake(timeForPage(8), 20, width, vendorSize.height)
+        scrollView.addSubview(lblVendor)
         
-        introImage3 = UIImageView(image: UIImage(named: "intro3"))
-        introImage3.frame = CGRectMake(timeForPage(3), 40 + size.height, width, height - (40 + size.height))
-        scrollView.addSubview(introImage3)
+        imgVendorMapView = UIImageView(image: UIImage(named: "intro_vendor_map"))
+        originalWidth = imgVendorMapView.frame.size.width
+        newHeight = newWidth/originalWidth*imgVendorMapView.frame.size.height
+        imgVendorMapView.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2, 40 + vendorSize.height, newWidth, newHeight)
+        scrollView.addSubview(imgVendorMapView)
         
-        introLabel4 = UILabel()
-        introLabel4.numberOfLines = 0
-        introLabel4.textAlignment = .Center
-        introLabel4.text = "Pulling up on the truck's information allows you to view a truck's location, its distance from you, and even its menu and prices!"
-        size = introLabel4.sizeThatFits(CGSizeMake(width, height))
-        introLabel4.frame = CGRectMake(timeForPage(4), 20, width, size.height)
-        scrollView.addSubview(introLabel4)
-        
-        introImage4 = UIImageView(image: UIImage(named: "intro4"))
-        introImage4.frame = CGRectMake(timeForPage(4), 40 + size.height, width, height - (40 + size.height))
-        scrollView.addSubview(introImage4)
-        
-        introLabel5 = UILabel()
-        introLabel5.numberOfLines = 0
-        introLabel5.textAlignment = .Center
-        introLabel5.text = "Own a truck? Start reporting your location by going into serving mode! Own multiple trucks? No problem. Pull down the top bar and choose which truck you want to manage"
-        size = introLabel5.sizeThatFits(CGSizeMake(width, height))
-        introLabel5.frame = CGRectMake(timeForPage(5), 20, width, size.height)
-        scrollView.addSubview(introLabel5)
-        
-        introImage5 = UIImageView(image: UIImage(named: "intro5"))
-        introImage5.frame = CGRectMake(timeForPage(5), 40 + size.height, width, height - (40 + size.height))
-        scrollView.addSubview(introImage5)
+        imgPullDown = UIImageView(image: UIImage(named: "intro_pull_down"))
+        originalWidth = imgPullDown.frame.size.width
+        newHeight = newWidth/originalWidth*imgPullDown.frame.size.height
+        imgPullDown.frame = CGRectMake(timeForPage(9) + (width-newWidth)/2, 104 + vendorSize.height, newWidth, newHeight)
+        scrollView.addSubview(imgPullDown)
         
         view.bringSubviewToFront(pageControl)
-        
-        // put a unicorn in the middle of page two, hidden
-        /*self.unicorn = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Unicorn"]];
-        self.unicorn.center = self.view.center;
-        self.unicorn.frame = CGRectOffset(
-        self.unicorn.frame,
-        self.view.frame.size.width,
-        -100
-        );
-        self.unicorn.alpha = 0.0f;
-        [self.scrollView addSubview:self.unicorn];
-        
-        // put a logo on top of it
-        self.wordmark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"IFTTT"]];
-        self.wordmark.center = self.view.center;
-        self.wordmark.frame = CGRectOffset(
-        self.wordmark.frame,
-        self.view.frame.size.width,
-        -100
-        );
-        [self.scrollView addSubview:self.wordmark];
-        
-        self.firstLabel = [[UILabel alloc] init];
-        self.firstLabel.text = @"Introducing Jazz Hands";
-        [self.firstLabel sizeToFit];
-        self.firstLabel.center = self.view.center;
-        [self.scrollView addSubview:self.firstLabel];
-        
-        UILabel *secondPageText = [[UILabel alloc] init];
-        secondPageText.text = @"Brought to you by IFTTT";
-        [secondPageText sizeToFit];
-        secondPageText.center = self.view.center;
-        secondPageText.frame = CGRectOffset(secondPageText.frame, timeForPage(2), 180);
-        [self.scrollView addSubview:secondPageText];
-        
-        UILabel *thirdPageText = [[UILabel alloc] init];
-        thirdPageText.text = @"Simple keyframe animations";
-        [thirdPageText sizeToFit];
-        thirdPageText.center = self.view.center;
-        thirdPageText.frame = CGRectOffset(thirdPageText.frame, timeForPage(3), -100);
-        [self.scrollView addSubview:thirdPageText];
-        
-        UILabel *fourthPageText = [[UILabel alloc] init];
-        fourthPageText.text = @"Optimized for scrolling intros";
-        [fourthPageText sizeToFit];
-        fourthPageText.center = self.view.center;
-        fourthPageText.frame = CGRectOffset(fourthPageText.frame, timeForPage(4), 0);
-        [self.scrollView addSubview:fourthPageText];
-        
-        self.lastLabel = fourthPageText;*/
     }
     
     func configureAnimation() {
+        let imgMapFrameAnimation = IFTTTFrameAnimation(view: imgMapView)
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgMapView.frame))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgMapView.frame))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: CGRectOffset(imgMapView.frame, width*2, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(imgMapView.frame, width*3, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(imgMapView.frame, width*4, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
+        animator.addAnimation(imgMapFrameAnimation)
+        
+        let lblSettingsFrameAnimation = IFTTTFrameAnimation(view: lblSettings)
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblSettings.frame))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: lblSettings.frame))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: lblSettings.frame))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: lblSettings.frame))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
+        lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(lblSettings.frame, width, 0)))
+        animator.addAnimation(lblSettingsFrameAnimation)
+        
+        let lblTruckDetailsFrameAnimation = IFTTTFrameAnimation(view: lblTruckDetails)
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: lblTruckDetails.frame))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(lblTruckDetails.frame, width, 0)))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(lblTruckDetails.frame, width, 0)))
+        lblTruckDetailsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(lblTruckDetails.frame, width, 0)))
+        animator.addAnimation(lblTruckDetailsFrameAnimation)
+        
+        let lblVendorFrameAnimation = IFTTTFrameAnimation(view: lblVendor)
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: lblVendor.frame))
+        lblVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(lblVendor.frame, width, 0)))
+        animator.addAnimation(lblVendorFrameAnimation)
+        
+        let imgMenuFrameAnimation = IFTTTFrameAnimation(view: imgMenuDetail)
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: imgMenuDetail.frame))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+20)))
+        animator.addAnimation(imgMenuFrameAnimation)
+        
+        let imgMenuAlphaAnimation = IFTTTAlphaAnimation(view: imgMenuDetail)
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andAlpha: 0.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6.01)), andAlpha: 1.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andAlpha: 1.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andAlpha: 1.0))
+        imgMenuAlphaAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andAlpha: 1.0))
+        animator.addAnimation(imgMenuAlphaAnimation)
+        
+        let imgVendorFrameAnimation = IFTTTFrameAnimation(view: imgVendorMapView)
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: imgVendorMapView.frame))
+        imgVendorFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgVendorMapView.frame, width, 0)))
+        animator.addAnimation(imgVendorFrameAnimation)
+        
         /*CGFloat dy = 240;
         
         // apply a 3D zoom animation to the first label
