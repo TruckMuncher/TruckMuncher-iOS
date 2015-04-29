@@ -724,8 +724,6 @@ class MapViewController: UIViewController,
         let composer = TWTRComposer()
         var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
         composer.setText("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
-        composer.setImage(UIImage(named: "fabric"))
-        
         composer.showWithCompletion { (result) -> Void in
             if (result == TWTRComposerResult.Cancelled) {
                 println("Tweet composition cancelled")
