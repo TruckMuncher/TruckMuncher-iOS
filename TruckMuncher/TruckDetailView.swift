@@ -19,10 +19,14 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
+    @IBOutlet var fbShareButton: FBSDKShareButton!
+    
     let menuManager = MenuManager()
     
     var menu: RMenu?
     var textColor = UIColor.blackColor()
+    var truckId: String!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -87,6 +91,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         self.distanceLabel.text = showDistance ? String(format: "%.02f mi", truck.distanceFromMe) : ""
         self.distanceLabel.textColor = self.textColor
+        
+        self.truckId = truck.id
     }
     
     func updateViewWithColor(color: UIColor) {

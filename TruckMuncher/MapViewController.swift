@@ -681,11 +681,26 @@ class MapViewController: UIViewController,
         }
         if activeTrucks.count > 0 {
             (detailView as! TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
+            if ruser?.hasFb == true {
+                (detailView as! TruckDetailView).fbShareButton.hidden = false
+                (detailView as! TruckDetailView).fbShareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
+            }
         } else {
             (detailView as! TruckDetailView).updateViewForNoTruck()
         }
         
         return detailView
+    }
+    
+    func showFacebookShareDialog() {
+        var content = FBSDKShareLinkContent()
+        var truckId = (activeTrucks[truckCarousel.currentItemIndex] as RTruck).id
+        content.contentURL = NSURL(string: "https://www.truckmuncher.com/#/trucks/" + truckId)
+        var dialog = FBSDKShareDialog()
+        dialog.fromViewController = self
+        dialog.shareContent = content
+        dialog.mode = FBSDKShareDialogMode.ShareSheet
+        dialog.show()
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
