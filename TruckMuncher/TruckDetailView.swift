@@ -20,7 +20,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     @IBOutlet var shareButton: UIButton!
     
-    
     let menuManager = MenuManager()
     
     var menu: RMenu?
@@ -30,7 +29,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -52,7 +50,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         menu = RMenu()
         truckNameLabel.text = "No Trucks Currently Active"
         truckLogoImage.image = nil
-        imageWidthConstraint.constant = 0.01
+        imageWidthConstraint.constant = 0
         
         let primary = carouselBackground
         backgroundColor = primary
@@ -76,6 +74,10 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         } else {
             self.menuTableView.reloadData()
         }
+        imageWidthConstraint.constant = 80
+        truckLogoImage.layer.cornerRadius = truckLogoImage.frame.size.height / 2
+        truckLogoImage.layer.masksToBounds = true
+        truckLogoImage.layer.borderWidth = 0
         self.getImageForTruck(truck)
         
         self.truckNameLabel.text = truck.name
@@ -115,15 +117,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     func getImageForTruck(truck:RTruck) {
         var imgURL: NSURL? = NSURL(string: truck.imageUrl)
         
-        self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: UIImage(named: "noImageAvailable"), completed: { (image, error, type, url) -> Void in
+        self.truckLogoImage.sd_setImageWithURL(imgURL, placeholderImage: nil, completed: { (image, error, type, url) -> Void in
             if error == nil {
-                self.truckLogoImage.layer.cornerRadius = self.truckLogoImage.frame.size.height / 2
-                self.truckLogoImage.layer.masksToBounds = true
-                self.truckLogoImage.layer.borderWidth = 0
-                
                 self.menuTableView.reloadData()
             } else {
-                println("Error: \(error.localizedDescription)")
+                self.truckLogoImage.image = nil
+                self.imageWidthConstraint.constant = 0
             }
         })
     }
