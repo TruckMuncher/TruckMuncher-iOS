@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import TwitterKit
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
