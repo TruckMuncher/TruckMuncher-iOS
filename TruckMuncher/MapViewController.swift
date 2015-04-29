@@ -51,10 +51,12 @@ class MapViewController: UIViewController,
     var allTrucksRegardlessOfServingMode = [RTruck]()
     lazy var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
+    lazy var muncherImageView = UIImageView()
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
     let userManager = UserManager()
+    let authManager = AuthManager()
     
     var initialTouchY: CGFloat = 0
     
@@ -80,7 +82,7 @@ class MapViewController: UIViewController,
         carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
-        var muncherImageView = UIImageView(image: muncherImage)
+        muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.userInteractionEnabled = true
         muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
@@ -129,6 +131,7 @@ class MapViewController: UIViewController,
     func setupProfile() {
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
         if let user = ruser {
+            muncherImageView.image = UIImage(named: "transparentTMOutline")
             switchPostToFb.on = user.postToFb
             switchPostToTw.on = user.postToTw
             if user.hasFb {
@@ -160,9 +163,19 @@ class MapViewController: UIViewController,
             switchPostToTw.enabled = hasTrucks
             lblPostToFb.hidden = !hasTrucks
             lblPostToTw.hidden = !hasTrucks
+            
+            if hasTrucks {
+                navigationItem.leftBarButtonItem?.title = "\u{f0d1}"
+            } else {
+                navigationItem.leftBarButtonItem?.title = "\u{f08b}"
+            }
+        } else {
+            muncherImageView.image = UIImage(named: "transparentTM")
             if truckCarousel != nil {
                 truckCarousel.reloadData()
             }
+            
+            navigationItem.leftBarButtonItem?.title = "\u{f090}"
         }
     }
     
@@ -520,37 +533,79 @@ class MapViewController: UIViewController,
     
     // MARK: - Helper Methods
     
-    func login () {
-        var config: NSDictionary = NSDictionary()
-        
-        if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)!
+    func login() {
+        if let user = ruser {
+            // we are logged in, if we have trucks go to the vendor map
+            // if we dont have trucks logout
+            if user.truckIds.count > 0 {
+                // go to vendor map
+                handleLogin()
+            } else {
+                // logout
+                authManager.signOut(success: { () -> () in
+                    // clear some tokens, logout of twitter & facebook
+                    self.logoutSuccess()
+                }) { (error) -> () in
+                    // clear some tokens, logout of twitter & facebook, and pretend we logged out
+                    let realm = RLMRealm.defaultRealm()
+                    realm.beginWriteTransaction()
+                    realm.deleteObjects(RUser.allObjectsInRealm(realm))
+                    realm.commitWriteTransaction()
+                    
+                    self.logoutSuccess()
+                }
+            }
+        } else {
+            // we are not logged in, do the normal login flow
+            var config: NSDictionary = NSDictionary()
+            
+            if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
+                config = NSDictionary(contentsOfFile: path)!
+            }
+            loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            loginViewController!.twitterKey = config[kTwitterKey] as! String
+            loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as! String
+            loginViewController!.twitterName = config[kTwitterName] as! String
+            loginViewController!.twitterCallback = config[kTwitterCallback] as! String
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
+            
+            loginViewController!.modalPresentationStyle = .OverCurrentContext
+            navigationController?.modalTransitionStyle = .CoverVertical
+            navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
         }
-        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController!.twitterKey = config[kTwitterKey] as! String
-        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as! String
-        loginViewController!.twitterName = config[kTwitterName] as! String
-        loginViewController!.twitterCallback = config[kTwitterCallback] as! String
+    }
+    
+    func logoutSuccess() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("sessionToken")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
+        let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        tokenItem.resetKeychainItem()
+        secretItem.resetKeychainItem()
         
-        loginViewController!.modalPresentationStyle = .OverCurrentContext
-        navigationController?.modalTransitionStyle = .CoverVertical
-        navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
+        FBSDKLoginManager().logOut()
+        truckCarousel.reloadData()
+        ruser = nil
+        muncherImageView.image = UIImage(named: "transparentTM")
+        navigationItem.leftBarButtonItem?.title = "\u{f090}"
     }
     
     func handleLogin() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as! String).firstObject() as! RUser
 
-        var trucks = [RTruck]()
-        for i in 0..<ruser.truckIds.count {
-            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+        if ruser.truckIds.count > 0 {
+            var trucks = [RTruck]()
+            for i in 0..<ruser.truckIds.count {
+                trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+            }
+            
+            // Show the VendorMap
+            let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
+            navigationController?.pushViewController(vendorMapVC, animated: true)
         }
-        
-        // Show the VendorMap
-        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
-        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {

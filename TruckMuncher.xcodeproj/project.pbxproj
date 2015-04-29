@@ -37,6 +37,7 @@
 		06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06B3E8C01AE1AE0600474DA8 /* TruckDetailViewController.xib */; };
 		06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5519FF59C30086FA57 /* TruckPin@2x.png */; };
 		06D90F5819FF59C30086FA57 /* TruckPin.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D90F5619FF59C30086FA57 /* TruckPin.png */; };
+		272860F11AF182B0001186F7 /* transparentTMOutline.png in Resources */ = {isa = PBXBuildFile; fileRef = 272860F01AF182B0001186F7 /* transparentTMOutline.png */; };
 		2736B1DE19F5AE3200CBACC2 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */; };
 		2736B1DF19F5AE3200CBACC2 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */; };
 		2736B1E719F5AE5000CBACC2 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */; };
@@ -179,6 +180,7 @@
 		06D90F5519FF59C30086FA57 /* TruckPin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TruckPin@2x.png"; sourceTree = "<group>"; };
 		06D90F5619FF59C30086FA57 /* TruckPin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TruckPin.png; sourceTree = "<group>"; };
 		06F2D04A19E4BE540030726D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		272860F01AF182B0001186F7 /* transparentTMOutline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparentTMOutline.png; sourceTree = "<group>"; };
 		2736B1DC19F5AE3200CBACC2 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		2736B1DD19F5AE3200CBACC2 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = SOURCE_ROOT; };
@@ -297,6 +299,7 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				272860F01AF182B0001186F7 /* transparentTMOutline.png */,
 				27BC44A81A78988700C0D07F /* transparentTM.png */,
 				060EC19D1A6F1AA300A27C35 /* muncherTM.png */,
 				063AB5A41A684FBE003828F7 /* truckmuncher.png */,
@@ -605,6 +608,7 @@
 			files = (
 				278C0A9A1AE1B27400C65AD5 /* MapViewController.xib in Resources */,
 				27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */,
+				272860F11AF182B0001186F7 /* transparentTMOutline.png in Resources */,
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */,
