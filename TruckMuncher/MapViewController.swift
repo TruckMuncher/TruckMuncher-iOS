@@ -586,6 +586,7 @@ class MapViewController: UIViewController,
         secretItem.resetKeychainItem()
         
         FBSDKLoginManager().logOut()
+        truckCarousel.reloadData()
         ruser = nil
         muncherImageView.image = UIImage(named: "transparentTM")
         navigationItem.leftBarButtonItem?.title = "\u{f090}"
