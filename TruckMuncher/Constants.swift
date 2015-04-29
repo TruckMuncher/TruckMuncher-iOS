@@ -36,5 +36,5 @@ let BASE_URL = "https://api.truckmuncher.com:8443"
 let PROPERTIES_FILE = "Properties-dev"
 //let BASE_URL = "https://api.truckmuncher.com:8443"
 
-let BASE_URL = "http://155.92.72.35:8443"
+let BASE_URL = "http://truckmuncher:8443"
 #endif
