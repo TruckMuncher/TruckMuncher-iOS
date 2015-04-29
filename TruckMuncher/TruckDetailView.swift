@@ -18,14 +18,19 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckLogoImage: UIImageView!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var shareButton: UIButton!
+    
     
     let menuManager = MenuManager()
     
     var menu: RMenu?
     var textColor = UIColor.blackColor()
+    var truckId: String!
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -45,7 +50,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func updateViewForNoTruck() {
         menu = RMenu()
-        truckNameLabel.text = "There are currently no active trucks"
+        truckNameLabel.text = "No Trucks Currently Active"
         truckLogoImage.image = nil
         imageWidthConstraint.constant = 0.01
         
@@ -56,6 +61,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckTagsLabel.textColor = textColor
         
         distanceLabel.textColor = textColor
+        shareButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
     func updateViewWithTruck(truck:RTruck!, showingMenu: Bool, showDistance: Bool = true) {
@@ -87,6 +93,12 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         self.distanceLabel.text = showDistance ? String(format: "%.02f mi", truck.distanceFromMe) : ""
         self.distanceLabel.textColor = self.textColor
+        
+        self.truckId = truck.id
+        
+        shareButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
+        shareButton.setTitle("\u{f045}", forState: .Normal)
+        shareButton.setTitleColor(textColor, forState: .Normal)
     }
     
     func updateViewWithColor(color: UIColor) {
@@ -95,6 +107,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckNameLabel.textColor = textColor
         truckTagsLabel.textColor = textColor
         distanceLabel.textColor = textColor
+        shareButton.setTitleColor(textColor, forState: .Normal)
 
         menuTableView.reloadData()
     }

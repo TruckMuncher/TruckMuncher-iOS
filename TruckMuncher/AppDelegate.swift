@@ -8,8 +8,8 @@
 
 import UIKit
 import Fabric
-import Crashlytics
 import TwitterKit
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
