@@ -175,7 +175,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         truckSelectionView.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
         
         var previousY = CGFloat(0.0)
-        
+
         for truck in trucks {
             let frame = CGRectMake(0.0, previousY, UIScreen.mainScreen().bounds.width, selectionViewHeight)
             var thisTrucksView = UIView(frame: frame)
@@ -325,7 +325,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         truckSelectionView.frame = frame
         
         let highestTruckIndex = trucks.count-1
-        var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1)
+        var truckSelected = highestTruckIndex - max(0, min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1))
         
         for (index, view) in enumerate(truckSelectionView.subviews) {
             (view as! UIView).backgroundColor = UIColor.clearColor()
