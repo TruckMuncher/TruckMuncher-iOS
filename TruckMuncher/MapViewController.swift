@@ -51,6 +51,7 @@ class MapViewController: UIViewController,
     var allTrucksRegardlessOfServingMode = [RTruck]()
     lazy var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
+    lazy var muncherImageView = UIImageView()
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
@@ -80,7 +81,7 @@ class MapViewController: UIViewController,
         carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
-        var muncherImageView = UIImageView(image: muncherImage)
+        muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.userInteractionEnabled = true
         muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
@@ -129,6 +130,7 @@ class MapViewController: UIViewController,
     func setupProfile() {
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
         if let user = ruser {
+            muncherImageView.image = UIImage(named: "transparentTMOutline")
             switchPostToFb.on = user.postToFb
             switchPostToTw.on = user.postToTw
             if user.hasFb {
@@ -160,6 +162,8 @@ class MapViewController: UIViewController,
             switchPostToTw.enabled = hasTrucks
             lblPostToFb.hidden = !hasTrucks
             lblPostToTw.hidden = !hasTrucks
+        } else {
+            muncherImageView.image = UIImage(named: "transparentTM")
         }
     }
     
@@ -540,14 +544,16 @@ class MapViewController: UIViewController,
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as! String).firstObject() as! RUser
 
-        var trucks = [RTruck]()
-        for i in 0..<ruser.truckIds.count {
-            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+        if ruser.truckIds.count > 0 {
+            var trucks = [RTruck]()
+            for i in 0..<ruser.truckIds.count {
+                trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+            }
+            
+            // Show the VendorMap
+            let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
+            navigationController?.pushViewController(vendorMapVC, animated: true)
         }
-        
-        // Show the VendorMap
-        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
-        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {

@@ -44,6 +44,7 @@
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
 		2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755C45F1A670857006452F7 /* SearchDelegate.swift */; };
+		2757A0811AF0678F0078BEB8 /* transparentTMOutline.png in Resources */ = {isa = PBXBuildFile; fileRef = 2757A0801AF0678F0078BEB8 /* transparentTMOutline.png */; };
 		277AE77D19D2211E00914BE1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 277AE77C19D2211E00914BE1 /* Crashlytics.framework */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
@@ -187,6 +188,7 @@
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
+		2757A0801AF0678F0078BEB8 /* transparentTMOutline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparentTMOutline.png; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		277C8D161AD5EBC400D80DB9 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		278BFBB019D08D0900510C6E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2757A0801AF0678F0078BEB8 /* transparentTMOutline.png */,
 				27BC44A81A78988700C0D07F /* transparentTM.png */,
 				060EC19D1A6F1AA300A27C35 /* muncherTM.png */,
 				063AB5A41A684FBE003828F7 /* truckmuncher.png */,
@@ -607,6 +610,7 @@
 			files = (
 				278C0A9A1AE1B27400C65AD5 /* MapViewController.xib in Resources */,
 				27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */,
+				2757A0811AF0678F0078BEB8 /* transparentTMOutline.png in Resources */,
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
 				061A1F711A004E61000A0523 /* SingleTruckAnnotationIcon.png in Resources */,
@@ -877,6 +881,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Public/CCHMapClusterController\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKShareKit\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
+				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -919,6 +935,18 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Bolts\"",
+					"\"${PODS_ROOT}/Headers/Public/CCHMapClusterController\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKCoreKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKLoginKit\"",
+					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FBSDKShareKit\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/iCarousel\"",
 				);
 				INFOPLIST_FILE = TruckMuncher/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

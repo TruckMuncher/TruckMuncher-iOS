@@ -100,6 +100,7 @@ class UserManager {
         let request = APIRouter.linkAccount(dict).URLRequest as! NSMutableURLRequest
         let currentAuthHeader = request.valueForHTTPHeaderField("Authorization")
         request.setValue("\(currentAuthHeader!), \(authHeader)", forHTTPHeaderField: "Authorization")
+        println("Authorization: \(currentAuthHeader!), \(authHeader)")
         
         apiManager.post(request as NSURLRequest, success: { (response, dict) -> () in
             // success
