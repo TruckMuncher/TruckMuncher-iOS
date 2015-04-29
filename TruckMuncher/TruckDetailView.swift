@@ -46,7 +46,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             menuTableView.backgroundView = nil
             menuTableView.backgroundColor = UIColor.clearColor()
         }
-        shareButton.setTitleColor(distanceLabel.textColor, forState: .Normal)
     }
     
     func updateViewForNoTruck() {
@@ -62,6 +61,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckTagsLabel.textColor = textColor
         
         distanceLabel.textColor = textColor
+        shareButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
     }
     
     func updateViewWithTruck(truck:RTruck!, showingMenu: Bool, showDistance: Bool = true) {
@@ -98,6 +98,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         shareButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
         shareButton.setTitle("\u{f045}", forState: .Normal)
+        shareButton.setTitleColor(textColor, forState: .Normal)
     }
     
     func updateViewWithColor(color: UIColor) {
