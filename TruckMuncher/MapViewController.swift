@@ -681,15 +681,32 @@ class MapViewController: UIViewController,
         }
         if activeTrucks.count > 0 {
             (detailView as! TruckDetailView).updateViewWithTruck(activeTrucks[index], showingMenu: showingMenu)
-            if ruser?.hasFb == true {
-                (detailView as! TruckDetailView).fbShareButton.hidden = false
-                (detailView as! TruckDetailView).fbShareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
+            if ruser?.hasFb == true && ruser?.hasTw == true {
+                (detailView as! TruckDetailView).shareButton.hidden = false
+                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showShareSheet", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            else if ruser?.hasFb == true {
+                (detailView as! TruckDetailView).shareButton.hidden = false
+                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
+            }
+            else if ruser?.hasTw == true {
+                (detailView as! TruckDetailView).shareButton.hidden = false
+                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showTwitterShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
             }
         } else {
             (detailView as! TruckDetailView).updateViewForNoTruck()
         }
         
         return detailView
+    }
+    
+    func showShareSheet() {
+        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
+        var sharingItems = [AnyObject]()
+        sharingItems.append("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
+            
+        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
     
     func showFacebookShareDialog() {
@@ -701,6 +718,22 @@ class MapViewController: UIViewController,
         dialog.shareContent = content
         dialog.mode = FBSDKShareDialogMode.ShareSheet
         dialog.show()
+    }
+    
+    func showTwitterShareDialog() {
+        let composer = TWTRComposer()
+        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
+        composer.setText("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
+        composer.setImage(UIImage(named: "fabric"))
+        
+        composer.showWithCompletion { (result) -> Void in
+            if (result == TWTRComposerResult.Cancelled) {
+                println("Tweet composition cancelled")
+            }
+            else {
+                println("Sending tweet!")
+            }
+        }
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {

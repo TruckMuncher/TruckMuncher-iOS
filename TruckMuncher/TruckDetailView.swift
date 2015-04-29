@@ -18,8 +18,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var truckLogoImage: UIImageView!
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
+    @IBOutlet var shareButton: UIButton!
     
-    @IBOutlet var fbShareButton: FBSDKShareButton!
     
     let menuManager = MenuManager()
     
@@ -45,6 +45,11 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             menuTableView.backgroundView = nil
             menuTableView.backgroundColor = UIColor.clearColor()
         }
+        
+        shareButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
+        shareButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        shareButton.setTitle("\u{f045}", forState: .Normal)
+        shareButton.setTitleColor(pinkColor, forState: .Normal)
     }
     
     func updateViewForNoTruck() {
