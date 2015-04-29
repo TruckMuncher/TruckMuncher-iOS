@@ -30,6 +30,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -45,11 +46,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             menuTableView.backgroundView = nil
             menuTableView.backgroundColor = UIColor.clearColor()
         }
-        
-        shareButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
-        shareButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
-        shareButton.setTitle("\u{f045}", forState: .Normal)
-        shareButton.setTitleColor(pinkColor, forState: .Normal)
+        shareButton.setTitleColor(distanceLabel.textColor, forState: .Normal)
     }
     
     func updateViewForNoTruck() {
@@ -98,6 +95,9 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         self.distanceLabel.textColor = self.textColor
         
         self.truckId = truck.id
+        
+        shareButton.titleLabel?.font = UIFont(name: "FontAwesome", size: 30)
+        shareButton.setTitle("\u{f045}", forState: .Normal)
     }
     
     func updateViewWithColor(color: UIColor) {
@@ -106,6 +106,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         truckNameLabel.textColor = textColor
         truckTagsLabel.textColor = textColor
         distanceLabel.textColor = textColor
+        shareButton.setTitleColor(textColor, forState: .Normal)
 
         menuTableView.reloadData()
     }
