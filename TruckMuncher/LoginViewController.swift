@@ -53,6 +53,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginTapped(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+    }
+    
     func cancelTapped() {
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -69,9 +73,11 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User logged out from Facebook")
+        MBProgressHUD.hideHUDForView(view, animated: true)
     }
     
     func successfullyLoggedInAsTruck() {
+        MBProgressHUD.hideHUDForView(view, animated: true)
         navigationController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName("loggedInNotification", object: self, userInfo: nil)
         })
@@ -96,6 +102,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             println("error message \(error?.userMessage)")
             NSUserDefaults.standardUserDefaults().removeObjectForKey("sessionToken")
             NSUserDefaults.standardUserDefaults().synchronize()
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
     }
 }
