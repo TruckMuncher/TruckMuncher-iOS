@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D98g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,26 +19,35 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PnJ-Yh-IwY">
                         <rect key="frame" x="0.0" y="134" width="180" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="42" id="43r-9U-qAi"/>
+                            <constraint firstAttribute="height" constant="42" id="p4U-SO-WTo"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qEH-s9-LCb">
+                        <rect key="frame" x="8" y="126" width="20" height="20"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="PnJ-Yh-IwY" secondAttribute="bottom" constant="4" id="7Co-hF-cGC"/>
-                <constraint firstAttribute="trailing" secondItem="PnJ-Yh-IwY" secondAttribute="trailing" id="Fph-yD-3iR"/>
-                <constraint firstItem="PnJ-Yh-IwY" firstAttribute="top" secondItem="HXG-kw-pNb" secondAttribute="bottom" constant="4" id="Sp7-dI-Dy2"/>
-                <constraint firstItem="HXG-kw-pNb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="fuF-Tt-Lq6"/>
-                <constraint firstItem="PnJ-Yh-IwY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i5h-Bi-wK7"/>
-                <constraint firstItem="HXG-kw-pNb" firstAttribute="centerX" secondItem="PnJ-Yh-IwY" secondAttribute="centerX" id="nNJ-wO-A2U"/>
-                <constraint firstItem="HXG-kw-pNb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zLV-FI-fsb"/>
+                <constraint firstItem="qEH-s9-LCb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="126" id="3nJ-cb-kLH"/>
+                <constraint firstAttribute="trailing" secondItem="PnJ-Yh-IwY" secondAttribute="trailing" id="98o-Ev-369"/>
+                <constraint firstItem="HXG-kw-pNb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BEK-NJ-ym7"/>
+                <constraint firstItem="qEH-s9-LCb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="E00-RX-9tx"/>
+                <constraint firstItem="HXG-kw-pNb" firstAttribute="centerX" secondItem="PnJ-Yh-IwY" secondAttribute="centerX" id="EBW-nE-qzs"/>
+                <constraint firstAttribute="trailing" secondItem="qEH-s9-LCb" secondAttribute="trailing" constant="152" id="K6s-Zn-J0f"/>
+                <constraint firstItem="PnJ-Yh-IwY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LrH-dU-pFI"/>
+                <constraint firstItem="PnJ-Yh-IwY" firstAttribute="top" secondItem="HXG-kw-pNb" secondAttribute="bottom" constant="4" id="Vkh-4b-mgs"/>
+                <constraint firstItem="HXG-kw-pNb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="iwv-2o-LEN"/>
+                <constraint firstAttribute="bottom" secondItem="PnJ-Yh-IwY" secondAttribute="bottom" constant="4" id="jsS-wp-IIi"/>
+                <constraint firstAttribute="bottom" secondItem="qEH-s9-LCb" secondAttribute="bottom" constant="34" id="nzR-2s-fPE"/>
             </constraints>
             <size key="customSize" width="237" height="201"/>
             <connections>
+                <outlet property="isServingIndicator" destination="qEH-s9-LCb" id="eF4-DU-dpB"/>
                 <outlet property="logoImageView" destination="HXG-kw-pNb" id="pWf-Nc-3iR"/>
                 <outlet property="truckNameField" destination="PnJ-Yh-IwY" id="JMl-US-aX6"/>
             </connections>

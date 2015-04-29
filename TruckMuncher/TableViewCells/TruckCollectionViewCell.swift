@@ -12,14 +12,17 @@ class TruckCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var truckNameField: UILabel!
+    @IBOutlet var isServingIndicator: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func updateCellWithTruckInfo(truck: RTruck){
+    func updateCellWithTruckInfo(truck: RTruck, isServing: Bool){
         getImageForTruck(truck)
         truckNameField.text = truck.name
+        isServingIndicator.layer.cornerRadius = 10
+        isServingIndicator.backgroundColor = isServing == true ? UIColor.greenColor() : UIColor.lightGrayColor()
     }
     
     func getImageForTruck(truck:RTruck) {

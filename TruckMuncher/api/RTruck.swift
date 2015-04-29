@@ -61,4 +61,15 @@ class RTruck: RLMObject {
     override class func ignoredProperties() -> [AnyObject]! {
         return ["distanceFromMe"]
     }
+    
+    override func isEqual(object: AnyObject?) -> Bool {
+        if let object = object as? RTruck {
+            return id == object.id
+        }
+        return false
+    }
+    
+    override var hash: Int {
+        return id.hashValue
+    }
 }
