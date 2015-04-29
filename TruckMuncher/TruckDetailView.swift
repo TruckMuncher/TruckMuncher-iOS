@@ -51,7 +51,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func updateViewForNoTruck() {
         menu = RMenu()
-        truckNameLabel.text = "There are currently no active trucks"
+        truckNameLabel.text = "No Trucks Currently Active"
         truckLogoImage.image = nil
         imageWidthConstraint.constant = 0.01
         

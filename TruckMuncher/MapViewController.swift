@@ -160,6 +160,9 @@ class MapViewController: UIViewController,
             switchPostToTw.enabled = hasTrucks
             lblPostToFb.hidden = !hasTrucks
             lblPostToTw.hidden = !hasTrucks
+            if truckCarousel != nil {
+                truckCarousel.reloadData()
+            }
         }
     }
     
