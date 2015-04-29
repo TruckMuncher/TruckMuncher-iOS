@@ -104,9 +104,14 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Profile" id="ou4-tu-LqC">
-                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="MbL-CY-DWl">
+                            <barButtonItem key="leftBarButtonItem" systemItem="done" id="6ei-jh-vTh">
                                 <connections>
-                                    <action selector="hideProfile:" destination="-1" id="eEe-OD-nyx"/>
+                                    <action selector="hideProfile:" destination="-1" id="SBv-Su-KRa"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="Help" id="nrL-0m-c5h">
+                                <connections>
+                                    <action selector="showTutorial:" destination="-1" id="b0R-nH-xIE"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

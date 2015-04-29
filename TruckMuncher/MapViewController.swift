@@ -18,7 +18,8 @@ class MapViewController: UIViewController,
     iCarouselDataSource,
     iCarouselDelegate,
     SearchCompletionProtocol,
-    UISearchBarDelegate {
+    UISearchBarDelegate,
+    IntroDelegate {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
@@ -59,6 +60,7 @@ class MapViewController: UIViewController,
     let authManager = AuthManager()
     
     var initialTouchY: CGFloat = 0
+    var showingIntro = false
     
     func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
@@ -112,20 +114,25 @@ class MapViewController: UIViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        updateCarouselWithTruckMenus()
-        
-        initLocationManager()
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
-            locationManager.startUpdatingLocation()
-            mapClusterControllerSetup()
-            truckCarouselSetup()
+        if !showingIntro {
+            updateCarouselWithTruckMenus()
+            
+            initLocationManager()
+            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+                locationManager.startUpdatingLocation()
+                mapClusterControllerSetup()
+                truckCarouselSetup()
+            }
+            setupProfile()
+        } else {
+            showingIntro = false
         }
-        setupProfile()
     }
     
     func setupProfile() {
@@ -205,6 +212,17 @@ class MapViewController: UIViewController,
             self.topMapConstraint.constant = 0
             self.view.layoutIfNeeded()
         })
+    }
+    
+    @IBAction func showTutorial(sender: AnyObject) {
+        showingIntro = true
+        let intro = IntroViewController(nibName: "IntroViewController", bundle: nil)
+        intro.delegate = self
+        navigationController?.pushViewController(intro, animated: true)
+    }
+    
+    func keepNavBarHidden() -> Bool {
+        return true
     }
     
     @IBAction func clickedLinkFb(sender: AnyObject) {

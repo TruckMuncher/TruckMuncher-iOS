@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol IntroDelegate {
+    func keepNavBarHidden() -> Bool
+}
+
 class IntroViewController: UIViewController, UIScrollViewDelegate {
 
     let numberOfPages: CGFloat = 10
@@ -41,6 +45,8 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     var scale: CGFloat = 0
     var vendorScale: CGFloat = 0
     
+    var delegate: IntroDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,7 +76,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBarHidden = false
+        navigationController?.navigationBarHidden = delegate?.keepNavBarHidden() ?? false
     }
 
     override func didReceiveMemoryWarning() {
