@@ -13,11 +13,13 @@ let reuseIdentifier = "Cell"
 class AllTrucksCollectionViewController: UICollectionViewController {
     
     var allTrucks: [RTruck] = [RTruck]()
+    var activeTrucks: [RTruck] = [RTruck]()
     let trucksManager = TrucksManager()
     var menuManager = MenuManager()
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck]) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck], activeTrucks: [RTruck]) {
         self.allTrucks = allTrucks
+        self.activeTrucks = activeTrucks
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -61,7 +63,9 @@ class AllTrucksCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! TruckCollectionViewCell
         cell.backgroundColor = UIColor.whiteColor()
         
-        cell.updateCellWithTruckInfo(allTrucks[indexPath.row])
+        let truck = allTrucks[indexPath.row]
+        let isActive = contains(activeTrucks, truck)
+        cell.updateCellWithTruckInfo(truck, isServing: isActive)
     
         return cell
     }

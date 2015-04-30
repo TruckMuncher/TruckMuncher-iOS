@@ -19,6 +19,7 @@ class MapViewController: UIViewController,
     iCarouselDelegate,
     SearchCompletionProtocol,
     UISearchBarDelegate,
+    UIActionSheetDelegate,
     IntroDelegate {
 
     @IBOutlet var mapView: MKMapView!
@@ -64,7 +65,7 @@ class MapViewController: UIViewController,
     
     func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
-            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode)
+            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode, activeTrucks: activeTrucks)
             navigationController?.pushViewController(allTrucksVC, animated: true)
         } else {
             var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)
@@ -798,12 +799,15 @@ class MapViewController: UIViewController,
     }
     
     func showShareSheet() {
-        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
-        var sharingItems = [AnyObject]()
-        sharingItems.append("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
-            
-        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        var sheet: UIActionSheet = UIActionSheet()
+        
+        sheet.addButtonWithTitle("Facebook")
+        sheet.addButtonWithTitle("Twitter")
+        
+        sheet.addButtonWithTitle("Cancel")
+        sheet.cancelButtonIndex = sheet.numberOfButtons - 1
+        sheet.delegate = self
+        sheet.showInView(self.view)
     }
     
     func showFacebookShareDialog() {
@@ -869,5 +873,23 @@ class MapViewController: UIViewController,
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+    {
+        switch buttonIndex{
+            
+        case 0:
+            NSLog("Facebook")
+            showFacebookShareDialog()
+            break
+        case 1:
+            NSLog("Twitter")
+            showTwitterShareDialog()
+            break
+        default:
+            NSLog("Default")
+            break
+        }
     }
 }
