@@ -65,7 +65,6 @@ class AllTrucksCollectionViewController: UICollectionViewController {
         
         let truck = allTrucks[indexPath.row]
         let isActive = contains(activeTrucks, truck)
-//        let isActive = activeTrucks.filter { $0.id == self.allTrucks[indexPath.row].id }.count > 0
         cell.updateCellWithTruckInfo(truck, isServing: isActive)
     
         return cell
