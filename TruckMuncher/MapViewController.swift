@@ -18,7 +18,8 @@ class MapViewController: UIViewController,
     iCarouselDataSource,
     iCarouselDelegate,
     SearchCompletionProtocol,
-    UISearchBarDelegate {
+    UISearchBarDelegate,
+    UIActionSheetDelegate {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
@@ -704,12 +705,15 @@ class MapViewController: UIViewController,
     }
     
     func showShareSheet() {
-        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
-        var sharingItems = [AnyObject]()
-        sharingItems.append("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
-            
-        let activityViewController = UIActivityViewController(activityItems: sharingItems, applicationActivities: nil)
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        var sheet: UIActionSheet = UIActionSheet()
+        
+        sheet.addButtonWithTitle("Facebook")
+        sheet.addButtonWithTitle("Twitter")
+        
+        sheet.addButtonWithTitle("Cancel")
+        sheet.cancelButtonIndex = sheet.numberOfButtons - 1
+        sheet.delegate = self
+        sheet.showInView(self.view)
     }
     
     func showFacebookShareDialog() {
@@ -775,5 +779,23 @@ class MapViewController: UIViewController,
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
+    }
+    
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
+    {
+        switch buttonIndex{
+            
+        case 0:
+            NSLog("Facebook")
+            showFacebookShareDialog()
+            break
+        case 1:
+            NSLog("Twitter")
+            showTwitterShareDialog()
+            break
+        default:
+            NSLog("Default")
+            break
+        }
     }
 }
