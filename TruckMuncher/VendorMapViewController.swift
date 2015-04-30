@@ -145,15 +145,16 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         navLabel.sizeToFit()
         navLabel.userInteractionEnabled = true
         
-        var lines = UIView(frame: CGRectMake((navLabel.bounds.width/2)-10, 23, 20, 5))
-        var line1 = UIView(frame: CGRectMake(0, 0, 20, 1))
-        var line2 = UIView(frame: CGRectMake(0, 3, 20, 1))
-        line1.backgroundColor = UIColor.whiteColor()
-        line2.backgroundColor = UIColor.whiteColor()
-        lines.addSubview(line1)
-        lines.addSubview(line2)
-        
         if trucks.count > 1 {
+            var lines = UIView(frame: CGRectMake((navLabel.bounds.width/2)-10, 23, 20, 5))
+            var line1 = UIView(frame: CGRectMake(0, 0, 20, 1))
+            var line2 = UIView(frame: CGRectMake(0, 3, 20, 1))
+            line1.backgroundColor = UIColor.whiteColor()
+            line2.backgroundColor = UIColor.whiteColor()
+            lines.addSubview(line1)
+            lines.addSubview(line2)
+            navLabel.addSubview(lines)
+            
             var pan = UIPanGestureRecognizer(target: self, action: "handlePan:")
             navLabel.addGestureRecognizer(pan)
             createTruckSelectionView()
@@ -162,7 +163,6 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
             navLabel.addGestureRecognizer(tap)
         }
         
-        navLabel.addSubview(lines)
         self.navigationItem.titleView = navLabel
     }
     
@@ -175,7 +175,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         truckSelectionView.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
         
         var previousY = CGFloat(0.0)
-        
+
         for truck in trucks {
             let frame = CGRectMake(0.0, previousY, UIScreen.mainScreen().bounds.width, selectionViewHeight)
             var thisTrucksView = UIView(frame: frame)
@@ -325,7 +325,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         truckSelectionView.frame = frame
         
         let highestTruckIndex = trucks.count-1
-        var truckSelected = highestTruckIndex - min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1)
+        var truckSelected = highestTruckIndex - max(0, min(Int(point.y-bottomOfNav-10)/Int(selectionViewHeight), trucks.count-1))
         
         for (index, view) in enumerate(truckSelectionView.subviews) {
             (view as! UIView).backgroundColor = UIColor.clearColor()

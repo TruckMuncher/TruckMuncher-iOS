@@ -22,4 +22,6 @@
 
 #import <IFTTTJazzHands.h>
 
+#import "MBProgressHud.h"
+
 #endif
