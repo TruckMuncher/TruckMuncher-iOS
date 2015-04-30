@@ -44,6 +44,8 @@
 		2736B1E819F5AE5000CBACC2 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1E519F5AE5000CBACC2 /* Podfile */; };
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
+		27510C401AF1D2F5006D4FB7 /* flaticon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */; };
+		27536E7D1AF1DC5900DDB3AF /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27536E7C1AF1DC5900DDB3AF /* Tag.swift */; };
 		2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755C45F1A670857006452F7 /* SearchDelegate.swift */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
 		277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 278BFBBE19D0AB7200510C6E /* Security.framework */; };
@@ -187,6 +189,8 @@
 		2736B1E519F5AE5000CBACC2 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = flaticon.ttf; sourceTree = SOURCE_ROOT; };
+		27536E7C1AF1DC5900DDB3AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		277C8D161AD5EBC400D80DB9 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
@@ -326,6 +330,7 @@
 				278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */,
 				278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */,
 				060935F819F32D0B0033F3D4 /* UIColor+Hex.swift */,
+				27536E7C1AF1DC5900DDB3AF /* Tag.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -401,6 +406,7 @@
 		27AC00B119CB4B4F00F1F3B7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */,
 				27BFCC711AD33E9000B6B7C1 /* Properties-dev.plist */,
 				0643B6941A424DD800E205C9 /* Properties.plist */,
 				2736B1E419F5AE5000CBACC2 /* fontawesome-webfont.ttf */,
@@ -625,6 +631,7 @@
 				06B3E8B71AE1919100474DA8 /* AllTrucksCollectionViewController.xib in Resources */,
 				2736B1E819F5AE5000CBACC2 /* Podfile in Resources */,
 				0613ABC81A5F2EC10080202B /* TruckDetailView.xib in Resources */,
+				27510C401AF1D2F5006D4FB7 /* flaticon.ttf in Resources */,
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
 				06B3E8BE1AE19FF600474DA8 /* TruckCollectionViewCell.xib in Resources */,
@@ -742,6 +749,7 @@
 				0609360119F33EB40033F3D4 /* Colors.swift in Sources */,
 				279E89A01A639CF300002446 /* RString.swift in Sources */,
 				060935E519F300590033F3D4 /* VendorMapViewController.swift in Sources */,
+				27536E7D1AF1DC5900DDB3AF /* Tag.swift in Sources */,
 				27F536C319FF4C4B009A8575 /* RMenuItem.swift in Sources */,
 				27F536BC19FF4A6C009A8575 /* APIManager.swift in Sources */,
 				278BFBBD19D0AB2A00510C6E /* KeychainItemWrapper.m in Sources */,

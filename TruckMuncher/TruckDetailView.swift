@@ -39,7 +39,7 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         super.layoutSubviews()
         if menuTableView != nil {
             menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
-            menuTableView.estimatedRowHeight = 44.0
+            menuTableView.estimatedRowHeight = 99.0
             menuTableView.rowHeight = UITableViewAutomaticDimension
             menuTableView.backgroundView = nil
             menuTableView.backgroundColor = UIColor.clearColor()
