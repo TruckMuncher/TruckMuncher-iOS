@@ -19,7 +19,8 @@ class MapViewController: UIViewController,
     iCarouselDelegate,
     SearchCompletionProtocol,
     UISearchBarDelegate,
-    UIActionSheetDelegate {
+    UIActionSheetDelegate,
+    IntroDelegate {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
@@ -52,12 +53,15 @@ class MapViewController: UIViewController,
     var allTrucksRegardlessOfServingMode = [RTruck]()
     lazy var btnAllTrucks = UIButton()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
+    lazy var muncherImageView = UIImageView()
     
     let trucksManager = TrucksManager()
     let menuManager = MenuManager()
     let userManager = UserManager()
+    let authManager = AuthManager()
     
     var initialTouchY: CGFloat = 0
+    var showingIntro = false
     
     func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
@@ -81,7 +85,7 @@ class MapViewController: UIViewController,
         carouselPanGestureRecognizer?.enabled = false
         
         var muncherImage = UIImage(named: "transparentTM")
-        var muncherImageView = UIImageView(image: muncherImage)
+        muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.userInteractionEnabled = true
         muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
         muncherImageView.frame = CGRectMake(0, 0, 40, 40)
@@ -98,7 +102,7 @@ class MapViewController: UIViewController,
         btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
         btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
-        btnAllTrucks.setTitle("\u{f06e}", forState: .Normal)
+        btnAllTrucks.setTitle("\u{f0c0}", forState: .Normal)
         btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
         
         navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
@@ -111,25 +115,32 @@ class MapViewController: UIViewController,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive", name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        updateCarouselWithTruckMenus()
-        
-        initLocationManager()
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
-            locationManager.startUpdatingLocation()
-            mapClusterControllerSetup()
-            truckCarouselSetup()
+        if !showingIntro {
+            updateCarouselWithTruckMenus()
+            
+            initLocationManager()
+            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+                locationManager.startUpdatingLocation()
+                mapClusterControllerSetup()
+                truckCarouselSetup()
+            }
+            setupProfile()
+        } else {
+            showingIntro = false
         }
-        setupProfile()
     }
     
     func setupProfile() {
+        MBProgressHUD.hideHUDForView(view, animated: true)
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
         if let user = ruser {
+            muncherImageView.image = UIImage(named: "transparentTMOutline")
             switchPostToFb.on = user.postToFb
             switchPostToTw.on = user.postToTw
             if user.hasFb {
@@ -161,9 +172,19 @@ class MapViewController: UIViewController,
             switchPostToTw.enabled = hasTrucks
             lblPostToFb.hidden = !hasTrucks
             lblPostToTw.hidden = !hasTrucks
+            
+            if hasTrucks {
+                navigationItem.leftBarButtonItem?.title = "\u{f0d1}"
+            } else {
+                navigationItem.leftBarButtonItem?.title = "\u{f08b}"
+            }
+        } else {
+            muncherImageView.image = UIImage(named: "transparentTM")
             if truckCarousel != nil {
                 truckCarousel.reloadData()
             }
+            
+            navigationItem.leftBarButtonItem?.title = "\u{f090}"
         }
     }
     
@@ -194,7 +215,19 @@ class MapViewController: UIViewController,
         })
     }
     
+    @IBAction func showTutorial(sender: AnyObject) {
+        showingIntro = true
+        let intro = IntroViewController(nibName: "IntroViewController", bundle: nil)
+        intro.delegate = self
+        navigationController?.pushViewController(intro, animated: true)
+    }
+    
+    func keepNavBarHidden() -> Bool {
+        return true
+    }
+    
     @IBAction func clickedLinkFb(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
         if ruser!.hasFb {
             unlinkFacebook()
             return
@@ -203,11 +236,13 @@ class MapViewController: UIViewController,
         // TODO this will be used once the Facebook app itself is fixed to allow publish permissions
         /*fbManager.logInWithPublishPermissions(["publish_actions"], handler: { (result: FBSDKLoginManagerLoginResult!, error) -> Void in
             if error != nil {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else if !result.isCancelled {
                 if !result.grantedPermissions.contains("publish_actions") {
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                     let alert = UIAlertController(title: "Uh-oh", message: "We require that you allow us to post on your behalf. It looks like you denied that request, please try linking your Facebook account again", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
@@ -225,10 +260,12 @@ class MapViewController: UIViewController,
                 }
             } else {
                 println("cancelled")
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
         })*/
         fbManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
             if error != nil {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -245,11 +282,14 @@ class MapViewController: UIViewController,
                 } else {
                     self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
                 }
+            } else {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
         })
     }
     
     @IBAction func clickedLinkTw(sender: AnyObject) {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
         if ruser!.hasTw {
             unlinkTwitter()
             return
@@ -257,15 +297,20 @@ class MapViewController: UIViewController,
         Twitter.sharedInstance().logInWithCompletion {
             (session, error) -> Void in
             if (session != nil) {
-                let alert = UIAlertController(title: "Automatically Tweet?", message: "Would you like us to automatically tweet on your behalf when any of your trucks go into serving mode?", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                    self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: true)
-                }))
-                alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                if self.ruser!.truckIds.count > 0 {
+                    let alert = UIAlertController(title: "Automatically Tweet?", message: "Would you like us to automatically tweet on your behalf when any of your trucks go into serving mode?", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
+                        self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: true)
+                    }))
+                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
+                        self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else {
                     self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
+                }
             } else {
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Twitter account at this time, please try again", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
@@ -277,6 +322,7 @@ class MapViewController: UIViewController,
         userManager.linkFacebookAccount(accessToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -291,6 +337,7 @@ class MapViewController: UIViewController,
         userManager.unlinkAccount(unlinkFacebook: true, unlinkTwitter: nil, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -301,6 +348,7 @@ class MapViewController: UIViewController,
         userManager.linkTwitterAccount(oauthToken, secretToken: secretToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -315,6 +363,7 @@ class MapViewController: UIViewController,
         userManager.unlinkAccount(unlinkFacebook: nil, unlinkTwitter: true, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -322,6 +371,7 @@ class MapViewController: UIViewController,
     }
     
     func cantUnlinkLast() {
+        MBProgressHUD.hideHUDForView(view, animated: true)
         let alert = UIAlertController(title: "Oops!", message: "You can't unlink your last social media account, please link another before unlinking this one", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
@@ -521,37 +571,81 @@ class MapViewController: UIViewController,
     
     // MARK: - Helper Methods
     
-    func login () {
-        var config: NSDictionary = NSDictionary()
-        
-        if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
-            config = NSDictionary(contentsOfFile: path)!
+    func login() {
+        if let user = ruser {
+            // we are logged in, if we have trucks go to the vendor map
+            // if we dont have trucks logout
+            if user.truckIds.count > 0 {
+                // go to vendor map
+                handleLogin()
+            } else {
+                // logout
+                MBProgressHUD.showHUDAddedTo(view, animated: true)
+                authManager.signOut(success: { () -> () in
+                    // clear some tokens, logout of twitter & facebook
+                    self.logoutSuccess()
+                }) { (error) -> () in
+                    // clear some tokens, logout of twitter & facebook, and pretend we logged out
+                    let realm = RLMRealm.defaultRealm()
+                    realm.beginWriteTransaction()
+                    realm.deleteObjects(RUser.allObjectsInRealm(realm))
+                    realm.commitWriteTransaction()
+                    
+                    self.logoutSuccess()
+                }
+            }
+        } else {
+            // we are not logged in, do the normal login flow
+            var config: NSDictionary = NSDictionary()
+            
+            if let path = NSBundle.mainBundle().pathForResource(PROPERTIES_FILE, ofType: "plist") {
+                config = NSDictionary(contentsOfFile: path)!
+            }
+            loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            loginViewController!.twitterKey = config[kTwitterKey] as! String
+            loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as! String
+            loginViewController!.twitterName = config[kTwitterName] as! String
+            loginViewController!.twitterCallback = config[kTwitterCallback] as! String
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
+            
+            loginViewController!.modalPresentationStyle = .OverCurrentContext
+            navigationController?.modalTransitionStyle = .CoverVertical
+            navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
         }
-        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        loginViewController!.twitterKey = config[kTwitterKey] as! String
-        loginViewController!.twitterSecretKey = config[kTwitterSecretKey] as! String
-        loginViewController!.twitterName = config[kTwitterName] as! String
-        loginViewController!.twitterCallback = config[kTwitterCallback] as! String
+    }
+    
+    func logoutSuccess() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("sessionToken")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleLogin", name: "loggedInNotification", object: nil)
+        let tokenItem = KeychainItemWrapper(identifier: kTwitterOauthToken, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        let secretItem = KeychainItemWrapper(identifier: kTwitterOauthSecret, accessGroup: (NSBundle.mainBundle().bundleIdentifier!))
+        tokenItem.resetKeychainItem()
+        secretItem.resetKeychainItem()
         
-        loginViewController!.modalPresentationStyle = .OverCurrentContext
-        navigationController?.modalTransitionStyle = .CoverVertical
-        navigationController?.presentViewController(UINavigationController(rootViewController: loginViewController!), animated: true, completion:  nil)
+        FBSDKLoginManager().logOut()
+        truckCarousel.reloadData()
+        ruser = nil
+        muncherImageView.image = UIImage(named: "transparentTM")
+        navigationItem.leftBarButtonItem?.title = "\u{f090}"
+        MBProgressHUD.hideHUDForView(view, animated: true)
     }
     
     func handleLogin() {
         NSNotificationCenter.defaultCenter().removeObserver(self)
         let ruser = RUser.objectsWhere("sessionToken = %@", NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as! String).firstObject() as! RUser
 
-        var trucks = [RTruck]()
-        for i in 0..<ruser.truckIds.count {
-            trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+        if ruser.truckIds.count > 0 {
+            var trucks = [RTruck]()
+            for i in 0..<ruser.truckIds.count {
+                trucks.append(RTruck.objectsWhere("id = %@", (ruser.truckIds.objectAtIndex(i) as! RString).value).firstObject() as! RTruck)
+            }
+            
+            // Show the VendorMap
+            let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
+            navigationController?.pushViewController(vendorMapVC, animated: true)
         }
-        
-        // Show the VendorMap
-        let vendorMapVC = VendorMapViewController(nibName: "VendorMapViewController", bundle: nil, trucks: trucks)
-        navigationController?.pushViewController(vendorMapVC, animated: true)
     }
     
     func updateData() {

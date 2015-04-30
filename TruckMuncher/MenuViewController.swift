@@ -57,7 +57,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tblMenu.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
         
-        tblMenu.estimatedRowHeight = 44.0
+        tblMenu.estimatedRowHeight = 99.0
         tblMenu.rowHeight = UITableViewAutomaticDimension
         
         tblMenu.reloadData()

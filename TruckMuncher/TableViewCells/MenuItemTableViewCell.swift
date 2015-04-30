@@ -13,6 +13,7 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblTags: UILabel!
     
     var givenTextColor = UIColor.blackColor()
     
@@ -44,6 +45,12 @@ class MenuItemTableViewCell: UITableViewCell {
             lblPrice.textColor = givenTextColor
             lblDescription.attributedText = NSAttributedString(string: item.notes, attributes: attributes)
             lblDescription.textColor = givenTextColor
+            lblTags.text = ""
+            for tag in item.tags {
+                let val = (tag as! RString).value
+                lblTags.text = "\(lblTags.text!) \(Tag.initFromString(val)?.rawValue ?? val)"
+            }
+            lblTags.textColor = givenTextColor
         }
     }
 }

@@ -64,6 +64,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>fontawesome-webfont.ttf</string>
+		<string>flaticon.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
