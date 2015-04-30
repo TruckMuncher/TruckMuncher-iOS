@@ -122,8 +122,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
                 self.truckLogoImage.layer.borderWidth = 0
                 
                 self.menuTableView.reloadData()
-            } else {
-                println("Error: \(error.localizedDescription)")
             }
         })
     }
