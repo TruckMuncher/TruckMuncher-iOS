@@ -20,7 +20,7 @@ enum Tag: String {
         case "gluten free":
             return .Gluten
         case "vegetarian":
-            return .Gluten
+            return .Vegetarian
         case "vegan":
             return .Vegan
         case "contains peanuts":
