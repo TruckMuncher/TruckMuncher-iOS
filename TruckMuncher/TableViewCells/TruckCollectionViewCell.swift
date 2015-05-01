@@ -19,6 +19,7 @@ class TruckCollectionViewCell: UICollectionViewCell {
     }
     
     func updateCellWithTruckInfo(truck: RTruck, isServing: Bool){
+        layoutIfNeeded()
         getImageForTruck(truck)
         truckNameField.text = truck.name
         isServingIndicator.layer.cornerRadius = isServingIndicator.frame.size.width/2
@@ -28,7 +29,8 @@ class TruckCollectionViewCell: UICollectionViewCell {
     func getImageForTruck(truck:RTruck) {
         var imgURL: NSURL? = NSURL(string: truck.imageUrl)
         
-        logoImageView.layer.cornerRadius = self.logoImageView.frame.size.height / 2
+        println("\(logoImageView.frame.size.height)")
+        logoImageView.layer.cornerRadius = logoImageView.frame.size.height / 2
         logoImageView.layer.masksToBounds = true
         logoImageView.layer.borderWidth = 0
         
