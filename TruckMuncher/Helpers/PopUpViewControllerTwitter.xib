@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewControllerTwitter" customModule="TruckMuncher" customModuleProvider="target">
+            <connections>
+                <outlet property="btnPost" destination="VIq-g0-YTH" id="q2Q-bG-84d"/>
+                <outlet property="lblChars" destination="0oq-Bu-ClU" id="nnB-wg-qdh"/>
+                <outlet property="navBar" destination="Ckm-CP-dpX" id="qTx-5c-mcb"/>
+                <outlet property="popUpView" destination="Pon-Sf-YGC" id="tMa-Ef-iQZ"/>
+                <outlet property="textView" destination="Qum-YK-mP9" id="BLl-0j-bOj"/>
+                <outlet property="view" destination="1" id="tr0-ax-4em"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-Sf-YGC">
+                    <rect key="frame" x="20" y="84" width="560" height="284"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckm-CP-dpX">
+                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="9KL-Bo-n6s"/>
+                            </constraints>
+                            <items>
+                                <navigationItem title="Twitter" id="OZP-CN-XaG">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="P1l-a7-uj4">
+                                        <connections>
+                                            <action selector="closePopup:" destination="-1" id="ZUe-VJ-mte"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Post" style="done" id="VIq-g0-YTH">
+                                        <connections>
+                                            <action selector="post:" destination="-1" id="oqC-ME-pXx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qum-YK-mP9">
+                            <rect key="frame" x="0.0" y="44" width="560" height="203"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="EJO-jO-Tm4"/>
+                            </connections>
+                        </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oq-Bu-ClU">
+                            <rect key="frame" x="8" y="255" width="544" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="qg8-hC-2aP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ckm-CP-dpX" firstAttribute="top" secondItem="Pon-Sf-YGC" secondAttribute="top" id="3Er-r6-8M1"/>
+                        <constraint firstAttribute="bottom" secondItem="0oq-Bu-ClU" secondAttribute="bottom" constant="8" id="556-IR-9EI"/>
+                        <constraint firstItem="Ckm-CP-dpX" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" id="B0H-9y-gTh"/>
+                        <constraint firstItem="0oq-Bu-ClU" firstAttribute="top" secondItem="Qum-YK-mP9" secondAttribute="bottom" constant="8" id="B7G-is-bwh"/>
+                        <constraint firstAttribute="trailing" secondItem="0oq-Bu-ClU" secondAttribute="trailing" constant="8" id="KJN-XB-9H2"/>
+                        <constraint firstAttribute="trailing" secondItem="Qum-YK-mP9" secondAttribute="trailing" id="Koy-nY-hlU"/>
+                        <constraint firstItem="Qum-YK-mP9" firstAttribute="top" secondItem="Ckm-CP-dpX" secondAttribute="bottom" id="Ly0-iV-3s2"/>
+                        <constraint firstAttribute="height" constant="284" id="hY1-Zp-xQ3"/>
+                        <constraint firstItem="0oq-Bu-ClU" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" constant="8" id="lAX-jX-OYi"/>
+                        <constraint firstItem="Qum-YK-mP9" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" id="xup-kn-4gb"/>
+                        <constraint firstAttribute="trailing" secondItem="Ckm-CP-dpX" secondAttribute="trailing" id="ymI-vs-ugu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="Pon-Sf-YGC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="84" id="3ZC-aq-qdj"/>
+                <constraint firstItem="Pon-Sf-YGC" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="ARA-iw-SaP"/>
+                <constraint firstAttribute="trailing" secondItem="Pon-Sf-YGC" secondAttribute="trailing" constant="20" id="hFC-vy-Kg2"/>
+            </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="zUa-TA-p6w" appends="YES" id="i2N-Dd-97N"/>
+            </connections>
+            <point key="canvasLocation" x="325" y="281"/>
+        </view>
+        <tapGestureRecognizer id="zUa-TA-p6w">
+            <connections>
+                <action selector="hideKeyboard:" destination="-1" id="3jg-ni-tYU"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

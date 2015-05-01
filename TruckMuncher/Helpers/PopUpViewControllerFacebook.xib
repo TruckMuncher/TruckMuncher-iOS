@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopUpViewControllerFacebook" customModule="TruckMuncher" customModuleProvider="target">
+            <connections>
+                <outlet property="navBar" destination="Ckm-CP-dpX" id="bRR-iL-8F5"/>
+                <outlet property="popUpView" destination="Pon-Sf-YGC" id="AoU-kC-0V7"/>
+                <outlet property="segmentAudience" destination="4Dr-iX-HKg" id="Q99-1d-W2U"/>
+                <outlet property="textView" destination="Qum-YK-mP9" id="zax-O9-8jM"/>
+                <outlet property="view" destination="1" id="A95-yo-HOR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-Sf-YGC">
+                    <rect key="frame" x="20" y="84" width="560" height="284"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ckm-CP-dpX">
+                            <rect key="frame" x="0.0" y="0.0" width="560" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="9KL-Bo-n6s"/>
+                            </constraints>
+                            <items>
+                                <navigationItem title="Facebook" id="OZP-CN-XaG">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="P1l-a7-uj4">
+                                        <connections>
+                                            <action selector="closePopup:" destination="-1" id="mSA-Zb-S3g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" title="Post" style="done" id="VIq-g0-YTH">
+                                        <connections>
+                                            <action selector="post:" destination="-1" id="Ynr-Yl-mzl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qum-YK-mP9">
+                            <rect key="frame" x="0.0" y="44" width="560" height="160"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="TiO-IW-NKJ"/>
+                            </connections>
+                        </textView>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-iX-HKg">
+                            <rect key="frame" x="8" y="248" width="544" height="29"/>
+                            <segments>
+                                <segment title="Public"/>
+                                <segment title="Your Friends"/>
+                                <segment title="Only Me"/>
+                            </segments>
+                            <color key="tintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </segmentedControl>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audience:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RA-Kj-IVb">
+                            <rect key="frame" x="8" y="212" width="544" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="5oe-et-ygg"/>
+                                <constraint firstAttribute="width" constant="80" id="Pmx-1e-NV0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Pmx-1e-NV0"/>
+                                </mask>
+                            </variation>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="4Dr-iX-HKg" firstAttribute="leading" secondItem="0RA-Kj-IVb" secondAttribute="trailing" constant="8" id="08w-aO-XEn"/>
+                        <constraint firstItem="Ckm-CP-dpX" firstAttribute="top" secondItem="Pon-Sf-YGC" secondAttribute="top" id="3Er-r6-8M1"/>
+                        <constraint firstAttribute="trailing" secondItem="0RA-Kj-IVb" secondAttribute="trailing" constant="8" id="4Zn-c6-Cnt"/>
+                        <constraint firstItem="Ckm-CP-dpX" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" id="B0H-9y-gTh"/>
+                        <constraint firstItem="4Dr-iX-HKg" firstAttribute="bottom" secondItem="0RA-Kj-IVb" secondAttribute="bottom" id="Gc8-kf-EeV"/>
+                        <constraint firstAttribute="trailing" secondItem="4Dr-iX-HKg" secondAttribute="trailing" constant="8" id="JAS-s5-39t"/>
+                        <constraint firstAttribute="bottom" secondItem="4Dr-iX-HKg" secondAttribute="bottom" constant="8" id="Kc3-2e-WcC"/>
+                        <constraint firstAttribute="trailing" secondItem="Qum-YK-mP9" secondAttribute="trailing" id="Koy-nY-hlU"/>
+                        <constraint firstItem="Qum-YK-mP9" firstAttribute="top" secondItem="Ckm-CP-dpX" secondAttribute="bottom" id="Ly0-iV-3s2"/>
+                        <constraint firstItem="0RA-Kj-IVb" firstAttribute="top" secondItem="4Dr-iX-HKg" secondAttribute="top" id="MXV-nG-J60"/>
+                        <constraint firstItem="0RA-Kj-IVb" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" constant="8" id="TbW-Gl-Mua"/>
+                        <constraint firstItem="4Dr-iX-HKg" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" constant="8" id="UEc-WN-KH7"/>
+                        <constraint firstAttribute="trailing" secondItem="4Dr-iX-HKg" secondAttribute="trailing" constant="8" id="Vta-x7-Bab"/>
+                        <constraint firstItem="0RA-Kj-IVb" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" constant="8" id="bIz-09-hLE"/>
+                        <constraint firstAttribute="height" constant="284" id="hY1-Zp-xQ3"/>
+                        <constraint firstItem="0RA-Kj-IVb" firstAttribute="top" secondItem="Qum-YK-mP9" secondAttribute="bottom" constant="8" id="oPJ-Bt-kqs"/>
+                        <constraint firstItem="0RA-Kj-IVb" firstAttribute="top" secondItem="Qum-YK-mP9" secondAttribute="bottom" constant="8" id="qJ4-w3-N3r"/>
+                        <constraint firstAttribute="bottom" secondItem="0RA-Kj-IVb" secondAttribute="bottom" constant="8" id="woi-He-7t4"/>
+                        <constraint firstItem="Qum-YK-mP9" firstAttribute="leading" secondItem="Pon-Sf-YGC" secondAttribute="leading" id="xup-kn-4gb"/>
+                        <constraint firstItem="4Dr-iX-HKg" firstAttribute="top" secondItem="0RA-Kj-IVb" secondAttribute="bottom" constant="8" id="yHN-QP-XAZ"/>
+                        <constraint firstAttribute="trailing" secondItem="Ckm-CP-dpX" secondAttribute="trailing" id="ymI-vs-ugu"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="MXV-nG-J60"/>
+                            <exclude reference="TbW-Gl-Mua"/>
+                            <exclude reference="oPJ-Bt-kqs"/>
+                            <exclude reference="woi-He-7t4"/>
+                            <exclude reference="08w-aO-XEn"/>
+                            <exclude reference="Gc8-kf-EeV"/>
+                            <exclude reference="Vta-x7-Bab"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="Pon-Sf-YGC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="84" id="3ZC-aq-qdj"/>
+                <constraint firstItem="Pon-Sf-YGC" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="ARA-iw-SaP"/>
+                <constraint firstAttribute="trailing" secondItem="Pon-Sf-YGC" secondAttribute="trailing" constant="20" id="hFC-vy-Kg2"/>
+            </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="liN-Zl-cAD" appends="YES" id="glK-Fi-SAd"/>
+            </connections>
+            <point key="canvasLocation" x="325" y="281"/>
+        </view>
+        <tapGestureRecognizer id="liN-Zl-cAD">
+            <connections>
+                <action selector="hideKeyboard:" destination="-1" id="QaC-iZ-iG7"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

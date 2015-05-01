@@ -45,8 +45,11 @@
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
 		27510C401AF1D2F5006D4FB7 /* flaticon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */; };
-		2752516F1AF2DB3C006C44FE /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */; };
-		275251701AF2DB3C006C44FE /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */; };
+		2752517A1AF309D6006C44FE /* PopUpViewControllerFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275251761AF309D6006C44FE /* PopUpViewControllerFacebook.swift */; };
+		2752517B1AF309D6006C44FE /* PopUpViewControllerFacebook.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275251771AF309D6006C44FE /* PopUpViewControllerFacebook.xib */; };
+		2752517C1AF309D6006C44FE /* PopUpViewControllerTwitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275251781AF309D6006C44FE /* PopUpViewControllerTwitter.swift */; };
+		2752517D1AF309D6006C44FE /* PopUpViewControllerTwitter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 275251791AF309D6006C44FE /* PopUpViewControllerTwitter.xib */; };
+		2752517F1AF30C4F006C44FE /* ShareDialogDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752517E1AF30C4F006C44FE /* ShareDialogDelegate.swift */; };
 		27536E7D1AF1DC5900DDB3AF /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27536E7C1AF1DC5900DDB3AF /* Tag.swift */; };
 		2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755C45F1A670857006452F7 /* SearchDelegate.swift */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
@@ -192,8 +195,11 @@
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = flaticon.ttf; sourceTree = SOURCE_ROOT; };
-		2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
+		275251761AF309D6006C44FE /* PopUpViewControllerFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerFacebook.swift; sourceTree = "<group>"; };
+		275251771AF309D6006C44FE /* PopUpViewControllerFacebook.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewControllerFacebook.xib; sourceTree = "<group>"; };
+		275251781AF309D6006C44FE /* PopUpViewControllerTwitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewControllerTwitter.swift; sourceTree = "<group>"; };
+		275251791AF309D6006C44FE /* PopUpViewControllerTwitter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewControllerTwitter.xib; sourceTree = "<group>"; };
+		2752517E1AF30C4F006C44FE /* ShareDialogDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialogDelegate.swift; sourceTree = "<group>"; };
 		27536E7C1AF1DC5900DDB3AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -330,8 +336,11 @@
 		278BFBB619D0A36A00510C6E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */,
-				2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */,
+				2752517E1AF30C4F006C44FE /* ShareDialogDelegate.swift */,
+				275251761AF309D6006C44FE /* PopUpViewControllerFacebook.swift */,
+				275251771AF309D6006C44FE /* PopUpViewControllerFacebook.xib */,
+				275251781AF309D6006C44FE /* PopUpViewControllerTwitter.swift */,
+				275251791AF309D6006C44FE /* PopUpViewControllerTwitter.xib */,
 				278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */,
 				278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */,
 				278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */,
@@ -641,9 +650,9 @@
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
 				06B3E8BE1AE19FF600474DA8 /* TruckCollectionViewCell.xib in Resources */,
-				275251701AF2DB3C006C44FE /* PopUpViewController.xib in Resources */,
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */,
+				2752517B1AF309D6006C44FE /* PopUpViewControllerFacebook.xib in Resources */,
 				06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */,
 				06D90F5719FF59C30086FA57 /* TruckPin@2x.png in Resources */,
 				060935FD19F334E30033F3D4 /* LocationSetterPinPink@2x.png in Resources */,
@@ -652,6 +661,7 @@
 				2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */,
 				279319721AE728A3003A9DB5 /* IntroViewController.xib in Resources */,
 				27AC00D619CB4BE900F1F3B7 /* LoginViewController.xib in Resources */,
+				2752517D1AF309D6006C44FE /* PopUpViewControllerTwitter.xib in Resources */,
 				063945AC19E56DB900B76100 /* Milwaukee.gpx in Resources */,
 				060935EE19F303F40033F3D4 /* LocationSetterPin.png in Resources */,
 			);
@@ -733,7 +743,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27F536CE19FF5215009A8575 /* RTruck.swift in Sources */,
-				2752516F1AF2DB3C006C44FE /* PopUpViewController.swift in Sources */,
 				2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */,
 				27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */,
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,
@@ -741,13 +750,16 @@
 				278C0AA11AE4B42B00C65AD5 /* UserManager.swift in Sources */,
 				060935FF19F3370E0033F3D4 /* ServingModePulse.swift in Sources */,
 				27F536CA19FF4FE1009A8575 /* TrucksManager.swift in Sources */,
+				2752517C1AF309D6006C44FE /* PopUpViewControllerTwitter.swift in Sources */,
 				06B3E8BD1AE19FF600474DA8 /* TruckCollectionViewCell.swift in Sources */,
 				060935F519F309AD0033F3D4 /* TruckLocationAnnotation.swift in Sources */,
+				2752517F1AF30C4F006C44FE /* ShareDialogDelegate.swift in Sources */,
 				278C0A9F1AE1B91900C65AD5 /* MapViewController.swift in Sources */,
 				27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */,
 				06B3E8C11AE1AE0600474DA8 /* TruckDetailViewController.swift in Sources */,
 				27F536C119FF4C42009A8575 /* RMenu.swift in Sources */,
 				278BFBB819D0A3A000510C6E /* String+DictionaryFromQueryString.swift in Sources */,
+				2752517A1AF309D6006C44FE /* PopUpViewControllerFacebook.swift in Sources */,
 				27F536C519FF4C57009A8575 /* RCategory.swift in Sources */,
 				060935F919F32D0B0033F3D4 /* UIColor+Hex.swift in Sources */,
 				27E680951A4210E3008173D3 /* RSearch.swift in Sources */,
