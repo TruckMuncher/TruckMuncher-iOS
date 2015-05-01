@@ -45,11 +45,12 @@ class MenuItemTableViewCell: UITableViewCell {
             lblPrice.textColor = givenTextColor
             lblDescription.attributedText = NSAttributedString(string: item.notes, attributes: attributes)
             lblDescription.textColor = givenTextColor
-            lblTags.text = ""
+            var tagsString = ""
             for tag in item.tags {
                 let val = (tag as! RString).value
-                lblTags.text = "\(lblTags.text!) \(Tag.initFromString(val)?.rawValue ?? val)"
+                tagsString = "\(tagsString) \(Tag.initFromString(val)?.rawValue ?? val)"
             }
+            lblTags.attributedText = NSAttributedString(string: tagsString, attributes: attributes)
             lblTags.textColor = givenTextColor
         }
     }
