@@ -305,6 +305,7 @@ class MapViewController: UIViewController,
                     self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
                 }
             } else {
+                Twitter.sharedInstance().logOut()
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
                 let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Twitter account at this time, please try again", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -343,6 +344,7 @@ class MapViewController: UIViewController,
         userManager.linkTwitterAccount(oauthToken, secretToken: secretToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            Twitter.sharedInstance().logOut()
             MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -356,6 +358,7 @@ class MapViewController: UIViewController,
             return
         }
         userManager.unlinkAccount(unlinkFacebook: nil, unlinkTwitter: true, success: { (response) -> () in
+            Twitter.sharedInstance().logOut()
             self.setupProfile()
         }) { (error) -> () in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -798,7 +801,7 @@ class MapViewController: UIViewController,
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showShareSheet", forControlEvents: UIControlEvents.TouchUpInside)
             } else if ruser?.hasFb == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
-                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
+                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialogAction", forControlEvents: UIControlEvents.TouchUpInside)
             } else if ruser?.hasTw == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showTwitterShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
@@ -820,6 +823,11 @@ class MapViewController: UIViewController,
         }))
         sheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         presentViewController(sheet, animated: true, completion: nil)
+    }
+    
+    func showFacebookShareDialogAction() {
+        // yes, this is required, the selector "showFacebookShareDialog:" wont work so we need this
+        showFacebookShareDialog()
     }
     
     func showFacebookShareDialog(askPermission: Bool = true) {
@@ -891,7 +899,7 @@ class MapViewController: UIViewController,
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
-        activeTrucks = [RTruck](results)
+        activeTrucks = orderTrucksByDistanceFromCurrentLocation([RTruck](results))
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
