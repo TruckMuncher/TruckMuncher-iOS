@@ -45,6 +45,8 @@
 		2736B1ED19F5AE7400CBACC2 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */; };
 		2736B1EE19F5AE7400CBACC2 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */; };
 		27510C401AF1D2F5006D4FB7 /* flaticon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */; };
+		2752516F1AF2DB3C006C44FE /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */; };
+		275251701AF2DB3C006C44FE /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */; };
 		27536E7D1AF1DC5900DDB3AF /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27536E7C1AF1DC5900DDB3AF /* Tag.swift */; };
 		2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2755C45F1A670857006452F7 /* SearchDelegate.swift */; };
 		277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06F2D04A19E4BE540030726D /* MapKit.framework */; };
@@ -190,6 +192,8 @@
 		2736B1EB19F5AE7400CBACC2 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		2736B1EC19F5AE7400CBACC2 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		27510C3F1AF1D2F5006D4FB7 /* flaticon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = flaticon.ttf; sourceTree = SOURCE_ROOT; };
+		2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		27536E7C1AF1DC5900DDB3AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
 		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 		278BFBB619D0A36A00510C6E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2752516D1AF2DB3C006C44FE /* PopUpViewController.swift */,
+				2752516E1AF2DB3C006C44FE /* PopUpViewController.xib */,
 				278BFBB719D0A3A000510C6E /* String+DictionaryFromQueryString.swift */,
 				278BFBBB19D0AB2A00510C6E /* KeychainItemWrapper.h */,
 				278BFBBC19D0AB2A00510C6E /* KeychainItemWrapper.m */,
@@ -635,6 +641,7 @@
 				0643B6951A424DD800E205C9 /* Properties.plist in Resources */,
 				06A36AF519F558DB00F44F02 /* closeWhite.png in Resources */,
 				06B3E8BE1AE19FF600474DA8 /* TruckCollectionViewCell.xib in Resources */,
+				275251701AF2DB3C006C44FE /* PopUpViewController.xib in Resources */,
 				061A1F701A004E61000A0523 /* SingleTruckAnnotationIcon@2x.png in Resources */,
 				063AB5A51A684FBE003828F7 /* truckmuncher.png in Resources */,
 				06B3E8C21AE1AE0600474DA8 /* TruckDetailViewController.xib in Resources */,
@@ -726,6 +733,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27F536CE19FF5215009A8575 /* RTruck.swift in Sources */,
+				2752516F1AF2DB3C006C44FE /* PopUpViewController.swift in Sources */,
 				2755C4601A670857006452F7 /* SearchDelegate.swift in Sources */,
 				27FE9D3A1A0042AE00060F79 /* AuthManager.swift in Sources */,
 				27FE9D3819FF5D6200060F79 /* RLMSupport.swift in Sources */,

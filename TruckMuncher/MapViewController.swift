@@ -139,6 +139,9 @@ class MapViewController: UIViewController,
     func setupProfile() {
         MBProgressHUD.hideHUDForView(view, animated: true)
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
+        if truckCarousel != nil {
+            truckCarousel.reloadData()
+        }
         if let user = ruser {
             muncherImageView.image = UIImage(named: "transparentTMOutline")
             switchPostToFb.on = user.postToFb
@@ -782,12 +785,10 @@ class MapViewController: UIViewController,
             if ruser?.hasFb == true && ruser?.hasTw == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showShareSheet", forControlEvents: UIControlEvents.TouchUpInside)
-            }
-            else if ruser?.hasFb == true {
+            } else if ruser?.hasFb == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
-            }
-            else if ruser?.hasTw == true {
+            } else if ruser?.hasTw == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showTwitterShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
             }
@@ -811,28 +812,33 @@ class MapViewController: UIViewController,
     }
     
     func showFacebookShareDialog() {
-        var content = FBSDKShareLinkContent()
-        var truckId = (activeTrucks[truckCarousel.currentItemIndex] as RTruck).id
-        content.contentURL = NSURL(string: "https://www.truckmuncher.com/#/trucks/" + truckId)
-        var dialog = FBSDKShareDialog()
-        dialog.fromViewController = self
-        dialog.shareContent = content
-        dialog.mode = FBSDKShareDialogMode.ShareSheet
-        dialog.show()
+        /*var truck = activeTrucks[truckCarousel.currentItemIndex]
+        let alert = UIAlertController(title: "Post to Facebook", message: "https://www.truckmuncher.com/#/trucks/\(truck.id)", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.text = ""
+        }
+        alert.addAction(UIAlertAction(title: "Share", style: .Default, handler: { (action) -> Void in
+            println("sharing to facebook")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)*/
+        var popViewController = PopUpViewController(nibName: "PopUpViewController", bundle: nil)
+        popViewController.title = "This is a popup view"
+        popViewController.showInView(view, withImage: UIImage(named: "typpzDemo"), withMessage: "You just triggered a great popup window", animated: true)
     }
     
     func showTwitterShareDialog() {
-        let composer = TWTRComposer()
-        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
-        composer.setText("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
-        composer.showWithCompletion { (result) -> Void in
-            if (result == TWTRComposerResult.Cancelled) {
-                println("Tweet composition cancelled")
-            }
-            else {
-                println("Sending tweet!")
-            }
+        var truck = activeTrucks[truckCarousel.currentItemIndex]
+        let alert = UIAlertController(title: "Post to Twitter", message: nil, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.text = "Check out \(truck.name) on TruckMuncher! https://www.truckmuncher.com/#/trucks/\(truck.id)"
+            textField.frame.size.height = 100
         }
+        alert.addAction(UIAlertAction(title: "Share", style: .Default, handler: { (action) -> Void in
+            println("sharing to twitter")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
