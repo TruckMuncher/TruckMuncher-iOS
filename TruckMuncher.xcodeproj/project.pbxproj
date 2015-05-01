@@ -67,9 +67,6 @@
 		279319711AE728A3003A9DB5 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793196F1AE728A3003A9DB5 /* IntroViewController.swift */; };
 		279319721AE728A3003A9DB5 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279319701AE728A3003A9DB5 /* IntroViewController.xib */; };
 		279E89A01A639CF300002446 /* RString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E899F1A639CF300002446 /* RString.swift */; };
-		27A8CE631AE1984C00C1DECA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A8CE621AE1984C00C1DECA /* Fabric.framework */; };
-		27A8CE691AE19A7600C1DECA /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A8CE671AE19A7600C1DECA /* TwitterKit.framework */; };
-		27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27A8CE681AE19A7600C1DECA /* TwitterKitResources.bundle */; };
 		27AC00B419CB4B4F00F1F3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */; };
 		27AC00BB19CB4B4F00F1F3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BA19CB4B4F00F1F3B7 /* Images.xcassets */; };
 		27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27AC00BC19CB4B4F00F1F3B7 /* LaunchScreen.xib */; };
@@ -202,7 +199,6 @@
 		2752517E1AF30C4F006C44FE /* ShareDialogDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareDialogDelegate.swift; sourceTree = "<group>"; };
 		27536E7C1AF1DC5900DDB3AF /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		2755C45F1A670857006452F7 /* SearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
-		277AE77C19D2211E00914BE1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		277C8D161AD5EBC400D80DB9 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		278BFBB119D08D0900510C6E /* sign-in-with-twitter-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in-with-twitter-gray.png"; sourceTree = "<group>"; };
 		278BFBB319D08F0C00510C6E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -217,9 +213,6 @@
 		2793196F1AE728A3003A9DB5 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		279319701AE728A3003A9DB5 /* IntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
 		279E899F1A639CF300002446 /* RString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RString.swift; sourceTree = "<group>"; };
-		27A8CE621AE1984C00C1DECA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		27A8CE671AE19A7600C1DECA /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
-		27A8CE681AE19A7600C1DECA /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
 		27AC00AE19CB4B4F00F1F3B7 /* TruckMuncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TruckMuncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27AC00B219CB4B4F00F1F3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27AC00B319CB4B4F00F1F3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -259,12 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FE9D3619FF5D2100060F79 /* libc++.dylib in Frameworks */,
-				27A8CE691AE19A7600C1DECA /* TwitterKit.framework in Frameworks */,
 				27FE9D3019FF5D0600060F79 /* Realm.framework in Frameworks */,
 				277BEBFE19F5C0480001C4F6 /* MapKit.framework in Frameworks */,
 				277C8D171AD5EBC400D80DB9 /* Reveal.framework in Frameworks */,
 				277BEBFF19F5C0480001C4F6 /* Security.framework in Frameworks */,
-				27A8CE631AE1984C00C1DECA /* Fabric.framework in Frameworks */,
 				2791284019DF417800D15932 /* Alamofire.framework in Frameworks */,
 				702AAD3DB6FC462697BE49A9 /* libPods.a in Frameworks */,
 			);
@@ -474,14 +465,10 @@
 		2F58809D7BAB43B4BBC9FE81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				27A8CE671AE19A7600C1DECA /* TwitterKit.framework */,
-				27A8CE681AE19A7600C1DECA /* TwitterKitResources.bundle */,
-				27A8CE621AE1984C00C1DECA /* Fabric.framework */,
 				277C8D161AD5EBC400D80DB9 /* Reveal.framework */,
 				27FE9D3519FF5D2100060F79 /* libc++.dylib */,
 				27FE9D2F19FF5D0600060F79 /* Realm.framework */,
 				06F2D04A19E4BE540030726D /* MapKit.framework */,
-				277AE77C19D2211E00914BE1 /* Crashlytics.framework */,
 				278BFBBE19D0AB7200510C6E /* Security.framework */,
 				67065F4FABC149C7A197923C /* libPods.a */,
 			);
@@ -628,7 +615,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				278C0A9A1AE1B27400C65AD5 /* MapViewController.xib in Resources */,
-				27A8CE6A1AE19A7600C1DECA /* TwitterKitResources.bundle in Resources */,
 				272860F11AF182B0001186F7 /* transparentTMOutline.png in Resources */,
 				27AC00BE19CB4B4F00F1F3B7 /* LaunchScreen.xib in Resources */,
 				060935ED19F303F40033F3D4 /* LocationSetterPin@2x.png in Resources */,
@@ -689,7 +675,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 2d3548a0b8747eb27b8284162847057e23ccae1f fc60be2978dcec631fb8c67f005530caff794302e1652b016e4fb68bf3400c66";
+			shellScript = "./Pods/Fabric/Fabric.framework/run 2d3548a0b8747eb27b8284162847057e23ccae1f fc60be2978dcec631fb8c67f005530caff794302e1652b016e4fb68bf3400c66";
 		};
 		278BFBB519D0A27600510C6E /* TODO as Warnings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -935,7 +921,7 @@
 					"-lz",
 				);
 				OTHER_SWIFT_FLAGS = "";
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-DDEBUG";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DRELEASE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TruckMuncher/Bridging-Header-File.h";
