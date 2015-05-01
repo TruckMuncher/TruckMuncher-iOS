@@ -163,4 +163,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         container.addSubview(label)
         return container
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
 }
