@@ -63,6 +63,9 @@ class MapViewController: UIViewController,
     var initialTouchY: CGFloat = 0
     var showingIntro = false
     
+    var mapMask: CALayer?
+    var carouselMask: CALayer?
+    
     var popViewControllerFacebook: PopUpViewControllerFacebook?
     var popViewControllerTwitter: PopUpViewControllerTwitter?
     
@@ -91,7 +94,7 @@ class MapViewController: UIViewController,
         muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.userInteractionEnabled = true
         muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
-        muncherImageView.frame = CGRectMake(0, 0, 40, 40)
+        muncherImageView.frame = CGRectMake(0, 0, 30, 30)
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
         navigationItem.titleView = muncherImageView
         
@@ -128,7 +131,7 @@ class MapViewController: UIViewController,
             updateCarouselWithTruckMenus()
             
             initLocationManager()
-            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
                 locationManager.startUpdatingLocation()
                 mapClusterControllerSetup()
                 truckCarouselSetup()
@@ -198,8 +201,21 @@ class MapViewController: UIViewController,
         if ruser == nil {
             return
         }
+        if mapMask == nil {
+            let mm = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+            mm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            mapMask = mm.layer
+        }
+        if carouselMask == nil {
+            let cm = UIView(frame: CGRectMake(0, 0, truckCarousel.frame.size.width, truckCarousel.frame.size.height))
+            cm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            carouselMask = cm.layer
+        }
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapView.layer.addSublayer(self.mapMask!)
+            self.truckCarousel.layer.addSublayer(self.carouselMask!)
             self.mapView.userInteractionEnabled = false
             self.truckCarousel.userInteractionEnabled = false
             if self.lblPostToFb.hidden {
@@ -214,6 +230,8 @@ class MapViewController: UIViewController,
     @IBAction func hideProfile(sender: AnyObject) {
         navigationController?.setNavigationBarHidden(false, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapMask!.removeFromSuperlayer()
+            self.carouselMask!.removeFromSuperlayer()
             self.mapView.userInteractionEnabled = true
             self.truckCarousel.userInteractionEnabled = true
             self.topMapConstraint.constant = 0
@@ -480,7 +498,7 @@ class MapViewController: UIViewController,
     }
     
     func updateCarouselWithTruckMenus() {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
             menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
                 self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
                     if self.locationManager != nil {
@@ -546,9 +564,9 @@ class MapViewController: UIViewController,
     }
     
     func zoomToCurrentLocation() {
-        if (CLLocationManager.locationServicesEnabled() &&
-            CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
-            locationManager.location != nil){
+        if  CLLocationManager.locationServicesEnabled() &&
+            (CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways) &&
+            locationManager.location != nil {
                 
             centerMapOverCoordinate(locationManager.location.coordinate)
         }
@@ -577,7 +595,7 @@ class MapViewController: UIViewController,
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
             locationManager.startUpdatingLocation()
             mapClusterControllerSetup()
             truckCarouselSetup()
@@ -731,6 +749,7 @@ class MapViewController: UIViewController,
         let touchLocationOnScreen = recognizer.locationInView(view)
         
         if recognizer.state == .Began {
+            navigationController?.navigationBar.userInteractionEnabled = false
             initialTouchY = recognizer.locationInView(truckCarousel).y
         }
         
@@ -775,6 +794,7 @@ class MapViewController: UIViewController,
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
             }, completion: { (completed) -> Void in
+                self.navigationController?.navigationBar.userInteractionEnabled = true
                 self.truckCarousel.reloadData()
             })
             initialTouchY = 0
