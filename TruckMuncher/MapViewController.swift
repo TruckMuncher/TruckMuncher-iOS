@@ -51,7 +51,7 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
-    lazy var btnAllTrucks = UIButton()
+    lazy var btnAllTrucks = UIBarButtonItem()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     lazy var muncherImageView = UIImageView()
     
@@ -98,20 +98,21 @@ class MapViewController: UIViewController,
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
         navigationItem.titleView = muncherImageView
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
+        let btnLogin = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
+        btnLogin.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
+        let invisible = UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)
+        invisible.enabled = false
+        invisible.tintColor = UIColor.clearColor()
+        
+        navigationItem.leftBarButtonItems = [btnLogin, invisible]
         
         searchDelegate = SearchDelegate(completionDelegate: self)
         searchDelegate?.searchBar.delegate = self
         
-        btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
-        btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
-        btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
-        btnAllTrucks.setTitle("\u{f0c0}", forState: .Normal)
-        btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+        btnAllTrucks = UIBarButtonItem(title: "\u{f0c0}", style: .Plain, target: self, action: "viewAllTrucks")
+        btnAllTrucks.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
         
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), btnAllTrucks]
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -440,7 +441,7 @@ class MapViewController: UIViewController,
                 let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(0.0)
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
-                self.btnAllTrucks.setTitleColor(color, forState: .Normal)
+                self.btnAllTrucks.tintColor = color
             })
         }
     }
@@ -765,7 +766,7 @@ class MapViewController: UIViewController,
         let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
-        btnAllTrucks.setTitleColor(color, forState: .Normal)
+        btnAllTrucks.tintColor = color
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
@@ -789,7 +790,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
-                self.btnAllTrucks.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
+                self.btnAllTrucks.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
