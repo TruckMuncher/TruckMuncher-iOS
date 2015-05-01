@@ -94,7 +94,7 @@ class MapViewController: UIViewController,
         muncherImageView = UIImageView(image: muncherImage)
         muncherImageView.userInteractionEnabled = true
         muncherImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "showProfile"))
-        muncherImageView.frame = CGRectMake(0, 0, 30, 30)
+        muncherImageView.frame = CGRectMake(0, 0, 40, 40)
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
         navigationItem.titleView = muncherImageView
         
