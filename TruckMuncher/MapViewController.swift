@@ -824,9 +824,10 @@ class MapViewController: UIViewController,
     
     func showFacebookShareDialog(askPermission: Bool = true) {
         if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+            var truck = activeTrucks[truckCarousel.currentItemIndex]
             popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
             popViewControllerFacebook?.delegate = self
-            popViewControllerFacebook?.showInView(view, contentUrl: "", animated: true)
+            popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
         } else if askPermission {
             // we dont have publishing permissions, ask for them again
             let fbManager = FBSDKLoginManager()

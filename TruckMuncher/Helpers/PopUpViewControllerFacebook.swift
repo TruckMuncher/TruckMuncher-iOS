@@ -35,6 +35,7 @@ class PopUpViewControllerFacebook : UIViewController, UITextViewDelegate {
     }
     
     func showInView(aView: UIView, contentUrl: String, animated: Bool) {
+        url = contentUrl
         delegate?.shareDialogOpened()
         view.setTranslatesAutoresizingMaskIntoConstraints(true)
         view.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
@@ -69,11 +70,13 @@ class PopUpViewControllerFacebook : UIViewController, UITextViewDelegate {
     
     @IBAction func post(sender: AnyObject) {
         MBProgressHUD.showHUDAddedTo(view, animated: true)
-        FBSDKGraphRequest(graphPath: "me/feed", parameters: ["message": textView.text, "link": url, "privacy": getPrivacyString()], HTTPMethod: "POST").startWithCompletionHandler { (connection, result, error) -> Void in
+        let params: [NSObject: AnyObject] = ["message": textView.text, "link": url, "privacy": "{'value': '\(getPrivacyString())'}"]
+        FBSDKGraphRequest(graphPath: "me/feed", parameters: params, HTTPMethod: "POST").startWithCompletionHandler { (connection, result, error) -> Void in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
             if error == nil {
                 self.closePopup("")
             } else {
+                println("error: \(error) \(result)")
                 self.errorPosting()
             }
         }
