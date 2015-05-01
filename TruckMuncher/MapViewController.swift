@@ -71,7 +71,7 @@ class MapViewController: UIViewController,
     
     func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
-            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode, activeTrucks: activeTrucks)
+            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode, activeTrucks: activeTrucks, ruser: ruser)
             navigationController?.pushViewController(allTrucksVC, animated: true)
         } else {
             var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)

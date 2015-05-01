@@ -16,10 +16,12 @@ class AllTrucksCollectionViewController: UICollectionViewController {
     var activeTrucks: [RTruck] = [RTruck]()
     let trucksManager = TrucksManager()
     var menuManager = MenuManager()
+    var ruser: RUser?
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck], activeTrucks: [RTruck]) {
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck], activeTrucks: [RTruck], ruser: RUser?) {
         self.allTrucks = allTrucks
         self.activeTrucks = activeTrucks
+        self.ruser = ruser
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -44,6 +46,7 @@ class AllTrucksCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         collectionView!.registerNib(UINib(nibName: "TruckCollectionViewCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: reuseIdentifier)
+        
         
         self.view.addSubview(collectionView!)
     }
@@ -73,7 +76,7 @@ class AllTrucksCollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailVC = TruckDetailViewController(nibName: "TruckDetailViewController", bundle: nil, truck: self.allTrucks[indexPath.row])
+        let detailVC = TruckDetailViewController(nibName: "TruckDetailViewController", bundle: nil, truck: self.allTrucks[indexPath.row], user: ruser)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
