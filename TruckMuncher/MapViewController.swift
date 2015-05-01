@@ -19,8 +19,8 @@ class MapViewController: UIViewController,
     iCarouselDelegate,
     SearchCompletionProtocol,
     UISearchBarDelegate,
-    UIActionSheetDelegate,
-    IntroDelegate {
+    IntroDelegate,
+    ShareDialogDelegate {
 
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
@@ -51,7 +51,7 @@ class MapViewController: UIViewController,
         }
     }
     var allTrucksRegardlessOfServingMode = [RTruck]()
-    lazy var btnAllTrucks = UIButton()
+    lazy var btnAllTrucks = UIBarButtonItem()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     lazy var muncherImageView = UIImageView()
     
@@ -62,6 +62,12 @@ class MapViewController: UIViewController,
     
     var initialTouchY: CGFloat = 0
     var showingIntro = false
+    
+    var mapMask: CALayer?
+    var carouselMask: CALayer?
+    
+    var popViewControllerFacebook: PopUpViewControllerFacebook?
+    var popViewControllerTwitter: PopUpViewControllerTwitter?
     
     func viewAllTrucks() {
         if (allTrucksRegardlessOfServingMode.count > 0){
@@ -92,20 +98,21 @@ class MapViewController: UIViewController,
         muncherImageView.contentMode = UIViewContentMode.ScaleAspectFit
         navigationItem.titleView = muncherImageView
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
-        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
+        let btnLogin = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
+        btnLogin.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
+        let invisible = UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)
+        invisible.enabled = false
+        invisible.tintColor = UIColor.clearColor()
+        
+        navigationItem.leftBarButtonItems = [btnLogin, invisible]
         
         searchDelegate = SearchDelegate(completionDelegate: self)
         searchDelegate?.searchBar.delegate = self
         
-        btnAllTrucks = UIButton(frame: CGRectMake(0, 0, 30, 30))
-        btnAllTrucks.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        btnAllTrucks.setTitleColor(UIColor.whiteColor().colorWithAlphaComponent(0.5), forState: .Highlighted)
-        btnAllTrucks.addTarget(self, action: "viewAllTrucks", forControlEvents: .TouchUpInside)
-        btnAllTrucks.setTitle("\u{f0c0}", forState: .Normal)
-        btnAllTrucks.titleLabel?.font = UIFont(name: "FontAwesome", size: 22.0)
+        btnAllTrucks = UIBarButtonItem(title: "\u{f0c0}", style: .Plain, target: self, action: "viewAllTrucks")
+        btnAllTrucks.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
         
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), UIBarButtonItem(customView: btnAllTrucks)]
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showSearchBar"), btnAllTrucks]
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -125,7 +132,7 @@ class MapViewController: UIViewController,
             updateCarouselWithTruckMenus()
             
             initLocationManager()
-            if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+            if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
                 locationManager.startUpdatingLocation()
                 mapClusterControllerSetup()
                 truckCarouselSetup()
@@ -139,6 +146,9 @@ class MapViewController: UIViewController,
     func setupProfile() {
         MBProgressHUD.hideHUDForView(view, animated: true)
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
+        if truckCarousel != nil {
+            truckCarousel.reloadData()
+        }
         if let user = ruser {
             muncherImageView.image = UIImage(named: "transparentTMOutline")
             switchPostToFb.on = user.postToFb
@@ -192,8 +202,21 @@ class MapViewController: UIViewController,
         if ruser == nil {
             return
         }
+        if mapMask == nil {
+            let mm = UIView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height))
+            mm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            mapMask = mm.layer
+        }
+        if carouselMask == nil {
+            let cm = UIView(frame: CGRectMake(0, 0, truckCarousel.frame.size.width, truckCarousel.frame.size.height))
+            cm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+            carouselMask = cm.layer
+        }
+        
         navigationController?.setNavigationBarHidden(true, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapView.layer.addSublayer(self.mapMask!)
+            self.truckCarousel.layer.addSublayer(self.carouselMask!)
             self.mapView.userInteractionEnabled = false
             self.truckCarousel.userInteractionEnabled = false
             if self.lblPostToFb.hidden {
@@ -208,6 +231,8 @@ class MapViewController: UIViewController,
     @IBAction func hideProfile(sender: AnyObject) {
         navigationController?.setNavigationBarHidden(false, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.mapMask!.removeFromSuperlayer()
+            self.carouselMask!.removeFromSuperlayer()
             self.mapView.userInteractionEnabled = true
             self.truckCarousel.userInteractionEnabled = true
             self.topMapConstraint.constant = 0
@@ -233,36 +258,7 @@ class MapViewController: UIViewController,
             return
         }
         let fbManager = FBSDKLoginManager()
-        // TODO this will be used once the Facebook app itself is fixed to allow publish permissions
-        /*fbManager.logInWithPublishPermissions(["publish_actions"], handler: { (result: FBSDKLoginManagerLoginResult!, error) -> Void in
-            if error != nil {
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Facebook account at this time, please try again", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            } else if !result.isCancelled {
-                if !result.grantedPermissions.contains("publish_actions") {
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    let alert = UIAlertController(title: "Uh-oh", message: "We require that you allow us to post on your behalf. It looks like you denied that request, please try linking your Facebook account again", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else if self.ruser!.truckIds.count > 0 {
-                    let alert = UIAlertController(title: "Automatically Post?", message: "Would you like us to automatically post to Facebook when any of your trucks go into serving mode?", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
-                    }))
-                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
-                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else {
-                    self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
-                }
-            } else {
-                println("cancelled")
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-            }
-        })*/
+        
         fbManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
             if error != nil {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -273,7 +269,15 @@ class MapViewController: UIViewController,
                 if self.ruser!.truckIds.count > 0 {
                     let alert = UIAlertController(title: "Automatically Post?", message: "Would you like us to automatically post to Facebook when any of your trucks go into serving mode?", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
+                        
+                        self.askForPublishingPermissions(fbManager, success: { () -> () in
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                            self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
+                        }, failure: { () -> () in
+                            MBProgressHUD.hideHUDForView(self.view, animated: true)
+                            self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
+                        })
+                        
                     }))
                     alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
                         self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
@@ -284,6 +288,16 @@ class MapViewController: UIViewController,
                 }
             } else {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
+            }
+        })
+    }
+    
+    func askForPublishingPermissions(fbManager: FBSDKLoginManager, success: () -> (), failure: () -> ()) {
+        fbManager.logInWithPublishPermissions(["publish_actions"], handler: { (result, error) -> Void in
+            if error == nil && !result.isCancelled && contains(result.grantedPermissions, "publish_actions") {
+                success()
+            } else {
+                failure()
             }
         })
     }
@@ -310,6 +324,7 @@ class MapViewController: UIViewController,
                     self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
                 }
             } else {
+                Twitter.sharedInstance().logOut()
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
                 let alert = UIAlertController(title: "Oops!", message: "We couldn't link your Twitter account at this time, please try again", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -348,6 +363,7 @@ class MapViewController: UIViewController,
         userManager.linkTwitterAccount(oauthToken, secretToken: secretToken, postActivity: postActivity, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
+            Twitter.sharedInstance().logOut()
             MBProgressHUD.hideHUDForView(self.view, animated: true)
             let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -361,6 +377,7 @@ class MapViewController: UIViewController,
             return
         }
         userManager.unlinkAccount(unlinkFacebook: nil, unlinkTwitter: true, success: { (response) -> () in
+            Twitter.sharedInstance().logOut()
             self.setupProfile()
         }) { (error) -> () in
             MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -378,6 +395,25 @@ class MapViewController: UIViewController,
     }
     
     @IBAction func postToSocialMedia(sender: AnyObject) {
+        if switchPostToFb.on && !contains(FBSDKAccessToken.currentAccessToken().permissions, "publish_actions") {
+            askForPublishingPermissions(FBSDKLoginManager(), success: { () -> () in
+                self.finishUpdatingSocialMediaSettings(sender)
+            }, failure: { () -> () in
+                self.switchPostToFb.setOn(false, animated: true)
+                let alert = UIAlertController(title: "Error", message: "We require that you allow us to post to your Facebook in order to turn on that setting", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in
+                    // we will still update their account because they might have hit twitter
+                    // but we already turned the facebook switch off so this is safe
+                    self.finishUpdatingSocialMediaSettings(sender)
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
+        } else {
+            finishUpdatingSocialMediaSettings(sender)
+        }
+    }
+    
+    private func finishUpdatingSocialMediaSettings(sender: AnyObject) {
         userManager.modifyAccount(switchPostToFb.on, postToTw: switchPostToTw.on, success: { (response) -> () in
             self.setupProfile()
         }) { (error) -> () in
@@ -405,7 +441,7 @@ class MapViewController: UIViewController,
                 let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(0.0)
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
-                self.btnAllTrucks.setTitleColor(color, forState: .Normal)
+                self.btnAllTrucks.tintColor = color
             })
         }
     }
@@ -463,7 +499,7 @@ class MapViewController: UIViewController,
     }
     
     func updateCarouselWithTruckMenus() {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse) {
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
             menuManager.getFullMenus(atLatitude: 0, longitude: 0, includeAvailability: true, success: { (response) -> () in
                 self.trucksManager.getTruckProfiles(atLatitude: 0, longitude: 0, success: { (response) -> () in
                     if self.locationManager != nil {
@@ -529,9 +565,9 @@ class MapViewController: UIViewController,
     }
     
     func zoomToCurrentLocation() {
-        if (CLLocationManager.locationServicesEnabled() &&
-            CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse &&
-            locationManager.location != nil){
+        if  CLLocationManager.locationServicesEnabled() &&
+            (CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways) &&
+            locationManager.location != nil {
                 
             centerMapOverCoordinate(locationManager.location.coordinate)
         }
@@ -560,7 +596,7 @@ class MapViewController: UIViewController,
     }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse){
+        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
             locationManager.startUpdatingLocation()
             mapClusterControllerSetup()
             truckCarouselSetup()
@@ -714,6 +750,7 @@ class MapViewController: UIViewController,
         let touchLocationOnScreen = recognizer.locationInView(view)
         
         if recognizer.state == .Began {
+            navigationController?.navigationBar.userInteractionEnabled = false
             initialTouchY = recognizer.locationInView(truckCarousel).y
         }
         
@@ -729,7 +766,7 @@ class MapViewController: UIViewController,
         let color = (UINavigationBar.appearance().titleTextAttributes![NSForegroundColorAttributeName] as! UIColor).colorWithAlphaComponent(1-percentage)
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
-        btnAllTrucks.setTitleColor(color, forState: .Normal)
+        btnAllTrucks.tintColor = color
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
@@ -753,11 +790,12 @@ class MapViewController: UIViewController,
                 self.navigationItem.titleView?.alpha = self.showingMenu ? 0.0 : 1.0
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
-                self.btnAllTrucks.setTitleColor(color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0), forState: .Normal)
+                self.btnAllTrucks.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
             }, completion: { (completed) -> Void in
+                self.navigationController?.navigationBar.userInteractionEnabled = true
                 self.truckCarousel.reloadData()
             })
             initialTouchY = 0
@@ -782,12 +820,10 @@ class MapViewController: UIViewController,
             if ruser?.hasFb == true && ruser?.hasTw == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showShareSheet", forControlEvents: UIControlEvents.TouchUpInside)
-            }
-            else if ruser?.hasFb == true {
+            } else if ruser?.hasFb == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
-                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
-            }
-            else if ruser?.hasTw == true {
+                (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showFacebookShareDialogAction", forControlEvents: UIControlEvents.TouchUpInside)
+            } else if ruser?.hasTw == true {
                 (detailView as! TruckDetailView).shareButton.hidden = false
                 (detailView as! TruckDetailView).shareButton.addTarget(self, action: "showTwitterShareDialog", forControlEvents: UIControlEvents.TouchUpInside)
             }
@@ -799,40 +835,51 @@ class MapViewController: UIViewController,
     }
     
     func showShareSheet() {
-        var sheet: UIActionSheet = UIActionSheet()
-        
-        sheet.addButtonWithTitle("Facebook")
-        sheet.addButtonWithTitle("Twitter")
-        
-        sheet.addButtonWithTitle("Cancel")
-        sheet.cancelButtonIndex = sheet.numberOfButtons - 1
-        sheet.delegate = self
-        sheet.showInView(self.view)
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        sheet.addAction(UIAlertAction(title: "Facebook", style: .Default, handler: { (action) -> Void in
+            self.showFacebookShareDialog()
+        }))
+        sheet.addAction(UIAlertAction(title: "Twitter", style: .Default, handler: { (action) -> Void in
+            self.showTwitterShareDialog()
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        presentViewController(sheet, animated: true, completion: nil)
     }
     
-    func showFacebookShareDialog() {
-        var content = FBSDKShareLinkContent()
-        var truckId = (activeTrucks[truckCarousel.currentItemIndex] as RTruck).id
-        content.contentURL = NSURL(string: "https://www.truckmuncher.com/#/trucks/" + truckId)
-        var dialog = FBSDKShareDialog()
-        dialog.fromViewController = self
-        dialog.shareContent = content
-        dialog.mode = FBSDKShareDialogMode.ShareSheet
-        dialog.show()
+    func showFacebookShareDialogAction() {
+        // yes, this is required, the selector "showFacebookShareDialog:" wont work so we need this
+        showFacebookShareDialog()
+    }
+    
+    func showFacebookShareDialog(askPermission: Bool = true) {
+        if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+            var truck = activeTrucks[truckCarousel.currentItemIndex]
+            popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
+            popViewControllerFacebook?.delegate = self
+            popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
+        } else if askPermission {
+            // we dont have publishing permissions, ask for them again
+            let fbManager = FBSDKLoginManager()
+            
+            MBProgressHUD.showHUDAddedTo(view, animated: true)
+            
+            askForPublishingPermissions(fbManager, success: { () -> () in
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                self.showFacebookShareDialog(askPermission: false)
+            }, failure: { () -> () in
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
+                let alert = UIAlertController(title: "Oops!", message: "You'll need to allow TruckMuncher to post to your Facebook in order to use the sharing feature", preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            })
+        }
     }
     
     func showTwitterShareDialog() {
-        let composer = TWTRComposer()
-        var truck = (activeTrucks[truckCarousel.currentItemIndex] as RTruck)
-        composer.setText("Check out " + truck.name + " on TruckMuncher!  " + "https://www.truckmuncher.com/#/trucks/" + truck.id)
-        composer.showWithCompletion { (result) -> Void in
-            if (result == TWTRComposerResult.Cancelled) {
-                println("Tweet composition cancelled")
-            }
-            else {
-                println("Sending tweet!")
-            }
-        }
+        var truck = activeTrucks[truckCarousel.currentItemIndex]
+        popViewControllerTwitter = PopUpViewControllerTwitter(nibName: "PopUpViewControllerTwitter", bundle: nil)
+        popViewControllerTwitter?.delegate = self
+        popViewControllerTwitter?.showInView(view, withMessage: "Check out \(truck.name) on TruckMuncher! https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
     }
     
     func carouselCurrentItemIndexDidChange(carousel: iCarousel!) {
@@ -858,10 +905,22 @@ class MapViewController: UIViewController,
         }
     }
     
+    // MARK: - ShareDialogDelegate
+    
+    func shareDialogOpened() {
+        truckCarousel.userInteractionEnabled = false
+        navigationController?.navigationBar.userInteractionEnabled = false
+    }
+    
+    func shareDialogClosed() {
+        truckCarousel.userInteractionEnabled = true
+        navigationController?.navigationBar.userInteractionEnabled = true
+    }
+    
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
-        activeTrucks = [RTruck](results)
+        activeTrucks = orderTrucksByDistanceFromCurrentLocation([RTruck](results))
         updateMapWithActiveTrucks()
         truckCarousel.reloadData()
         truckCarousel.scrollToItemAtIndex(0, animated: false)
@@ -875,21 +934,4 @@ class MapViewController: UIViewController,
         truckCarousel.scrollToItemAtIndex(0, animated: false)
     }
     
-    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int)
-    {
-        switch buttonIndex{
-            
-        case 0:
-            NSLog("Facebook")
-            showFacebookShareDialog()
-            break
-        case 1:
-            NSLog("Twitter")
-            showTwitterShareDialog()
-            break
-        default:
-            NSLog("Default")
-            break
-        }
-    }
 }

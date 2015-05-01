@@ -23,7 +23,7 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     let completionDelegate: T
     let searchBar: UISearchBar
     var titleView: UIView?
-    var leftButton: UIBarButtonItem?
+    var leftButtons = [AnyObject]()
     var rightButtons = [AnyObject]()
     
     init(completionDelegate: T) {
@@ -36,7 +36,7 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     func showSearchBar() {
         searchBar.becomeFirstResponder()
         titleView = self.completionDelegate.navigationItem.titleView
-        leftButton = self.completionDelegate.navigationItem.leftBarButtonItem
+        leftButtons.extend(self.completionDelegate.navigationItem.leftBarButtonItems!)
         rightButtons.extend(self.completionDelegate.navigationItem.rightBarButtonItems!)
         self.completionDelegate.navigationItem.titleView = searchBar
         self.completionDelegate.navigationItem.leftBarButtonItem = nil
@@ -93,10 +93,10 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
         searchBar.text = ""
         searchBar.resignFirstResponder()
         completionDelegate.navigationItem.titleView = titleView
-        completionDelegate.navigationItem.leftBarButtonItem = leftButton
+        completionDelegate.navigationItem.leftBarButtonItems = leftButtons
         completionDelegate.navigationItem.rightBarButtonItems = rightButtons
         titleView = nil
-        leftButton = nil
+        leftButtons = [AnyObject]()
         rightButtons = [AnyObject]()
         completionDelegate.searchCancelled()
     }

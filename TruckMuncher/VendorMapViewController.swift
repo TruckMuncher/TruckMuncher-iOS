@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Alamofire
 import Realm
+import TwitterKit
 
 class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     let truckManager = TrucksManager()
@@ -132,6 +133,7 @@ class VendorMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         secretItem.resetKeychainItem()
         
         FBSDKLoginManager().logOut()
+        Twitter.sharedInstance().logOut()
         navigationController?.popViewControllerAnimated(true)
     }
     
