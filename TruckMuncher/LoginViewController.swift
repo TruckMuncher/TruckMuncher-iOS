@@ -38,13 +38,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
-        
-        if let _ = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") {
-            attemptSessionTokenRefresh({ (error) -> () in
-                // we dont have a valid session token from the api
-                // let the user decide what they want to do
-            })
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,6 +60,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             #elseif RELEASE
                 loginToAPI("access_token=\(FBSDKAccessToken.currentAccessToken().tokenString)")
             #endif
+        } else {
+            MBProgressHUD.hideHUDForView(view, animated: true)
         }
     }
     
@@ -93,6 +88,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             NSUserDefaults.standardUserDefaults().setValue(response.sessionToken, forKey: "sessionToken")
             NSUserDefaults.standardUserDefaults().synchronize()
             self.attemptSessionTokenRefresh({ (error) -> () in
+                MBProgressHUD.hideHUDForView(self.view, animated: true)
                 println("error \(error)")
                 println("error message \(error?.userMessage)")
             })
