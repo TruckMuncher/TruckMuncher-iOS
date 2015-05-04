@@ -34,5 +34,5 @@ let PROPERTIES_FILE = "Properties"
 let BASE_URL = "https://api.truckmuncher.com:8443"
 #elseif DEBUG
 let PROPERTIES_FILE = "Properties-dev"
-let BASE_URL = "http://truckmuncher:8443"
+let BASE_URL = "http://10.0.1.8:8443"
 #endif

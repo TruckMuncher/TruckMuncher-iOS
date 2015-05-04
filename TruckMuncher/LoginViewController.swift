@@ -39,7 +39,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile", "email", "user_friends"]
         
-        // TODO show some sort of progress dialog signifying a sign in occuring
         if let _ = NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") {
             attemptSessionTokenRefresh({ (error) -> () in
                 // we dont have a valid session token from the api

@@ -44,6 +44,7 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        MBProgressHUD.showHUDAddedTo((completionDelegate as UIViewController).view, animated: true)
         self.searchBar.resignFirstResponder()
         let newTerm = searchBar.text
         if newTerm == "" {
@@ -81,8 +82,10 @@ class SearchDelegate<T: SearchCompletionProtocol where T: UIViewController>: NSO
             }
             realm.commitWriteTransaction()
             // TODO the blurbs need to be combined and probably used at some point
+            MBProgressHUD.hideHUDForView((self.completionDelegate as UIViewController).view, animated: true)
             self.completionDelegate.searchSuccessful(trucks)
         }) { (error) -> () in
+            MBProgressHUD.hideHUDForView((self.completionDelegate as UIViewController).view, animated: true)
             println("error performing search \(error)")
         }
     }

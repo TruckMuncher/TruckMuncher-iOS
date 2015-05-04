@@ -93,7 +93,11 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         self.truckNameLabel.textColor = self.textColor
         self.truckTagsLabel.textColor = self.textColor
         
-        self.distanceLabel.text = showDistance ? String(format: "%.02f mi", truck.distanceFromMe) : ""
+        if truck.latitude == 0 && truck.longitude == 0 {
+            self.distanceLabel.text = showDistance ? "N/A" : ""
+        } else {
+            self.distanceLabel.text = showDistance ? String(format: "%.02f mi", truck.distanceFromMe) : ""
+        }
         self.distanceLabel.textColor = self.textColor
         
         self.truckId = truck.id

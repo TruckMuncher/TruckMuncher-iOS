@@ -694,8 +694,7 @@ class MapViewController: UIViewController,
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
                 
-                self.truckCarousel.userInteractionEnabled = self.activeTrucks.count > 0
-                self.carouselPanGestureRecognizer?.enabled = self.activeTrucks.count > 0
+                
                 
                 }) { (error) -> () in
                     var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
@@ -733,6 +732,9 @@ class MapViewController: UIViewController,
             var a = TruckLocationAnnotation(location: location, index: i, truckId: activeTrucks[i].id)
             annotations.append(a)
         }
+        
+        truckCarousel.userInteractionEnabled = activeTrucks.count > 0
+        carouselPanGestureRecognizer?.enabled = activeTrucks.count > 0
         
         mapClusterControllerSetup()
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
