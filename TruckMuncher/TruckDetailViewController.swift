@@ -74,6 +74,7 @@ class TruckDetailViewController: UIViewController, ShareDialogDelegate {
     }
     
     func showFacebookShareDialog(askPermission: Bool = true) {
+        // TODO CRASH account for access token being null
         if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
             popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
             popViewControllerFacebook?.delegate = self

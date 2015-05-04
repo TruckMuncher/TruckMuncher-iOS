@@ -64,6 +64,7 @@ class PopUpViewControllerTwitter : UIViewController, UITextViewDelegate {
         let params = ["status": textView.text]
         var error : NSError?
         
+        // TODO CRASH account for twitter not being logged in
         let request = Twitter.sharedInstance().APIClient.URLRequestWithMethod("POST", URL: "https://api.twitter.com/1.1/statuses/update.json", parameters: ["status": textView.text], error: &error)
         
         if request != nil {

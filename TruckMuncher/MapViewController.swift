@@ -395,6 +395,7 @@ class MapViewController: UIViewController,
     }
     
     @IBAction func postToSocialMedia(sender: AnyObject) {
+        // TODO CRASH account for access token being null
         if switchPostToFb.on && !contains(FBSDKAccessToken.currentAccessToken().permissions, "publish_actions") {
             askForPublishingPermissions(FBSDKLoginManager(), success: { () -> () in
                 self.finishUpdatingSocialMediaSettings(sender)
@@ -854,6 +855,7 @@ class MapViewController: UIViewController,
     }
     
     func showFacebookShareDialog(askPermission: Bool = true) {
+        // TODO CRASH account for access token being null
         if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
             var truck = activeTrucks[truckCarousel.currentItemIndex]
             popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
