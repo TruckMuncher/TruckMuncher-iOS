@@ -26,7 +26,6 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
     var textColor = UIColor.blackColor()
     var truckId: String!
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -35,15 +34,10 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if menuTableView != nil {
-            menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
-            menuTableView.estimatedRowHeight = 99.0
-            menuTableView.rowHeight = UITableViewAutomaticDimension
-            menuTableView.backgroundView = nil
-            menuTableView.backgroundColor = UIColor.clearColor()
-        }
+    override func awakeFromNib() {
+        menuTableView.registerNib(UINib(nibName: "MenuItemTableViewCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: "MenuItemTableViewCellIdentifier")
+        menuTableView.estimatedRowHeight = 99.0
+        menuTableView.rowHeight = UITableViewAutomaticDimension
     }
     
     func updateViewForNoTruck() {
@@ -68,8 +62,8 @@ class TruckDetailView: UIView, UITableViewDataSource, UITableViewDelegate {
             menuManager.getMenu(truckId: truck.id, success: { (response) -> () in
                 self.menu = response as RMenu
                 self.menuTableView.reloadData()
-                }) { (error) -> () in
-                    println("error \(error)")
+            }) { (error) -> () in
+                println("error \(error)")
             }
         } else {
             self.menuTableView.reloadData()
