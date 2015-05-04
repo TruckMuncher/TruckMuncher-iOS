@@ -16,16 +16,10 @@ class MenuItemTableViewCell: UITableViewCell {
     @IBOutlet weak var lblTags: UILabel!
     
     var givenTextColor = UIColor.blackColor()
-    
-    private var privateMenuItem: RMenuItem?
-    
+        
     var menuItem: RMenuItem? {
-        set {
-            privateMenuItem = newValue
+        didSet {
             reloadFromMenuItem()
-        }
-        get {
-            return privateMenuItem
         }
     }
     
