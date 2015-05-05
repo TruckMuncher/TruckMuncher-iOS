@@ -25,11 +25,6 @@ class MapViewController: UIViewController,
     @IBOutlet var mapView: MKMapView!
     @IBOutlet weak var topMapConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var lblPostToFb: UILabel!
-    @IBOutlet weak var lblPostToTw: UILabel!
-    @IBOutlet weak var switchPostToFb: UISwitch!
-    @IBOutlet weak var switchPostToTw: UISwitch!
-    
     @IBOutlet weak var btnLinkFb: UIButton!
     @IBOutlet weak var btnLinkTw: UIButton!
     
@@ -50,7 +45,6 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
-    var allTrucksRegardlessOfServingMode = [RTruck]()
     lazy var btnAllTrucks = UIBarButtonItem()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     lazy var muncherImageView = UIImageView()
@@ -70,14 +64,14 @@ class MapViewController: UIViewController,
     var popViewControllerTwitter: PopUpViewControllerTwitter?
     
     func viewAllTrucks() {
-        if (allTrucksRegardlessOfServingMode.count > 0){
-            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode, activeTrucks: activeTrucks, ruser: ruser)
-            navigationController?.pushViewController(allTrucksVC, animated: true)
-        } else {
-            var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        var lat = 0.0
+        var long = 0.0
+        if locationManager.location != nil {
+            lat = locationManager.location.coordinate.latitude
+            long = locationManager.location.coordinate.longitude
         }
+        let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, lat: lat, long: long, activeTrucks: activeTrucks, ruser: ruser)
+        navigationController?.pushViewController(allTrucksVC, animated: true)
     }
     
     override func viewDidLoad() {
@@ -151,38 +145,17 @@ class MapViewController: UIViewController,
         }
         if let user = ruser {
             muncherImageView.image = UIImage(named: "transparentTMOutline")
-            switchPostToFb.on = user.postToFb
-            switchPostToTw.on = user.postToTw
             if user.hasFb {
                 btnLinkFb.setTitle("Unlink Facebook - \(user.fbUsername)", forState: .Normal)
-                switchPostToFb.enabled = true
-                switchPostToFb.userInteractionEnabled = true
-                lblPostToFb.enabled = true
             } else {
                 btnLinkFb.setTitle("Link Facebook", forState: .Normal)
-                switchPostToFb.enabled = false
-                switchPostToFb.userInteractionEnabled = false
-                lblPostToFb.enabled = false
             }
             if user.hasTw {
                 btnLinkTw.setTitle("Unlink Twitter - @\(user.twUsername)", forState: .Normal)
-                switchPostToTw.enabled = true
-                switchPostToTw.userInteractionEnabled = true
-                lblPostToTw.enabled = true
             } else {
                 btnLinkTw.setTitle("Link Twitter", forState: .Normal)
-                switchPostToTw.enabled = false
-                switchPostToTw.userInteractionEnabled = false
-                lblPostToTw.enabled = false
             }
             let hasTrucks = user.truckIds.count > 0
-            switchPostToFb.hidden = !hasTrucks
-            switchPostToTw.hidden = !hasTrucks
-            switchPostToFb.enabled = hasTrucks
-            switchPostToTw.enabled = hasTrucks
-            lblPostToFb.hidden = !hasTrucks
-            lblPostToTw.hidden = !hasTrucks
-            
             if hasTrucks {
                 navigationItem.leftBarButtonItem?.title = "\u{f0d1}"
             } else {
@@ -219,11 +192,7 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.addSublayer(self.carouselMask!)
             self.mapView.userInteractionEnabled = false
             self.truckCarousel.userInteractionEnabled = false
-            if self.lblPostToFb.hidden {
-                self.topMapConstraint.constant = 277
-            } else {
-                self.topMapConstraint.constant = 437
-            }
+            self.topMapConstraint.constant = 277
             self.view.layoutIfNeeded()
         })
     }
@@ -266,26 +235,7 @@ class MapViewController: UIViewController,
                 alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             } else if !result.isCancelled {
-                if self.ruser!.truckIds.count > 0 {
-                    let alert = UIAlertController(title: "Automatically Post?", message: "Would you like us to automatically post to Facebook when any of your trucks go into serving mode?", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                        
-                        self.askForPublishingPermissions(fbManager, success: { () -> () in
-                            MBProgressHUD.hideHUDForView(self.view, animated: true)
-                            self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: true)
-                        }, failure: { () -> () in
-                            MBProgressHUD.hideHUDForView(self.view, animated: true)
-                            self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
-                        })
-                        
-                    }))
-                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
-                        self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else {
-                    self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
-                }
+                self.linkFacebook(FBSDKAccessToken.currentAccessToken().tokenString, postActivity: false)
             } else {
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
             }
@@ -311,18 +261,7 @@ class MapViewController: UIViewController,
         Twitter.sharedInstance().logInWithCompletion {
             (session, error) -> Void in
             if (session != nil) {
-                if self.ruser!.truckIds.count > 0 {
-                    let alert = UIAlertController(title: "Automatically Tweet?", message: "Would you like us to automatically tweet on your behalf when any of your trucks go into serving mode?", preferredStyle: .Alert)
-                    alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) -> Void in
-                        self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: true)
-                    }))
-                    alert.addAction(UIAlertAction(title: "No", style: .Default, handler: { (action) -> Void in
-                        self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
-                    }))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else {
-                    self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
-                }
+                self.linkTwitter(session.authToken, secretToken: session.authTokenSecret, postActivity: false)
             } else {
                 Twitter.sharedInstance().logOut()
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
@@ -392,36 +331,6 @@ class MapViewController: UIViewController,
         let alert = UIAlertController(title: "Oops!", message: "You can't unlink your last social media account, please link another before unlinking this one", preferredStyle: .Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    @IBAction func postToSocialMedia(sender: AnyObject) {
-        if switchPostToFb.on && !contains(FBSDKAccessToken.currentAccessToken().permissions, "publish_actions") {
-            askForPublishingPermissions(FBSDKLoginManager(), success: { () -> () in
-                self.finishUpdatingSocialMediaSettings(sender)
-            }, failure: { () -> () in
-                self.switchPostToFb.setOn(false, animated: true)
-                let alert = UIAlertController(title: "Error", message: "We require that you allow us to post to your Facebook in order to turn on that setting", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in
-                    // we will still update their account because they might have hit twitter
-                    // but we already turned the facebook switch off so this is safe
-                    self.finishUpdatingSocialMediaSettings(sender)
-                }))
-                self.presentViewController(alert, animated: true, completion: nil)
-            })
-        } else {
-            finishUpdatingSocialMediaSettings(sender)
-        }
-    }
-    
-    private func finishUpdatingSocialMediaSettings(sender: AnyObject) {
-        userManager.modifyAccount(switchPostToFb.on, postToTw: switchPostToTw.on, success: { (response) -> () in
-            self.setupProfile()
-        }) { (error) -> () in
-            (sender as! UISwitch).on = !(sender as! UISwitch).on
-            let alert = UIAlertController(title: "Oops!", message: "\(error!.userMessage)", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
     }
     
     func didBecomeActive() {
@@ -693,23 +602,11 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
-                
-                self.truckCarousel.userInteractionEnabled = self.activeTrucks.count > 0
-                self.carouselPanGestureRecognizer?.enabled = self.activeTrucks.count > 0
-                
-                }) { (error) -> () in
-                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            
-            trucksManager.getTruckProfiles(atLatitude: lat, longitude: long, success: { (response) -> () in
-                self.allTrucksRegardlessOfServingMode = response as [RTruck]
-                }, error: { (error) -> () in
-                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck information", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
+            }) { (error) -> () in
+                var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -733,6 +630,9 @@ class MapViewController: UIViewController,
             var a = TruckLocationAnnotation(location: location, index: i, truckId: activeTrucks[i].id)
             annotations.append(a)
         }
+        
+        truckCarousel.userInteractionEnabled = activeTrucks.count > 0
+        carouselPanGestureRecognizer?.enabled = activeTrucks.count > 0
         
         mapClusterControllerSetup()
         mapClusterController.addAnnotations(annotations, withCompletionHandler: nil)
@@ -852,26 +752,42 @@ class MapViewController: UIViewController,
     }
     
     func showFacebookShareDialog(askPermission: Bool = true) {
-        if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
-            var truck = activeTrucks[truckCarousel.currentItemIndex]
-            popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
-            popViewControllerFacebook?.delegate = self
-            popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
-        } else if askPermission {
-            // we dont have publishing permissions, ask for them again
+        if FBSDKAccessToken.currentAccessToken() == nil {
+            MBProgressHUD.showHUDAddedTo(view, animated: true)
             let fbManager = FBSDKLoginManager()
             
-            MBProgressHUD.showHUDAddedTo(view, animated: true)
-            
-            askForPublishingPermissions(fbManager, success: { () -> () in
+            fbManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
-                self.showFacebookShareDialog(askPermission: false)
-            }, failure: { () -> () in
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                let alert = UIAlertController(title: "Oops!", message: "You'll need to allow TruckMuncher to post to your Facebook in order to use the sharing feature", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                if error != nil {
+                    let alert = UIAlertController(title: "Oops!", message: "Since you logged in with Twitter, we need you to login with Facebook now to share that to your timeline. Please try again", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                } else if !result.isCancelled {
+                    self.showFacebookShareDialog()
+                }
             })
+        } else {
+            if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+                var truck = activeTrucks[truckCarousel.currentItemIndex]
+                popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
+                popViewControllerFacebook?.delegate = self
+                popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
+            } else if askPermission {
+                // we dont have publishing permissions, ask for them again
+                let fbManager = FBSDKLoginManager()
+                
+                MBProgressHUD.showHUDAddedTo(view, animated: true)
+                
+                askForPublishingPermissions(fbManager, success: { () -> () in
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    self.showFacebookShareDialog(askPermission: false)
+                }, failure: { () -> () in
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    let alert = UIAlertController(title: "Oops!", message: "You'll need to allow TruckMuncher to post to your Facebook in order to use the sharing feature", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                })
+            }
         }
     }
     

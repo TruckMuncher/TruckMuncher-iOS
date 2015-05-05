@@ -60,6 +60,26 @@ class PopUpViewControllerTwitter : UIViewController, UITextViewDelegate {
     
     @IBAction func post(sender: AnyObject) {
         MBProgressHUD.showHUDAddedTo(view, animated: true)
+        
+        if Twitter.sharedInstance().session() == nil {
+            Twitter.sharedInstance().logInWithCompletion {
+                (session, error) -> Void in
+                if (session != nil) {
+                    self.finishPosting()
+                } else {
+                    Twitter.sharedInstance().logOut()
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    let alert = UIAlertController(title: "Oops!", message: "Since you logged in with Facebook, we need you to login with Twitter now to share that to your timeline. Please try again", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            }
+        } else {
+            finishPosting()
+        }
+    }
+    
+    func finishPosting() {
         let statusUpdateEndpoint = "https://api.twitter.com/1.1/statuses/update.json"
         let params = ["status": textView.text]
         var error : NSError?

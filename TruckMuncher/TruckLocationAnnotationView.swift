@@ -14,12 +14,12 @@ class TruckLocationAnnotationView: MKAnnotationView {
     var annotationImage : UIImage!
     var countLabel: UILabel!
     var count: Int = 0 {
-        didSet{
+        didSet {
             countLabel.text = count > 1 ? String(count) : String()
             setNeedsLayout()
         }
     }
-    var isUniqueLocation: Bool = false
+    var isUniqueLocation = false
     
     override init(frame: CGRect) { super.init(frame: frame) }
     
@@ -28,17 +28,15 @@ class TruckLocationAnnotationView: MKAnnotationView {
     }
     
     override init(annotation:MKAnnotation, reuseIdentifier:String) {
-
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        self.setupLabel()
+        setupLabel()
         count = 1
 
-        self.backgroundColor = UIColor.clearColor()
-        
+        backgroundColor = UIColor.clearColor()
     }
     
     func setupLabel() {
-        countLabel = UILabel (frame: self.bounds)
+        countLabel = UILabel (frame: bounds)
         countLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         countLabel.textAlignment = NSTextAlignment.Center
         countLabel.backgroundColor = UIColor.clearColor()
@@ -47,12 +45,12 @@ class TruckLocationAnnotationView: MKAnnotationView {
         countLabel.numberOfLines = 1
         countLabel.font = UIFont.boldSystemFontOfSize(12.0)
         countLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
-        self.addSubview(countLabel)
+        addSubview(countLabel)
     }
     
     func setUniqueLocation(isUnique: Bool) {
-        self.isUniqueLocation = isUnique
-        self.setNeedsLayout()
+        isUniqueLocation = isUnique
+        setNeedsLayout()
     }
     
     override func layoutSubviews() {
@@ -60,35 +58,35 @@ class TruckLocationAnnotationView: MKAnnotationView {
         var centerOffset: CGPoint
         var countLabelFrame: CGRect
         
-        if self.isUniqueLocation {
+        if isUniqueLocation {
             image = UIImage(named: "SingleTruckAnnotationIcon")!
-            centerOffset = CGPointMake(0, image.size.height * 0.5);
-            frame = self.bounds;
-            frame.origin.y -= 2;
-            countLabelFrame = frame;
+            centerOffset = CGPointMake(0, image.size.height * 0.5)
+            frame = bounds
+            frame.origin.y -= 2
+            countLabelFrame = frame
         } else {
             var suffix: String
-            if self.count > 50 {
+            if count > 50 {
                 suffix = "40"
-            } else if self.count > 20 {
+            } else if count > 20 {
                 suffix = "35"
-            } else if self.count > 10 {
+            } else if count > 10 {
                 suffix = "30"
-            } else if self.count > 5 {
+            } else if count > 5 {
                 suffix = "25"
             } else {
                 suffix = "20"
             }
-            var imageName = String(format: "ClusterIcon%@", arguments: [suffix])
+            var imageName = "ClusterIcon\(suffix)"
             image = UIImage(named: imageName)!
             
-            centerOffset = CGPointZero;
-            countLabelFrame = self.bounds;
+            centerOffset = CGPointZero
+            countLabelFrame = bounds
         }
         
-        self.countLabel.frame = countLabelFrame;
-        self.image = image;
-        self.centerOffset = centerOffset;
+        countLabel.frame = countLabelFrame
+        self.image = image
+        self.centerOffset = centerOffset
     }
 }
  
