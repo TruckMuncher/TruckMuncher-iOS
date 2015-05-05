@@ -17,9 +17,12 @@ class AllTrucksCollectionViewController: UICollectionViewController {
     let trucksManager = TrucksManager()
     var menuManager = MenuManager()
     var ruser: RUser?
+    var lat = 0.0
+    var long = 0.0
     
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, allTrucks: [RTruck], activeTrucks: [RTruck], ruser: RUser?) {
-        self.allTrucks = allTrucks
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, lat: Double, long: Double, activeTrucks: [RTruck], ruser: RUser?) {
+        self.lat = lat
+        self.long = long
         self.activeTrucks = activeTrucks
         self.ruser = ruser
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -47,8 +50,19 @@ class AllTrucksCollectionViewController: UICollectionViewController {
         // Register cell classes
         collectionView!.registerNib(UINib(nibName: "TruckCollectionViewCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: reuseIdentifier)
         
+        view.addSubview(collectionView!)
         
-        self.view.addSubview(collectionView!)
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+        trucksManager.getTruckProfiles(atLatitude: lat, longitude: long, success: { (response) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            self.allTrucks = response as [RTruck]
+            self.collectionView?.reloadData()
+        }, error: { (error) -> () in
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            let alert = UIAlertController(title: "Oops!", message: "We weren't able to load all the truck information, please try again", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        })
     }
 
     // MARK: UICollectionViewDataSource
@@ -56,7 +70,6 @@ class AllTrucksCollectionViewController: UICollectionViewController {
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allTrucks.count

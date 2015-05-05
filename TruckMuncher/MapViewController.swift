@@ -45,7 +45,6 @@ class MapViewController: UIViewController,
             self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
-    var allTrucksRegardlessOfServingMode = [RTruck]()
     lazy var btnAllTrucks = UIBarButtonItem()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     lazy var muncherImageView = UIImageView()
@@ -65,14 +64,14 @@ class MapViewController: UIViewController,
     var popViewControllerTwitter: PopUpViewControllerTwitter?
     
     func viewAllTrucks() {
-        if (allTrucksRegardlessOfServingMode.count > 0){
-            let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, allTrucks: allTrucksRegardlessOfServingMode, activeTrucks: activeTrucks, ruser: ruser)
-            navigationController?.pushViewController(allTrucksVC, animated: true)
-        } else {
-            var alert = UIAlertController(title: "Oops!", message: "No Trucks Loaded", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+        var lat = 0.0
+        var long = 0.0
+        if locationManager.location != nil {
+            lat = locationManager.location.coordinate.latitude
+            long = locationManager.location.coordinate.longitude
         }
+        let allTrucksVC = AllTrucksCollectionViewController(nibName: "AllTrucksCollectionViewController", bundle: nil, lat: lat, long: long, activeTrucks: activeTrucks, ruser: ruser)
+        navigationController?.pushViewController(allTrucksVC, animated: true)
     }
     
     override func viewDidLoad() {
@@ -603,22 +602,11 @@ class MapViewController: UIViewController,
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
                 self.truckCarousel.reloadData()
-                
-                
-                
-                }) { (error) -> () in
-                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                }
-            
-            trucksManager.getTruckProfiles(atLatitude: lat, longitude: long, success: { (response) -> () in
-                self.allTrucksRegardlessOfServingMode = response as [RTruck]
-                }, error: { (error) -> () in
-                    var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck information", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                })
+            }) { (error) -> () in
+                var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
         }
     }
     
