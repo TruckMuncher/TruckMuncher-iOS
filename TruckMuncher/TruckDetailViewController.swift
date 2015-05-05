@@ -74,26 +74,41 @@ class TruckDetailViewController: UIViewController, ShareDialogDelegate {
     }
     
     func showFacebookShareDialog(askPermission: Bool = true) {
-        // TODO CRASH account for access token being null
-        if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
-            popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
-            popViewControllerFacebook?.delegate = self
-            popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
-        } else if askPermission {
-            // we dont have publishing permissions, ask for them again
+        if FBSDKAccessToken.currentAccessToken() == nil {
+            MBProgressHUD.showHUDAddedTo(view, animated: true)
             let fbManager = FBSDKLoginManager()
             
-            MBProgressHUD.showHUDAddedTo(view, animated: true)
-            
-            askForPublishingPermissions(fbManager, success: { () -> () in
+            fbManager.logInWithReadPermissions(["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
                 MBProgressHUD.hideHUDForView(self.view, animated: true)
-                self.showFacebookShareDialog(askPermission: false)
-                }, failure: { () -> () in
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    let alert = UIAlertController(title: "Oops!", message: "You'll need to allow TruckMuncher to post to your Facebook in order to use the sharing feature", preferredStyle: .Alert)
+                if error != nil {
+                    let alert = UIAlertController(title: "Oops!", message: "Since you logged in with Twitter, we need you to login with Facebook now to share that to your timeline. Please try again", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
+                } else if !result.isCancelled {
+                    self.showFacebookShareDialog()
+                }
             })
+        } else {
+            if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
+                popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
+                popViewControllerFacebook?.delegate = self
+                popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
+            } else if askPermission {
+                // we dont have publishing permissions, ask for them again
+                let fbManager = FBSDKLoginManager()
+                
+                MBProgressHUD.showHUDAddedTo(view, animated: true)
+                
+                askForPublishingPermissions(fbManager, success: { () -> () in
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    self.showFacebookShareDialog(askPermission: false)
+                    }, failure: { () -> () in
+                        MBProgressHUD.hideHUDForView(self.view, animated: true)
+                        let alert = UIAlertController(title: "Oops!", message: "You'll need to allow TruckMuncher to post to your Facebook in order to use the sharing feature", preferredStyle: .Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                        self.presentViewController(alert, animated: true, completion: nil)
+                })
+            }
         }
     }
     
