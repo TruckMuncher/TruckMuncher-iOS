@@ -30,12 +30,14 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     
     lazy var imgLogo = UIImageView()
     lazy var imgMapView = UIImageView()
+    lazy var imgMapViewLoggedIn = UIImageView()
     lazy var imgSettings = UIImageView()
     lazy var imgVendorMapView = UIImageView()
     lazy var imgPullDown = UIImageView()
     lazy var imgMenuDetail = UIImageView()
     
     lazy var btnIndicator = UIButton()
+    lazy var btnSkip = UIButton()
     lazy var btnDone = UIButton()
     
     let animator = IFTTTAnimator()
@@ -51,7 +53,6 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Slide)
-        println("\(UIScreen.mainScreen().scale)")
         
         width = UIScreen.mainScreen().bounds.width
         height = UIScreen.mainScreen().bounds.height
@@ -89,6 +90,14 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func placeViews() {
+        btnSkip = UIButton(frame: CGRectMake(timeForPage(2) - 30 - 5, 5, 30, 30))
+        btnSkip.setTitle("X", forState: .Normal)
+        btnSkip.backgroundColor = UIColor.whiteColor()
+        btnSkip.setTitleColor(UIColor(rgba: "#009688"), forState: .Normal)
+        btnSkip.setTitleColor(UIColor(rgba: "#009688").colorWithAlphaComponent(0.5), forState: .Highlighted)
+        btnSkip.addTarget(self, action: "done", forControlEvents: .TouchUpInside)
+        scrollView.addSubview(btnSkip)
+        
         lblMarketing = UILabel()
         lblMarketing.backgroundColor = UIColor.whiteColor()
         lblMarketing.numberOfLines = 0
@@ -109,7 +118,7 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         lblNearbyTrucks.backgroundColor = UIColor.whiteColor()
         lblNearbyTrucks.numberOfLines = 0
         lblNearbyTrucks.textAlignment = .Center
-        lblNearbyTrucks.text = "You can see food trucks nearby on the map that are currently serving, search for a truck, ..."
+        lblNearbyTrucks.text = "You can see food trucks nearby on the map that are currently serving, search for a truck..."
         let nearbySize = lblNearbyTrucks.sizeThatFits(CGSizeMake(width - 40, height))
         lblNearbyTrucks.frame = CGRectMake(timeForPage(2) + 20, 20, width - 40, nearbySize.height)
         scrollView.addSubview(lblNearbyTrucks)
@@ -155,23 +164,36 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         
         imgMapView = UIImageView(image: UIImage(named: "intro_map"))
         originalHeight = imgMapView.frame.size.height
-        let maxTextHeight = max(nearbySize.height, allSize.height, settingsSize.height, truckSize.height)
+        let maxTextHeight = max(nearbySize.height, allSize.height)
         var newHeight = height - pageControl.frame.size.height - 60 - maxTextHeight
         newWidth = newHeight/originalHeight*imgMapView.frame.size.width
         scale = newHeight/originalHeight * min(UIScreen.mainScreen().scale, 2)
         imgMapView.frame = CGRectMake(timeForPage(2) + (width-newWidth)/2, 40 + maxTextHeight, newWidth, newHeight)
+        imgMapView.layer.borderColor = UIColor.blackColor().CGColor
+        imgMapView.layer.borderWidth = 1
         scrollView.addSubview(imgMapView)
+        
+        imgMapViewLoggedIn = UIImageView(image: UIImage(named: "intro_map_logged_in"))
+        originalHeight = imgMapViewLoggedIn.frame.size.height
+        let maxTextHeightLoggedIn = max(settingsSize.height, truckSize.height)
+        newHeight = height - pageControl.frame.size.height - 60 - maxTextHeightLoggedIn
+        newWidth = newHeight/originalHeight*imgMapViewLoggedIn.frame.size.width
+        scale = newHeight/originalHeight * min(UIScreen.mainScreen().scale, 2)
+        imgMapViewLoggedIn.frame = CGRectMake(timeForPage(4) + (width-newWidth)/2, 40 + maxTextHeight, newWidth, newHeight)
+        imgMapViewLoggedIn.layer.borderColor = UIColor.blackColor().CGColor
+        imgMapViewLoggedIn.layer.borderWidth = 1
+        scrollView.addSubview(imgMapViewLoggedIn)
         
         imgSettings = UIImageView(image: UIImage(named: "intro_settings"))
         originalHeight = imgSettings.frame.size.height
         newHeight = newWidth/imgSettings.frame.size.width*imgSettings.frame.size.height
-        imgSettings.frame = CGRectMake(timeForPage(4) + (width-newWidth)/2, -newHeight, newWidth, newHeight) // one page early
+        imgSettings.frame = CGRectMake(timeForPage(4) + (width-newWidth)/2 + 1, -newHeight, newWidth - 2, newHeight) // one page early, +1 and -2 are to stay within the black frame of the map image
         scrollView.addSubview(imgSettings)
         
         imgMenuDetail = UIImageView(image: UIImage(named: "intro_menu"))
         originalHeight = imgMenuDetail.frame.size.height
         newHeight = newWidth/imgMenuDetail.frame.size.width*imgMenuDetail.frame.size.height
-        imgMenuDetail.frame = CGRectMake(timeForPage(6) + (width-newWidth)/2, CGRectGetMaxY(imgMapView.frame), newWidth, newHeight) // one page early
+        imgMenuDetail.frame = CGRectMake(timeForPage(6) + (width-newWidth)/2 + 1, CGRectGetMaxY(imgMapView.frame), newWidth - 2, newHeight - 1) // one page early, +1, -2, and -1 are to stay within the black frame of the map image
         scrollView.addSubview(imgMenuDetail)
         
         lblVendor = UILabel()
@@ -189,12 +211,14 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         newWidth = newHeight/originalHeight*imgVendorMapView.frame.size.width
         vendorScale = newHeight/originalHeight * min(UIScreen.mainScreen().scale, 2)
         imgVendorMapView.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2, 40 + vendorSize.height, newWidth, newHeight)
+        imgVendorMapView.layer.borderColor = UIColor.blackColor().CGColor
+        imgVendorMapView.layer.borderWidth = 1
         scrollView.addSubview(imgVendorMapView)
         
         imgPullDown = UIImageView(image: UIImage(named: "intro_pull_down"))
         originalHeight = imgPullDown.frame.size.height
         newHeight = newWidth/imgPullDown.frame.size.width*imgPullDown.frame.size.height
-        imgPullDown.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2, -newHeight, newWidth, newHeight) // one page early
+        imgPullDown.frame = CGRectMake(timeForPage(8) + (width-newWidth)/2 + 1, -newHeight, newWidth - 2, newHeight) // one page early, +1 and -2 are to stay within the black frame of the vendor map image
         scrollView.addSubview(imgPullDown)
         
         lblOutro = UILabel()
@@ -225,13 +249,25 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgMapView.frame))
         imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgMapView.frame))
         imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: CGRectOffset(imgMapView.frame, width*2, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(imgMapView.frame, width*3, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(imgMapView.frame, width*4, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
-        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMapView.frame, width*5, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
+        imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMapView.frame, width, 0)))
         animator.addAnimation(imgMapFrameAnimation)
+        
+        let imgMapLoggedInFrameAnimation = IFTTTFrameAnimation(view: imgMapViewLoggedIn)
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgMapViewLoggedIn.frame))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgMapViewLoggedIn.frame))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgMapViewLoggedIn.frame))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgMapViewLoggedIn.frame))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(imgMapViewLoggedIn.frame, width, 0)))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(imgMapViewLoggedIn.frame, width*2, 0)))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMapViewLoggedIn.frame, width*3, 0)))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMapViewLoggedIn.frame, width*3, 0)))
+        imgMapLoggedInFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMapViewLoggedIn.frame, width*3, 0)))
+        animator.addAnimation(imgMapLoggedInFrameAnimation)
         
         let lblSettingsFrameAnimation = IFTTTFrameAnimation(view: lblSettings)
         lblSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: lblSettings.frame))
@@ -250,11 +286,11 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgSettings.frame))
         imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: imgSettings.frame))
         imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgSettings.frame))
-        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
-        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
-        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
-        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
-        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapView.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapViewLoggedIn.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapViewLoggedIn.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapViewLoggedIn.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapViewLoggedIn.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
+        imgSettingsFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectMake(imgSettings.frame.origin.x + width, imgMapViewLoggedIn.frame.origin.y + (64 * scale), imgSettings.frame.size.width, imgSettings.frame.size.height)))
         animator.addAnimation(imgSettingsFrameAnimation)
         
         let lblTruckDetailsFrameAnimation = IFTTTFrameAnimation(view: lblTruckDetails)
@@ -288,9 +324,9 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: imgMenuDetail.frame))
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: imgMenuDetail.frame))
         imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: imgMenuDetail.frame))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
-        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapView.frame.size.height+(20 * scale))))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapViewLoggedIn.frame.size.height+(20 * scale))))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapViewLoggedIn.frame.size.height+(20 * scale))))
+        imgMenuFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(imgMenuDetail.frame, width, -imgMapViewLoggedIn.frame.size.height+(20 * scale))))
         animator.addAnimation(imgMenuFrameAnimation)
         
         let imgMenuAlphaAnimation = IFTTTAlphaAnimation(view: imgMenuDetail)
