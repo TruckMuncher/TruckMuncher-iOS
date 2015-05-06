@@ -40,6 +40,8 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     lazy var btnSkip = UIButton()
     lazy var btnDone = UIButton()
     
+    lazy var topView = UIView()
+    
     let animator = IFTTTAnimator()
     
     var width: CGFloat = 0
@@ -90,6 +92,11 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func placeViews() {
+        topView = UIView(frame: CGRectMake(0, 0, width, 20))
+        topView.backgroundColor = UIColor.whiteColor()
+        topView.userInteractionEnabled = false
+        scrollView.addSubview(topView)
+        
         btnSkip = UIButton(frame: CGRectMake(timeForPage(2) - 30 - 5, 5, 30, 30))
         btnSkip.setTitle("X", forState: .Normal)
         btnSkip.backgroundColor = UIColor.whiteColor()
@@ -242,9 +249,23 @@ class IntroViewController: UIViewController, UIScrollViewDelegate {
         scrollView.bringSubviewToFront(lblSettings)
         scrollView.bringSubviewToFront(pageControl)
         scrollView.bringSubviewToFront(btnIndicator)
+        scrollView.bringSubviewToFront(topView)
+        scrollView.bringSubviewToFront(btnSkip)
     }
     
     func configureAnimation() {
+        let topViewFrameAnimation = IFTTTFrameAnimation(view: topView)
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: topView.frame))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: CGRectOffset(topView.frame, width, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(3)), andFrame: CGRectOffset(topView.frame, width*2, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(4)), andFrame: CGRectOffset(topView.frame, width*3, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(5)), andFrame: CGRectOffset(topView.frame, width*4, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(6)), andFrame: CGRectOffset(topView.frame, width*5, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(7)), andFrame: CGRectOffset(topView.frame, width*6, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(8)), andFrame: CGRectOffset(topView.frame, width*7, 0)))
+        topViewFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(9)), andFrame: CGRectOffset(topView.frame, width*8, 0)))
+        animator.addAnimation(topViewFrameAnimation)
+        
         let imgMapFrameAnimation = IFTTTFrameAnimation(view: imgMapView)
         imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(1)), andFrame: imgMapView.frame))
         imgMapFrameAnimation.addKeyFrame(IFTTTAnimationKeyFrame(time: NSInteger(timeForPage(2)), andFrame: imgMapView.frame))
