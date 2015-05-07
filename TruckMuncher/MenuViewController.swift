@@ -23,7 +23,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?, truck: RTruck) {
         self.truck = truck
-        menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as! RMenu
+        menu = RMenu.objectsWhere("truckId = %@", truck.id).firstObject() as? RMenu ?? RMenu()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 

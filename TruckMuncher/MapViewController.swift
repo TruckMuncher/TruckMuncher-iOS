@@ -36,16 +36,17 @@ class MapViewController: UIViewController,
     var locationManager: CLLocationManager!
     var loginViewController: LoginViewController?
     var mapClusterController: CCHMapClusterController!
-    var truckCarousel: iCarousel!
+    var truckCarousel: iCarousel?
     var count: Int = 0
     var showingMenu = false
     var originalTrucks = [RTruck]()
     var activeTrucks: [RTruck] = [RTruck]() {
         didSet {
-            self.truckCarousel.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
+            self.truckCarousel?.layer.shadowOpacity = self.activeTrucks.count > 0 ? 0.2 : 0.0
         }
     }
     lazy var btnAllTrucks = UIBarButtonItem()
+    lazy var btnInvisible = UIBarButtonItem()
     var carouselPanGestureRecognizer: UIPanGestureRecognizer?
     lazy var muncherImageView = UIImageView()
     
@@ -94,11 +95,11 @@ class MapViewController: UIViewController,
         
         let btnLogin = UIBarButtonItem(title: "\u{f090}", style: .Plain, target: self, action: "login")
         btnLogin.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "FontAwesome", size: 23.0)!], forState: .Normal)
-        let invisible = UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)
-        invisible.enabled = false
-        invisible.tintColor = UIColor.clearColor()
+        btnInvisible = UIBarButtonItem(barButtonSystemItem: .Search, target: nil, action: nil)
+        btnInvisible.enabled = false
+        btnInvisible.tintColor = UIColor.clearColor()
         
-        navigationItem.leftBarButtonItems = [btnLogin, invisible]
+        navigationItem.leftBarButtonItems = [btnLogin, btnInvisible]
         
         searchDelegate = SearchDelegate(completionDelegate: self)
         searchDelegate?.searchBar.delegate = self
@@ -140,9 +141,7 @@ class MapViewController: UIViewController,
     func setupProfile() {
         MBProgressHUD.hideHUDForView(view, animated: true)
         ruser = RUser.objectsWhere("sessionToken = %@", (NSUserDefaults.standardUserDefaults().valueForKey("sessionToken") as? String) ?? "").firstObject() as? RUser ?? nil
-        if truckCarousel != nil {
-            truckCarousel.reloadData()
-        }
+        truckCarousel?.reloadData()
         if let user = ruser {
             muncherImageView.image = UIImage(named: "transparentTMOutline")
             if user.hasFb {
@@ -163,9 +162,7 @@ class MapViewController: UIViewController,
             }
         } else {
             muncherImageView.image = UIImage(named: "transparentTM")
-            if truckCarousel != nil {
-                truckCarousel.reloadData()
-            }
+            truckCarousel?.reloadData()
             
             navigationItem.leftBarButtonItem?.title = "\u{f090}"
         }
@@ -180,8 +177,8 @@ class MapViewController: UIViewController,
             mm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
             mapMask = mm.layer
         }
-        if carouselMask == nil {
-            let cm = UIView(frame: CGRectMake(0, 0, truckCarousel.frame.size.width, truckCarousel.frame.size.height))
+        if carouselMask == nil && truckCarousel != nil {
+            let cm = UIView(frame: CGRectMake(0, 0, truckCarousel!.frame.size.width, truckCarousel!.frame.size.height))
             cm.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
             carouselMask = cm.layer
         }
@@ -189,9 +186,9 @@ class MapViewController: UIViewController,
         navigationController?.setNavigationBarHidden(true, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.mapView.layer.addSublayer(self.mapMask!)
-            self.truckCarousel.layer.addSublayer(self.carouselMask!)
+            self.truckCarousel?.layer.addSublayer(self.carouselMask!)
             self.mapView.userInteractionEnabled = false
-            self.truckCarousel.userInteractionEnabled = false
+            self.truckCarousel?.userInteractionEnabled = false
             self.topMapConstraint.constant = 277
             self.view.layoutIfNeeded()
         })
@@ -201,9 +198,9 @@ class MapViewController: UIViewController,
         navigationController?.setNavigationBarHidden(false, animated: true)
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.mapMask!.removeFromSuperlayer()
-            self.carouselMask!.removeFromSuperlayer()
+            self.carouselMask?.removeFromSuperlayer()
             self.mapView.userInteractionEnabled = true
-            self.truckCarousel.userInteractionEnabled = true
+            self.truckCarousel?.userInteractionEnabled = true
             self.topMapConstraint.constant = 0
             self.view.layoutIfNeeded()
         })
@@ -351,6 +348,7 @@ class MapViewController: UIViewController,
                 self.navigationItem.leftBarButtonItem?.tintColor = color
                 self.navigationItem.rightBarButtonItem?.tintColor = color
                 self.btnAllTrucks.tintColor = color
+                self.btnInvisible.tintColor = UIColor.clearColor()
             })
         }
     }
@@ -368,23 +366,23 @@ class MapViewController: UIViewController,
     
     func truckCarouselSetup() {
         if truckCarousel != nil {
-            truckCarousel.removeFromSuperview()
+            truckCarousel?.removeFromSuperview()
             truckCarousel = nil
         }
         truckCarousel = iCarousel(frame: CGRectMake(0.0, mapView.frame.maxY - 100.0, mapView.frame.size.width, mapView.frame.size.height - 20.0))
-        truckCarousel.type = .Linear
-        truckCarousel.delegate = self
-        truckCarousel.dataSource = self
-        truckCarousel.pagingEnabled = true
-        truckCarousel.currentItemIndex = 0
-        truckCarousel.bounces = true
-        truckCarousel.layer.masksToBounds = false
-        truckCarousel.layer.shadowColor = UIColor.blackColor().CGColor
-        truckCarousel.layer.shadowOffset = CGSizeMake(0.0, -3.0)
-        truckCarousel.layer.shadowOpacity = 0.0
-        truckCarousel.layer.shadowPath = UIBezierPath(rect: truckCarousel.bounds).CGPath
+        truckCarousel!.type = .Linear
+        truckCarousel!.delegate = self
+        truckCarousel!.dataSource = self
+        truckCarousel!.pagingEnabled = true
+        truckCarousel!.currentItemIndex = 0
+        truckCarousel!.bounces = true
+        truckCarousel!.layer.masksToBounds = false
+        truckCarousel!.layer.shadowColor = UIColor.blackColor().CGColor
+        truckCarousel!.layer.shadowOffset = CGSizeMake(0.0, -3.0)
+        truckCarousel!.layer.shadowOpacity = 0.0
+        truckCarousel!.layer.shadowPath = UIBezierPath(rect: truckCarousel!.bounds).CGPath
         
-        view.addSubview(truckCarousel)
+        view.addSubview(truckCarousel!)
         attachGestureRecognizerToCarousel()
     }
     
@@ -458,8 +456,8 @@ class MapViewController: UIViewController,
         var truckLocationAnnotation = clusterAnnotation?.annotations.first as? TruckLocationAnnotation
         
         if let tappedTruckIndex = truckLocationAnnotation?.index {
-            truckCarousel.currentItemIndex = tappedTruckIndex
-            truckCarousel.scrollToItemAtIndex(tappedTruckIndex, animated: true)
+            truckCarousel?.currentItemIndex = tappedTruckIndex
+            truckCarousel?.scrollToItemAtIndex(tappedTruckIndex, animated: true)
             
         }
     }
@@ -485,14 +483,16 @@ class MapViewController: UIViewController,
     func centerMapOverCoordinate(coordinate: CLLocationCoordinate2D) {
         var latitude = coordinate.latitude
         var longitude = coordinate.longitude
-        var latDelta = deltaDegrees
-        var longDelta = deltaDegrees
-        
-        var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
-        var center = CLLocationCoordinate2DMake(latitude, longitude)
-        var region = MKCoordinateRegionMake(center, span)
-        
-        mapView.setRegion(region, animated: true)
+        if latitude != 0 && longitude != 0 {
+            var latDelta = deltaDegrees
+            var longDelta = deltaDegrees
+            
+            var span = MKCoordinateSpan(latitudeDelta: latDelta,longitudeDelta: longDelta)
+            var center = CLLocationCoordinate2DMake(latitude, longitude)
+            var region = MKCoordinateRegionMake(center, span)
+            
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     // MARK: - CLLocationManagerDelegate Methods
@@ -507,11 +507,11 @@ class MapViewController: UIViewController,
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse || CLLocationManager.authorizationStatus() == .AuthorizedAlways {
             locationManager.startUpdatingLocation()
-            mapClusterControllerSetup()
-            truckCarouselSetup()
-            updateCarouselWithTruckMenus()
             zoomToCurrentLocation()
         }
+        mapClusterControllerSetup()
+        truckCarouselSetup()
+        updateCarouselWithTruckMenus()
     }
     
     // MARK: - Helper Methods
@@ -570,7 +570,7 @@ class MapViewController: UIViewController,
         secretItem.resetKeychainItem()
         
         FBSDKLoginManager().logOut()
-        truckCarousel.reloadData()
+        truckCarousel?.reloadData()
         ruser = nil
         muncherImageView.image = UIImage(named: "transparentTM")
         navigationItem.leftBarButtonItem?.title = "\u{f090}"
@@ -601,7 +601,7 @@ class MapViewController: UIViewController,
             trucksManager.getActiveTrucks(atLatitude: lat, longitude: long, withSearchQuery: String(), success: { (response) -> () in
                 self.activeTrucks = self.orderTrucksByDistanceFromCurrentLocation(response as [RTruck])
                 self.updateMapWithActiveTrucks()
-                self.truckCarousel.reloadData()
+                self.truckCarousel?.reloadData()
             }) { (error) -> () in
                 var alert = UIAlertController(title: "Oops!", message: "We weren't able to load truck locations", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
@@ -612,9 +612,11 @@ class MapViewController: UIViewController,
     
     func orderTrucksByDistanceFromCurrentLocation(trucks: [RTruck]) -> [RTruck] {
         for truck in trucks {
-            let distance = locationManager.location.distanceFromLocation(CLLocation(latitude: truck.latitude, longitude: truck.longitude))
-            //distanceFromLocation() returns the distance in meters so we need to divide by 1609.344 to convert to miles
-            truck.distanceFromMe = (Double)(distance/1609.344)
+            if locationManager.location != nil {
+                let distance = locationManager.location.distanceFromLocation(CLLocation(latitude: truck.latitude, longitude: truck.longitude))
+                //distanceFromLocation() returns the distance in meters so we need to divide by 1609.344 to convert to miles
+                truck.distanceFromMe = (Double)(distance/1609.344)
+            }
         }
         
         return trucks.sorted({ $0.distanceFromMe < $1.distanceFromMe })
@@ -631,7 +633,7 @@ class MapViewController: UIViewController,
             annotations.append(a)
         }
         
-        truckCarousel.userInteractionEnabled = activeTrucks.count > 0
+        truckCarousel?.userInteractionEnabled = activeTrucks.count > 0
         carouselPanGestureRecognizer?.enabled = activeTrucks.count > 0
         
         mapClusterControllerSetup()
@@ -641,7 +643,7 @@ class MapViewController: UIViewController,
     // MARK: - iCarouselDataSource Methods
     
     func attachGestureRecognizerToCarousel() {
-        truckCarousel.addGestureRecognizer(carouselPanGestureRecognizer!)
+        truckCarousel?.addGestureRecognizer(carouselPanGestureRecognizer!)
     }
     
     func handlePan(recognizer: UIPanGestureRecognizer) {
@@ -655,9 +657,9 @@ class MapViewController: UIViewController,
         }
         
         let y = min(max(touchLocationOnScreen.y - initialTouchY, top), bottom)
-        var frame = truckCarousel.frame
+        var frame = truckCarousel!.frame
         frame.origin.y = y
-        truckCarousel.frame = frame
+        truckCarousel!.frame = frame
         
         let percentage = (bottom-y)/(bottom-top)
         
@@ -667,14 +669,15 @@ class MapViewController: UIViewController,
         navigationItem.leftBarButtonItem?.tintColor = color
         navigationItem.rightBarButtonItem?.tintColor = color
         btnAllTrucks.tintColor = color
+        btnInvisible.tintColor = UIColor.clearColor()
         
         // proportionally move the navbar out of sight/back down, but keep the status bar
         var navbarFrame = navigationController!.navigationBar.frame
         navbarFrame.origin.y = min(max(top - percentage*navbarFrame.size.height, top - navbarFrame.size.height), top)
         navigationController?.navigationBar.frame = navbarFrame
         
-        let primaryColor = UIColor(rgba: activeTrucks[truckCarousel.currentItemIndex].primaryColor)
-        let currentView = truckCarousel.itemViewAtIndex(truckCarousel.currentItemIndex) as! TruckDetailView
+        let primaryColor = UIColor(rgba: activeTrucks[truckCarousel!.currentItemIndex].primaryColor)
+        let currentView = truckCarousel?.itemViewAtIndex(truckCarousel!.currentItemIndex) as! TruckDetailView
         currentView.updateViewWithColor(carouselBackground.transformToColor(primaryColor, withPercentage: percentage))
         
         if recognizer.state == .Ended {
@@ -682,7 +685,7 @@ class MapViewController: UIViewController,
             let velocity = recognizer.velocityInView(view)
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 frame.origin.y = velocity.y > 0 ? bottom : top
-                self.truckCarousel.frame = frame
+                self.truckCarousel?.frame = frame
                 navbarFrame.origin.y = velocity.y > 0 ? top : top-navbarFrame.size.height
                 self.navigationController?.navigationBar.frame = navbarFrame
                 self.showingMenu = frame.origin.y == top
@@ -691,12 +694,13 @@ class MapViewController: UIViewController,
                 self.navigationItem.leftBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.navigationItem.rightBarButtonItem?.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
                 self.btnAllTrucks.tintColor = color.colorWithAlphaComponent(self.showingMenu ? 0.0 : 1.0)
+                self.btnInvisible.tintColor = UIColor.clearColor()
                 
                 currentView.updateViewWithColor(self.showingMenu ? primaryColor : carouselBackground)
 
             }, completion: { (completed) -> Void in
                 self.navigationController?.navigationBar.userInteractionEnabled = true
-                self.truckCarousel.reloadData()
+                self.truckCarousel?.reloadData()
             })
             initialTouchY = 0
         }
@@ -712,7 +716,7 @@ class MapViewController: UIViewController,
         if view == nil {
             var viewArray = NSBundle.mainBundle().loadNibNamed("TruckDetailView", owner: nil, options: nil)
             var newView = viewArray[0] as! TruckDetailView
-            newView.frame = CGRectMake(0.0, 0.0, truckCarousel.frame.size.width, truckCarousel.frame.size.height)
+            newView.frame = CGRectMake(0.0, 0.0, truckCarousel!.frame.size.width, truckCarousel!.frame.size.height)
             detailView = newView
         }
         if activeTrucks.count > 0 {
@@ -768,7 +772,7 @@ class MapViewController: UIViewController,
             })
         } else {
             if FBSDKAccessToken.currentAccessToken().hasGranted("publish_actions") {
-                var truck = activeTrucks[truckCarousel.currentItemIndex]
+                var truck = activeTrucks[truckCarousel!.currentItemIndex]
                 popViewControllerFacebook = PopUpViewControllerFacebook(nibName: "PopUpViewControllerFacebook", bundle: nil)
                 popViewControllerFacebook?.delegate = self
                 popViewControllerFacebook?.showInView(view, contentUrl: "https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
@@ -792,7 +796,7 @@ class MapViewController: UIViewController,
     }
     
     func showTwitterShareDialog() {
-        var truck = activeTrucks[truckCarousel.currentItemIndex]
+        var truck = activeTrucks[truckCarousel!.currentItemIndex]
         popViewControllerTwitter = PopUpViewControllerTwitter(nibName: "PopUpViewControllerTwitter", bundle: nil)
         popViewControllerTwitter?.delegate = self
         popViewControllerTwitter?.showInView(view, withMessage: "Check out \(truck.name) on TruckMuncher! https://www.truckmuncher.com/#/trucks/\(truck.id)", animated: true)
@@ -812,10 +816,10 @@ class MapViewController: UIViewController,
     func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
         if !showingMenu {
             UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: nil, animations: { () -> Void in
-                self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
+                self.truckCarousel?.frame = CGRectMake(0.0, self.mapView.frame.maxY - 130.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
             }, completion: { (Bool) -> Void in
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.truckCarousel.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
+                    self.truckCarousel?.frame = CGRectMake(0.0, self.mapView.frame.maxY - 100.0, self.mapView.frame.size.width, self.mapView.frame.size.height - 20.0)
                 }, completion: nil)
             })
         }
@@ -824,30 +828,34 @@ class MapViewController: UIViewController,
     // MARK: - ShareDialogDelegate
     
     func shareDialogOpened() {
-        truckCarousel.userInteractionEnabled = false
+        truckCarousel?.userInteractionEnabled = false
         navigationController?.navigationBar.userInteractionEnabled = false
     }
     
     func shareDialogClosed() {
-        truckCarousel.userInteractionEnabled = true
+        truckCarousel?.userInteractionEnabled = true
         navigationController?.navigationBar.userInteractionEnabled = true
     }
     
     // MARK: - SearchCompletionProtocol
     
     func searchSuccessful(results: [RTruck]) {
+        if truckCarousel == nil {
+            mapClusterControllerSetup()
+            truckCarouselSetup()
+        }
         activeTrucks = orderTrucksByDistanceFromCurrentLocation([RTruck](results))
         updateMapWithActiveTrucks()
-        truckCarousel.reloadData()
-        truckCarousel.scrollToItemAtIndex(0, animated: false)
+        truckCarousel?.reloadData()
+        truckCarousel?.scrollToItemAtIndex(0, animated: false)
     }
     
     func searchCancelled() {
         activeTrucks = [RTruck](originalTrucks)
         originalTrucks = [RTruck]()
         updateMapWithActiveTrucks()
-        truckCarousel.reloadData()
-        truckCarousel.scrollToItemAtIndex(0, animated: false)
+        truckCarousel?.reloadData()
+        truckCarousel?.scrollToItemAtIndex(0, animated: false)
     }
     
 }
